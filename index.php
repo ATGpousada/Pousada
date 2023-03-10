@@ -17,4 +17,5 @@
     <?php include 'cabecalhoPublico.php'; ?>
 </body>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </html> 
