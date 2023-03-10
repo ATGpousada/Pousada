@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'titulos';
+    src: url(../font/comfortaa/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'textos';
+    src: url(../font/creato_display/CreatoDisplay-Regular.otf);
+}
+
+:root {
+    --cor-branca: #fff;
+    --cor-cinza: #f5f5f5;
+    --cor-cinza-escuro: #a0a0a0;
+    --cor-grafite: #666464;
+    --cor-preto: #000;
+    --cor-azul-escuro: #0077ff;
+    --cor-azul-escuro-opc: #0077ff9c;
+    --cor-azul: #6aadfa; 
+    --cor-azul-claro: #a7e2fd;
+}
+
+/* ########################### COMEÇO GERAL ########################### */
+
+/* ########################### FIM GERAL ############################## */
+
+
+
+
+/* ########################### COMEÇO HEADER ########################### */
+.menu ul li .hover-line::after {
+    content: " ";
+    width: 0;
+    height: 3px;
+    border-radius: 10px;
+    background-color: var(--cor-azul-escuro);
+    margin: 3px auto auto;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu ul li .hover-line:hover::after {
+    width: 90%;
+}
+/* ########################### FIM HEADER ############################## */
+
+
+
+
+/* ########################### COMEÇO FOOTER ########################### */
+
+
+/* ########################### FIM FOOTER ############################## */
+
+
+
+
+/* ########################### COMEÇO INDEX ############################## */
+
+
+/* ########################### FIM INDEX ############################## */
