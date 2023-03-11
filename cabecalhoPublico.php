@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabeçalho</title>
+    <title>Cabeçalho - Pousada do Sossego</title>
 </head>
 <body onbeforeunload="headerResponsivo();">
     <!-- Cabeçalho -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm mb-5 bg-body-tertiary rounded-bottom fixed-top" id="area-header" style="transition: 0.3s;">
+    <nav class="navbar navbar-expand-lg shadow-sm mb-5 rounded-bottom p-2 fixed-top" id="area-header" style="transition: 0.3s;">
         <!-- Conteúdo do cabeçalho -->
         <div class="container-fluid me-2">
             <!-- Logo -->

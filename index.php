@@ -10,12 +10,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- Icons do FontAwansome -->
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Pousada do Sossego</title>
 </head>
 <body>
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoPublico.php'; ?>
-    <img src="images/LOGO POUSADA DO SOSSEGO.png" alt="">
+    
+    <!-- Adição do Carrousel Promoção -->
+    <?php include 'carrouselPromocao.php'; ?>
+
+    <!-- Adição do destaque -->
+    <?php include 'destaquePublico.php'; ?>
+    
+    <!-- Adição do Carrousel Turísmo -->
+    <?php include 'carrouselTurismo.php'; ?>
+    
+    <!-- Adição do Exposição(fotos) da pousada -->
+    <?php include 'exposicaoPousada.php'; ?>
+    
+    <!-- Adição do rodapé -->
+    <?php include 'rodapePublico.php'; ?>
 </body>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>

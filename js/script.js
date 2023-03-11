@@ -32,9 +32,11 @@ document.addEventListener('scroll', function () {
     if (window.scrollY > 0 ) {
         header.classList.remove('p-2');
         header.classList.add('p-0');
+        header.classList.add('bg-body-tertiary');
     } else {
         header.classList.remove('p-0');
         header.classList.add('p-2');
+        header.classList.remove('bg-body-tertiary');
     }
 });
 /* Fim efeito header fixo */
