@@ -8,7 +8,7 @@
 </head>
 <body onbeforeunload="headerResponsivo();">
     <!-- Cabeçalho -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm p-2 mb-5 bg-body-tertiary rounded">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm mb-5 bg-body-tertiary rounded-bottom fixed-top" id="area-header" style="transition: 0.3s;">
         <!-- Conteúdo do cabeçalho -->
         <div class="container-fluid me-2">
             <!-- Logo -->
@@ -69,7 +69,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>

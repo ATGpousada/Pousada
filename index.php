@@ -15,6 +15,7 @@
 <body>
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoPublico.php'; ?>
+    <img src="images/LOGO POUSADA DO SOSSEGO.png" alt="">
 </body>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>

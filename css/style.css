@@ -23,13 +23,16 @@
 }
 
 /* ########################### COMEÇO GERAL ########################### */
-
+body {
+    padding-top: 5.5em;
+}
 /* ########################### FIM GERAL ############################## */
 
 
 
 
 /* ########################### COMEÇO HEADER ########################### */
+/* Começo hover do menu */
 .menu ul li .hover-line::after {
     content: " ";
     width: 0;
@@ -44,6 +47,7 @@
 .menu ul li .hover-line:hover::after {
     width: 90%;
 }
+/* Fim hover do menu */
 /* ########################### FIM HEADER ############################## */
 
 
