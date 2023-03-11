@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cabeçalho</title>
 </head>
-<body onresize="window.addEventListener('resize', headerReponsivo());">
+<body onbeforeunload="headerResponsivo();">
     <!-- Cabeçalho -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm p-2 mb-5 bg-body-tertiary rounded">
         <!-- Conteúdo do cabeçalho -->
