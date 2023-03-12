@@ -1,10 +1,10 @@
 <?php 
 //Conexão com o Banco de dados
 include 'connection/connect.php';
-$lista = $conn->query("select * from ... where destaque_quarto = 'Sim';");
+//$lista = $conn->query("select * from ... where destaque_quarto = 'Sim';");
 //Atribui resultado de consulta
-$row_destaque = $lista->fetch_assoc();
-$num_linhas = $lista->num_rows;
+//$row_destaque = $lista->fetch_assoc();
+//$num_linhas = $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
