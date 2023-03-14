@@ -12,7 +12,7 @@
             <div class="container-fluid me-2">
                 <!-- Logo -->
                 <a class="navbar-brand ms-4" href="#" style="width: 165px;">
-                    <img src="../images/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
+                    <img src="../images/logo/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
                 </a>
 
                 <!-- Icons do usuário e pedidos -->
