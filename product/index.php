@@ -23,12 +23,19 @@ $num_linhas = $lista->num_rows;
 <body>
     <!-- Início Carrossel Produtos-->
     <?php 
-    include "carrouselPousada.php"
+    include "carrouselPousada.php";
     ?>
     <!-- Fim Carrossel Produtos-->
+    <!-- Início Produto Exposição -->
     <?php 
-    include ""
+    include "produtoExposicao.php";
     ?>
+    <!-- Fim Produto Exposição -->
+    <!-- Início Exposição Produto -->
+    <?php 
+    include "exposicaoPousada.php";
+    ?>
+    <!-- Fim Exposição Produto -->
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
