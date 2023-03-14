@@ -1,6 +1,6 @@
 <?php 
 include "connection/connect.php";
-$lista= $conn->query("select * from ");
+$lista= $conn->query("select * from quartos");
 $row_produtos = $lista->fetch_assoc();
 $num_linhas = $lista->num_rows;
 ?>
