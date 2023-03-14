@@ -1,8 +1,8 @@
 <?php 
-include "connection/connect.php";
-$lista= $conn->query("select * from quartos");
-$row_produtos = $lista->fetch_assoc();
-$num_linhas = $lista->num_rows;
+//include "connection/connect.php";
+//$lista= $conn->query("select * from quartos");
+//$row_produtos = $lista->fetch_assoc();
+//$num_linhas = $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,11 @@ $num_linhas = $lista->num_rows;
     <title>Pousada - Produtos</title>
 </head>
 <body>
+    <!-- Início Menu Público -->
+    <?php 
+    include "../cabecalhoPublico.php"
+    ?>
+    <!-- Fim Menu Público -->
     <!-- Início Carrossel Produtos-->
     <?php 
     include "carrouselPousada.php";
@@ -36,6 +41,11 @@ $num_linhas = $lista->num_rows;
     include "exposicaoPousada.php";
     ?>
     <!-- Fim Exposição Produto -->
+    <!-- Início Rodapé Público -->
+    <?php 
+    include "../rodapePublico.php";
+    ?>
+    <!-- Fim Rodapé Público -->
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
