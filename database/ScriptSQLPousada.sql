@@ -7,6 +7,11 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 -- Schema pousada
 -- -----------------------------------------------------
@@ -15,7 +20,21 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema pousada
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `pousada` DEFAULT CHARACTER SET utf8mb4 ;
-USE `pousada` ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `pousada`.`cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`cliente` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(100) NOT NULL,
+  `CPF` VARCHAR(45) NOT NULL,
+  `PASSWORD` VARCHAR(10) NOT NULL,
+  `RG` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 -- -----------------------------------------------------
 -- Table `pousada`.`funcionario`
@@ -28,42 +47,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`funcionario` (
   `RG` VARCHAR(15) NULL DEFAULT NULL,
   `ADMISSAO` DATE NOT NULL,
   `DEMISSAO` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`cargo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`cargo` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `PERIODO` VARCHAR(5) NOT NULL,
-  `SALARIO` FLOAT(7,2) NOT NULL,
-  `DATA_ENTRADA` DATETIME NOT NULL,
-  `DATA_SAIDA` DATETIME NOT NULL,
-  `DESCRICAO` TEXT NOT NULL,
-  `funcionario_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_cargo_funcionario1_idx` (`funcionario_ID` ASC),
-  CONSTRAINT `fk_cargo_funcionario1`
-    FOREIGN KEY (`funcionario_ID`)
-    REFERENCES `pousada`.`funcionario` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`cliente`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`cliente` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `NOME` VARCHAR(100) NOT NULL,
-  `CPF` VARCHAR(45) NOT NULL,
-  `PASSWORD` VARCHAR(10) NOT NULL,
-  `RG` VARCHAR(15) NOT NULL,
+  `Arquiv` ENUM('Sim', 'Não') NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -84,6 +68,202 @@ CREATE TABLE IF NOT EXISTS `pousada`.`cartao` (
   CONSTRAINT `fk_cartao_cliente1`
     FOREIGN KEY (`cliente_ID`)
     REFERENCES `pousada`.`cliente` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `pousada`.`status`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`status` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `STATUS` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `pousada`.`pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`pedido` (
+  `ID` INT(11) NOT NULL,
+  `DATA_ATUAL` DATETIME NOT NULL,
+  `DATA_FINAL` DATETIME NOT NULL,
+  `MOTIVO_NEGATIVO` VARCHAR(45) NOT NULL,
+  `ACOMPANHANTES` INT(11) NOT NULL,
+  `cliente_ID` INT(11) NOT NULL,
+  `funcionario_ID` INT(11) NOT NULL,
+  `status_ID` INT(11) NOT NULL,
+  `funcionario_ID1` INT(11) NOT NULL,
+  `Arquiv` ENUM('Sim', 'Não') NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_pedido_cliente1_idx` (`cliente_ID` ASC),
+  INDEX `fk_pedido_funcionario1_idx` (`funcionario_ID` ASC),
+  INDEX `fk_pedido_status1_idx` (`status_ID` ASC),
+  INDEX `fk_pedido_funcionario2_idx` (`funcionario_ID1` ASC),
+  CONSTRAINT `fk_pedido_cliente1`
+    FOREIGN KEY (`cliente_ID`)
+    REFERENCES `pousada`.`cliente` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedido_funcionario1`
+    FOREIGN KEY (`funcionario_ID`)
+    REFERENCES `pousada`.`funcionario` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedido_status1`
+    FOREIGN KEY (`status_ID`)
+    REFERENCES `pousada`.`status` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedido_funcionario2`
+    FOREIGN KEY (`funcionario_ID1`)
+    REFERENCES `pousada`.`funcionario` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `pousada`.`quartos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `QUARTO` VARCHAR(50) NOT NULL,
+  `status_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_quartos_status1_idx` (`status_ID` ASC),
+  CONSTRAINT `fk_quartos_status1`
+    FOREIGN KEY (`status_ID`)
+    REFERENCES `pousada`.`status` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `pousada`.`reserva`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`reserva` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `status_ID` INT(11) NOT NULL,
+  `pedido_ID` INT(11) NOT NULL,
+  `Arquiv` ENUM('Sim', 'Não') NOT NULL,
+  `quartos_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_reserva_status1_idx` (`status_ID` ASC),
+  INDEX `fk_reserva_pedido1_idx` (`pedido_ID` ASC),
+  INDEX `fk_reserva_quartos1_idx` (`quartos_ID` ASC),
+  CONSTRAINT `fk_reserva_status1`
+    FOREIGN KEY (`status_ID`)
+    REFERENCES `pousada`.`status` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_reserva_pedido1`
+    FOREIGN KEY (`pedido_ID`)
+    REFERENCES `pousada`.`pedido` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_reserva_quartos1`
+    FOREIGN KEY (`quartos_ID`)
+    REFERENCES `pousada`.`quartos` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Nota_Fiscal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Nota_Fiscal` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `HashCode` INT NOT NULL,
+  `cliente_ID` INT(11) NOT NULL,
+  `funcionario_ID` INT(11) NOT NULL,
+  `cartao_ID` INT(11) NOT NULL,
+  `reserva_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_Nota_Fiscal_cliente1_idx` (`cliente_ID` ASC),
+  INDEX `fk_Nota_Fiscal_funcionario1_idx` (`funcionario_ID` ASC),
+  INDEX `fk_Nota_Fiscal_cartao1_idx` (`cartao_ID` ASC),
+  INDEX `fk_Nota_Fiscal_reserva1_idx` (`reserva_ID` ASC),
+  CONSTRAINT `fk_Nota_Fiscal_cliente1`
+    FOREIGN KEY (`cliente_ID`)
+    REFERENCES `pousada`.`cliente` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Nota_Fiscal_funcionario1`
+    FOREIGN KEY (`funcionario_ID`)
+    REFERENCES `pousada`.`funcionario` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Nota_Fiscal_cartao1`
+    FOREIGN KEY (`cartao_ID`)
+    REFERENCES `pousada`.`cartao` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Nota_Fiscal_reserva1`
+    FOREIGN KEY (`reserva_ID`)
+    REFERENCES `pousada`.`reserva` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Imagens`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Imagens` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Fotos` TINYBLOB NOT NULL,
+  `cliente_ID` INT(11) NOT NULL,
+  `funcionario_ID` INT(11) NOT NULL,
+  `quartos_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_Imagens_cliente1_idx` (`cliente_ID` ASC),
+  INDEX `fk_Imagens_funcionario1_idx` (`funcionario_ID` ASC),
+  INDEX `fk_Imagens_quartos1_idx` (`quartos_ID` ASC),
+  CONSTRAINT `fk_Imagens_cliente1`
+    FOREIGN KEY (`cliente_ID`)
+    REFERENCES `pousada`.`cliente` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Imagens_funcionario1`
+    FOREIGN KEY (`funcionario_ID`)
+    REFERENCES `pousada`.`funcionario` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Imagens_quartos1`
+    FOREIGN KEY (`quartos_ID`)
+    REFERENCES `pousada`.`quartos` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+USE `pousada` ;
+
+-- -----------------------------------------------------
+-- Table `pousada`.`cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`cargo` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `PERIODO` VARCHAR(5) NOT NULL,
+  `SALARIO` FLOAT(7,2) NOT NULL,
+  `DATA_ENTRADA` DATETIME NOT NULL,
+  `DATA_SAIDA` DATETIME NOT NULL,
+  `DESCRICAO` TEXT NOT NULL,
+  `funcionario_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_cargo_funcionario1_idx` (`funcionario_ID` ASC),
+  CONSTRAINT `fk_cargo_funcionario1`
+    FOREIGN KEY (`funcionario_ID`)
+    REFERENCES `pousada`.`funcionario` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -187,102 +367,6 @@ CREATE TABLE IF NOT EXISTS `pousada`.`pagamento` (
   CONSTRAINT `fk_pagamento_cartao1`
     FOREIGN KEY (`cartao_ID`)
     REFERENCES `pousada`.`cartao` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`status`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`status` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `STATUS` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`pedido`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`pedido` (
-  `ID` INT(11) NOT NULL,
-  `DATA_ATUAL` DATETIME NOT NULL,
-  `DATA_FINAL` DATETIME NOT NULL,
-  `MOTIVO_NEGATIVO` VARCHAR(45) NOT NULL,
-  `ACOMPANHANTES` INT(11) NOT NULL,
-  `cliente_ID` INT(11) NOT NULL,
-  `funcionario_ID` INT(11) NOT NULL,
-  `status_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_pedido_cliente1_idx` (`cliente_ID` ASC),
-  INDEX `fk_pedido_funcionario1_idx` (`funcionario_ID` ASC),
-  INDEX `fk_pedido_status1_idx` (`status_ID` ASC),
-  CONSTRAINT `fk_pedido_cliente1`
-    FOREIGN KEY (`cliente_ID`)
-    REFERENCES `pousada`.`cliente` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedido_funcionario1`
-    FOREIGN KEY (`funcionario_ID`)
-    REFERENCES `pousada`.`funcionario` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedido_status1`
-    FOREIGN KEY (`status_ID`)
-    REFERENCES `pousada`.`status` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`quartos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `QUARTO` VARCHAR(50) NOT NULL,
-  `status_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ID`, `status_ID`),
-  INDEX `fk_quartos_status1_idx` (`status_ID` ASC),
-  CONSTRAINT `fk_quartos_status1`
-    FOREIGN KEY (`status_ID`)
-    REFERENCES `pousada`.`status` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pousada`.`reserva`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`reserva` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `status_ID` INT(11) NOT NULL,
-  `pedido_ID` INT(11) NOT NULL,
-  `quartos_ID` INT(11) NOT NULL,
-  `quartos_status_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_reserva_status1_idx` (`status_ID` ASC),
-  INDEX `fk_reserva_pedido1_idx` (`pedido_ID` ASC),
-  INDEX `fk_reserva_quartos1_idx` (`quartos_ID` ASC, `quartos_status_ID` ASC),
-  CONSTRAINT `fk_reserva_status1`
-    FOREIGN KEY (`status_ID`)
-    REFERENCES `pousada`.`status` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_reserva_pedido1`
-    FOREIGN KEY (`pedido_ID`)
-    REFERENCES `pousada`.`pedido` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_reserva_quartos1`
-    FOREIGN KEY (`quartos_ID` , `quartos_status_ID`)
-    REFERENCES `pousada`.`quartos` (`ID` , `status_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
