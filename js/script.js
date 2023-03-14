@@ -1,4 +1,4 @@
-// ---------------------------- Começo header ----------------------------
+// ---------------------------- Começo header index ----------------------------
 /* Começo responsivo */
 let menu = document.getElementById('navbarTogglerDemo02');
 let icones = document.getElementById('icones');
@@ -36,7 +36,9 @@ document.addEventListener('scroll', function () {
     } else {
         header.classList.remove('p-0');
         header.classList.add('p-2');
-        header.classList.remove('bg-body-tertiary');
+        if (document.getElementById('btn-menu-toggler').attributes['aria-expanded'].value == 'false') {
+            header.classList.remove('bg-body-tertiary');
+        }
     }
 });
 /* Fim efeito header fixo */
@@ -53,4 +55,4 @@ function colorResponsive() {
 }
 addEventListener('click', colorResponsive);
 /* Fim efeito mundança de cor do header com icon-burguer responsivo */
-// ---------------------------- Fim header ----------------------------
+// ---------------------------- Fim header index ----------------------------
