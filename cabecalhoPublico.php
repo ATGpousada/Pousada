@@ -23,15 +23,15 @@
                                 <i class="text-decoration-none text-secondary bi bi-bag-check-fill fs-2"></i></i>
                             </a>
 
-                            <button type="button" class="p-0 btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <a href="" class="">
                                 <i class="text-decoration-none text-secondary bi bi-person-fill fs-2"></i>
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>            
                 
                 <!-- Burguer para o responsivo -->
-                <button id="btn-menu-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button id="btn-menu-toggler" onclick="colorResponsive();" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
@@ -54,24 +54,5 @@
             </div>
         </nav>
     </header>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    ...
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

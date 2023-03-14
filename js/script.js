@@ -42,6 +42,15 @@ document.addEventListener('scroll', function () {
 /* Fim efeito header fixo */
 
 /* Começo efeito mundança de cor do header com icon-burguer responsivo */
-console.log(document.getElementById('btn-menu-toggler').attributes['aria-expanded'].value);
+function colorResponsive() {
+    if (window.scrollY == 0 ) {
+        if (document.getElementById('btn-menu-toggler').attributes['aria-expanded'].value == 'true') {
+            header.classList.add('bg-body-tertiary');
+        } else {
+            header.classList.remove('bg-body-tertiary');
+        }
+    } 
+}
+addEventListener('click', colorResponsive);
 /* Fim efeito mundança de cor do header com icon-burguer responsivo */
 // ---------------------------- Fim header ----------------------------
