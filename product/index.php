@@ -1,4 +1,9 @@
-<?php ?>
+<?php 
+include "connection/connect.php";
+$lista= $conn->query("select * from ");
+$row_produtos = $lista->fetch_assoc();
+$num_linhas = $lista->num_rows;
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">

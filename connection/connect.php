@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$database = "";
+$database = "pousadateste";
 $user = "root";
 $pass = "";
 $charset = "utf8";
