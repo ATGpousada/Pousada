@@ -40,4 +40,8 @@ document.addEventListener('scroll', function () {
     }
 });
 /* Fim efeito header fixo */
+
+/* Começo efeito mundança de cor do header com icon-burguer responsivo */
+console.log(document.getElementById('btn-menu-toggler').attributes['aria-expanded'].value);
+/* Fim efeito mundança de cor do header com icon-burguer responsivo */
 // ---------------------------- Fim header ----------------------------

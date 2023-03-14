@@ -5,72 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body onbeforeunload="headerResponsivo();">
-    <!-- Cabeçalho -->
-    <nav class="navbar navbar-expand-lg shadow-sm mb-5 rounded-bottom p-2 fixed-top" id="area-header" style="transition: 0.3s;">
-        <!-- Conteúdo do cabeçalho -->
-        <div class="container-fluid me-2">
-            <!-- Logo -->
-            <a class="navbar-brand ms-4" href="#" style="width: 165px;">
-                <img src="images/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
-            </a>
+    <header>
+        <!-- Cabeçalho -->
+        <nav class="navbar navbar-expand-lg shadow-sm mb-5 rounded-bottom p-2 fixed-top" id="area-header" style="transition: 0.3s;">
+            <!-- Conteúdo do cabeçalho -->
+            <div class="container-fluid me-2">
+                <!-- Logo -->
+                <a class="navbar-brand ms-4" href="#" style="width: 165px;">
+                    <img src="images/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
+                </a>
 
-            <!-- Icons do usuário e pedidos -->
-            <div class="ms-auto me-3" id="icones">
-                <ul class="navbar-nav mb-lg-0 d-flex gap-4">
-                    <li class="nav-item mt-auto mb-auto d-flex justify-content-center gap-4">
-                        <a href="" class="">
-                            <i class="text-decoration-none text-secondary bi bi-bag-check-fill fs-2"></i></i>
-                        </a>
+                <!-- Icons do usuário e pedidos -->
+                <div class="ms-auto me-3" id="icones">
+                    <ul class="navbar-nav mb-lg-0 d-flex gap-4">
+                        <li class="nav-item mt-auto mb-auto d-flex justify-content-center gap-4">
+                            <a href="" class="">
+                                <i class="text-decoration-none text-secondary bi bi-bag-check-fill fs-2"></i></i>
+                            </a>
 
-                        <button type="button" class="p-0 btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <i class="text-decoration-none text-secondary bi bi-person-fill fs-2"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>            
-            
-            <!-- Burguer para o responsivo -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Menu do cabeçalho -->
-            <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
-                <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 d-flex gap-4">
-                    <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    
-                    <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3" href="product/index.php">Servicos</a>
-                    </li>
+                            <button type="button" class="p-0 btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <i class="text-decoration-none text-secondary bi bi-person-fill fs-2"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>            
+                
+                <!-- Burguer para o responsivo -->
+                <button id="btn-menu-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menu do cabeçalho -->
+                <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 d-flex gap-4">
+                        <li class="nav-item ms-auto me-auto">
+                            <a class="nav-link fs-4 hover-line text-dark px-3" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        
+                        <li class="nav-item ms-auto me-auto">
+                            <a class="nav-link fs-4 hover-line text-dark px-3" href="product/index.php">Servicos</a>
+                        </li>
 
-                    <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3" href="contact/index.php">Contato</a>
-                    </li>
-                </ul>
+                        <li class="nav-item ms-auto me-auto">
+                            <a class="nav-link fs-4 hover-line text-dark px-3" href="contact/index.php">Contato</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-
+        </nav>
+    </header>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-            <div class="modal-body">
-                ...
-            </div>
+                <div class="modal-body">
+                    ...
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 </html>
