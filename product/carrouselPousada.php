@@ -9,39 +9,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id="carroselPousada">
-        <!-- Início Indicadores Carrossel -->
-        <ol class="carousel-indicators">
-            <li data-target="#carrosselPousada" data-slide-to="0" class="active">
-                <!-- Indicador 0, iniciando como 'active' quando carregado o site -->
-            </li>
-            <li data-target="#carrosselPousada" data-slide-to="1" class="active">
-                <!-- Indicador 1 -->
-            </li>
-            <li data-target="#carrosselPousada" data-slide-to="2" class="active">
-                <!-- Indicador 2 -->
-            </li>
-        </ol>
-        <!-- Início itens do carrossel -->
-        <div class="carousel-inner">
-            <!-- Início Primeiro Item do Slide -->
-            <div class="carousel-item active"> <!-- esta ativo por que este item inicia como padrão quando carregado a página -->
-                <img class="d-block w-100" src="../images/LOGO POUSADA POR EXTENSO BRANCO.png" alt="Primeiro Slide">
-            </div>
-            <!-- Fim Primeiro Item do Slide -->
-            <!-- Início Segundo Item do Slide -->
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/LOGO POUSADA POR EXTENSO BRANCO.png" alt="Segundo Slide">
-            </div>
-            <!-- Fim Segundo Item do Slide -->
-            <!-- Início Terceiro Item do Slide -->
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/LOGO POUSADA POR EXTENSO BRANCO.png" alt="Terceiro Slide">
-            </div>
-            <!-- Fim Terceiro Item do Slide -->
-        </div>
-        <!-- Início itens do carrossel -->
+<div id="carrosselPousada" class="carousel slide">
+  <!-- Início Indicadores Carrossel -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Banner 1"></button>
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="1" aria-label="Banner 2"></button>
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="2" aria-label="Banner 3"></button>
+  </div>
+  <!-- Fim Indicadores Carrossel -->
+  <!-- Início itens do Carrossel -->
+  <div class="carousel-inner">
+  <!-- Início Primeiro Item do Slide -->
+    <div class="carousel-item active">
+      <img src="../images/banners/banner1.png" class="d-block w-100" alt="...">
     </div>
+  <!-- Fim Primeiro Item do Slide -->
+  <!-- Início Segundo Item do Slide -->
+    <div class="carousel-item">
+      <img src="../images/banners/banner2.png" class="d-block w-100" alt="...">
+    </div>
+  <!-- Fim Segundo Item do Slide -->
+  <!-- Início Terceiro Item do Slide -->
+    <div class="carousel-item">
+      <img src="../images/banners/banner3.png" class="d-block w-100" alt="...">
+    </div>
+  <!-- Fim Terceiro Item do Slide -->
+  </div>
+  <!-- Início Controladores Banner Carrossel-->
+  <!-- Início Próximo -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carrosselPousada" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Próximo</span>
+  </button>
+  <!-- Fim Próximo -->
+  <!-- Início Anterior -->
+  <button class="carousel-control-next" type="button" data-bs-target="#carrosselPousada" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <!-- Fim Anterior -->
+  <!-- Fim Controladores Banner Carrossel -->
+</div>
 </body>
 </html>
 

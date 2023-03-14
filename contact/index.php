@@ -16,7 +16,13 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Adição do cabeçalho -->
+    <?php include '../cabecalhoGeral/cabecalhoGeral.php'; ?>
+ 
     
+
+    <!-- Adição do rodapé -->
+    <?php include '../rodapeGeral/rodapeGeral.php'; ?>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
