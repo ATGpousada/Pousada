@@ -23,7 +23,7 @@
 <body>
     <!-- Início Menu Público -->
     <?php 
-    include "../cabecalhoPublico.php"
+    include "cabecalhoPublico.php"
     ?>
     <!-- Fim Menu Público -->
     <!-- Início Carrossel Produtos-->
