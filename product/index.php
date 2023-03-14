@@ -21,7 +21,14 @@ $num_linhas = $lista->num_rows;
     <title>Pousada - Produtos</title>
 </head>
 <body>
-    
+    <!-- Início Carrossel Produtos-->
+    <?php 
+    include "carrouselPousada.php"
+    ?>
+    <!-- Fim Carrossel Produtos-->
+    <?php 
+    include ""
+    ?>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
