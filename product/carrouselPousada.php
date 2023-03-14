@@ -9,26 +9,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div id="carouselExample" class="carousel slide m20">
+<div id="carrosselPousada" class="carousel slide">
+  <!-- Início Indicadores Carrossel -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Banner 1"></button>
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="1" aria-label="Banner 2"></button>
+    <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="2" aria-label="Banner 3"></button>
+  </div>
+  <!-- Fim Indicadores Carrossel -->
+  <!-- Início itens do Carrossel -->
   <div class="carousel-inner">
+  <!-- Início Primeiro Item do Slide -->
     <div class="carousel-item active">
       <img src="../images/banners/banner1.png" class="d-block w-100" alt="...">
     </div>
+  <!-- Fim Primeiro Item do Slide -->
+  <!-- Início Segundo Item do Slide -->
     <div class="carousel-item">
       <img src="../images/banners/banner2.png" class="d-block w-100" alt="...">
     </div>
+  <!-- Fim Segundo Item do Slide -->
+  <!-- Início Terceiro Item do Slide -->
     <div class="carousel-item">
       <img src="../images/banners/banner3.png" class="d-block w-100" alt="...">
     </div>
+  <!-- Fim Terceiro Item do Slide -->
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+  <!-- Início Controladores Banner Carrossel-->
+  <!-- Início Próximo -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carrosselPousada" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">Próximo</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+  <!-- Fim Próximo -->
+  <!-- Início Anterior -->
+  <button class="carousel-control-next" type="button" data-bs-target="#carrosselPousada" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">Anterior</span>
   </button>
+  <!-- Fim Anterior -->
+  <!-- Fim Controladores Banner Carrossel -->
 </div>
 </body>
 </html>
