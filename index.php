@@ -31,7 +31,7 @@
     <?php include 'exposicaoPousada.php'; ?>
     
     <!-- Adição do rodapé -->
-    <?php include 'rodapePublico.php'; ?>
+    <?php include 'rodapeGeral/rodapeGeral.php'; ?>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

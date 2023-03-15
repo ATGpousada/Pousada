@@ -26,6 +26,7 @@
 body {
     padding-top: 3.5em;
 }
+
 /* ########################### FIM GERAL ############################## */
 
 
@@ -54,12 +55,116 @@ body {
 
 
 /* ########################### COMEÇO FOOTER ########################### */
+.flex{
+    display: flex;
+}
 
+.flex-sa{
+    display: flex;
+    justify-content: space-around;
+}
 
+.flex-end{
+    display: flex;
+    justify-content: end;
+}
+
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cor_footer{
+    background-color: #e2e1e1;
+}
+
+.w15{
+    width: 15%;
+}
+
+.w25{
+    width: 25%;
+}
+
+.w30{
+    width: 30%;
+}
+
+.w33{
+    width: 33%;
+}
+
+.texto_footer{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.text_fp{
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.input_oferta{
+    width: 75%;
+    height: 50px;
+}
+
+.botao_form{
+    width: 130px;
+    height: 50px;
+}
+
+.logo_footer{
+    width: 30%;
+}
 /* ########################### FIM FOOTER ############################## */
 
+/* ########################### COMEÇO RESPONSIVO FOOTER ################*/
+
+@media screen and (max-width: 1300px) {
+
+.logo_footer{
+    width: 150px;
+}
+
+.flex-between{
+    flex-wrap: wrap;
+}
+
+.w33{
+    width: 50%;
+}
+}
 
 
+@media screen and (max-width: 1100px){
+#form_oferta .flex{
+    display: inline;
+}
+
+.flex-end{
+    width: 100%;
+    justify-content: center;
+}
+
+.input_oferta{
+    width: 100%;
+}
+
+.w30{
+    width: 90%;
+    margin: 10px auto;
+}
+
+.w15{
+    margin-top: 25px;
+    width: 100%;
+}
+}
+
+/* ########################### FIM RESPONSIVO FOOTER ###################*/
 
 /* ########################### COMEÇO INDEX ############################## */
 
