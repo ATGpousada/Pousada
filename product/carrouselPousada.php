@@ -22,16 +22,28 @@
   <!-- Início Primeiro Item do Slide -->
     <div class="carousel-item active">
       <img src="../images/banners/banner1.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
     </div>
   <!-- Fim Primeiro Item do Slide -->
   <!-- Início Segundo Item do Slide -->
     <div class="carousel-item">
       <img src="../images/banners/banner2.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
     </div>
   <!-- Fim Segundo Item do Slide -->
   <!-- Início Terceiro Item do Slide -->
     <div class="carousel-item">
       <img src="../images/banners/banner3.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
     </div>
   <!-- Fim Terceiro Item do Slide -->
   </div>
