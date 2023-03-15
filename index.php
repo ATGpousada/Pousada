@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/LOGO POUSADA DO SOSSEGO.png"/>
+    <link rel="icon" type="image/png" href="images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Nosso estilo -->
@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Adição do cabeçalho -->
-    <?php include 'cabecalhoPublico.php'; ?>
+    <?php include 'cabecalhoIndex.php'; ?>
     
     <!-- Adição do Carrousel Promoção -->
     <?php include 'carrouselPromocao.php'; ?>
@@ -31,7 +31,7 @@
     <?php include 'exposicaoPousada.php'; ?>
     
     <!-- Adição do rodapé -->
-    <?php include 'rodapePublico.php'; ?>
+    <?php include 'rodapeIndex.php'; ?>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
