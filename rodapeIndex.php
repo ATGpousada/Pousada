@@ -68,7 +68,7 @@
     </div>
 
     <div class="text-center">
-        &copy; Todos os Direitos Reservados á Pousada do Sossego - 2023
+        &copy; Todos os Direitos Reservados à Pousada do Sossego - 2023
     </div>
 
 </div>
