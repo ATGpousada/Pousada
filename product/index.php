@@ -43,7 +43,7 @@
     <!-- Fim Exposição Produto -->
     <!-- Início Rodapé Público -->
     <?php 
-    include "../rodapePublico.php";
+    include "../rodapeGeral/rodapeGeral.php";
     ?>
     <!-- Fim Rodapé Público -->
 </body>
