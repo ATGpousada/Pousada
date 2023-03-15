@@ -31,7 +31,7 @@
 
 
         <div id="logo" class="w33">
-            <img src="images/logo/LOGO POUSADA DO SOSSEGO.png" alt="Logo da pousada" class="logo_footer">
+            <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="Logo da pousada" class="logo_footer">
 
             <div id="link" style="margin-top: 50px;">
                 <div class=""><a href="">HOME</a></div>
@@ -49,7 +49,7 @@
 
         <div id="pagamento" class="w33">
             <p class="text-center texto_footer">Formas de Pagamento</p>
-            <img src="images/pagamento.png" alt="formas de pagamento" style="width: 100%; margin-top: 45px;">
+            <img src="../images/pagamento.png" alt="formas de pagamento" style="width: 100%; margin-top: 45px;">
         </div>
 
         <div class="d-flex justify-content-center w33" id="mapa">
