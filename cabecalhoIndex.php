@@ -11,8 +11,8 @@
             <!-- Conteúdo do cabeçalho -->
             <div class="container-fluid me-2">
                 <!-- Logo -->
-                <a class="navbar-brand ms-4" href="#" style="width: 165px;">
-                    <img src="images/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
+                <a class="navbar-brand ms-4" href="index.php" style="width: 165px;">
+                    <img src="images/logo/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
                 </a>
 
                 <!-- Icons do usuário e pedidos -->
@@ -23,7 +23,7 @@
                                 <i class="text-decoration-none text-secondary bi bi-bag-check-fill fs-2"></i></i>
                             </a>
 
-                            <a href="" class="">
+                            <a href="client/index.php" class="">
                                 <i class="text-decoration-none text-secondary bi bi-person-fill fs-2"></i>
                             </a>
                         </li>
