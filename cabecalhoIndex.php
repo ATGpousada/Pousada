@@ -39,15 +39,15 @@
                 <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 d-flex gap-4">
                         <li class="nav-item ms-auto me-auto">
-                            <a class="nav-link fs-4 hover-line text-dark px-3" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link fs-4 hover-line text-dark px-3 fonte" aria-current="page" href="index.php">Home</a>
                         </li>
                         
                         <li class="nav-item ms-auto me-auto">
-                            <a class="nav-link fs-4 hover-line text-dark px-3" href="product/index.php">Serviços</a>
+                            <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="product/index.php">Serviços</a>
                         </li>
 
                         <li class="nav-item ms-auto me-auto">
-                            <a class="nav-link fs-4 hover-line text-dark px-3" href="contact/index.php">Contato</a>
+                            <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="contact/index.php">Contato</a>
                         </li>
                     </ul>
                 </div>
