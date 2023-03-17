@@ -13,7 +13,7 @@
 /* INÍCIO FONTE DO MENU */
 @font-face {
     font-family: 'menu';
-    src: local(menu),url(../fonts/Beach.ttf);
+    src: local(menu),url();
 }
 /* FIM FONTE DO MENU */
 
@@ -129,9 +129,21 @@
     height: 50px;
 }
 
-.logo_footer{
-    width: 30%;
+.map_link{
+    text-decoration: none;
+    font-weight: bold;
+
+    color: #0077ff;
 }
+
+.map_link:hover{
+    color: #a6a19f;
+}
+
+.logo_footer{
+    width: 20%;
+}
+
 /* ########################### FIM FOOTER ############################## */
 
 /* ########################### COMEÇO RESPONSIVO FOOTER ################*/
