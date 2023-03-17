@@ -10,9 +10,9 @@
 <div class="row">
             <?php //do{?>
                 <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
+                    <div class="img-thumbnail">
                         <a href="produto_detalhes.php?id_produto=<?php echo $row_produtos['id_produto']?>">
-                            <img src="../images/banners/banner1.png" class="img-responsive img-rounded">
+                            <img src="../images/banners/banner1.png" class="img-fluid rounded float-start">
                         </a>
                         <div class="caption text-right">
                             <h3 class="text-danger">

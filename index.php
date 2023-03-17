@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <title>Pousada do Sossego</title>
 </head>
-<body>
+<body class="fundofixo">
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
