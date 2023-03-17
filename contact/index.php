@@ -18,8 +18,17 @@
 <body>
     <!-- Adição do cabeçalho -->
     <?php include '../cabecalhoGeral/cabecalhoGeral.php'; ?>
- 
     
+    <div class="container">
+        <div class="row">
+            aa
+        </div>
+
+
+        <div class="row">
+            aaa
+        </div>
+    </div>
 
     <!-- Adição do rodapé -->
     <?php include '../rodapeGeral/rodapeGeral.php'; ?>
