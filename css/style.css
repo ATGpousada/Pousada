@@ -30,6 +30,13 @@
 }
 
 /* ########################### COMEÇO GERAL ########################### */
+.fundofixo{
+    background: url('../images/fundo/mangaratiba.jpg') no-repeat fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    /* padding-top: 88px; */
+}
+
 body {
     padding-top: 3.5em;
 }

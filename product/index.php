@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <title>Pousada - Produtos</title>
 </head>
-<body>
+<body class="fundofixo">
     <!-- Início Menu Público -->
     <?php 
     include "../cabecalhoGeral/cabecalhoGeral.php"
