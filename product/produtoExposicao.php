@@ -7,33 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="row">
+<div class="row w100">
             <?php //do{?>
                 <div class="col-sm-6 col-md-4">
                     <div class="img-thumbnail">
                         <a href="produto_detalhes.php?id_produto=<?php echo $row_produtos['id_produto']?>">
                             <img src="../images/banners/banner1.png" class="img-fluid rounded float-start">
                         </a>
-                        <div class="caption text-right">
-                            <h3 class="text-danger">
-                                <strong>Quarto 1</strong>
+                        <div class="caption text-end">
+                            <h3 class="text-danger text-center">
+                                <strong>Quarto Laranja</strong>
                             </h3>
-                            <p class="text-warning">
+                            <p class="text-warning text-start">
                                 <strong>Suíte</strong>
                             </p>
-                            <p class="text-left">
+                            <p class="text-start">
                                 Este quarto blá blá blá
                             </p>
-                            <p>
-                                <button class="btn btn-default disabled" role="button" style="cursor:default;"> 
-                                    <?php //echo "R$ ".number_format($row_produtos['valor_produto'], 2, ',', '.');
-                                    echo "200,00";?>
-                                </button>
+                            <div id="icon_botao" class="d-flex justify-content-beetween">
+                                <span class="me-auto">
+                                    <span class="bi bi-people-fill" style="color: goldenrod; font-size: 25px"></span>
+                                    <span class="bi bi-car-front-fill" style="color: goldenrod; font-size: 25px"></span>
+                                    <span class="fas fa-bed" style="color: goldenrod; font-size: 23px"></span>
+                                    <span class="fas fa-bath" style="color: goldenrod; font-size: 23px"></span>
+                                    <span class="fa-solid fa-mug-hot" style="color: goldenrod; font-size: 23px"></span>
+                                </span>
                                 <a href="produto_detalhes.php?id_produto=<?php //echo $row_produtos['id_produto'];?>">
-                                    <span class="hidden-xs">Saiba Mais...</span>
-                                    <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                    <button class="hidden-xs btn btn-primary" type="submit"> <span class="hidden-xs bi bi-eye" aria-hidden="true"></span> Saiba Mais</button>
                                 </a>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
