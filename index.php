@@ -19,7 +19,7 @@
     <?php include 'cabecalhoIndex.php'; ?>
     
     <!-- Adição do Carrousel Promoção -->
-    <?php include 'carrouselPromocao.php'; ?>
+    <?php include 'carrouselIndex.php'; ?>
 
     <!-- Adição do destaque -->
     <?php include 'destaquePublico.php'; ?>
