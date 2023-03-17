@@ -69,9 +69,6 @@ body {
 /* Fim hover do menu */
 /* ########################### FIM HEADER ############################## */
 
-
-
-
 /* ########################### COMEÇO FOOTER ########################### */
 .flex{
     display: flex;
@@ -80,6 +77,7 @@ body {
 .flex-sa{
     display: flex;
     justify-content: space-around;
+    background-color: gr;
 }
 
 .flex-end{
@@ -112,6 +110,9 @@ body {
     width: 33%;
 }
 
+.w100{
+    width: 100%;
+}
 .texto_footer{
     font-size: 30px;
     font-weight: bold;
