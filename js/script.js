@@ -26,8 +26,7 @@ window.onresize = function() {
 
 
 /* Começo efeito header fixo */
-const header = document.getElementById('area-header');
-const ajuste = document.getElementById('ajuste');
+const header = document.getElementById('area-header-index');
 document.addEventListener('scroll', function () {
     if (window.scrollY > 0 ) {
         header.classList.remove('p-2');
@@ -56,3 +55,21 @@ function colorResponsive() {
 addEventListener('click', colorResponsive);
 /* Fim efeito mundança de cor do header com icon-burguer responsivo */
 // ---------------------------- Fim header index ----------------------------
+
+
+
+
+// ---------------------------- Começo header geral ----------------------------
+/* Começo efeito header fixo */
+const headerGeral = document.getElementById('area-header-geral');
+document.addEventListener('scroll', function () {
+    if (window.scrollY > 0 ) {
+        headerGeral.classList.remove('p-2');
+        headerGeral.classList.add('p-0');
+    } else {
+        headerGeral.classList.remove('p-0');
+        headerGeral.classList.add('p-2');
+    }
+});
+/* Fim efeito header fixo */
+// ---------------------------- Fim header geral ----------------------------
