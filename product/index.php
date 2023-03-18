@@ -30,17 +30,23 @@
     <?php 
     include "carrouselPousada.php";
     ?>
+    <!-- Início container -->
+    <main class="container">
     <!-- Fim Carrossel Produtos-->
     <!-- Início Produto Exposição -->
+    <p>&nbsp;</p>
     <?php 
     include "produtoExposicao.php";
     ?>
+    <p>&nbsp;</p>
     <!-- Fim Produto Exposição -->
     <!-- Início Exposição Produto -->
     <?php 
     include "exposicaoPousada.php";
     ?>
     <!-- Fim Exposição Produto -->
+    </main>
+    <!-- Fim Container -->
     <!-- Início Rodapé Público -->
     <?php 
     include "../rodapeGeral/rodapeGeral.php";
