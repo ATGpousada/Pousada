@@ -18,18 +18,22 @@
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
-    <!-- Adição do Carrousel Promoção -->
-    <?php include 'carrouselIndex.php'; ?>
+    <main class="container-fluid">
+        <!-- Adição do Carrousel Promoção -->
+        <?php include 'carrouselIndex.php'; ?>
 
-    <!-- Adição do destaque -->
-    <?php include 'destaquePublico.php'; ?>
-    
-    <!-- Adição do Carrousel Turísmo -->
-    <?php include 'carrouselTurismo.php'; ?>
-    
-    <!-- Adição do Exposição(fotos) da pousada -->
-    <?php include 'exposicaoPousada.php'; ?>
-    
+        <div class="container">
+            <!-- Adição do destaque -->
+            <?php include 'destaquePublico.php'; ?>
+            
+            <!-- Adição do Carrousel Turísmo -->
+            <?php include 'carrouselTurismo.php'; ?>
+            
+            <!-- Adição do Exposição(fotos) da pousada -->
+            <?php include 'exposicaoPousada.php'; ?>
+        </div>
+    </main>
+
     <!-- Adição do rodapé -->
     <?php include 'rodapeIndex.php'; ?>
 </body>
