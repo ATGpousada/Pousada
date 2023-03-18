@@ -42,6 +42,10 @@
                     <li class="nav-item ms-auto me-auto">
                         <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="../contact/index.php">Contato</a>
                     </li>
+
+                    <li class="nav-item ms-auto me-auto">
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="about/index.php">Sobre nós</a>
+                    </li>
                 </ul>
             </div>
         </div>
