@@ -18,7 +18,7 @@
                             <h3 class="text-danger text-center">
                                 <strong>Quarto Laranja</strong>
                             </h3>
-                            <p class="text-warning text-start">
+                            <p class="text-warning text-center">
                                 <strong>Suíte</strong>
                             </p>
                             <p class="text-start">
