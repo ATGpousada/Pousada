@@ -83,7 +83,7 @@
                 
                 <!-- Maps -->
                 <div class="d-flex justify-content-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14687.362106785902!2d-44.16917470373536!3d-23.029626895147487!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c438e8edb483d%3A0x8e9481f17412dc06!2sPousada%20do%20Sossego%20Jacare%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1679196047639!5m2!1spt-BR!2sbr" width="550" height="265" class="shadow-sm mt-2 p-2 bg-body rounded" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14687.362106785902!2d-44.16917470373536!3d-23.029626895147487!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c438e8edb483d%3A0x8e9481f17412dc06!2sPousada%20do%20Sossego%20Jacare%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1679196047639!5m2!1spt-BR!2sbr" width="100%" height="265" class="shadow-sm mt-2 p-2 bg-body rounded" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <!-- Fim localização -->
@@ -94,7 +94,7 @@
     
         <!-- Começo perguntas frequentes -->
         <div class="row mt-5">
-            <h1 class="text-center mb-4">Perguntas Frequentes</h1>
+            <h2 class="text-center mb-4">Perguntas Frequentes</h2>
             
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <!-- Primeira pergunta -->
