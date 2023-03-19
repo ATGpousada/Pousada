@@ -2,34 +2,46 @@
 
 <footer>
 
-    <div class="cor_footer p-4"  style="background: #c2daf2;">
-        <form id="form_oferta">
-            <div class="flex">
-
-                <div class="flex-end w25">
-                    <i class="bi bi-info-circle mx-3" style="font-size: 50px;"></i>
-                    <p class="text_fp mt-2">Deseja receber ofertas? <br> Cadastre seu email Já!</p>
-                </div>
-
-
-                <div class="align-items-center flex-end w30">
-                    <input type="text" id="nome" class="form-control input_oferta"  placeholder="Nome" required>
-                </div>
-
-                <div class="align-items-center flex-end w30">
-                    <input type="email" id="email" class="form-control input_oferta" placeholder="Email" required>
-                </div>
-
-                <div class="d-flex align-items-center justify-content-center w15">
-                    <button type="submit" value="Enviar" id="botao_oferta" class="btn btn-success p-2 botao_form" style="font-weight: bold; font-size: 20px;">Enviar</button>
-                </div>
-            </div>
-        </form>
+<div class="dropdown">
+    <button class="redes">
+        <i class="fa-solid fa-mobile-screen"></i>
+     </button>
+    <div class="drop_link">
+        <a href=""><i class="fa-brands fa-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
+        <a href=""><i class="fa-brands fa-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
+        <a href=""><i class="fa-brands fa-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
     </div>
+</div>
+
+<div class="cor_footer p-4"  style="background: #c2daf2;">
+    <form id="form_oferta">
+        <div class="flex">
+
+            <div class="flex-end w25">
+                <i class="fa-solid fa-square-envelope d-flex align-items-center" style="font-size: 60px;"></i>
+                <span style="margin-left: 10px;">
+                    <p class="text_fp">RECEBA NOSSAS OFERTAS</p>
+                    <p class="text-center" style="font-weight: bold;">Cadastre seu email Já!</p>
+                </span>
+            </div>
+
+            <div class="align-items-center flex-end w30">
+                <input type="text" id="nome" class="form-control input_oferta"  placeholder="Nome" required>
+            </div>
+
+            <div class="align-items-center flex-end w30">
+                <input type="email" id="email" class="form-control input_oferta" placeholder="Email" required>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center w15">
+                <button type="submit" value="Enviar" id="botao_oferta" class="btn btn-success p-2 botao_form" style="font-weight: bold; font-size: 20px;">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <div class="bg-body-tertiary">
     <div class="flex-between" style="width: 90%; margin: 0 auto;">
-
 
         <div id="logo" class="w33 mt-3">
             <div>
@@ -55,18 +67,8 @@
         </div>
     </div>
 
-    <div id="redes" style="margin-top: 50px;">
-                    <i class="fa-brands fa-facebook" style="font-size: 70px; color: blue;"></i>   
-                    <i class="fa-brands fa-instagram" class="test"style="font-size: 70px; color: purple;"></i>
-                    <i class="fa-brands fa-whatsapp" style="font-size: 70px; color: green;"></i>
-                </div>
-</div>
-
-
-    
-
     <div class="text-center" id="copy">
         &copy; Todos os Direitos Reservados á Pousada do Sossego - 2023
     </div>
-
+</div>
 </footer>
