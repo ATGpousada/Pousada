@@ -7,9 +7,9 @@
         <i class="fa-solid fa-mobile-screen"></i>
      </button>
     <div class="drop_link">
-        <a href=""><i class="fa-brands fa-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
-        <a href=""><i class="fa-brands fa-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
-        <a href=""><i class="fa-brands fa-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
+        <a href=""><i class="fa-brands fa-square-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
+        <a href=""><i class="fa-brands fa-square-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
+        <a href=""><i class="fa-brands fa-square-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
     </div>
 </div>
 
