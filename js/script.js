@@ -1,4 +1,4 @@
-// ---------------------------- Começo header index ----------------------------
+// ---------------------------- Começo header ----------------------------
 /* Começo responsivo */
 let menu = document.getElementById('navbarTogglerDemo02');
 let icones = document.getElementById('icones');
@@ -12,16 +12,6 @@ function headerReponsivo() {
     }
 }
 window.addEventListener("beforeunload", headerReponsivo());
-window.onresize = function() {
-    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    if (window.innerWidth > 991) {
-        menu.classList.add('order-1');
-        icones.classList.add('order-2');
-    } else {
-        menu.classList.remove('order-1');
-        icones.classList.remove('order-2');
-    }
-};
 /* Fim responsivo */
 
 
@@ -37,4 +27,51 @@ document.addEventListener('scroll', function () {
     }
 });
 /* Fim efeito header fixo */
-// ---------------------------- Fim header index ----------------------------
+// ---------------------------- Fim header ----------------------------
+
+
+// ---------------------------- Começo contact ----------------------------
+/* Começo adicionando padding no reponsivo (entre localização e formulario) */
+const separadorArea = document.getElementById('separador-responsive')
+function contactResponsivo() {
+    if (window.innerWidth < 768) {
+        separadorArea.classList.add('mt-3');
+        separadorArea.classList.add('mb-4');
+        separadorArea.hidden=false;
+    } else {
+        separadorArea.classList.remove('mt-3');
+        separadorArea.classList.remove('mb-4');
+        separadorArea.hidden=true;
+    }
+}
+window.addEventListener("beforeunload", contactResponsivo());
+/* Fim adicionando padding no reponsivo (entre localização e formulario) */
+// ---------------------------- Fim contact ----------------------------
+
+
+// ---------------------------- Começo geral ----------------------------
+window.onresize = function() {
+    /* Começo header */
+    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (window.innerWidth > 991) {
+        menu.classList.add('order-1');
+        icones.classList.add('order-2');
+    } else {
+        menu.classList.remove('order-1');
+        icones.classList.remove('order-2');
+    }
+    /* Fim header */
+
+    /* Começo contact */
+    if (window.innerWidth < 768) {
+        separadorArea.classList.add('mt-3');
+        separadorArea.classList.add('mb-4');
+        separadorArea.hidden=false;
+    } else {
+        separadorArea.classList.remove('mt-3');
+        separadorArea.classList.remove('mb-4');
+        separadorArea.hidden=true;
+    }
+    /* Fim contact */
+};
+// ---------------------------- Fim geral ----------------------------
