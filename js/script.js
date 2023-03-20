@@ -11,7 +11,6 @@ function headerReponsivo() {
         icones.classList.remove('order-2');
     }
 }
-window.addEventListener("beforeunload", headerReponsivo());
 /* Fim responsivo */
 
 
@@ -44,7 +43,6 @@ function contactResponsivo() {
         separadorArea.hidden=true;
     }
 }
-window.addEventListener("beforeunload", contactResponsivo());
 /* Fim adicionando padding no reponsivo (entre localização e formulario) */
 // ---------------------------- Fim contact ----------------------------
 
@@ -53,13 +51,15 @@ window.addEventListener("beforeunload", contactResponsivo());
 window.onresize = function() {
     /* Começo header */
     var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    if (window.innerWidth > 991) {
+    if (w > 991) {
         menu.classList.add('order-1');
         icones.classList.add('order-2');
     } else {
         menu.classList.remove('order-1');
         icones.classList.remove('order-2');
     }
+
+    headerReponsivo();
     /* Fim header */
 
     /* Começo contact */
@@ -74,4 +74,8 @@ window.onresize = function() {
     }
     /* Fim contact */
 };
+
+/* Começo header e contact mesmo evento */
+window.addEventListener("beforeunload", headerReponsivo(), contactResponsivo());
+/* Fim header e contact mesmo evento */
 // ---------------------------- Fim geral ----------------------------
