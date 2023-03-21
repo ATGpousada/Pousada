@@ -20,25 +20,25 @@
     <div class="container_login">
         <h2> Login</h2>
         <form>
-            <div class="form-control">
+            <div class="form-login">
                 <input type="text" required/>
                 <label>Email:</label>
             </div>
 
-            <div class="form-control">
+            <div class="form-login">
                  <input type="password" required/>
                     <label>Senha:</label>
             </div>
 
             <button class="btn_login">Login</button>
-                <p class="text"> Vai Brasil  <a href="#">Registrar</a></p>
+                <p class="text-login"> Vai Brasil  <a href="#">Registrar</a></p>
            
         </form>
     </div>
  
 <!--------------------- javaScript  ---------------------->
 <script>
-    const labels = document.querySelectorAll(".form-control label");
+    const labels = document.querySelectorAll(".form-login label");
 labels.forEach((label) => {
     label.innerHTML = label.innerHTML
     .split("")

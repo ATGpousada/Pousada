@@ -119,17 +119,17 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 .btn_login:active{
     transform: scale(0.98);
 }
-.text{
+.text-login{
     margin-top: 30px;
 }
-.form-control{
+.form-login{
     background-color: rgba(255,255,255,0.3);
     position: relative;
     border: none;
     margin: 20px 0px 40px;
     width: 300px;
 }
-.form-control input{
+.form-login input{
     background-color: transparent;
     border: 2px;
     border-bottom: 2px green solid;
@@ -139,13 +139,12 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     font-size: 18px;
     color:black;
 }
-.form-control input:focus,
-
-.form-control input:valid{
+.form-login input:focus,
+.form-login input:valid{
     outline: 0px;
    
 }
-.form-control label{
+.form-login label{
     position: absolute;
     top: 0px;
     left: 0px;
@@ -155,15 +154,15 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     min-width: 5px;
     transition: 0.3 cubic-bezier(0.78, -0.25, 0.65, 1.55);
 }
-.form-control input:focus + label,
-.form-control input:focus + label {
+.form-login input:focus + label,
+.form-login input:focus + label {
     color: green;
     transform: translateY(2px);
 }
-
-
-
 /* ########################### FIM LOGIN ############################ */
+
+
+
 
 /* ########################### COMEÇO FOOTER ########################### */
 .flex{
@@ -338,6 +337,9 @@ wauto{
 
 /* ########################### FIM FOOTER ############################## */
 
+
+
+
 /* ########################### COMEÇO RESPONSIVO FOOTER ################*/
 
 
@@ -377,6 +379,9 @@ wauto{
 }
 
 /* ########################### FIM RESPONSIVO FOOTER ###################*/
+
+
+
 
 /* ########################### COMEÇO INDEX ############################## */
 
