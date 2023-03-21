@@ -79,3 +79,4 @@ window.onresize = function() {
 window.addEventListener("beforeunload", headerReponsivo(), contactResponsivo());
 /* Fim header e contact mesmo evento */
 // ---------------------------- Fim geral ----------------------------
+

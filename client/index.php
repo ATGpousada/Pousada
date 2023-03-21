@@ -16,7 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php include 'login.php'; ?>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>

@@ -68,6 +68,103 @@ body {
 /* Fim hover do menu */
 /* ########################### FIM HEADER ############################## */
 
+
+/* ########################### COMEÇO LOGIN ############################ */
+@import
+url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+*{
+    box-sizing: border-box;
+}
+.body_login{
+    background: url(../images/login.jpg ) no-repeat fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: "Muli",sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+.container_login{
+    background-color: rgba(0,0,0,0.4);
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+.container_login h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.container_login a{
+    text-decoration: none;
+    color: lightblue;
+}
+.btn_login{
+    cursor: pointer;
+    display:inline-block;
+    width: 100%;
+    background-color: #70e6c6;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+}
+.btn_login:focus{
+    outline: none;
+}
+.btn_login:active{
+    transform: scale(0.98);
+}
+.text{
+    margin-top: 30px;
+}
+.form-control{
+    background-color: rgba(255,255,255,0.3);
+    position: relative;
+    border: none;
+    margin: 20px 0px 40px;
+    width: 300px;
+}
+.form-control input{
+    background-color: transparent;
+    border: 2px;
+    border-bottom: 2px green solid;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 18px;
+    color:black;
+}
+.form-control input:focus,
+
+.form-control input:valid{
+    outline: 0px;
+   
+}
+.form-control label{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3 cubic-bezier(0.78, -0.25, 0.65, 1.55);
+}
+.form-control input:focus + label,
+.form-control input:focus + label {
+    color: green;
+    transform: translateY(2px);
+}
+
+
+
+/* ########################### FIM LOGIN ############################ */
+
 /* ########################### COMEÇO FOOTER ########################### */
 .flex{
     display: flex;
@@ -76,7 +173,6 @@ body {
 .flex-sa{
     display: flex;
     justify-content: space-around;
-    background-color: gr;
 }
 
 .flex-end{
