@@ -201,12 +201,20 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     width: 30%;
 }
 
+.w30text{
+    width: 30%;
+}
+
 .w33{
     width: 33%;
 }
 
 .w100{
     width: 100%;
+}
+
+wauto{
+    width: 38%;
 }
 
 .texto_footer{
@@ -222,6 +230,10 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     margin: 10px 0 0 0;
 }
 
+#telefone span{
+    white-space: nowrap;
+}
+
 .input_oferta{
     width: 75%;
     height: 50px;
@@ -232,11 +244,27 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     height: 50px;
 }
 
+.map_text{
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.map_linha{
+    border: 2px solid #002fff;
+    width: 100px;
+    margin: 0 auto;
+}
+
 .map_link{
     text-decoration: none;
     font-weight: bold;
+    color: #407ff5;
+}
 
-    color: #0077ff;
+.map_contato{
+    width: 150px;
+    font-weight: bold;
+    color: #407ff5;
 }
 
 .map_link:hover{
@@ -244,7 +272,13 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 }
 
 .logo_footer{
-    width: 20%;
+    margin-top: 35px;
+    width: 80%;
+}
+
+.img_pag{
+    max-width: 42px;
+    margin: 10px 10px;
 }
 
 /* Botão Redes Sociais */
@@ -295,6 +329,7 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 .dropdown:hover .drop_link {
     display: flex;
+    transition: 2s ease-in;
 }
 
 .redes:hover{
@@ -304,21 +339,6 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 /* ########################### FIM FOOTER ############################## */
 
 /* ########################### COMEÇO RESPONSIVO FOOTER ################*/
-
-@media screen and (max-width: 1300px) {
-
-.logo_footer{
-    width: 150px;
-}
-
-.flex-between{
-    flex-wrap: wrap;
-}
-
-.w33{
-    width: 50%;
-}
-}
 
 
 @media screen and (max-width: 1100px){
@@ -344,6 +364,16 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     margin-top: 25px;
     width: 100%;
 }
+}
+
+@media screen and (max-width: 800px){
+    .flex{
+        flex-wrap: wrap;
+    }
+
+    #pagamento{
+        max-width: 80px;
+    }
 }
 
 /* ########################### FIM RESPONSIVO FOOTER ###################*/

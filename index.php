@@ -19,19 +19,21 @@
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
-    <main class="container-fluid">
+    <main class="container-fluid pe-0 ps-0">
         <!-- Adição do Carrousel Promoção -->
         <?php include 'carrouselIndex.php'; ?>
 
-        <div class="container">
-            <!-- Adição do destaque -->
-            <?php include 'destaquePublico.php'; ?>
+        <div style="width: 90%; margin: auto;">
+            <div class="container-fluid bg-body-tertiary">
+                <!-- Adição do destaque -->
+                <?php include 'destaquePublico.php'; ?>
             
-            <!-- Adição do Carrousel Turísmo -->
-            <?php include 'carrouselTurismo.php'; ?>
-            
-            <!-- Adição do Exposição(fotos) da pousada -->
-            <?php include 'exposicaoPousada.php'; ?>
+                <!-- Adição do Carrousel Turísmo -->
+                <?php include 'carrouselTurismo.php'; ?>
+
+                <!-- Adição do Exposição(fotos) da pousada -->
+                <?php include 'exposicaoPousada.php'; ?>
+            </div>
         </div>
     </main>
 

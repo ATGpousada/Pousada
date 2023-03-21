@@ -2,17 +2,6 @@
 
 <footer>
 
-<div class="dropdown">
-    <button class="redes">
-        <i class="fa-solid fa-mobile-screen"></i>
-     </button>
-    <div class="drop_link">
-        <a href=""><i class="fa-brands fa-square-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
-        <a href=""><i class="fa-brands fa-square-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
-        <a href=""><i class="fa-brands fa-square-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
-    </div>
-</div>
-
 <div class="cor_footer p-4"  style="background: #c2daf2;">
     <form id="form_oferta">
         <div class="flex">
@@ -41,31 +30,70 @@
 </div>
 
 <div class="bg-body-tertiary">
-    <div class="flex-between" style="width: 90%; margin: 0 auto;">
+    <div class="flex-sa pt-3" style="width: 90%; margin: 0 auto;">
 
-        <div id="logo" class="w33 mt-3">
-            <div>
-                <img src="images/logo/LOGO POUSADA DO SOSSEGO.png" alt="Logo da pousada" class="logo_footer">
-            </div>
-
-            <div id="link" class="">
-                <div class="mt-5 "><a href="" class="map_link">HOME</a></div>
-                <div class="mt-4"><a href="" class="map_link">SERVIÇOS</a></div>
-                <div class="mt-4"><a href="" class="map_link">CONTATO</a></div>
-            </div>
-        </div>
- 
-        <div id="pagamento" class="w-auto">
-
-            <div class="flex justify-content-center" style="margin-top: 50%;">
-                <img src="images/pagamento.png" alt="formas de pagamento" style="width: 25%;">
-            </div>
+        <div style="width: 100px;">
+            <img src="images/logo/LOGO POUSADA DO SOSSEGO.png" alt="Logo da pousada" class="logo_footer">
         </div>
 
-        <div class="d-flex justify-content-center w33 mt-3" id="mapa">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.864326064771!2d-44.1671581844165!3d-23.028753248025442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c438e8edb483d%3A0x8e9481f17412dc06!2sPousada%20do%20Sossego%20Jacare%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1678816281112!5m2!1spt-BR!2sbr" width="450" height="350" style="border:0;" class="shadow-lg p-2 mb-5 bg-body rounded" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <div id="link" class="w25 text-center">
+
+        <span class="wauto">
+            <div class="map_text">MAPA DO SITE</div>
+                <hr class="mb-3 map_linha">
+                <div class="mb-1"><a href="" class="map_link">HOME</a></div>
+                <div class="mb-1"><a href="" class="map_link">SERVIÇOS</a></div>
+                <div class="mb-1"><a href="" class="map_link">SOBRE NÓS</a></div>
+                <div><a href="" class="map_link">CONTATO</a></div>
+            </div>
+
+
+
+            <div id="telefone" class="w25 text-center">
+
+                <div class="map_text">TELEFONE</div>
+                    <hr class="mb-3 map_linha">
+                    <div class="mb-1 text-center"><span class="map_contato">(21) 4002-8922</span></div>
+                    <div class="mb-1 text-center"><span class="map_contato">(21) 7070-8580</span></div>
+                </div>
+            </span>
+
+            <span class="flex wauto"> 
+
+                <div id="endereco" class="text-center">
+
+                    <div class="map_text">ENDEREÇO</div>
+                        <hr class="mb-3 map_linha">
+                        <div><span class="map_contato">Rua José Batista Maia n°3 - Conceição de Jacareí, RJ</span></div>
+                    </div>
+
+        
+                <div id="pagamento" class="text-center" style="width: 500px;">
+
+                    <div class="map_text">FORMAS DE PAGAMENTO</div>
+                        <hr class="mb-3 map_linha">
+                        <img src="images/Pagamento/Banco-do-Brasil.png" alt="Banco do Brasil" class="img_pag">
+                        <img src="images/Pagamento/bradesco.svg" alt="Banco Bradesco" class="img_pag">
+                        <img src="images/Pagamento/caixa-logo.svg" alt="Banco Caixa" class="img_pag">
+                        <img src="images/Pagamento/Itau.png" alt="Banco Itau" class="img_pag"> <br>
+                        <img src="images/Pagamento/Mercado-Pago.png" alt="Mercado Pago" class="img_pag">
+                        <img src="images/Pagamento/Paypal.png" alt="Paypal" class="img_pag">
+                        <img src="images/Pagamento/pix.png" alt="PIX" class="img_pag">
+                </div>
+            </span>
     </div>
+
+    
+<div class="dropdown">
+    <button class="redes">
+        <i class="fa-solid fa-mobile-screen"></i>
+     </button>
+    <div class="drop_link">
+        <a href=""><i class="fa-brands fa-square-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
+        <a href=""><i class="fa-brands fa-square-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
+        <a href=""><i class="fa-brands fa-square-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
+    </div>
+</div>
 
     <div class="text-center" id="copy">
         &copy; Todos os Direitos Reservados á Pousada do Sossego - 2023
