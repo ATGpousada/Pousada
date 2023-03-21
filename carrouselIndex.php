@@ -12,19 +12,34 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
         </div>
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/logo/LOGO POUSADA POR EXTENSO.png" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="images/logo/LOGO POUSADA POR EXTENSO PRETO.png" class="d-block w-100" alt="...">
+                <img src="images/banners/Bem_vindo.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item"> 
-                <img src="images/logo/LOGO POUSADA POR EXTENSO BRANCO.png" class="d-block w-100" alt="...">
+                <img src="images/banners/Pousada.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item"> 
+                <img src="images/banners/Cafe.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="images/banners/Area_de_lazer.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="images/banners/Pousada.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         
