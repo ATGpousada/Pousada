@@ -23,7 +23,7 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-center w15">
-                <button type="submit" value="Enviar" id="botao_oferta" class="btn btn-success p-2 botao_form" style="font-weight: bold; font-size: 20px;">Enviar</button>
+                <button type="submit" value="Enviar" id="botao_oferta" class="btn btn-primary p-2 botao_form" style="font-weight: bold; font-size: 20px;">Enviar</button>
             </div>
         </div>
     </form>

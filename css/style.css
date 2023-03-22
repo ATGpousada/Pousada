@@ -312,7 +312,7 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 }
   
 .drop_link {
-    display: none;
+    display: flex;
     position: fixed;
     bottom: 20px;
     left: 55px;
@@ -322,6 +322,9 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 1;
+    transition: all 5s ease;  
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
   
 .drop_link a {
@@ -333,12 +336,13 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 .dropdown:hover .drop_link {
     display: flex;
-    transition: 2s ease-in;
+    opacity: 1;
 }
 
 .redes:hover{
     border-radius: 0;
 }
+
 
 /* ########################### FIM FOOTER ############################## */
 
