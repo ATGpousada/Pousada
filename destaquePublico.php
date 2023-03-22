@@ -17,7 +17,7 @@
     <!-- Mostrar se a Consulta Retornou Vasia -->
     <?php if ($num_linhas == 0){?>
         <div class="mx-auto" style="width: 500px;">
-            <h3 class="bg-warning mt-4 mx-auto text-light">
+            <h3 class="bg-warning">
                 Não há Quartos Cadastrados !!!
             </h3>
         </div>
