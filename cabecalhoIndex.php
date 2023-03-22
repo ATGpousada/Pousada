@@ -13,11 +13,11 @@
                 <ul class="navbar-nav mb-lg-0 d-flex gap-4">
                     <li class="nav-item mt-auto mb-auto d-flex justify-content-center gap-4">
                         <a href="" class="">
-                            <i class="text-decoration-none text-secondary bi bi-bag-check-fill fs-2"></i></i>
+                            <i class="text-decoration-none text-dark bi bi-briefcase-fill fs-2"></i></i>
                         </a>
 
                         <a href="client/index.php" class="">
-                            <i class="text-decoration-none text-secondary bi bi-person-fill fs-2"></i>
+                            <i class="text-decoration-none text-dark bi bi-person-fill fs-2"></i>
                         </a>
                     </li>
                 </ul>

@@ -5,6 +5,7 @@
 //Atribui resultado de consulta
 //$row_destaque = $lista->fetch_assoc();
 //$num_linhas = $lista->num_rows;
+// https://bootsnipp.com/snippets/7NKkV
 ?>
 
 <!DOCTYPE html>
