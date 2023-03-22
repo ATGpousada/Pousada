@@ -208,12 +208,12 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     width: 33%;
 }
 
-.w100{
-    width: 100%;
+.w45{
+    width: 45%;
 }
 
-wauto{
-    width: 38%;
+.w100{
+    width: 100%;
 }
 
 .texto_footer{
@@ -227,6 +227,10 @@ wauto{
     font-weight: 700;
     white-space: nowrap;
     margin: 10px 0 0 0;
+}
+
+.logo_div{
+    width: 100px;
 }
 
 #telefone span{
@@ -279,6 +283,7 @@ wauto{
     max-width: 42px;
     margin: 10px 10px;
 }
+
 
 /* Botão Redes Sociais */
 
@@ -337,10 +342,7 @@ wauto{
 
 /* ########################### FIM FOOTER ############################## */
 
-
-
-
-/* ########################### COMEÇO RESPONSIVO FOOTER ################*/
+/* ########################### COMEÇO RESPONSIVO FOOTER ################ */
 
 
 @media screen and (max-width: 1100px){
@@ -368,13 +370,13 @@ wauto{
 }
 }
 
-@media screen and (max-width: 800px){
-    .flex{
-        flex-wrap: wrap;
+@media screen and (max-width: 1000px){
+    .flex-sa article{
+        display: inline;
     }
 
-    #pagamento{
-        max-width: 80px;
+    .logo_div{
+        display: none;
     }
 }
 
