@@ -321,7 +321,7 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     box-shadow: 11px 12px 14px -9px rgba(0,0,0,0.75);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    z-index: 1;
+    z-index: -999;
     transition: all 5s ease;  
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -337,6 +337,7 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 .dropdown:hover .drop_link {
     display: flex;
     opacity: 1;
+    z-index: 999;
 }
 
 .redes:hover{
@@ -349,7 +350,7 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 /* ########################### COMEÇO RESPONSIVO FOOTER ################ */
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1200px){
 #form_oferta .flex{
     display: inline;
 }
