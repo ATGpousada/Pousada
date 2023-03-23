@@ -16,7 +16,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- Início Menu Público -->
+    <?php 
+    include "../cabecalhoGeral/cabecalhoGeral.php";
+    ?>
+    <!-- Fim Menu Público -->
+
+    <!-- Início Detalhes -->
+    <?php 
+    include "detalhe.php";
+    ?>
+    <!-- Fim Detalhes -->
+
+    <!-- Início Rodapé Público -->
+    <?php 
+    include "../rodapeGeral/rodapeGeral.php";
+    ?>
+    <!-- Fim Rodapé Público -->
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
