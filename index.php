@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada do Sossego</title>
 </head>
-<body class="fundofixo">
+<body>
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
@@ -23,10 +23,11 @@
         <!-- Adição do Carrousel Promoção -->
         <?php include 'carrouselIndex.php'; ?>
 
-        <div class="container p-4">
-            <!-- Adição do Exposição(fotos) da pousada -->
-            <?php include 'exposicaoPousada.php'; ?>
+        
+        <!-- Adição do Exposição(fotos) da pousada -->
+        <?php include 'exposicaoPousada.php'; ?>
 
+        <div class="container p-4">
             <!-- Adição do destaque -->
             <?php include 'destaquePublico.php'; ?>
         </div>
