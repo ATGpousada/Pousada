@@ -16,6 +16,16 @@
     <title>Pousada do Sossego</title>
 </head>
 <body>
+            <!-- início do preloader -->
+  <div id="preloader">
+    <div class="inner">
+       <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+        <img src="images//sol.gif" alt="">
+    </div>
+</div>
+    <!-- site preloader -->
+    <!-- https://icons8.com/preloaders/ -->
+<!-- fim do preloader --> 
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
@@ -39,6 +49,7 @@
 
     <!-- Adição do rodapé -->
     <?php include 'rodapeIndex.php'; ?>
+    <script src="js/preloader.js"></script>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
