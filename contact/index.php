@@ -17,7 +17,15 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Contato</title>
 </head>
-<body class="fundofixo" style="padding-top: 6.5em !important;" onbeforeunload="contactResponsivo();"> 
+<body class="fundofixo" style="padding-top: 6.5em !important;" onbeforeunload="contactResponsivo();">
+    <!-- início do preloader -->
+    <div id="preloader">
+        <div class="inner">
+            <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+            <img src="../images/sol.gif" alt="">
+        </div>
+    </div>
+
     <!-- Adição do cabeçalho -->
     <?php include '../cabecalhoGeral/cabecalhoGeral.php'; ?>
     
@@ -150,6 +158,8 @@
     <!-- Adição do rodapé -->
     <?php include '../rodapeGeral/rodapeGeral.php'; ?>
 </body>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <!-- Nosso script -->

@@ -18,6 +18,14 @@
     <title>Pousada - Sobre Nós</title>
 </head>
 <body>
+    <!-- início do preloader -->
+    <div id="preloader">
+        <div class="inner">
+            <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+            <img src="../images/sol.gif" alt="">
+        </div>
+    </div>
+
     <!-- Início Menu Público -->
     <?php 
     include "../cabecalhoGeral/cabecalhoGeral.php";
@@ -30,6 +38,8 @@
     ?>
     <!-- Fim Rodapé Público -->
 </body>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <!-- Nosso script -->
