@@ -15,41 +15,30 @@
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <title>Login</title>
 </head>
-<body class="body_login">
-    <div class="container_login">
-        <h2> Login</h2>
-        <form>
-            <div class="form-login">
-                <input type="text" required/>
-                <label>Email:</label>
-            </div>
-
-            <div class="form-login">
-                 <input type="password" required/>
-                    <label>Senha:</label>
-            </div>
-
-            <button class="btn_login">Login</button>
-                <p class="text-login"> Vai Brasil  <a href="#">Registrar</a></p>
-           
-        </form>
-    </div>
- 
-<!--------------------- javaScript  ---------------------->
-<script>
-    const labels = document.querySelectorAll(".form-login label");
-labels.forEach((label) => {
-    label.innerHTML = label.innerHTML
-    .split("")
-    .map(
-        (letter,idx) =>
-        `<span style="transtiton-delay:$(idx * 50)}ms">${letter}</span>`
-    )
-    .join("");
-});
-</script>
-
+<body id="body-login">
+    <div class="circulo"></div>
     
+    <div class="card-login">
+        <div class="logo">
+            <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
+        </div>
+
+        <h2>Entre na sua conta</h2>
+        
+        <form class="form-login">        
+            <input type="email" placeholder="Email">
+        
+            <input type="password" placeholder="Password">
+        
+            <button type="submit">Entrar</button>
+        </form>
+        
+        <footer id="footer-login">
+            Existing users, sign in
+        
+            <a href="index.html">Here</a>
+        </footer>
+    </div>
 </body>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>

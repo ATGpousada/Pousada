@@ -91,94 +91,155 @@ body {
 
 
 /* ########################### COMEÇO LOGIN ############################ */
-@import
-url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
 
-*{
-    box-sizing: border-box;
-}
-.body_login{
-    background: url(../images/login.jpg ) no-repeat fixed;
-    background-size: cover;
-    color: #fff;
-    font-family: "Muli",sans-serif;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+#body-login {
+    height: 100%;
+    display: grid;
+    place-items: center;
     margin: 0;
+    padding: 0 32px;
+    background: #f5f5f5;
+    font-family: "Ubuntu";
+    animation: rotate 6s infinite alternate linear;
 }
-.container_login{
-    background-color: rgba(0,0,0,0.4);
-    padding: 20px 40px;
-    border-radius: 5px;
+
+.circulo{
+    position: fixed;
+    top: -50vmin;
+    left: -50vmin;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+    background: #fd8f44;
 }
-.container_login h1{
+
+.circulo::after{
+    content: "";
+    position: inherit;
+    right: -50vmin;
+    bottom: -55vmin;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: #143d81;
+}
+
+.card-login{
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    margin: 0 20px;
+    padding: 160px 30px 38px;
+    border-radius: 1.25rem;
+    background: #fff;
     text-align: center;
-    margin-bottom: 30px;
+    box-shadow: 0 100% 100% rgb(0 0 0 / 10%);
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
 }
-.container_login a{
-    text-decoration: none;
-    color: lightblue;
+
+.card-login::before{
+    content: "";
+    position: absolute;
+    background: var(--cor-azul);
+    top: -880px;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    translate: -50% 0;
 }
-.btn_login{
-    cursor: pointer;
-    display:inline-block;
+
+.card-login .logo{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #fff;
+    height: 94px;
+    width: 94px;
+    top: 10px;
+    left: 50%;
+    translate: -50% 0;
+}
+
+.card-login .logo i{
+    font-size: 50px;
+    color: #216ce7;
+    font-weight: 500;
+}
+
+.card-login>h2{
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 30px;
+    color: #2a3444;
+}
+
+.form-login{
+    margin: 0 0 30px;
+    display: grid;
+    gap: 18px;
+}
+
+.form-login>input, .form-login>button{
     width: 100%;
-    background-color: #70e6c6;
-    padding: 15px;
+    height: 50px;
+    border-radius: 28px;
+}
+
+.form-login>input{
+    border: 2px solid #e0e0e0;
     font-family: inherit;
     font-size: 16px;
-    border: 0;
-    border-radius: 5px;
+    padding: 0 24px;
+    color: #11274c;
+    transition: all 0.375s;
 }
-.btn_login:focus{
-    outline: none;
+
+.form-login>input:hover{
+    border: 2px solid #000;
 }
-.btn_login:active{
-    transform: scale(0.98);
+
+.form-login>input::placeholder{
+    color: #cac8c8;
 }
-.text-login{
-    margin-top: 30px;
-}
-.form-login{
-    background-color: rgba(255,255,255,0.3);
-    position: relative;
-    border: none;
-    margin: 20px 0px 40px;
-    width: 300px;
-}
-.form-login input{
-    background-color: transparent;
-    border: 2px;
-    border-bottom: 2px green solid;
-    display: block;
+
+.form-login>button{
+    cursor: pointer;
     width: 100%;
-    margin-top: 20px;
-    font-size: 18px;
-    color:black;
+    height: 50px;
+    padding: 0 16px;
+    background: var(--cor-azul);
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
 }
-.form-login input:focus,
-.form-login input:valid{
-    outline: 0px;
-   
+
+.form-login>button:hover{
+    columns: #fff;
+    background: var(--cor-azul-claro);
 }
-.form-login label{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    pointer-events: none;
-    display: inline-block;
-    font-size: 18px;
-    min-width: 5px;
-    transition: 0.3 cubic-bezier(0.78, -0.25, 0.65, 1.55);
+
+.card-login>#footer-login{
+    color: #7c7c7c;
 }
-.form-login input:focus + label,
-.form-login input:focus + label {
-    color: green;
-    transform: translateY(2px);
+
+.card-login>#footer-login>a{
+    color: #fd8f44;
+    transition: all 0.375;
+}
+
+.card-login>footer>a:hover{
+    color: #143d81;
 }
 /* ########################### FIM LOGIN ############################ */
 
@@ -368,53 +429,14 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 /* ########################### FIM FOOTER ############################## */
 
-/* ########################### COMEÇO RESPONSIVO FOOTER ################ */
-
-
-@media screen and (max-width: 1200px){
-#form_oferta .flex{
-    display: inline;
-}
-
-.flex-end{
-    width: 100%;
-    justify-content: center;
-}
-
-.input_oferta{
-    width: 100%;
-}
-
-.w30{
-    width: 90%;
-    margin: 10px auto;
-}
-
-.w15{
-    margin-top: 25px;
-    width: 100%;
-}
-}
-
-@media screen and (max-width: 1000px){
-    .flex-sa article{
-        display: inline;
-    }
-
-    .logo_div{
-        display: none;
-    }
-}
-
-/* ########################### FIM RESPONSIVO FOOTER ###################*/
-
-
 
 
 /* ########################### COMEÇO INDEX ############################## */
 
 
 /* ########################### FIM INDEX ############################## */
+
+
 
 /* ########################### COMEÇO DETALHES ############################ */
 #img_principal{
@@ -470,7 +492,58 @@ url("https://fonts.googleapis.com/css?family=Muli&display=swap");
     width: 500px;
     height: 500px;
 }
-
-
-
 /* ########################### FIM DETALHES ############################## */
+
+
+
+/* ########################### COMEÇO RESPONSIVO ################ */
+/*Começo footer*/
+@media screen and (max-width: 1200px){
+    #form_oferta .flex{
+        display: inline;
+    }
+    
+    .flex-end{
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .input_oferta{
+        width: 100%;
+    }
+    
+    .w30{
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .w15{
+        margin-top: 25px;
+        width: 100%;
+    }
+    }
+    
+    @media screen and (max-width: 1000px){
+        .flex-sa article{
+            display: inline;
+        }
+    
+        .logo_div{
+            display: none;
+        }
+    }
+    /*Fim footer*/
+
+
+    /*Começo login*/
+    @media (width >=500px){
+        #body-login{
+            padding: 0;
+        }
+        .card-login{
+            margin: 0;
+            width: 360px;
+        }
+    }
+    /*Fim login*/
+    /* ########################### FIM RESPONSIVO###################*/

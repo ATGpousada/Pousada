@@ -14,38 +14,38 @@
                 
                 <p class="card-text fs-1"><i class="bi bi-wifi bg-body-secondary p-2 rounded-5"></i></p>
                 
-                <a href="#" class="btn btn-primary">Faça sua reserva!</a>
+                <a href="#" class="btn btn-primary w-100">Faça sua reserva!</a>
             </div>
         </div>
 
         <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title mb-3">Garagem incluso</h5>
+                <h5 class="card-title mb-3">Ambiente com garagem</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-car-front-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
-                <a href="#" class="btn btn-primary">Aproveite</a>
+                <a href="#" class="btn btn-primary w-100">Aproveite</a>
             </div>
         </div>
 
         <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title mb-3">Ótima localização</h5>
+                <h5 class="card-title mb-3">Ótima localização para você</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-geo-alt-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
-                <a href="#" class="btn btn-primary">Um ótimo ambiente!</a>
+                <a href="#" class="btn btn-primary w-100">Veja nossa pousada</a>
             </div>
         </div>  
 
 
         <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title mb-3">Café da manhã</h5>
+                <h5 class="card-title mb-3">Café da manhã incluso</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-cup-hot-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
-                <a href="#" class="btn btn-primary">Conheça a Pousada</a>
+                <a href="#" class="btn btn-primary w-100">Conheça nossas suítes</a>
             </div>
         </div>
     </div>
