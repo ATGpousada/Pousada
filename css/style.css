@@ -383,7 +383,7 @@ body {
     left: 0px;
 }
   
-.dropdown {
+.dropdownn{
     position: relative;
     display: inline-block;
 }
@@ -416,7 +416,7 @@ body {
     justify-content: center;
 }
 
-.dropdown:hover .drop_link {
+.dropdownn:hover .drop_link {
     display: flex;
     opacity: 1;
     z-index: 999;
@@ -425,7 +425,6 @@ body {
 .redes:hover{
     border-radius: 0;
 }
-
 
 /* ########################### FIM FOOTER ############################## */
 
@@ -439,10 +438,12 @@ body {
 
 
 /* ########################### COMEÇO DETALHES ############################ */
+
 #img_principal{
     width: 50%;
     display: flex;
     justify-content: center;
+    
 }
 
 #img_principal img{
@@ -460,15 +461,34 @@ body {
 
 .text-detail p{
     font-size: 35px;
-    font-family: 'Impact, fantasy';
     margin-top: 50px;
+}
+
+.linha_del{
+    height: 475px;
+    border: 1px solid black;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 
 #titulo{
     margin: 0;
 }
 
-#comprar{
+.preco{
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    letter-spacing: -2.4px;
+    word-spacing: -2.4px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+   
+}
+
+#reservar{
     margin-top: 50px;
     font-size: 20px;
     font-family: 'Impact, fantasy';
@@ -491,7 +511,55 @@ body {
 .imagem-grande{
     width: 500px;
     height: 500px;
+    box-shadow: 2px -2px 22px 3px rgba(0,0,0,0.75);
 }
+
+#datas_modal input[type="date"]{
+    background-color: #85b7e9;
+    padding: 15px;
+    font-family: "Roboto Mono",monospace;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+#datas_modal ::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#reserva-pessoas input[type="number"]{
+    background-color: #ffffff;
+    padding: 5px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    width: 50%;
+}
+
+.btn-pessoas{
+    width: 70%;
+    padding: 10px;
+    background-color: #85b7e9;
+    color: white;
+    border: none;
+    margin: auto;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-pessoas:hover{
+    background-color: #1855fd;
+    border-radius: 30px;
+}
+  
 /* ########################### FIM DETALHES ############################## */
 
 

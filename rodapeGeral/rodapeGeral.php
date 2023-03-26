@@ -117,7 +117,7 @@
 </section>
 
     
-<div class="dropdown">
+<div class="dropdownn">
     <button class="redes">
         <i class="fa-solid fa-mobile-screen"></i>
      </button>
