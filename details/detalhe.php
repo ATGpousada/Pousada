@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
-<main class="container-fluid">
+<main>
 
     <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
 
@@ -15,10 +15,17 @@
             <img src="../images/login.jpg" class="imagem-grande">
         </span>
 
+        <div id="esconder_imgs" class="sub-imgs">
+            <img src="../images/login.jpg" class="imagem-pequena">
+            <img src="../images/Pagamento/Itau.png" class="imagem-pequena">
+            <img src="../images/Pagamento/Mercado-Pago.png" class="imagem-pequena">
+            <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" class="imagem-pequena">
+        </div>
+
         <div class="text-detail">
 
             <p id="titulo" class="text-center">
-                QUARTO Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Quarto lorem ipsum dolor, sit amet consectetur adipisicing elit.
             </p>
 
             <p class="preco" style="cursor: default;">
@@ -31,7 +38,7 @@
         </div>
     </div>
 
-    <div class="sub-imgs">
+    <div id="sub-normal" class="sub-imgs">
         <img src="../images/login.jpg" class="imagem-pequena">
         <img src="../images/Pagamento/Itau.png" class="imagem-pequena">
         <img src="../images/Pagamento/Mercado-Pago.png" class="imagem-pequena">
