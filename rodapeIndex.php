@@ -117,14 +117,14 @@
 </section>
 
     
-<div class="dropdown">
+<div class="dropdownn">
     <button class="redes">
         <i class="fa-solid fa-mobile-screen"></i>
      </button>
     <div class="drop_link">
+        <a href="#"><img src="images/instagram.svg" alt="" style="width: 70px;"></a>
         <a href="#"><i class="fa-brands fa-square-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
-        <a href="#"><i class="fa-brands fa-square-instagram img_redes" style="font-size: 70px; color: purple;"></i></a>
-        <a href="#"><i class="fa-brands fa-square-whatsapp img_redes" style="font-size: 70px; color: green;"></i></a>
+        <a href="#"><img src="images/whatsapp.svg" alt="" style="width: 70px;"></i></a>
     </div>
 </div>
 

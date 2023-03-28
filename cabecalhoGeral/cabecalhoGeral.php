@@ -16,7 +16,7 @@
                             <i class="text-decoration-none text-dark bi bi-briefcase-fill fs-2"></i></i>
                         </a>
 
-                        <a href="" class="">
+                        <a href="../client/index.php" class="">
                             <i class="text-decoration-none text-dark bi bi-person-fill fs-2"></i>
                         </a>
                     </li>

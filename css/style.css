@@ -429,6 +429,41 @@ body {
 
 /* ########################### FIM FOOTER ############################## */
 
+/* ########################   COMEÇO SCROLL   ############################ */
+
+.quadradinhodasetinha{
+    position: fixed;
+    background-color: #2aaefa;
+    color: azure;
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    top: 90%;
+    left: 95%;
+    align-items: center;
+    transition: 0.2s ease-in;
+    z-index: 999;
+ 
+ }
+ .quadradinhodasetinha:hover{
+    position: fixed;
+    background-color: #1b7cfa;
+    color: azure;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    top: 90%;
+    left: 95%;
+    align-items: center;
+    transition: 0.2s ease-in;
+    z-index: 999;
+ 
+ }
+/* ###########################  FIM SCROLL    ############################ */
 
 
 /* ########################### COMEÇO INDEX ############################## */
@@ -448,7 +483,7 @@ body {
 }
 
 #img_principal img{
-    width: 80%;
+    width: 90%;
     border-radius: 20px;
 }
 
@@ -466,9 +501,13 @@ body {
 }
 
 .linha_del{
-    height: 475px;
     border: 1px solid black;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.desc_del{
+    width: 90%;
+    margin: 0 auto;
 }
 
 #titulo{
@@ -494,6 +533,11 @@ body {
     font-size: 20px;
     font-family: 'Impact, fantasy';
 }
+
+#esconder_imgs{
+    display: none;
+}
+
 .sub-imgs{
     display: flex;
     justify-content: center;
@@ -505,14 +549,13 @@ body {
     height: 100px;
     cursor: pointer;
     margin: 15px 10px;
-    border: 3px solid black;
+    border: 1px solid rgb(0, 173, 253);
     border-radius: 20px;
 }
 
 .imagem-grande{
-    width: 500px;
-    height: 500px;
-    box-shadow: 2px -2px 22px 3px rgba(0,0,0,0.75);
+    width: 50%;
+    box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
 #datas_modal input[type="date"]{
@@ -603,6 +646,64 @@ body {
     }
     /*Fim footer*/
 
+    /* Começo Detalhes */
+    @media screen and (max-width: 1300px){
+        #titulo{
+            font-size: 25px;
+        }    
+    }
+
+    @media screen and (max-width: 1200px){
+        .imagem-pequena{
+            width: 18%;
+            height: 80px;
+        }
+    }
+
+    @media screen and (max-width: 900px){
+        #geral_del{
+            display: inline;
+        }
+
+        #img_principal{
+            margin: 35px auto;
+        }
+
+        .imagem-grande{
+            width: 150% !important;
+        }
+
+        #reservar{
+            margin: 50px 0;
+        }
+
+        .text-detail{
+            width: 70%;
+        }
+
+        #esconder_imgs{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .imagem-pequena{
+            width: 100px;
+            height: 100px;
+        }
+
+        #sub-normal{
+            display: none;
+        }
+
+        .text-detail{
+            margin: 0 auto;
+        }
+
+
+    }
+    /* Fim Detalhes */
 
     /*Começo login*/
     @media (width >=500px){
