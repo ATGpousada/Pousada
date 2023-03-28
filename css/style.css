@@ -465,9 +465,13 @@ body {
 }
 
 .linha_del{
-    height: 475px;
     border: 1px solid black;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.desc_del{
+    width: 90%;
+    margin: 0 auto;
 }
 
 #titulo{
@@ -504,7 +508,7 @@ body {
     height: 100px;
     cursor: pointer;
     margin: 15px 10px;
-    border: 3px solid black;
+    border: 1px solid rgb(0, 173, 253);
     border-radius: 20px;
 }
 

@@ -15,8 +15,6 @@
             <img src="../images/login.jpg" class="imagem-grande">
         </span>
 
-        <hr class="linha_del">
-
         <div class="text-detail">
 
             <p id="titulo" class="text-center">
@@ -40,6 +38,12 @@
         <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" class="imagem-pequena">
     </div>
 
+    <hr class="linha_del">
+
+    <div class="desc_del">
+        <h4 class="text-center">Detalhes do Quarto</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam fugiat exercitationem omnis veniam incidunt cum, voluptatibus, quo dolore, quidem ipsa laborum quis quia pariatur consequatur neque doloremque quam at?</p>
+    </div>
 </main> 
 
 <!-- Modal -->
