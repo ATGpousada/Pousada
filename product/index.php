@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt_BR" id="subir">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,21 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
+
+        <!-- Início do Scroll -->
+        <a href ="#subir">
+        <span class ="quadradinhodasetinha">
+            <i class="bi bi-arrow-up"></i>
+        </span >
+    </a>
+
+    <script>
+    window.scroll({
+    top:0,
+    behavior:'smooth'
+    })
+    </script>
+    <!-- Fim do Scroll -->
 
     <!-- Início Menu Público -->
     <?php 
