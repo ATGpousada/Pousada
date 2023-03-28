@@ -32,11 +32,23 @@
     ?>
     <!-- Fim Menu Público -->
 
-    <!-- Início Exposição Pousada -->
+    <!-- Início Descrição Pousada -->
     <?php 
-    include "exposicaoPousada.php";
+    include "descricaoPousada.php";
     ?>
-    <!-- Fim Exposição Pousada -->
+    <!-- Fim Descrição Pousada -->
+
+    <!-- Início banner, v.m.v da Pousada -->
+    <?php 
+    include "visaomissaovalores.php";
+    ?>
+    <!-- Fim banner, v.m.v da Pousada -->
+
+    <!-- Início do sobre a Equipe -->
+    <?php 
+    include "sobreEquipe.php";
+    ?>
+    <!-- Fim do sobre a Equipe -->
 
     <!-- Início Rodapé Público -->
     <?php 
