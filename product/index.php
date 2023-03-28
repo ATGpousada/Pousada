@@ -50,11 +50,6 @@
     ?>
     <p>&nbsp;</p>
     <!-- Fim Produto Exposição -->
-    <!-- Início Exposição Produto -->
-    <?php 
-    include "exposicaoPousada.php";
-    ?>
-    <!-- Fim Exposição Produto -->
     </main>
     <!-- Fim Container -->
     <!-- Início Rodapé Público -->
