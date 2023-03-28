@@ -428,6 +428,41 @@ body {
 
 /* ########################### FIM FOOTER ############################## */
 
+/* ########################   COMEÇO SCROLL   ############################ */
+
+.quadradinhodasetinha{
+    position: fixed;
+    background-color: #2aaefa;
+    color: azure;
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    top: 90%;
+    left: 95%;
+    align-items: center;
+    transition: 0.2s ease-in;
+    z-index: 999;
+ 
+ }
+ .quadradinhodasetinha:hover{
+    position: fixed;
+    background-color: #1b7cfa;
+    color: azure;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    top: 90%;
+    left: 95%;
+    align-items: center;
+    transition: 0.2s ease-in;
+    z-index: 999;
+ 
+ }
+/* ###########################  FIM SCROLL    ############################ */
 
 
 /* ########################### COMEÇO INDEX ############################## */

@@ -1,12 +1,19 @@
 <?php ?>
 
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt_BR" id="subir">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
+
+<a href ="#subir">
+    <span class ="quadradinhodasetinha">
+    <i class="bi bi-arrow-up"></i>
+</span >
+</a>
+
 <main>
 
     <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
@@ -148,6 +155,15 @@
           imagemGrande.setAttribute('src', novaSrc);
         });
       });
+</script>
+
+<!-- Scroll -->
+<script>
+window.scroll({
+top:0,
+behavior:'smooth'
+})
+
 </script>
 
 </body>
