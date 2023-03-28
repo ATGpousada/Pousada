@@ -32,6 +32,12 @@
     ?>
     <!-- Fim Menu Público -->
 
+    <!-- Início Exposição Pousada -->
+    <?php 
+    include "exposicaoPousada.php";
+    ?>
+    <!-- Fim Exposição Pousada -->
+
     <!-- Início Rodapé Público -->
     <?php 
     include "../rodapeGeral/rodapeGeral.php";
