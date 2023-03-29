@@ -48,6 +48,8 @@
                 <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
             </div>
 
+            <a href="recuperaLogin.php" class="me-auto text-decoration-none ancora-login">Esqueceu sua senha?</a>
+
             <button type="submit">Entrar</button>
         </form>
         
@@ -55,7 +57,7 @@
         <footer id="footer-login">
             Não tem uma conta? 
         
-            <a href="cadastro.php">Cadastra-se</a>
+            <a href="cadastro.php" class="ancora-login">Cadastra-se</a>
         </footer>
     </div>
 </body>

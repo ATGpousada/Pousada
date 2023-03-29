@@ -263,13 +263,13 @@ body {
     color: var(--cor-grafite);
 }
 
-.card-login > #footer-login > a {
+.ancora-login {
     color: var(--cor-azul-escuro);
     transition: all 0.375s;
     text-decoration: none;
 }
 
-.card-login > #footer-login > a:hover {
+.ancora-login:hover {
     color: var(--cor-azul);
 }
 /* Fim card login */
