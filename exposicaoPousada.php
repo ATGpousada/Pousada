@@ -6,11 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>    
-    <div class="container d-flex justify-content-center align-items-center mt-5 mb-5 gap-5">
-        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Wi-Fi grátis</h5>
+<body>
+    <div class="bg-primary" style="height:80px">
+
+    </div>
+
+    <div class="container d-flex justify-content-center align-items-center flex-wrap mt-5 mb-5 gap-5">
+        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem; height: 290px">
+            <div class="card-body d-flex flex-column justify-content-center gap-4">
+                <h5 class="card-title mb-3">Wi-Fi grátis para você aproveitar</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-wifi bg-body-secondary p-2 rounded-5"></i></p>
                 
@@ -18,9 +22,9 @@
             </div>
         </div>
 
-        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Ambiente com garagem</h5>
+        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem; height: 290px">
+            <div class="card-body d-flex flex-column justify-content-center gap-4">
+                <h5 class="card-title mb-3">Ambiente com garagem para o seu carro</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-car-front-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
@@ -28,9 +32,9 @@
             </div>
         </div>
 
-        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Ótima localização para você</h5>
+        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem; height: 290px">
+            <div class="card-body d-flex flex-column justify-content-center gap-4">
+                <h5 class="card-title mb-3">Ótima localização para você passear</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-geo-alt-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
@@ -39,13 +43,13 @@
         </div>  
 
 
-        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Café da manhã incluso</h5>
+        <div class="card text-center mb-3 p-3 shadow" style="width: 18rem; height: 290px">
+            <div class="card-body d-flex flex-column justify-content-center gap-4">
+                <h5 class="card-title mb-3">Café da manhã perefito para começar o dia</h5>
                 
                 <p class="card-text fs-1"><i class="bi bi-cup-hot-fill bg-body-secondary  p-2 rounded-5"></i></p>
                 
-                <a href="#" class="btn btn-primary w-100">Conheça nossas suítes</a>
+                <a href="#" class="btn btn-primary w-100">Venha curtir!</a>
             </div>
         </div>
     </div>
@@ -55,7 +59,7 @@
     </div>
 
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-5 d-flex justify-content-center">
+        <div class="row row-cols-1 row-cols-md-3 d-flex justify-content-center">
             <div class="col">
                 <div class="card">
                     <img src="images/login.jpg" class="card-img-top" alt="...">
