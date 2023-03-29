@@ -29,6 +29,8 @@ document.addEventListener('scroll', function () {
 // ---------------------------- Fim header ----------------------------
 
 
+
+
 // ---------------------------- Começo contact ----------------------------
 /* Começo adicionando padding no reponsivo (entre localização e formulario) */
 const separadorArea = document.getElementById('separador-responsive')
@@ -45,6 +47,26 @@ function contactResponsivo() {
 }
 /* Fim adicionando padding no reponsivo (entre localização e formulario) */
 // ---------------------------- Fim contact ----------------------------
+
+
+
+
+// ---------------------------- Começo login ----------------------------
+
+$(function() {
+    $('.form-input-item').focusin(function() {
+        $(this).siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
+    });
+
+    $('.form-input-item').focusout(function() {
+        if ($(this).val() == "") {
+            $(this).siblings("label").css({top:"15px", left:"20px", "font-size":"16px"});
+        }
+    });
+});
+// ---------------------------- Fim login ----------------------------
+
+
 
 
 // ---------------------------- Começo geral ----------------------------
@@ -78,7 +100,4 @@ window.onresize = function() {
 /* Começo header e contact mesmo evento */
 window.addEventListener("beforeunload", headerReponsivo(), contactResponsivo());
 /* Fim header e contact mesmo evento */
-
-
 // ---------------------------- Fim geral ----------------------------
-

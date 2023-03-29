@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- Icons do FontAwansome -->
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
+    <!-- Logo no title -->
+    <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Document</title>
 </head>
 <body>
