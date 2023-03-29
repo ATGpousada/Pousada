@@ -10,16 +10,21 @@
     src: url(../font/creato_display/CreatoDisplay-Regular.otf);
 }
 
+/* INÍCIO FONTE DO MENU */
+@font-face {
+    font-family: 'menu';
+    src: local(menu),url();
+}
+/* FIM FONTE DO MENU */
 
-  /* ini: Preloader */
-
+/* ini: Preloader */
   #preloader {
     position:fixed;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    background-color:#F8F9FA; /* cor do background que vai ocupar o body */
+    background-color: var(--cor-backgroud); /* cor do background que vai ocupar o body */
     z-index:9999; /* z-index para jogar para frente e sobrepor tudo */
 }
 #preloader .inner {
@@ -28,17 +33,12 @@
     left: 50%;
     transform: translate(-50%, -50%);  
 }
-
 /* end: Preloader */
 
-/* INÍCIO FONTE DO MENU */
-@font-face {
-    font-family: 'menu';
-    src: local(menu),url();
-}
-/* FIM FONTE DO MENU */
+
 
 :root {
+    --cor-backgroud: #f8f9fa;
     --cor-branca: #fff;
     --cor-cinza: #f5f5f5;
     --cor-cinza-escuro: #a0a0a0;
@@ -225,7 +225,7 @@ body {
     font-family: inherit;
     font-size: 16px;
     padding: 28px 24px 10px 24px;
-    color: #11274c;
+    color: var(--cor-preto);
     transition: all 0.375s;
 }
 
