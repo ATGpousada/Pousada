@@ -1,5 +1,3 @@
-<?php ?>
-
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
@@ -41,17 +39,17 @@
             <div class="col-md-6">
                 <h2 class="text-center mb-4">Fale conosco</h2>
 
-                <form action="" method="post">
+                <form action="contatoEnvia.php" method="post">
                     <!-- Nome input -->
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="basic-addon1">Nome:</span>
                         
-                        <input type="text" class="form-control" placeholder="Digite seu nome" aria-label="nome" aria-describedby="basic-addon1">
+                        <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" aria-label="nome" aria-describedby="basic-addon1">
                     </div>
 
                     <!-- Email input  -->
                     <div class="input-group mb-4">
-                        <input type="text" class="form-control" placeholder="Digite seu email" aria-label="email" aria-describedby="basic-addon2">
+                        <input type="text" name="email" class="form-control" placeholder="Digite seu email" aria-label="email" aria-describedby="basic-addon2">
                         
                         <span class="input-group-text" id="basic-addon2">@exemplo.com</span>
                     </div>
@@ -60,14 +58,14 @@
                     <div class="input-group mb-4">                     
                         <span class="input-group-text">Assunto:</span>
                         
-                        <input type="text" class="form-control" placeholder="Digite o assundo" aria-label="Assunto">
+                        <input type="text" name="assunto" class="form-control" placeholder="Digite o assundo" aria-label="Assunto">
                     </div>
 
                     <!-- Comentário input -->
                     <div class="input-group mb-4">
                         <span class="input-group-text">Comentário:</span>
                     
-                        <textarea class="form-control" aria-label="Comentário" placeholder="Digite seu comentário"></textarea>
+                        <textarea class="form-control" name="comentario" aria-label="Comentário" placeholder="Digite seu comentário"></textarea>
                     </div>
 
                     <!-- Button submit -->
@@ -109,7 +107,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            1ª  
+                            1ª -  
                         </button>
                     </h2>
 
@@ -124,7 +122,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                            2ª
+                            2ª -
                         </button>
                     </h2>
 
@@ -139,7 +137,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                            3º
+                            3º -
                         </button>
                     </h2>
 
