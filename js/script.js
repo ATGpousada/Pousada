@@ -68,6 +68,34 @@ $(function() {
 
 
 
+// ---------------------------- Começo SingUp ----------------------------
+
+function mascara(i) {
+    var v = i.value;
+    if(!/[\d()\-]/.test(v[v.length-1])) { // impede entrar outro caractere que não seja número, parênteses ou hífen
+      i.value = v.substring(0, v.length-1);
+      return;
+    }
+    if(v.length < 2) {
+      i.setAttribute("maxlength", "14");
+    } else {
+      i.setAttribute("maxlength", "15");
+    }
+    if(v.length == 2) {
+      i.value = "(" + i.value + ") ";
+    } else if(v.length == 10) {
+      i.value = i.value + "-";
+    } else if(v.length == 15) {
+      i.value = i.value.substring(0, 15);
+    }
+  }
+  
+  
+
+// ---------------------------- Fim SingUp ----------------------------
+
+
+
 
 // ---------------------------- Começo geral ----------------------------
 window.onresize = function() {

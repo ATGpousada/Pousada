@@ -17,7 +17,7 @@ include 'verificacao.php';
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
-    <title>Document</title>
+    <title>Login - Pousada do Sossego</title>
 </head>
 <body>
     <!-- início do preloader -->
