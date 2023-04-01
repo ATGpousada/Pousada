@@ -40,7 +40,7 @@ if (!empty($chaveRecupera)) {
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-ico">
-    <title>Celke - Atualizar Senha</title>
+    <title>Atualizar Senha - Pousada do Sossego</title>
 </head>
 <body>
     <h1>Atualizar senha</h1>
