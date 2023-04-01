@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+include 'verificacao.php';
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -25,8 +27,7 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
-
-    <?php include 'login.php'; ?>
+    
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>

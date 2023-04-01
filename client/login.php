@@ -1,4 +1,35 @@
-<?php ?>
+<?php 
+include '../connection/connect.php';
+
+if ($_POST) {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = $email LIMIT 1");
+
+    if (!isset($_SESSION)) {
+        $sessaoAntiga = session_name('pousada');
+        session_start();
+        $session_name_new = session_name();
+    }
+
+    if(($loginQuery) AND ($loginQuery->num_rows != 0)){
+        $loginQuery->fetch_assoc();
+
+        if(password_verify($senha, $loginQuery['senha'])){
+            $_SESSION['id'] = $loginQuery['id'];
+            $_SESSION['nome'] = $loginQuery['nome'];
+            $_SESSION['nome_da_sessao'] = session_name();
+            
+            header("Location: index.php");
+        }else{
+            $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: E-mail ou senha inválida!</p>";
+        }
+    }else{
+        $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: E-mail ou senha inválida!</p>";
+    } 
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -35,7 +66,13 @@
         <h2>Entre na sua conta</h2>
         
         <!-- Formulario do login -->
-        <form class="form-login">
+        <form method="post" action="login.php" class="form-login">
+            <?php 
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }
+            ?>
             <!-- E-mail -->
             <div class="form-item">
                 <label for="email">Digite seu E-mail</label>        
@@ -50,7 +87,7 @@
 
             <a href="recuperaLogin.php" class="me-auto text-decoration-none ancora-login">Esqueceu sua senha?</a>
 
-            <button type="submit">Entrar</button>
+            <button id="entrarLogin" name="entrarLogin" type="submit">Entrar</button>
         </form>
         
         <!-- Footer do login -->
