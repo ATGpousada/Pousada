@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Sing Up - Pousada do Sossego</title>
 </head>
-<body id="body-login">
+<body class="body-login">
     <!-- Icone para voltar -->
     <a class="icon-voltar" href="javascript:window.history.go(-1)"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
     

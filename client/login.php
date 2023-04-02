@@ -80,7 +80,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Login - Pousada do Sossego</title>
 </head>
-<body id="body-login">
+<body class="body-login">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">

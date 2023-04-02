@@ -14,52 +14,53 @@
     // Verifica se a chave não está vazia
     if (!empty($chaveRecupera)) {
         // Consulta para ver de qual cliente é a chave 
-        $ConsultaRecuperaQuery = $connect->query("SELECT FROM clientes WHERE RECUPERAR_SENHA = '". $chaveRecupera['chave'] ."' LIMIT 1");
+        $ConsultaRecuperaQuery = $connect->query("SELECT * FROM clientes WHERE RECUPERAR_SENHA = '$chaveRecupera' LIMIT 1");
+
+        // Pega a linha da consulta
+        $rowConsulta = $ConsultaRecuperaQuery->fetch_assoc();
+
+        // Pega o número de linhas da consulta linha da consulta
+        $ConsultaRecuperaQueryNum = $ConsultaRecuperaQuery->num_rows;
 
         // Verificação se há cliente
-        if ($ConsultaRecuperaQuery->num_rows != 0) {
-            // Pega a linha da consulta
-            $rowConsulta = $ConsultaRecuperaQuery->fetch_assoc();
-            
+        if ($ConsultaRecuperaQueryNum != 0) {
             // Verifica se tem valor nos INPUT's
             if ($_POST) {
                 // Pega todos os valores dos INPUT's
-                $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+                $dadosAtualizaInput = filter_input_array(INPUT_POST, 'senha', 'senhaConfirma', FILTER_DEFAULT);
 
                 // Verifica se as senhas são iguais
-                if ($dadosInput['senha'] = $dadosInput['senhaConfirma']) {
-                    // Criptografa a nova senha do usúario
-                    $senhaCliente = password_hash($dadosInput['senha'], PASSWORD_DEFAULT);
-                    
-                    // Zera o campo "RECUPERAR_SENHA" no banco de dados
-                    $recuperarSenha = 'NULL';
-
-                    // Atribui a nova senha do usuário
-                    $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = $senhaCliente, RECUPERAR_SENHA = $recuperarSenha WHERE ID = ". $rowConsulta['id']);
-
-                    // Verifica se foi efetuado com sucesso o comando SQL
-                    if ($connect->query($AtualizaSenhaQuery)) {
-                        // Envia mensagem de sucesso na página LOGIN
-                        $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
-                        
-                        // Encaminha para a página login
-                        header("Location: login.php");
-                    } else {
-                        // Mostra mensagem de erro na tela
-                        echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
-                    }
-
-                    // Caso as senhas não for iguais
-                } else {
+                while ($dadosAtualizaInput['senha'] != $dadosAtualizaInput['senhaConfirma']) {
                     // Mensagem de erro na tela
                     $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+                }
+
+                // Criptografa a nova senha do usúario
+                $senhaCliente = $dadosAtualizaInput['senha'];
+                
+                // Zera o campo "RECUPERAR_SENHA" no banco de dados
+                $recuperarSenha = 'NULL';
+
+                // Atribui a nova senha do usuário
+                $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = '$senhaCliente', RECUPERAR_SENHA = '$recuperarSenha' WHERE ID = ". $rowConsulta['ID']);
+
+                // Verifica se foi efetuado com sucesso o comando SQL
+                if ($connect->query($AtualizaSenhaQuery)) {
+                    // Envia mensagem de sucesso na página LOGIN
+                    $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
+                    
+                    // Encaminha para a página login
+                    header("Location: login.php");
+                } else {
+                    // Mostra mensagem de erro na tela
+                    echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
                 }
             }
             
             // Caso o hash_code seja inválido
         } else {
             // Mensagem de erro na tela
-            $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+            $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, soliciteqqqq novo link para atualizar a senha!</p>";
             
             // Encaminha para recuperaLogin
             header("Location: recuperaLogin.php");
@@ -68,7 +69,7 @@
         // Caso o hash_code seja inválido
     } else {
         // Mensagem de erro na tela
-        $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+        $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicitewwwwww novo link para atualizar a senha!</p>";
         
         // Encaminha para recuperaLogin
         header("Location: recuperaLogin.php");
@@ -92,7 +93,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Atualizar Senha - Pousada do Sossego</title>
 </head>
-<body>
+<body class="body-login">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -126,7 +127,7 @@
         ?>
         
         <!-- Formulario do Atualiza senha -->
-        <form method="post" action="login.php" class="form-login">
+        <form method="post" action="atualizaSenha.php" class="form-login">
             <!-- Nova senha -->
             <div class="form-item">
                 <label for="senha">Digite sua nova senha</label>        
@@ -140,7 +141,7 @@
             </div>
 
             <!-- Link para voltar no login -->
-            <p>Lembrou a senha? <a href="index.php" class="me-auto text-decoration-none ancora-login">clique aqui</a></p>
+            <p>Lembrou a senha? <a href="login.php" class="me-auto text-decoration-none ancora-login">clique aqui</a></p>
 
             <!-- Botão para enviar os valores do formulário -->
             <button id="enviarAtualizaSenha" name="enviarAtualizaSenha" type="submit">Enviar</button>

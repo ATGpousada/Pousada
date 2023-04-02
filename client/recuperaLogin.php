@@ -33,7 +33,7 @@
             $chaveRecuperarSenha = password_hash($rowRecuperaSenha['ID'], PASSWORD_DEFAULT);
 
             // Coloca essa chave no banco
-            $ChaveAtualizaQuery = "UPDATE clientes SET RECUPERAR_SENHA = $chaveRecuperarSenha WHERE ID = ". $rowRecuperaSenha['ID'] ." LIMIT 1";
+            $ChaveAtualizaQuery = "UPDATE clientes SET RECUPERAR_SENHA = '$chaveRecuperarSenha' WHERE ID = ". $rowRecuperaSenha['ID'];
 
             // Verifica se o comando SQL foi executado
             if ($connect->query($ChaveAtualizaQuery)) {
@@ -68,7 +68,7 @@
                     // Caso o envio não seja efetuado 
                 } catch (Exception $e) {
                     // Mensagem na tela mostrando o erro
-                    $_SESSION['msg_email'] = "Erro: E-mail não enviado sucesso. Mailer Error: {$mail->ErrorInfo}";
+                    $_SESSION['msg_email'] = "<p style='color: #ff0000'>Erro: E-mail não enviado. Mailer Error: {$mail->ErrorInfo}</p>";
                 }
                 
                 // Se a consulta não foi feita
@@ -102,7 +102,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Recuperar Senha - Pousada do Sossego</title>
 </head>
-<body id="body-login">
+<body class="body-login">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
