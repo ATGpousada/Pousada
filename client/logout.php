@@ -1,7 +1,14 @@
 <?php 
-session_name('pousada');
-session_start();
-session_destroy();
-header('location: ../index.php');
-exit;
+    // Nome da sessão
+    session_name('pousada');
+    
+    // Inicia uma sessão
+    session_start();
+
+    // Destrói a sessão
+    session_destroy();
+
+    // Encaminha para a página index
+    header('location: ../index.php');
+    exit;
 ?>
