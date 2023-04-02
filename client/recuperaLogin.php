@@ -126,22 +126,23 @@
         <!-- Titulo nivel dois no Recuperar Senha -->
         <h2>Recuperar Senha</h2>
 
-        <!-- Mensagens de erro -->
-        <?php
-            if (isset($_SESSION['msg_rec'])) {
-                echo $_SESSION['msg_rec'];
-                unset($_SESSION['msg_rec']);
-            } elseif (isset($_SESSION['msg_email'])) {
-                echo $_SESSION['msg_email'];
-                unset($_SESSION['msg_email']);
-            } elseif(isset($_SESSION['msg'])){
-                echo $_SESSION['msg'];
-                unset($_SESSION['msg']);
-            }
-        ?>
-
         <!-- Formulário -->
         <form method="post" action="recuperaLogin.php" class="form-login">
+
+            <!-- Mensagens de erro -->
+            <?php
+                if (isset($_SESSION['msg_rec'])) {
+                    echo $_SESSION['msg_rec'];
+                    unset($_SESSION['msg_rec']);
+                } elseif (isset($_SESSION['msg_email'])) {
+                    echo $_SESSION['msg_email'];
+                    unset($_SESSION['msg_email']);
+                } elseif(isset($_SESSION['msg'])){
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+            ?>
+            
             <!-- E-mail -->
             <div class="form-item">
                 <label for="email">Digite seu E-mail</label>        

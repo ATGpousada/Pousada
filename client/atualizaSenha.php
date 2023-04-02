@@ -8,8 +8,11 @@
     // Conexão com o banco de dados
     include '../connection/connect.php';
 
+    // Armazena o valor de $_GET em uma variável de sessão
+    $_SESSION['chaveRecuperar'] = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
+
     // Pega a chave da URL que foi enviado por e-mail
-    $chaveRecupera = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
+    $chaveRecupera = $_SESSION['chaveRecuperar'];
     
     // Verifica se a chave não está vazia
     if (!empty($chaveRecupera)) {
@@ -27,7 +30,7 @@
             // Verifica se tem valor nos INPUT's
             if ($_POST) {
                 // Pega todos os valores dos INPUT's
-                $dadosAtualizaInput = filter_input_array(INPUT_POST, 'senha', 'senhaConfirma', FILTER_DEFAULT);
+                $dadosAtualizaInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
                 // Verifica se as senhas são iguais
                 while ($dadosAtualizaInput['senha'] != $dadosAtualizaInput['senhaConfirma']) {
@@ -117,17 +120,18 @@
         
         <!-- Titulo nivel dois no Atualiza senha -->
         <h2>Atualizar senha</h2>
-
-        <!-- Mensagem na tela -->
-       <?php 
-            if(isset($_SESSION['msg_atu'])){
-                echo $_SESSION['msg_atu'];
-                unset($_SESSION['msg_atu']);
-            }
-        ?>
         
         <!-- Formulario do Atualiza senha -->
-        <form method="post" action="atualizaSenha.php" class="form-login">
+        <form method="post" action="atualizaSenha.php?chave=<?php echo $chaveRecupera ?>" class="form-login">
+            
+            <!-- Mensagem na tela -->
+            <?php 
+                if(isset($_SESSION['msg_atu'])){
+                    echo $_SESSION['msg_atu'];
+                    unset($_SESSION['msg_atu']);
+                }
+            ?>
+
             <!-- Nova senha -->
             <div class="form-item">
                 <label for="senha">Digite sua nova senha</label>        

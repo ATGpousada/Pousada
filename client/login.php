@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    session_destroy();
     // Conexão com o banco 
     include '../connection/connect.php';
 
@@ -24,6 +26,15 @@
             // Nome da sessão antiga
             $sessaoAntiga = session_name('pousada');
             
+            //Inicia uma nova sessão
+            session_start();
+
+            // Nova sessão
+            $session_name_new = session_name();
+        } else {
+            // Nome da sessão antiga
+            $sessaoAntiga = session_name('pousada');
+
             //Inicia uma nova sessão
             session_start();
 
