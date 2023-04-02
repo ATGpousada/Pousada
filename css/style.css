@@ -92,7 +92,7 @@ body {
 
 /* ########################### COMEÇO LOGIN ############################ */
 /* Body login */
-#body-login {
+.body-login {
     height: 100%;
     display: grid;
     place-items: center;
@@ -738,7 +738,7 @@ body {
 
     /*Começo login*/
     @media (width >=500px){
-        #body-login{
+        .body-login{
             padding: 0;
         }
         .card-login{

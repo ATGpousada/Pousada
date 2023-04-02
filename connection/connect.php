@@ -16,5 +16,5 @@ try {
 }
 
 
-// http://localhost/tiphpnt/conn/connect.php
+// http://localhost/Pousada/connection/connect.php
 ?>

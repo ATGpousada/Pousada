@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+// Verificação se tem usuário logado 
+include 'verificacao.php';
+
+// Conexão com o banco
+include '../connection/connect.php';
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -25,11 +31,12 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
-
-    <?php include 'login.php'; ?>
+    
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>
+<!-- Jquery -->
+<script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <!-- Nosso script -->
