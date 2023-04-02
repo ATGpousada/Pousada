@@ -1,9 +1,6 @@
 <?php
     // Iniciando uma sessão
     session_start();
-    
-    // Ativando o buffer de saída
-    ob_start();
 
     // Conexão com o banco de dados
     include '../connection/connect.php';
@@ -33,37 +30,41 @@
                 $dadosAtualizaInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
                 // Verifica se as senhas são iguais
-                while ($dadosAtualizaInput['senha'] != $dadosAtualizaInput['senhaConfirma']) {
+                if ($dadosAtualizaInput['senha'] == $dadosAtualizaInput['senhaConfirma']) {
+                    // Recebe a nova senha do usúario
+                    $senhaCliente = $dadosAtualizaInput['senha'];
+                    
+                    // Zera o campo "RECUPERAR_SENHA" no banco de dados
+                    $recuperarSenha = 'NULL';
+
+                    // Atribui a nova senha do usuário
+                    $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = '$senhaCliente', RECUPERAR_SENHA = '$recuperarSenha' WHERE ID = ". $rowConsulta['ID']);
+
+                    // Verifica se foi efetuado com sucesso o comando SQL
+                    if ($connect->query($AtualizaSenhaQuery)) {
+                        // Envia mensagem de sucesso na página LOGIN
+                        $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
+                        
+                        // Encaminha para a página login
+                        header("Location: login.php");
+
+                        // Caso a atualização no banco dar errado 
+                    } else {
+                        // Mostra mensagem de erro na tela
+                        echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
+                    }
+                    
+                    // Caso as senhas não sejam iguais
+                } else {
                     // Mensagem de erro na tela
                     $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
-                }
-
-                // Criptografa a nova senha do usúario
-                $senhaCliente = $dadosAtualizaInput['senha'];
-                
-                // Zera o campo "RECUPERAR_SENHA" no banco de dados
-                $recuperarSenha = 'NULL';
-
-                // Atribui a nova senha do usuário
-                $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = '$senhaCliente', RECUPERAR_SENHA = '$recuperarSenha' WHERE ID = ". $rowConsulta['ID']);
-
-                // Verifica se foi efetuado com sucesso o comando SQL
-                if ($connect->query($AtualizaSenhaQuery)) {
-                    // Envia mensagem de sucesso na página LOGIN
-                    $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
-                    
-                    // Encaminha para a página login
-                    header("Location: login.php");
-                } else {
-                    // Mostra mensagem de erro na tela
-                    echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
                 }
             }
             
             // Caso o hash_code seja inválido
         } else {
             // Mensagem de erro na tela
-            $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, soliciteqqqq novo link para atualizar a senha!</p>";
+            $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
             
             // Encaminha para recuperaLogin
             header("Location: recuperaLogin.php");
@@ -72,7 +73,7 @@
         // Caso o hash_code seja inválido
     } else {
         // Mensagem de erro na tela
-        $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicitewwwwww novo link para atualizar a senha!</p>";
+        $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
         
         // Encaminha para recuperaLogin
         header("Location: recuperaLogin.php");

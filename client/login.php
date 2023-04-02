@@ -1,6 +1,7 @@
 <?php
+    // Inicia uma sessão
     session_start();
-    session_destroy();
+    
     // Conexão com o banco 
     include '../connection/connect.php';
 
@@ -22,19 +23,13 @@
         $loginQueryNum = $loginQuery->num_rows;
         
         // Verifica se há uma sessão aberta
-        if (!isset($_SESSION)) {
+        if (isset($_SESSION)) {
+            // Destrói sessão atual
+            session_destroy();
+
             // Nome da sessão antiga
             $sessaoAntiga = session_name('pousada');
             
-            //Inicia uma nova sessão
-            session_start();
-
-            // Nova sessão
-            $session_name_new = session_name();
-        } else {
-            // Nome da sessão antiga
-            $sessaoAntiga = session_name('pousada');
-
             //Inicia uma nova sessão
             session_start();
 
