@@ -12,11 +12,17 @@
 
         // Consulta para ver se há usuário cadastrado com o email especificado
         $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email' LIMIT 1");
-
+        
+        // Recupera dados da linha
+        $loginQueryRow = $loginQuery->fetch_assoc();
+        
+        // Recupera a quantidade de linhas
+        $loginQueryNum = $loginQuery->num_rows;
+        
         // Verifica se há uma sessão aberta
         if (!isset($_SESSION)) {
             // Nome da sessão antiga
-            $sessaoAntiga = session_name('nome_da_sessao');
+            $sessaoAntiga = session_name('pousada');
             
             //Inicia uma nova sessão
             session_start();
@@ -26,20 +32,19 @@
         }
 
         // Verifica se teve retorno de cliente
-        if(($loginQuery) AND ($loginQuery->num_rows != 0)){
+        if($loginQueryNum != 0) {
             // Pega a linha do retorno
-            $loginQuery->fetch_assoc();
 
             // Verifica se a senha está correta
-            if(password_verify($senha, $loginQuery['senha'])){
+            if($senha == $loginQueryRow['SENHA']) {
                 // Atribui o ID a sessão
-                $_SESSION['id'] = $loginQuery['id'];
+                $_SESSION['email'] = $loginQueryRow['EMAIL'];
 
                 // Atribui o nome a sessão
-                $_SESSION['nome'] = $loginQuery['nome'];
+                $_SESSION['nome'] = $loginQueryRow['NOME'];
 
                 // Inicia o nome da sessão
-                $_SESSION['pousada'] = session_name();
+                $_SESSION['nome_da_sessao'] = session_name();
                 
                 // Encaminha ele a aréa do cliente
                 header("Location: index.php");

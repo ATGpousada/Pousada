@@ -53,7 +53,7 @@
                     $mail->Password = 'pousada_do_sossego_HJMMPV';              // SMTP senha
 
                     $mail->setFrom('pousada_do_sossego@outlook.com', 'Atendimento');
-                    $mail->addAddress($rowRecuperaSenha['usuario'], $rowRecuperaSenha['nome']);
+                    $mail->addAddress($rowRecuperaSenha['EMAIL'], $rowRecuperaSenha['NOME']);
 
                     $mail->isHTML(true);                                 
                     $mail->Subject = 'Recuperar senha';
