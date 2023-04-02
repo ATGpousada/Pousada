@@ -51,7 +51,7 @@
 
             <!-- Telefone -->
             <div class="form-item">
-                <label for="email">Informe seu Telefone</label>        
+                <label for="telefone">Informe seu Telefone</label>        
                 <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
             </div>
 
@@ -63,11 +63,9 @@
 
             <!-- ConfirSenha -->
             <div class="form-item">
-                <label for="senha">Confirme sua senha</label>
+                <label for="confSenha">Confirme sua senha</label>
                 <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
             </div>
-
-            <a href="recuperaLogin.php" class="me-auto text-decoration-none ancora-login">Esqueceu sua senha?</a>
 
             <button type="submit">Entrar</button>
         </form>
