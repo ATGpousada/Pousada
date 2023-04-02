@@ -27,7 +27,7 @@
         $recuperaSenhaQuery = $connect->query("SELECT * FROM clientes WHERE email = '". $dadosInput['email'] ."' AND cpf = '". $dadosInput['cpf'] ."' LIMIT 1");
 
         // Verificação se há cliente
-        if (($recuperaSenhaQuery) AND ($recuperaSenhaQuery->num_rows != 0)) {
+        if ($recuperaSenhaQuery->num_rows != 0) {
             // Pega o id para gerar um hash_code ou chave de recuperação da senha
             $rowRecuperaSenha = $recuperaSenhaQuery->fetch_assoc();
             $chaveRecuperarSenha = password_hash($rowRecuperaSenha['ID'], PASSWORD_DEFAULT);
@@ -57,13 +57,13 @@
 
                     $mail->isHTML(true);                                 
                     $mail->Subject = 'Recuperar senha';
-                    $mail->Body    = 'Prezado(a) ' . $rowRecuperaSenha['nome'] .".<br><br>Você solicitou alteração de senha.<br><br>Para continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: <br><br><a href='" . $link . "'>" . $link . "</a><br><br>Se você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.<br><br>";
-                    $mail->AltBody = 'Prezado(a) ' . $rowRecuperaSenha['nome'] ."\n\nVocê solicitou alteração de senha.\n\nPara continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: \n\n" . $link . "\n\nSe você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.\n\n";
+                    $mail->Body    = 'Prezado(a) ' . $rowRecuperaSenha['NOME'] .".<br><br>Você solicitou alteração de senha.<br><br>Para continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: <br><br><a href='" . $link . "'>" . $link . "</a><br><br>Se você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.<br><br>";
+                    $mail->AltBody = 'Prezado(a) ' . $rowRecuperaSenha['NOME'] ."\n\nVocê solicitou alteração de senha.\n\nPara continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: \n\n" . $link . "\n\nSe você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.\n\n";
 
                     $mail->send();
 
                     $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
-                    header("Location: index.php");
+                    header("Location: login.php");
 
                     // Caso o envio não seja efetuado 
                 } catch (Exception $e) {

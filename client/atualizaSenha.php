@@ -17,7 +17,7 @@
         $ConsultaRecuperaQuery = $connect->query("SELECT FROM clientes WHERE RECUPERAR_SENHA = '". $chaveRecupera['chave'] ."' LIMIT 1");
 
         // Verificação se há cliente
-        if (($ConsultaRecuperaQuery) AND ($ConsultaRecuperaQuery->num_rows != 0)) {
+        if ($ConsultaRecuperaQuery->num_rows != 0) {
             // Pega a linha da consulta
             $rowConsulta = $ConsultaRecuperaQuery->fetch_assoc();
             
@@ -27,7 +27,7 @@
                 $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
                 // Verifica se as senhas são iguais
-                if (password_verify($dadosInput['senha'], $dadosInput['senhaConfirma'])) {
+                if ($dadosInput['senha'] = $dadosInput['senhaConfirma']) {
                     // Criptografa a nova senha do usúario
                     $senhaCliente = password_hash($dadosInput['senha'], PASSWORD_DEFAULT);
                     
@@ -43,7 +43,7 @@
                         $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
                         
                         // Encaminha para a página login
-                        header("Location: index.php");
+                        header("Location: login.php");
                     } else {
                         // Mostra mensagem de erro na tela
                         echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
