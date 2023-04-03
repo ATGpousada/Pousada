@@ -21,7 +21,7 @@
   <div class="carousel-inner">
   <!-- Início Primeiro Item do Slide -->
     <div class="carousel-item active">
-      <img src="../images/banners/banner1.png" class="d-block w-100" alt="Banner 1">
+      <img src="../images/banners/Cafe.jpg" class="d-block w-100" alt="Banner 1">
       <div class="carousel-caption d-none d-md-block">
         <h3>First slide label</h3>
         <p>Some representative placeholder content for the first slide.</p>
@@ -30,7 +30,7 @@
   <!-- Fim Primeiro Item do Slide -->
   <!-- Início Segundo Item do Slide -->
     <div class="carousel-item">
-      <img src="../images/banners/banner2.png" class="d-block w-100" alt="Banner 2">
+      <img src="../images/banners/Area_de_lazer.jpg" class="d-block w-100" alt="Banner 2">
       <div class="carousel-caption d-none d-md-block">
         <h3>First slide label</h3>
         <p>Some representative placeholder content for the first slide.</p>
@@ -39,7 +39,7 @@
   <!-- Fim Segundo Item do Slide -->
   <!-- Início Terceiro Item do Slide -->
     <div class="carousel-item">
-      <img src="../images/banners/banner3.png" class="d-block w-100" alt="Banner 3">
+      <img src="../images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="Banner 3">
       <div class="carousel-caption d-none d-md-block">
         <h3>First slide label</h3>
         <p>Some representative placeholder content for the first slide.</p>
