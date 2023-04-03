@@ -35,7 +35,7 @@
 
         </div>
         <div style="display: inline-block; width: 50%; margin-left: 30px;">
-            <h1 style="margin-left: 150px;">POUSADA DO SOSSEGO</h1>
+            <h1 style="margin-left: 100px;">POUSADA DO SOSSEGO</h1>
             <br>
             Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
             Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ,
