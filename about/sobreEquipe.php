@@ -8,7 +8,10 @@
 <body>
     <div style="display: flex; margin-top: 25px; margin-bottom: 25px;">
         <div style="display: inline-block; width: 50%; text-align:center;">
-            <p>Nós somos a equipe de desenvolvedores que criamos o site da pousada</p>
+            <h1>SOBRE A EQUIPE</h1>
+            <br>
+            <p>Nós somos a equipe de trabalhadores da pousada do sossego!</p>
+            <p>Estamos sempre buscando te atender da melhor forma possível.</p>
         </div>
         <div style="display: inline-block; width: 50%; text-align:center; ">
             <img src="../images/teste.jpeg" alt="" style="border-radius: 50%">
