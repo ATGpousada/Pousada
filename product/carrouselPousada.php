@@ -23,8 +23,8 @@
     <div class="carousel-item active">
       <img src="../images/banners/Cafe.jpg" class="d-block w-100" alt="Banner 1">
       <div class="carousel-caption d-none d-md-block">
-        <h3>First slide label</h3>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h3>CAFÉ DA MANHÃ</h3>
+        <p>Café da manhã incluso em todos os quartos da pousada.</p>
       </div>
     </div>
   <!-- Fim Primeiro Item do Slide -->
@@ -32,8 +32,8 @@
     <div class="carousel-item">
       <img src="../images/banners/Area_de_lazer.jpg" class="d-block w-100" alt="Banner 2">
       <div class="carousel-caption d-none d-md-block">
-        <h3>First slide label</h3>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h3>ÁREA DE LAZER</h3>
+        <p>Área de lazer mais aconchegante e sossegante que se pode imaginar.</p>
       </div>
     </div>
   <!-- Fim Segundo Item do Slide -->
@@ -41,8 +41,8 @@
     <div class="carousel-item">
       <img src="../images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="Banner 3">
       <div class="carousel-caption d-none d-md-block">
-        <h3>First slide label</h3>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h3>PLAYGROUND INFANTIL</h3>
+        <p>A pousada do sossego fornece diversão para todos.</p>
       </div>
     </div>
   <!-- Fim Terceiro Item do Slide -->
