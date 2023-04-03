@@ -12,11 +12,11 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="../images/banners/Pontos_turisticos.jpg" alt="" style="width: 100%;">
+                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="../images/banners/Praia_de_mangaratiba.jpg" alt="" style="width: 100%;">
+                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
                     </div>
 
                 </div>
