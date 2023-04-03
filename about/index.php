@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Sobre Nós</title>
 </head>
-<body>
+<body class="fundofixo" style="padding-top: 6.5em !important;">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -31,6 +31,9 @@
     include "../cabecalhoGeral/cabecalhoGeral.php";
     ?>
     <!-- Fim Menu Público -->
+
+    <div class="container mb-3 bg-body-tertiary rounded p-4">
+        <div class="row mb-5">
 
     <!-- Início Descrição Pousada -->
     <?php 
@@ -49,7 +52,8 @@
     include "sobreEquipe.php";
     ?>
     <!-- Fim do sobre a Equipe -->
-
+        </div>
+    </div>
     <!-- Início Rodapé Público -->
     <?php 
     include "../rodapeGeral/rodapeGeral.php";

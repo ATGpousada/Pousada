@@ -2,9 +2,6 @@
     // Inicio de uma sessão
     session_start();
 
-    // Ativando o buffer de saída
-    ob_start();
-
     // Conexão com o banco
     include '../connection/connect.php';
 
