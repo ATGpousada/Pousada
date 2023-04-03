@@ -34,10 +34,14 @@
             </div>
 
         </div>
-        <div style="display: inline-block; width: 50%">
-            <h1>SOBRE A POUSADA</h1>
+        <div style="display: inline-block; width: 50%; margin-left: 30px;">
+            <h1 style="margin-left: 150px;">POUSADA DO SOSSEGO</h1>
             <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ea itaque consequuntur! Accusamus aliquid assumenda quas magnam praesentium in sequi numquam sunt ut libero. Ab quaerat itaque eaque reiciendis est!
+            Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
+            Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ,
+            com visuais e belezas naturais estonteantes.
+            <br>
+            Venha conhecer, tenho certeza que nosso local irá te auxiliar a conectar-se com O Sossego!
         </div>
     </div>
 </body>
