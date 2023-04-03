@@ -10,7 +10,7 @@
 <div class="row w100">
             <?php //do{?>
                 <div class="col-sm-5 col-md-4">
-                    <div class="img-thumbnail">
+                    <div class="card">
                         <a href="produto_detalhes.php?id_produto=<?php echo $row_produtos['id_produto']?>">
                             <img src="../images/quartos/quarto1.jpg" class="img-fluid rounded float-start">
                         </a>

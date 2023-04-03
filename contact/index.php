@@ -58,7 +58,7 @@
                     <div class="input-group mb-4">                     
                         <span class="input-group-text">Assunto:</span>
                         
-                        <input type="text" name="assunto" class="form-control" placeholder="Digite o assundo" aria-label="Assunto">
+                        <input type="text" name="assunto" class="form-control" placeholder="Digite o assunto" aria-label="Assunto">
                     </div>
 
                     <!-- Comentário input -->
