@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Produtos</title>
 </head>
-<body class="fundofixo">
+<body class="fundofixo" style="padding-top: 6.5em !important;">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -51,6 +51,8 @@
     include "../cabecalhoGeral/cabecalhoGeral.php"
     ?>
     <!-- Fim Menu Público -->
+    <div class="container mb-3 bg-body-tertiary rounded p-4">
+        <div class="row mb-5">
     <!-- Início Carrossel Produtos-->
     <?php 
     include "carrouselPousada.php";
@@ -66,6 +68,8 @@
     <p>&nbsp;</p>
     <!-- Fim Produto Exposição -->
     </main>
+        </div>
+    </div>
     <!-- Fim Container -->
     <!-- Início Rodapé Público -->
     <?php 
