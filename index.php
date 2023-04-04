@@ -27,21 +27,6 @@
     <!-- https://icons8.com/preloaders/ -->
     <!-- fim do preloader --> 
 
-    <!-- Início do Scroll -->
-    <a href ="#subir">
-        <span class ="quadradinhodasetinha">
-            <i class="bi bi-arrow-up"></i>
-        </span >
-    </a>
-
-    <script>
-    window.scroll({
-    top:0,
-    behavior:'smooth'
-    })
-    </script>
-    <!-- Fim do Scroll -->
-
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     

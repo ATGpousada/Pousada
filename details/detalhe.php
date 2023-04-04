@@ -1,4 +1,19 @@
-<?php ?>
+<?php 
+include '../connection/connect.php';
+$id = $_GET['ID'];
+$lista = $connect->query("select * from quartos where ID = $id;");
+$linha = $lista->fetch_assoc();
+$linhas = $lista->num_rows;
+
+$listaIMG = $connect->query("select * from imagens where quartos_ID = $id;");
+$linhaIMG = $listaIMG->fetch_assoc();
+$linhasIMG = $listaIMG->num_rows;
+
+$listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
+$linhaIMGres = $listaIMGres->fetch_assoc();
+$linhasIMGres = $listaIMGres->num_rows;
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
@@ -19,24 +34,23 @@
     <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
 
         <span id="img_principal">
-            <img src="../images/login.jpg" class="imagem-grande">
+            <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
         </span>
 
         <div id="esconder_imgs" class="sub-imgs">
-            <img src="../images/login.jpg" class="imagem-pequena">
-            <img src="../images/Pagamento/Itau.png" class="imagem-pequena">
-            <img src="../images/Pagamento/Mercado-Pago.png" class="imagem-pequena">
-            <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" class="imagem-pequena">
+        <?php do{?>
+            <img src="<?php echo $linhaIMGres['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
+        <?php }while($linhaIMGres = $listaIMGres->fetch_assoc());?>
         </div>
 
         <div class="text-detail">
 
             <p id="titulo" class="text-center">
-                Quarto lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <?php echo $linha['QUARTO'];?>
             </p>
 
             <p class="preco" style="cursor: default;">
-                R$ 999,99
+                R$&nbsp;<?php echo $linha['PRECO_DIARIA'];?>
             </p>
 
             <button id="reservar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -46,17 +60,16 @@
     </div>
 
     <div id="sub-normal" class="sub-imgs">
-        <img src="../images/login.jpg" class="imagem-pequena">
-        <img src="../images/Pagamento/Itau.png" class="imagem-pequena">
-        <img src="../images/Pagamento/Mercado-Pago.png" class="imagem-pequena">
-        <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" class="imagem-pequena">
+    <?php do{?>
+        <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
+    <?php }while($linhaIMG = $listaIMG->fetch_assoc());?>
     </div>
 
     <hr class="linha_del">
 
     <div class="desc_del">
         <h4 class="text-center">Detalhes do Quarto</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam fugiat exercitationem omnis veniam incidunt cum, voluptatibus, quo dolore, quidem ipsa laborum quis quia pariatur consequatur neque doloremque quam at?</p>
+        <p> <?php echo $linha['DESCRICAO'];?></p>
     </div>
 </main> 
 
@@ -157,14 +170,7 @@
       });
 </script>
 
-<!-- Scroll -->
-<script>
-window.scroll({
-top:0,
-behavior:'smooth'
-})
 
-</script>
 
 </body>
 </html>

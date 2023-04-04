@@ -49,6 +49,12 @@
                 <input type="email" id="email" name="email" class="form-control form-input-item" required>
             </div>
 
+            <!-- Cpf -->
+            <div class="form-item">
+                <label for="cpf">Digite seu CPF</label>        
+                <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
+            </div>
+
             <!-- Telefone -->
             <div class="form-item">
                 <label for="telefone">Informe seu Telefone</label>        
@@ -64,10 +70,10 @@
             <!-- ConfirSenha -->
             <div class="form-item">
                 <label for="confSenha">Confirme sua senha</label>
-                <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
+                <input type="password" id="confSenha" name="confSenha" class="form-control form-input-item" required autocomplete="off">
             </div>
 
-            <button type="submit">Entrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
         
         <!-- Footer do Sing Up -->

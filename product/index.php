@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Produtos</title>
 </head>
-<body class="fundofixo">
+<body class="fundofixo" style="padding-top: 6.5em !important;">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -68,7 +68,7 @@
     <p>&nbsp;</p>
     <!-- Fim Produto Exposição -->
     </main>
-    </div>
+        </div>
     </div>
     <!-- Fim Container -->
     <!-- Início Rodapé Público -->
