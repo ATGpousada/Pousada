@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada do Sossego</title>
 </head>
-<body >
+<body class="fundofixo">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -37,8 +37,11 @@
 
                 
 
-                <!-- Adição do destaque -->
-                
+                <!-- serviços gratuitos -->
+                <?php include 'servicosGratuitos.php'?>
+
+
+                <!-- Adição do destaque -->               
                     <?php include 'destaqueQuartos.php';?>
                     
 
