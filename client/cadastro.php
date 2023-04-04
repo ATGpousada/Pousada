@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Sing Up - Pousada do Sossego</title>
 </head>
-<body>
+<body class="body-login">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -26,8 +26,75 @@
         </div>
     </div>
 
-    <?php include 'singUp.php'; ?>
+    <!-- Icone para voltar -->
+    <a class="icon-voltar" href="javascript:window.history.go(-1)"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
+    
+    <!-- Circulo no fundo(Amarelo e Azul) -->
+    <div class="circulo"></div>
+    
+    <!-- Card Sing Up -->
+    <div class="card-login">
+        <!-- Logo no Sing Up -->
+        <div class="logo">
+            <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
+        </div>
+        
+        <!-- Titulo nivel dois no Sing Up -->
+        <h2>Cadastre-se</h2>
+        
+        <!-- Formulario do Sing Up -->
+        <form class="form-login">
+
+            <!-- Nome -->
+            <div class="form-item">
+                <label for="nome">Digite seu Nome</label>
+                <input type="text" id="nome" name="nome" class="form-control form-input-item" required>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-item">
+                <label for="email">Digite seu E-mail</label>        
+                <input type="email" id="email" name="email" class="form-control form-input-item" required>
+            </div>
+
+            <!-- Cpf -->
+            <div class="form-item">
+                <label for="cpf">Digite seu CPF</label>        
+                <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
+            </div>
+
+            <!-- Telefone -->
+            <div class="form-item">
+                <label for="telefone">Informe seu Telefone</label>        
+                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
+            </div>
+
+            <!-- Senha -->
+            <div class="form-item">
+                <label for="senha">Digite sua senha</label>
+                <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
+            </div>
+
+            <!-- ConfirSenha -->
+            <div class="form-item">
+                <label for="confSenha">Confirme sua senha</label>
+                <input type="password" id="confSenha" name="confSenha" class="form-control form-input-item" required autocomplete="off">
+            </div>
+
+            <button href="client/endereco.php" type="submit">Proximo</button>
+        </form>
+        
+        <!-- Footer do Sing Up -->
+        <footer id="footer-login">
+            Já tem uma conta? 
+        
+            <a href="index.php" class="ancora-login">Entre</a>
+        </footer>
+    </div>
+
 </body>
+<!-- Jquery -->
+<script type="text/javascript" src="../js/jquery.js"></script>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
