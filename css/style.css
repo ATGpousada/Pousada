@@ -516,6 +516,25 @@ body {
 
 /* ########################### FIM INDEX ############################## */
 
+/* ###########################  COMEÇO PRODUTOS ########################## */
+.PARTIÇÃO{
+    display: flex;
+ margin-left: 4px;
+ justify-content:space-around;
+ margin: 3px;
+ padding: 25px;
+}
+.centraliza_q1{
+    display: flex;
+    justify-content:space-around;
+}
+.distribuição{
+    display: inline-block;
+    padding: 40px;
+}
+         
+/* ###########################  FIM PRODUTOS ########################## */
+
 
 
 /* ########################### COMEÇO DETALHES ############################ */
