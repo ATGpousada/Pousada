@@ -32,7 +32,7 @@
                                     <span class="fas fa-bath" style="color: goldenrod; font-size: 23px"></span>
                                     <span class="fa-solid fa-mug-hot" style="color: goldenrod; font-size: 23px"></span>
                                 </span>
-                                <a href="produto_detalhes.php?id_produto=<?php //echo $row_produtos['id_produto'];?>">
+                                <a href="../details/index.php?id_produto=<?php //echo $row_produtos['id_produto'];?>">
                                     <button class="hidden-xs btn btn-primary" type="submit"> <span class="hidden-xs bi bi-eye" aria-hidden="true"></span>Saiba Mais</button>
                                 </a>
                             </div>
