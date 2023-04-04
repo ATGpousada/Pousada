@@ -23,12 +23,6 @@ $linhasIMGres = $listaIMGres->num_rows;
 </head>
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
 
-<a href ="#subir">
-    <span class ="quadradinhodasetinha">
-    <i class="bi bi-arrow-up"></i>
-</span >
-</a>
-
 <main>
 
     <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
