@@ -3,10 +3,6 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema pousada
 -- -----------------------------------------------------
@@ -41,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`clientes` (
   `RG` VARCHAR(9) NOT NULL,
   `SENHA` VARCHAR(10) NOT NULL,
   `EMAIL` VARCHAR(70) NOT NULL,
-  `RECUPERAR_SENHA` VARCHAR(100) NULL DEFAULT NULL,
+  `RECUPERAR_SENHA` VARCHAR(45) NULL DEFAULT NULL,
   `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC),
@@ -185,6 +181,14 @@ CREATE TABLE IF NOT EXISTS `pousada`.`status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- -----------------------------------------------------
+-- Table `pousada`.`tipos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`tipos` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `TIPO` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `pousada`.`quartos`
@@ -198,11 +202,18 @@ CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
   `DESTAQUE` BIT(1) NOT NULL,
   `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
   `status_ID` INT(11) NOT NULL,
+  `tipos_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_quartos_status1_idx` (`status_ID` ASC),
+  INDEX `fk_quartos_tipos1_idx` (`tipos_ID` ASC),
   CONSTRAINT `fk_quartos_status1`
     FOREIGN KEY (`status_ID`)
     REFERENCES `pousada`.`status` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_quartos_tipos1`
+    FOREIGN KEY (`tipos_ID`)
+    REFERENCES `pousada`.`tipos` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -504,6 +515,28 @@ VALUES
 
 
 
+-- INSERT TIPOS -------------------------------------------------------------------------------------------------------
+-- Tipo 1 -------------------
+INSERT INTO `pousada`.`tipos`
+(`ID`,
+`TIPO`)
+VALUES
+(1,
+'Quarto');
+
+-- Tipo 2 -------------------
+INSERT INTO `pousada`.`tipos`
+(`ID`,
+`TIPO`)
+VALUES
+(2,
+'Suíte');
+
+
+
+
+
+
 -- INSERT QUARTOS -------------------------------------------------------------------------------------------------------
 -- Quarto 1 ---------------------------------
 INSERT INTO `pousada`.`quartos`
@@ -513,7 +546,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (1,
 "Suíte com Varanda",
@@ -529,7 +563,8 @@ No geral, nosso quarto duplo é uma excelente escolha para casais ou amigos que 
 340.10,
 2,
 1,
-1);
+1,
+2);
 
 
 
@@ -541,7 +576,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (2,
 "Quarto com Varanda Privativa",
@@ -559,7 +595,8 @@ Em resumo, o nosso quarto duplo verde é uma escolha excelente para casais ou am
 290.50,
 2,
 1,
-1);
+1,
+2);
 
 
 
@@ -571,7 +608,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (3,
 "Quarto com Cama de Casal",
@@ -589,7 +627,8 @@ Em resumo, o nosso quarto duplo verde pastel é uma excelente escolha para casai
 299.99,
 2,
 1,
-1);
+1,
+2);
 
 
 
@@ -601,7 +640,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (4,
 "Quarto Familiar",
@@ -617,7 +657,8 @@ No geral, nosso quarto elegante que acomoda quatro pessoas é uma excelente esco
 499.50,
 4,
 1,
-1);
+1,
+2);
 
 
 
@@ -629,7 +670,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (5,
 "Quarto com Beliche",
@@ -645,7 +687,8 @@ No geral, nosso quarto com cama de casal e beliche é uma excelente escolha para
 350.200,
 3,
 1,
-1);
+1,
+2);
 
 
 
@@ -657,7 +700,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (6,
 "Quarto Standard",
@@ -673,7 +717,8 @@ No geral, nosso quarto com cama de casal é uma excelente escolha para casais ou
 220.90,
 2,
 1,
-1);
+1,
+2);
 
 
 
@@ -685,7 +730,8 @@ INSERT INTO `pousada`.`quartos`
 `PRECO_DIARIA`,
 `QTDE_PESSOAS`,
 `DESTAQUE`,
-`status_ID`)
+`status_ID`,
+`tipos_ID`)
 VALUES
 (7,
 "Quarto com Vista para o Jardim",
@@ -701,7 +747,8 @@ No geral, nosso quarto com cama de casal e tons de verde é uma excelente escolh
 190.99,
 2,
 1,
-1);
+1,
+2);
 
 
 
@@ -953,3 +1000,8 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
+
+-- criando uma view
+create view vwquartos as
+select quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.PRECO_DIARIA, quartos.QTDE_PESSOAS, quartos.DESTAQUE, quartos.ARQUIVAR_EM, imagens.IMAGEM_CAMINHO_1, imagens.IMAGEM_CAMINHO_2, imagens.quartos_ID
+from quartos, imagens;
