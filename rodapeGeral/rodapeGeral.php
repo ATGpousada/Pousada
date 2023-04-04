@@ -46,19 +46,19 @@
 
                 <div>
                     <div class="mb-1">
-                        <a href="#" class="map_link">HOME</a>
+                        <a href="../index.php" class="map_link">HOME</a>
                     </div>
 
                     <div class="mb-1">
-                        <a href="#" class="map_link">SERVIÇOS</a>
+                        <a href="../product/index.php" class="map_link">SERVIÇOS</a>
                     </div>
 
                     <div class="mb-1">
-                        <a href="#" class="map_link">SOBRE NÓS</a>
+                        <a href="../about/index.php" class="map_link">SOBRE NÓS</a>
                     </div>
 
                     <div>
-                        <a href="#" class="map_link">CONTATO</a>
+                        <a href="../contact/index.php" class="map_link">CONTATO</a>
                     </div>
 
                 </div>

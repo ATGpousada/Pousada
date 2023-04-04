@@ -92,17 +92,50 @@ body{
     #card{
         display: grid;
         justify-content: center;
-        flex-wrap: column;
     }
+
     .card{
-        min-width: 450px;
+        display: flex;
+        justify-content: center;
+        margin: 15px 0 15px;
+        flex-direction: row !important;
+        min-width: 550px !important;
+        max-width: 600px !important;
+        min-height: 300px;
+    }
+
+    .card h2{
+        font-size: xx-larger;
+    }
+
+    .card img{
+        margin: -50px 0 30px -100px;
+        width: 100% !important;
+        min-width: 250px !important;
+        max-width: 300px !important;
+        min-height: 60px !important ;
+        max-width: 100px !important     ;
+    }
+}
+@media (width <= 740px){
+    .card{
+        flex-direction: column !important;
+        justify-content: center;
+        text-align: center;
+        margin: auto 20px;
+        margin-bottom: 80px;
+        margin-top: 120px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 40%;
+        min-width: 360px !important;
+        max-height: 900px;
+        min-height: 200px;
     }
 
     .card img{
         margin: -100px 0 30px 0;
-        width: 100%;
-        max-width: 1000px;
-        min-width: 180px;
-        min-height: 100px;
+        width: 85%;
+        min-width: 200px !important;
     }
 }
