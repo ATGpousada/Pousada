@@ -1,10 +1,12 @@
 <header>
-    <span>
+    <div class="min-vh-100 w-25 bg-primary bg-gradient">
+        <span>
+            
+        </span>
 
-    </span>
 
-
-    <nav>
-        
-    </nav>
+        <nav>
+            
+        </nav>
+    </div>
 </header>

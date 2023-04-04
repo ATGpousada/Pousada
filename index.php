@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada do Sossego</title>
 </head>
-<body class="fundofixo">
+<body class="fundofixo body-geral">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
