@@ -139,4 +139,12 @@ window.onresize = function() {
 /* Começo header e contact mesmo evento */
 window.addEventListener("beforeunload", headerReponsivo(), contactResponsivo());
 /* Fim header e contact mesmo evento */
+
+// Scroll
+window.scroll({
+    top:0,
+    behavior:'smooth'
+})
 // ---------------------------- Fim geral ----------------------------
+
+// Detalhes do Produto

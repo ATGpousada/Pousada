@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada do Sossego</title>
 </head>
-<body>
+<body class="fundofixo">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -27,40 +27,30 @@
     <!-- https://icons8.com/preloaders/ -->
     <!-- fim do preloader --> 
 
-    <!-- Início do Scroll -->
-    <a href ="#subir">
-        <span class ="quadradinhodasetinha">
-            <i class="bi bi-arrow-up"></i>
-        </span >
-    </a>
-
-    <script>
-    window.scroll({
-    top:0,
-    behavior:'smooth'
-    })
-    </script>
-    <!-- Fim do Scroll -->
-
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
-    <main class="container-fluid bg-body-tertiary pe-0 ps-0">
+    <main style="width: 90%; margin: auto;">
+        <div class="container-fluid mb-2 rounded bg-body-tertiary pe-0 ps-0">
         <!-- Adição do Carrousel Promoção -->
-        <?php include 'carrouselIndex.php'; ?>
+                <?php include 'carrouselIndex.php'; ?>
 
-        
-        <!-- Adição do Exposição(fotos) da pousada -->
-        <?php include 'exposicaoPousada.php'; ?>
+                
 
-        <div class="container p-4">
-            <!-- Adição do destaque -->
-            <?php include 'destaquePublico.php'; ?>
+                <!-- serviços gratuitos -->
+                <?php include 'servicosGratuitos.php'?>
+
+
+                <!-- Adição do destaque -->               
+                    <?php include 'destaqueQuartos.php';?>
+                    
+
+                
+                
+                <!-- Adição do Carrousel Turísmo -->
+                <?php include 'carrouselTurismo.php'; ?>
         </div>
-        
-        
-        <!-- Adição do Carrousel Turísmo -->
-        <?php include 'carrouselTurismo.php'; ?>
+       
     </main>
 
     <!-- Adição do rodapé -->

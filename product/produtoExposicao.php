@@ -1,7 +1,8 @@
-<?php ?>
-
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="pt_BR">
+=======
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +11,7 @@
     <title>Quartos</title>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="row w100">
             <?php //do{?>
                 <div class="col-sm-5 col-md-4">
@@ -43,6 +45,8 @@
                     </div>
                 </div>
             <?php //}while ($row_produtos = $lista->fetch_assoc())?>
+=======
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
     <div class="PARTIÇÃO">
         <div>
         <img src="../images/quartos/quarto1.jpg" alt="" style="width: 600px;">
@@ -57,26 +61,46 @@
             </span>
             <h6>Estacionamento</h6>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
             <div class="distribuição">
             <span class="fas fa-bath"style="font-size: 50px;">
             </span>
             <h6>Banheiro</h6>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
             <div class="distribuição">
             <span class="fa-solid fa-mug-hot"style="font-size: 50px;">
             </span>
             <h6>Café da manhã</h6>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
             <div class="distribuição">
             <span class="fas fa-desktop"style="font-size: 50px;">
             </span>
             <h6>Tv Smart</h6> 
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
             <div class="distribuição">
             <span class="fas fa-snowflake"style="font-size: 50px;">
             </span>
             <h6>Ar condicionado</h6> 
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
             <div class="distribuição">
             <span class="fas fa-paw" style="font-size: 50px;">
             </span>
@@ -85,5 +109,9 @@
             
         </div> 
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62209eff7a8ebfb52e6dc472425e05e61999a1d2
 </body>
 </html>
