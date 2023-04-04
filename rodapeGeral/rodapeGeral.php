@@ -116,7 +116,14 @@
         </article>
 </section>
 
-    
+<!-- Início do Scroll -->
+<a href ="#subir">
+    <span class ="quadradinhodasetinha">
+        <i class="bi bi-arrow-up"></i>
+    </span >
+</a>
+<!-- Fim do Scroll -->
+
 <div class="dropdownn">
     <button class="redes">
         <i class="fa-solid fa-mobile-screen"></i>
