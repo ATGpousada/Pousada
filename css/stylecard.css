@@ -87,7 +87,7 @@ body{
     }
 }
 
-@media (width <= 1440px){
+@media (width <= 1380px){
 
     #card{
         display: grid;
