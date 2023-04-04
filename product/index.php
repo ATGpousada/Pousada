@@ -51,6 +51,8 @@
     include "../cabecalhoGeral/cabecalhoGeral.php"
     ?>
     <!-- Fim Menu Público -->
+    <div class="container mb-3 bg-body-tertiary rounded p-4">
+        <div class="row mb-5">
     <!-- Início Carrossel Produtos-->
     <?php 
     include "carrouselPousada.php";
@@ -66,6 +68,8 @@
     <p>&nbsp;</p>
     <!-- Fim Produto Exposição -->
     </main>
+    </div>
+    </div>
     <!-- Fim Container -->
     <!-- Início Rodapé Público -->
     <?php 
