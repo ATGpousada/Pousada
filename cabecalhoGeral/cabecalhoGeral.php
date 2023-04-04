@@ -11,13 +11,9 @@
             <!-- Icons do usuário e pedidos -->
             <div class="ms-auto me-3" id="icones">
                 <ul class="navbar-nav mb-lg-0 d-flex gap-4">
-                    <li class="nav-item mt-auto mb-auto d-flex justify-content-center gap-4">
-                        <a href="" class="">
-                            <i class="text-decoration-none text-dark bi bi-briefcase-fill fs-2"></i></i>
-                        </a>
-
-                        <a href="../client/index.php" class="">
-                            <i class="text-decoration-none text-dark bi bi-person-fill fs-2"></i>
+                    <li class="nav-item mt-auto mb-auto d-flex justify-content-center">
+                        <a href="../client/index.php">
+                            <i class="text-decoration-none bi bi-person-fill fs-2"></i>
                         </a>
                     </li>
                 </ul>

@@ -32,6 +32,11 @@ include '../connection/connect.php';
         </div>
     </div>
     
+    <?php include 'cabecalhoCliente.php'?>
+
+    <main>
+        
+    </main>
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>

@@ -10,6 +10,11 @@
     src: url(../font/creato_display/CreatoDisplay-Regular.otf);
 }
 
+@font-face {
+    font-family: 'titulo_descricao';
+    src: url(../fonts/Magic-Retro.ttf);
+}
+
 /* INÍCIO FONTE DO MENU */
 @font-face {
     font-family: 'menu';
@@ -85,6 +90,15 @@ body {
 
 .fonte{
     font-family: "menu";
+}
+
+#icones ul li a i {
+    color: var(--cor-preto);
+    transition: 0.2s ease all;
+}
+
+#icones ul li a i:hover {
+    color: var(--cor-azul-escuro);
 }
 /* Fim hover do menu */
 /* ########################### FIM HEADER ############################## */
@@ -562,6 +576,8 @@ body {
 
 #titulo{
     margin: 0;
+    font-family: "titulo_descricao";
+    font-size: 40pt;
 }
 
 .preco{
@@ -575,7 +591,6 @@ body {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-   
 }
 
 #reservar{
@@ -605,6 +620,7 @@ body {
 
 .imagem-grande{
     width: 50%;
+    height: 500px;
     box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
@@ -766,4 +782,4 @@ body {
         }
     }
     /*Fim login*/
-    /* ########################### FIM RESPONSIVO###################*/
+    /* ########################### FIM RESPONSIVO ###################*/

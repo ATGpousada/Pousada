@@ -1,9 +1,9 @@
 <?php 
 include 'connection/connect.php'; //Conexão com o Banco de dados
-$id = $_GET['ID'];
-$lista = $conn->query("select * from quartos where ID = %$id%;");
-$row_destaque = $lista->fetch_assoc();
-$num_linhas = $lista->num_rows;
+$id = $_GET['ID']; //
+$lista = $connect->query("select * from quartos where DESTAQUE like '%$id%';"); //
+$row_destaque = $lista->fetch_assoc(); //
+$num_linhas = $lista->num_rows; //
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +19,12 @@ $num_linhas = $lista->num_rows;
     <?php }?>
 
     <!-- Mostrar se a Consulta Retornou Conteúdo -->
-    <?php if($num_linhas>0){?>
-            <div class="row">
+    <?php if($num_linhas > 0){?>
+    <div class="row"> 
         <?php do{?>
+            <div class="thumbnail">
 
+            </div>
         <?php }while($row_destaque = $lista->fetch_assoc())?>
     <?php } ?>
 </body>
