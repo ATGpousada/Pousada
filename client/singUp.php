@@ -1,4 +1,16 @@
-<?php ?>
+<?php
+
+// Armazena os valores do formulario de Cliente
+// $dados_formClient = array(
+//     'nome' => $_POST['nome'],
+//     'email' => $_POST['email'],
+//     'cpf' => $_POST['cpf'],
+//     'telefone' => $_POST['telefone'],
+//     'senha' => $_POST['senha'],
+//     'confSenha' => $_POST['confSenha'],
+// );
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -73,7 +85,7 @@
                 <input type="password" id="confSenha" name="confSenha" class="form-control form-input-item" required autocomplete="off">
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button href="client/endereco.php" type="submit">Proximo</button>
         </form>
         
         <!-- Footer do Sing Up -->

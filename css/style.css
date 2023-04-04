@@ -91,6 +91,15 @@ body {
 .fonte{
     font-family: "menu";
 }
+
+#icones ul li a i {
+    color: var(--cor-preto);
+    transition: 0.2s ease all;
+}
+
+#icones ul li a i:hover {
+    color: var(--cor-azul-escuro);
+}
 /* Fim hover do menu */
 /* ########################### FIM HEADER ############################## */
 
@@ -754,4 +763,4 @@ body {
         }
     }
     /*Fim login*/
-    /* ########################### FIM RESPONSIVO###################*/
+    /* ########################### FIM RESPONSIVO ###################*/
