@@ -1,7 +1,8 @@
 <?php 
-include 'connection/connect.php'; //Conexão com o Banco de dados
-$id = $_GET['ID'];
-$lista = $conn->query("select * from quartos where ID = %$id%;");
+//Conexão com o Banco de dados
+include 'connection/connect.php';
+$lista = $connect->query("select * from clientes");
+//Atribui resultado de consulta
 $row_destaque = $lista->fetch_assoc();
 $num_linhas = $lista->num_rows;
 ?>
