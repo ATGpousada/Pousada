@@ -64,6 +64,11 @@ body{
     border-radius: 33px;
 }
 
+button a{
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
 @media (width <= 1740px){
     .card{
         flex-direction: column !important;
