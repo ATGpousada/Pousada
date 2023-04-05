@@ -107,13 +107,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            1ª -  
+                            A pousada oferece café da manhã?
                         </button>
                     </h2>
 
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>Sim, oferecemos café da manhã incluso na diária. Ele é servido das 7h às 10h e inclui diversas opções de pães, bolos, frutas, sucos e café.</strong>
                         </div>
                     </div>
                 </div>
@@ -122,13 +122,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                            2ª -
+                            A pousada oferece estacionamento para os hóspedes?
                         </button>
                     </h2>
 
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong> Sim, dispomos de estacionamento próprio e gratuito para os nossos hóspedes. O estacionamento é seguro e monitorado por câmeras de segurança.</strong>
                         </div>
                     </div>
                 </div>
@@ -137,13 +137,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                            3º -
+                            A pousada aceita animais de estimação?
                         </button>
                     </h2>
 
                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>Sim, nós aceitamos animais de estimação em nossa pousada, mediante algumas condições específicas, tais como o porte e o comportamento do animal, além de uma taxa adicional de limpeza. Por favor, entre em contato conosco com antecedência para que possamos avaliar a possibilidade de receber seu animalzinho de estimação e orientá-lo sobre as condições para hospedagem.</strong>
                         </div>
                     </div>
                 </div>
