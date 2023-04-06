@@ -11,6 +11,11 @@
 }
 
 @font-face {
+    font-family: 'textos';
+    src: url(../fonts/HangingRegular.ttf);
+}
+
+@font-face {
     font-family: 'titulo_descricao';
     src: url(../fonts/Magic-Retro.ttf);
 }
@@ -522,7 +527,7 @@
  margin-left: 4px;
  justify-content:space-around;
  margin: 3px;
- padding: 25px;
+ padding: 2px;
 }
 .centraliza_q1{
     display: flex;
@@ -530,7 +535,55 @@
 }
 .distribuição{
     display: inline-block;
-    padding: 40px;
+    padding: 30px 55px;
+}
+  
+  .center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+    margin: 52px 10px;
+    
+  }
+  
+  .btn_p {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: rgb(5, 62, 148);
+    border: 1px solid #91C9FF;
+    border-radius: 7px;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 2s ease-in-out;
+  }
+  
+  .btn_p:hover {
+    transition: 2s ease-in-out;
+    background: #4F95DA;
+  }
+  
+  .btn_p:hover svg {
+    stroke-dashoffset: -480;
+  }
+  
+  .btn_p span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+  }
+  .font{
+    font-family:'fonts/HangingRegular.ttf'   ;
 }
          
 /* ###########################  FIM PRODUTOS ########################## */
