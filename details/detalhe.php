@@ -1,14 +1,19 @@
 <?php 
 include '../connection/connect.php';
 $id = $_GET['ID'];
-$lista = $connect->query("select * from quartos where ID = $id;");
+$lista = $connect->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo
+FROM quartos
+INNER JOIN imagens ON quartos.id = imagens.quartos_ID 
+INNER JOIN tipos ON quartos.tipos_ID = tipos.id where quartos.ID = $id;");
 $linha = $lista->fetch_assoc();
 $linhas = $lista->num_rows;
 
+// select para repetição de sub-imagens
 $listaIMG = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
 $linhasIMG = $listaIMG->num_rows;
 
+// select para repetição de sub-imagens no responsivo
 $listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
@@ -28,7 +33,7 @@ $linhasIMGres = $listaIMGres->num_rows;
     <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
 
         <span id="img_principal">
-            <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
+            <img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
         </span>
 
         <div id="esconder_imgs" class="sub-imgs">
@@ -64,6 +69,10 @@ $linhasIMGres = $listaIMGres->num_rows;
     <div class="desc_del">
         <h4 class="text-center">Detalhes do Quarto</h4>
         <p> <?php echo $linha['DESCRICAO'];?></p>
+
+        <p>
+            Até <?php echo $linha['QTDE_PESSOAS'];?> pessoas!
+        </p>
     </div>
 </main> 
 

@@ -31,6 +31,12 @@
     ?>
     <!-- Fim Detalhes -->
 
+    <!-- Início Destaque -->
+    <?php 
+    include "destaqueDetalhe.php";
+    ?>
+    <!-- Fim Destaque -->
+
     <!-- Início Rodapé Público -->
     <?php 
     include "../rodapeGeral/rodapeGeral.php";

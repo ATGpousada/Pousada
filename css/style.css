@@ -722,7 +722,16 @@
     background-color: #1855fd;
     border-radius: 30px;
 }
+
+.img-destaque{
+    width: 230px;
+    height: 150px;
+}
   
+#titulo_semelhante{
+    width: 90%;
+    margin: 0 auto;
+}
 /* ########################### FIM DETALHES ############################## */
 
 
