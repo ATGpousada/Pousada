@@ -1,14 +1,15 @@
 <?php 
 include "../connection/connect.php";
-$id = $_GET['ID'];
-$lista= $conn->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo 
+$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.TIPO 
 FROM quartos
-INNER JOIN imagens ON quartos.id = imagens.quartos_ID
-INNER JOIN tipos ON quartos.tipos_ID = tipos.id
-WHERE quartos.ID = $id
+INNER JOIN imagens
+ON quartos.ID = imagens.quartos_ID
+INNER JOIN tipos
+ON quartos.tipos_ID = tipos.ID
+GROUP BY quartos.ID
 ;");
-$linha_quarto = $lista->fetch_assoc();
-$num_linhas = $lista->linha_quarto;
+$linha = $lista->fetch_assoc();
+$linhas = $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ $num_linhas = $lista->linha_quarto;
 <body>
     
     <!-- INÍCIO MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
-    <?php if($num_linhas == 0){?>
+    <?php if($linhas == 0){?>
         <h2 class="breadcrumb alert-danger">
             Não há Quartos Cadastrados
         </h2>
