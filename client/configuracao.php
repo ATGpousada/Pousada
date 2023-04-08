@@ -33,9 +33,11 @@ include '../connection/connect.php';
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
-    
+
+    <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoCliente.php'?>
 
+    <!-- Página principal -->
     <main class="home-section bg-body-tertiary">
         <div class="text">Configurações</div>
     </main>

@@ -34,8 +34,10 @@ include '../connection/connect.php';
         </div>
     </div>
     
+    <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoCliente.php'?>
 
+    <!-- Página principal -->
     <main class="home-section bg-body-tertiary">
         <div class="text">Perfil</div>
     </main>
