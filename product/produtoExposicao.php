@@ -1,3 +1,11 @@
+<?php 
+include "../connection/connect.php";
+$id = $_GET['ID'];
+$lista= $conn->query("SELECT quartos.* ");
+$row_produtos = $lista->fetch_assoc();
+$num_linhas = $lista->num_rows;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +16,13 @@
 </head>
 <body>
     
-
+    <!-- INÍCIO MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
+    <?php if($num_linhas == 0){?>
+        <h2 class="breadcrumb alert-danger">
+            Não há Quartos Cadastrados
+        </h2>
+    <?php }?>
+    <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <div class="PARTIÇÃO">
         <div >
             <img src="../images/quartos/quarto1.jpg" alt="" style="width: 600px;border-radius:30px;">

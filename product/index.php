@@ -1,10 +1,3 @@
-<?php 
-//include "connection/connect.php";
-//$lista= $conn->query("select * from quartos");
-//$row_produtos = $lista->fetch_assoc();
-//$num_linhas = $lista->num_rows;
-?>
-
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -23,13 +16,13 @@
     <title>Pousada - Produtos</title>
 </head>
 <body class="fundofixo" style="padding-top: 6.5em !important;">
-    <!-- início do preloader -->
-    <!-- <div id="preloader"> -->
-        <!-- <div class="inner"> -->
+    início do preloader
+    <div id="preloader">
+        <div class="inner">
             <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-            <!-- <img src="../images/sol.gif" alt=""> -->
-        <!-- </div> -->
-    <!-- </div> -->
+            <img src="../images/sol.gif" alt="">
+        </div>
+    </div>
 
         <!-- Início do Scroll -->
         <a href ="#subir">
