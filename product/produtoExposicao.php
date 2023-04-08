@@ -84,7 +84,7 @@ $linhas = $lista->num_rows;
             </div> 
         </div>
     </div>
-    <?php } while ($linhas = $lista -> fetch_assoc());?>          
+    <?php } while ($linha = $lista -> fetch_assoc());?>          
     <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>
