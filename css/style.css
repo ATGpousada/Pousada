@@ -733,7 +733,7 @@
     margin: 0 auto;
 }
 
-.card {
+.card_detalhe{
     --bg: #ffffff;
     --hover-bg: #FFE5F4;
     --hover-text: #E50087;
@@ -761,17 +761,17 @@
     font-size: 1em;
 }
   
-.card > :not(span) {
+.card_detalhe > :not(span) {
     transition: .3s cubic-bezier(.6,.4,0,1);
 }
   
-.card > strong {
+.card_detalhe > strong {
     display: block;
     font-size: 1.4rem;
     letter-spacing: -.035em;
 }
   
-.card span {
+.card_detalhe span {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -786,22 +786,22 @@
     transition: all .3s cubic-bezier(.6,.4,0,1);
 }
 
-.card a{
+.card_detalhe a{
     text-decoration: none;
     color: aqua;
     font-size: x-large;
 }
   
-.card:hover span {
+.card_detalhe:hover span {
     top: 0;
     font-size: 1.2em;
 }
   
-.card:hover {
+.card_detalhe:hover {
     background: var(--hover-bg);
 }
   
-.card:hover>div,.card:hover>strong {
+.card_detalhe:hover>div,.card_detalhe:hover>strong {
     opacity: 0;
 }
 /* ########################### FIM DETALHES ############################## */

@@ -43,7 +43,7 @@ $linhas = $lista->num_rows;
 
     <div class="d-flex justify-content-around flex-wrap">
     <?php do{?>
-        <div class="card">
+        <div class="card_detalhe">
             <div class="icon">
                 <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
             </div>
