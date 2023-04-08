@@ -41,23 +41,19 @@ $linhas = $lista->num_rows;
     </div>
 
 
-    <div class="flex-sa">
+    <div class="d-flex justify-content-around flex-wrap">
     <?php do{?>
-        <span style="background-color: blue; width: 250px; height: 300px;">
-            <div style="margin: 10px"><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
-
-            <div style="margin-left: 10px; color: white;"><?php echo $linha['QUARTO']?></div>
-
-            <div style="margin-left: 10px; color: white;"><?php echo $linha['tipo']?></div>
-
-            <div style="margin: 10px; color: white;"><i class="fa-solid fa-users" style="color: white; margin-right: 10px"></i><?php echo $linha['QTDE_PESSOAS']?> Pessoas</div>
-
-            <div style="margin-left: 150px; margin-top: 10px;">
-                <a style="padding: 5px; background: white; color:black;" href="index.php?ID=<?php echo $linha['ID']?>">
-                Ver Mais...
-                </a>
+        <div class="card">
+            <div class="icon">
+                <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
             </div>
-        </span>
+            <strong><?php echo $linha['QUARTO']?></strong>
+            <div class="card__body">
+            <p style="margin-left: 10px; color: black;"><?php echo $linha['tipo']?></p>
+            <p><i class="fa-solid fa-users" style="color: black; margin-right: 10px"></i><?php echo $linha['QTDE_PESSOAS']?> Pessoas</p>
+            </div>
+            <span><a href="index.php?ID=<?php echo $linha['ID']?>">Saiba Mais...</span></a>
+        </div>
         <?php }while($linha = $lista->fetch_assoc())?>
     </div>
 
