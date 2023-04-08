@@ -29,8 +29,10 @@ $linhas = $lista->num_rows;
         </h2>
     <?php }?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
+    <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
+    <?php ?>
     <div class="PARTIÇÃO">
-        <div >
+        <div>
             <img src="../images/quartos/quarto1.jpg" alt="" style="width: 600px;border-radius:30px;">
         </div>
 
@@ -70,19 +72,18 @@ $linhas = $lista->num_rows;
             </div>
 
             <div class="container">
-    <div class="center">
-      <button class="btn_p">
-        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-         
-          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-        </svg>
-        <span>Saiba Mais ...</span>
-      </button>
+                <div class="center">
+                    <button class="btn_p">
+                        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                        </svg>
+                        <span>Saiba Mais ...</span>
+                    </button>
+                </div>
+            </div>
+        </div> 
     </div>
-  </div>
-  </div> 
-</div>
-
-
+    <?php ?>
+    <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>

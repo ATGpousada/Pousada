@@ -16,7 +16,7 @@
     <title>Pousada - Produtos</title>
 </head>
 <body class="fundofixo" style="padding-top: 6.5em !important;">
-    início do preloader
+    <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
             <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
