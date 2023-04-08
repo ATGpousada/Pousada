@@ -16,9 +16,7 @@ $linhas = $lista->num_rows;
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quartos</title>
 </head>
 <body>
     
@@ -30,15 +28,15 @@ $linhas = $lista->num_rows;
     <?php }?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
-    <?php ?>
+    <?php do {?>
     <div class="PARTIÇÃO">
         <div>
-            <img src="../images/quartos/quarto1.jpg" alt="" style="width: 600px;border-radius:30px;">
+            <img src="<?php echo $lista -> fetch_assoc()['IMAGEM_CAMINHO_2'];?>" alt="" style="width: 600px;border-radius:30px;">
         </div>
 
         <div>
             <div class="centraliza_q1">
-                <h1 class="font">Suite com varanda</h1>
+                <h1 class="font"><?php echo $lista -> fetch_assoc()['QUARTO'];?></h1>
             </div>
             
             <div class="distribuição">
@@ -83,7 +81,7 @@ $linhas = $lista->num_rows;
             </div>
         </div> 
     </div>
-    <?php ?>
+    <?php } while ($linhas = $lista -> fetch_assoc());?>
     <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>
