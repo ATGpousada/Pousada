@@ -76,14 +76,15 @@ $linhas = $lista->num_rows;
                         <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                             <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                         </svg>
+                        <a href="../details/index.php?ID=<?php echo $linha['ID']?>">
                         <span>Saiba Mais ...</span>
+                        </a>
                     </button>
                 </div>
             </div> 
         </div>
     </div>
-    <?php } while ($linhas = $lista -> fetch_assoc());?>
-            
+    <?php } while ($linhas = $lista -> fetch_assoc());?>          
     <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>
