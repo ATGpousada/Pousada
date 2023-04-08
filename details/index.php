@@ -15,7 +15,9 @@
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <title>Document</title>
+    <!-- Logo no title -->
+    <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
+    <title>Pousada - Detalhes</title>
 </head>
 <body>
 
