@@ -38,10 +38,10 @@
             <h1 style="margin-left: 100px;">POUSADA DO SOSSEGO</h1>
             <br>
             Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
-            Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ,
-            com visuais e belezas naturais estonteantes.
+            Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ.
+            Com visuais e belezas naturais estonteantes.
             <br>
-            Venha conhecer, tenho certeza que nosso local irá te auxiliar a conectar-se com O Sossego!
+            Venha conhecer, temos certeza que nosso local irá te auxiliar a conectar-se com O Sossego!
         </div>
     </div>
 </body>
