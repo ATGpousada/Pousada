@@ -1,9 +1,14 @@
 <?php 
 include "../connection/connect.php";
 $id = $_GET['ID'];
-$lista= $conn->query("SELECT quartos.* ");
-$row_produtos = $lista->fetch_assoc();
-$num_linhas = $lista->num_rows;
+$lista= $conn->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo 
+FROM quartos
+INNER JOIN imagens ON quartos.id = imagens.quartos_ID
+INNER JOIN tipos ON quartos.tipos_ID = tipos.id
+WHERE quartos.ID = $id
+;");
+$linha_quarto = $lista->fetch_assoc();
+$num_linhas = $lista->linha_quarto;
 ?>
 
 <!DOCTYPE html>
