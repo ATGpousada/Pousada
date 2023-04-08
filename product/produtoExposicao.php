@@ -25,7 +25,7 @@ $linhas = $lista->num_rows;
         <h2 class="breadcrumb alert-danger">
             Não há Quartos Cadastrados
         </h2>
-    <?php }?>
+    <?php } else {?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
     <div class="row w100">
@@ -72,19 +72,20 @@ $linhas = $lista->num_rows;
 
             <div class="container">
                 <div class="center">
+                    <a href="../details/index.php?ID=<?php echo $linha['ID']?>">
                     <button class="btn_p">
                         <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                             <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
                         </svg>
-                        <a href="../details/index.php?ID=<?php echo $linha['ID']?>">
-                        <span>Saiba Mais ...</span>
-                        </a>
+                        <span>Saiba Mais...</span>
                     </button>
+                    </a>
                 </div>
             </div> 
         </div>
     </div>
-    <?php } while ($linha = $lista -> fetch_assoc());?>          
+    <?php } while ($linha = $lista -> fetch_assoc());?>
+    <?php }?>
     <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>
