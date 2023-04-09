@@ -1,4 +1,13 @@
-<?php ?>
+<?php 
+include '../connection/connect.php';
+$id = $_GET['ID'];
+$lista = $connect->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo
+FROM quartos
+INNER JOIN imagens ON quartos.id = imagens.quartos_ID 
+INNER JOIN tipos ON quartos.tipos_ID = tipos.id where quartos.ID = $id;");
+$linha = $lista->fetch_assoc();
+$linhas = $lista->num_rows;
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -17,7 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
-    <title>Pousada - Detalhes</title>
+    <title>Detalhes - <?php echo $linha['QUARTO']?></title>
 </head>
 <body>
 
