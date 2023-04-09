@@ -14,7 +14,7 @@
             <div>
                 <h3>Missão</h3>
             </div>
-            <div>
+            <div style="margin-top: 20px;">
                 <p>Existimos para dar lazer, qualidade de vida e felicidade para nossos hóspedes!</p>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div>
                 <h3>Visão</h3>
             </div>
-            <div>
+            <div style="margin-top: 20px;">
                 <p>Queremos melhorar a conexão do hóspede com a nossa pousada através da tecnologia e sustentabilidade!</p>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div>
                 <h3>Valores</h3> 
             </div>
-            <div>
+            <div style="margin-top: 20px;">
                 <p>Sustentabilidade, Qualidade de Vida, Felicidade, Sonho e Lazer</p>
             </div>
         </div>
