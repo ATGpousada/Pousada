@@ -681,8 +681,8 @@
 }
 
 .imagem-grande{
-    width: 50%;
-    height: 500px;
+    width: 100%;
+    height: 90%;
     box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
@@ -1184,7 +1184,7 @@ ul {
     /* Começo Detalhes */
     @media screen and (max-width: 1300px){
         #titulo{
-            font-size: 25px;
+            font-size: 35px;
         }    
     }
 
@@ -1201,7 +1201,7 @@ ul {
         }
 
         #img_principal{
-            margin: 35px auto;
+            margin: 125px auto 60px auto;
         }
 
         .imagem-grande{
@@ -1219,7 +1219,7 @@ ul {
         #esconder_imgs{
             display: flex;
             flex-wrap: wrap;
-            margin: 0 auto;
+            margin: 25px auto;
             width: 90%;
         }
 

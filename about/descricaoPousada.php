@@ -7,16 +7,16 @@
 </head>
 <body>
     <div style="display: flex; margin-top: 25px;">
-        <div style="display: inline-block; width: 50%;">
-            <div id="carrosselDescricao" class="carousel slide">
+        <div style="display: inline-block; width: 65%;">
+            <div id="carrosselDescricao" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <img src="../images/area_gourmet_sossego.jpg" alt="" style="width: 100%;">
                     </div>
 
-                    <div class="carousel-item">
-                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../images/piscina_sossego.webp" alt="" style="width: 100%;">
                     </div>
 
                 </div>
@@ -34,14 +34,12 @@
             </div>
 
         </div>
-        <div style="display: inline-block; width: 50%; margin-left: 30px;">
-            <h1 style="margin-left: 100px;">POUSADA DO SOSSEGO</h1>
+        <div style="display: inline-block; width: 35%; margin-left: 30px;">
+            <p style="font-weight: bold">Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
+            Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ.
+            Com visuais e belezas naturais estonteantes.</p>
             <br>
-            Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
-            Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ,
-            com visuais e belezas naturais estonteantes.
-            <br>
-            Venha conhecer, tenho certeza que nosso local irá te auxiliar a conectar-se com O Sossego!
+            <p style="font-weight: bold;">Venha conhecer, temos certeza que nosso local irá te auxiliar a conectar-se com <span style="font-style: oblique;">O Sossego!</span></p>
         </div>
     </div>
 </body>

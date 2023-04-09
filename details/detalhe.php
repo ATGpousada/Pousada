@@ -1,13 +1,4 @@
 <?php 
-include '../connection/connect.php';
-$id = $_GET['ID'];
-$lista = $connect->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo
-FROM quartos
-INNER JOIN imagens ON quartos.id = imagens.quartos_ID 
-INNER JOIN tipos ON quartos.tipos_ID = tipos.id where quartos.ID = $id;");
-$linha = $lista->fetch_assoc();
-$linhas = $lista->num_rows;
-
 // select para repetição de sub-imagens
 $listaIMG = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
@@ -17,7 +8,6 @@ $linhasIMG = $listaIMG->num_rows;
 $listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
-
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +20,7 @@ $linhasIMGres = $listaIMGres->num_rows;
 
 <main>
 
-    <div id="geral_del" class="flex-sa" style="margin-top: 50px;">
+    <div id="geral_del" class="flex-sa" style="margin-top: 110px;">
 
         <span id="img_principal">
             <img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
