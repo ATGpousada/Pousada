@@ -8,14 +8,14 @@
 <body>
     <div style="display: flex; margin-top: 25px;">
         <div style="display: inline-block; width: 65%;">
-            <div id="carrosselDescricao" class="carousel slide">
+            <div id="carrosselDescricao" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" data-bs-interval="5000">
                         <img src="../images/area_gourmet_sossego.jpg" alt="" style="width: 100%;">
                     </div>
 
-                    <div class="carousel-item">
+                    <div class="carousel-item" data-bs-interval="5000">
                         <img src="../images/piscina_sossego.webp" alt="" style="width: 100%;">
                     </div>
 

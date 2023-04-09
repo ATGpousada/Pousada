@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div id="carrosselPousada" class="carousel slide">
+<div id="carrosselPousada" class="carousel slide" data-bs-ride="carousel">
   <!-- Início Indicadores Carrossel -->
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carrosselPousada" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Banner 1"></button>
@@ -20,7 +20,7 @@
   <!-- Início itens do Carrossel -->
   <div class="carousel-inner">
   <!-- Início Primeiro Item do Slide -->
-    <div class="carousel-item active">
+    <div class="carousel-item active" data-bs-interval="5000">
       <img src="../images/banners/Cafe.jpg" class="d-block w-100" alt="Banner 1">
       <div class="carousel-caption d-none d-md-block">
         <h3>CAFÉ DA MANHÃ</h3>
@@ -29,7 +29,7 @@
     </div>
   <!-- Fim Primeiro Item do Slide -->
   <!-- Início Segundo Item do Slide -->
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="5000">
       <img src="../images/banners/Area_de_lazer.jpg" class="d-block w-100" alt="Banner 2">
       <div class="carousel-caption d-none d-md-block">
         <h3>ÁREA DE LAZER</h3>
@@ -38,7 +38,7 @@
     </div>
   <!-- Fim Segundo Item do Slide -->
   <!-- Início Terceiro Item do Slide -->
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="5000">
       <img src="../images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="Banner 3">
       <div class="carousel-caption d-none d-md-block">
         <h3>PLAYGROUND INFANTIL</h3>
