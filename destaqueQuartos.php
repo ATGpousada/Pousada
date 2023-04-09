@@ -9,7 +9,7 @@ INNER JOIN imagens
 ON quartos.id = imagens.quartos_ID 
 INNER JOIN tipos
 ON quartos.tipos_ID = tipos.id
-WHERE DESTAQUE = 0 
+WHERE DESTAQUE = 1 
 GROUP BY quartos.ID 
 LIMIT 3");
 $linha = $lista->fetch_assoc();
