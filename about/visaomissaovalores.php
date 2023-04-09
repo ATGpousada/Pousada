@@ -6,38 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div style="margin-top: 25px; display:flex;">
-        <div style="background-color: red; display:inline-block; padding-top: 10px; padding-bottom:10px;">
+    <div style="margin-top: 25px; display:flex; width: 100%">
+        <div style="background-color: red; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 34%">
             <div>
-                <span class="fa-solid fa-flag"></span>
+                <span class="fa-solid fa-flag" style="font-size: 100px;"></span>
             </div>
             <div>
-                Missão
+                <h3>Missão</h3>
             </div>
             <div>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates sapiente perferendis recusandae iure eaque cum unde ullam iusto sed nobis, commodi modi ea aliquid accusantium sint at non incidunt aperiam!
-            </div>
-        </div>
-        <div style="background-color: blue; display:inline-block; padding-top: 10px; padding-bottom:10px;">
-            <div>
-                <span class="fa-sharp fa-solid fa-eye"></span>
-            </div>
-            <div>
-                Visão
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in molestias nemo id delectus iusto cumque consequatur atque nisi eius dolores perferendis, consequuntur sit qui temporibus voluptatibus sunt excepturi quisquam.
+                <p>Existimos para dar lazer, qualidade de vida e felicidade para nossos hóspedes!</p>
             </div>
         </div>
-        <div style="background-color: yellow; display:inline-block; padding-top: 10px; padding-bottom:10px;">
+        <div style="background-color: blue; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%;">
             <div>
-                <span class="fa-solid fa-heart"></span>
+                <span class="fa-sharp fa-solid fa-eye" style="font-size:100px"></span>
             </div>
             <div>
-                Valores 
+                <h3>Visão</h3>
             </div>
             <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, dignissimos. Omnis molestias accusantium ad eligendi rem recusandae dolorem ipsa, quos rerum nemo quisquam cum a, quis non architecto aperiam labore.
+                <p>Queremos melhorar a conexão do hóspede com a nossa pousada através da tecnologia e sustentabilidade!</p>
+            </div>
+        </div>
+        <div style="background-color: yellow; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%">
+            <div>
+                <span class="fa-solid fa-heart" style="font-size: 100px;"></span>
+            </div>
+            <div>
+                <h3>Valores</h3> 
+            </div>
+            <div>
+                <p>Sustentabilidade, Qualidade de Vida, Felicidade, Sonho e Lazer</p>
             </div>
         </div>
     </div>
