@@ -12,11 +12,11 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
+                        <img src="../images/area_gourmet_sossego.jpg" alt="" style="width: 100%;">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="../images/fundo/loginwall.png" alt="" style="width: 100%;">
+                        <img src="../images/piscina_sossego.webp" alt="" style="width: 100%;">
                     </div>
 
                 </div>
@@ -35,12 +35,11 @@
 
         </div>
         <div style="display: inline-block; width: 35%; margin-left: 30px;">
-            <br>
-            Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
+            <p style="font-weight: bold">Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
             Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ.
-            Com visuais e belezas naturais estonteantes.
+            Com visuais e belezas naturais estonteantes.</p>
             <br>
-            Venha conhecer, temos certeza que nosso local irá te auxiliar a conectar-se com O Sossego!
+            <p style="font-weight: bold;">Venha conhecer, temos certeza que nosso local irá te auxiliar a conectar-se com <span style="font-style: oblique;">O Sossego!</span></p>
         </div>
     </div>
 </body>
