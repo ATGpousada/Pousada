@@ -7,7 +7,7 @@
 </head>
 <body>
     <div style="display: flex; margin-top: 25px;">
-        <div style="display: inline-block; width: 50%;">
+        <div style="display: inline-block; width: 65%;">
             <div id="carrosselDescricao" class="carousel slide">
                 <div class="carousel-inner">
 
@@ -34,7 +34,7 @@
             </div>
 
         </div>
-        <div style="display: inline-block; width: 50%; margin-left: 30px;">
+        <div style="display: inline-block; width: 35%; margin-left: 30px;">
             <br>
             Nossa pousada é acolhedora e prazerosa, pois o sossego reina neste lugar!
             Atendemos pessoas que buscam lazer, férias ou qualidade de vida na região de Mangaratiba-RJ.
