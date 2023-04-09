@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div style="display: flex; margin-top: 25px; margin-bottom: 25px;">
+    <div style="display: flex; margin-top: 50px; margin-bottom: 25px;">
         <div style="display: inline-block; width: 50%; text-align:center;">
             <h1>SOBRE A POUSADA</h1>
             <br>

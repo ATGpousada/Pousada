@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div style="margin-top: 25px; display:flex; width: 100%">
-        <div style="background-color: red; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 34%">
+    <div style="margin-top: 50px; display:flex; width: 100%">
+        <div style="background-color: none; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 34%; text-align:center;">
             <div>
                 <span class="fa-solid fa-flag" style="font-size: 100px;"></span>
             </div>
@@ -18,7 +18,7 @@
                 <p>Existimos para dar lazer, qualidade de vida e felicidade para nossos hóspedes!</p>
             </div>
         </div>
-        <div style="background-color: blue; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%;">
+        <div style="background-color: none; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%; text-align:center;;">
             <div>
                 <span class="fa-sharp fa-solid fa-eye" style="font-size:100px"></span>
             </div>
@@ -29,7 +29,7 @@
                 <p>Queremos melhorar a conexão do hóspede com a nossa pousada através da tecnologia e sustentabilidade!</p>
             </div>
         </div>
-        <div style="background-color: yellow; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%">
+        <div style="background-color: none; display:inline-block; padding-top: 10px; padding-bottom:10px; width: 33%; text-align:center;">
             <div>
                 <span class="fa-solid fa-heart" style="font-size: 100px;"></span>
             </div>
