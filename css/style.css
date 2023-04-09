@@ -109,6 +109,8 @@
 /* ########################### FIM HEADER ############################## */
 
 
+
+
 /* ########################### COMEÇO LOGIN ############################ */
 /* Body login */
 .body-login {
@@ -479,6 +481,9 @@
 
 /* ########################### FIM FOOTER ############################## */
 
+
+
+
 /* ########################   COMEÇO SCROLL   ############################ */
 
 .quadradinhodasetinha{
@@ -516,10 +521,14 @@
 /* ###########################  FIM SCROLL    ############################ */
 
 
+
+
 /* ########################### COMEÇO INDEX ############################## */
 
-
 /* ########################### FIM INDEX ############################## */
+
+
+
 
 /* ###########################  COMEÇO PRODUTOS ########################## */
 .PARTIÇÃO{
@@ -1091,6 +1100,46 @@ ul {
     }
 }
 /* ########################### FIM HEADER AREA CLIENTE ################ */
+
+
+
+
+/* ########################### COMEÇO GERAL CLIENTE ################ */
+/* Icones e span dos cards */
+.card-icon {
+    position: absolute;
+    top: -10px;
+    right: -65px;
+    font-size: 190px;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.card-link i {
+    transition: all ease 0.4s;
+
+}
+
+.card-link span {
+    transition: all ease 0.4s;
+
+}
+
+.card-link:hover i {
+    transform: scale(1.4);
+}
+
+.card-link:hover span {
+    transform: scale(1.1);
+}
+
+/* Texto dos cards */
+.card-texts {
+    color: var(--cor-branca);
+    opacity: 0.9 !important;
+}
+/* ########################### FIM GERAL CLIENTE ################ */
+
 
 
 
