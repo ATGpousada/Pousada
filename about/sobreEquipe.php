@@ -8,15 +8,13 @@
 <body>
     <div style="display: flex; margin-top: 50px; margin-bottom: 25px;">
         <div style="display: inline-block; width: 50%; text-align:center;">
-            <span class="fas fa-paw">  <span>Aceitamos seu pet !</span></span>
-            <br>
-            <span class="fa-solid fa-mug-hot">  <span>Cafe todos os dias das 07h00 as 10h00 !</span></span>
-            <br>
-            <span class="fa-solid fa-bath">  <span>BANHEIRO EM TODOS OS QUARTOS !</span></span>
-            <br>
-            <span class="fa-solid fa-car">  <span>ESTACIONAMENTO GRATUITO !</span></span>
-            <br>
-            <span class="fa-solid fa-bed">  <span>SERVIÇO DE QUARTO DIARIO !</span></span>
+        <ul style="list-style: none; text-align:left;">
+            <li><span class="fas fa-paw"></span> <span>ACEITAMOS SEU PET !</span></li>
+            <li><span class="fa-solid fa-mug-hot"></span> <span>CAFÉ DA MANHÃ TODOS OS DIAS DAS 07h00 ÀS 10h00 !</span></li>
+            <li><span class="fa-solid fa-bath"></span> <span>BANHEIRO EM TODOS OS QUARTOS !</span></li>
+            <li><span class="fa-solid fa-car"></span> <span>ESTACIONAMENTO GRATUITO !</span></li>
+            <li><span class="fa-solid fa-bed"></span> <span>SERVIÇO DE QUARTO DIARIO !</span></li>
+        </ul>
         </div>
         <div style="display: inline-block; width: 50%; text-align:center; ">
             <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="" style="border-radius: 50%; width:60%">
