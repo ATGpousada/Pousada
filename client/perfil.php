@@ -39,7 +39,33 @@ include '../connection/connect.php';
 
     <!-- Página principal -->
     <main class="home-section bg-body-tertiary">
-        <div class="text">Perfil</div>
+        <!-- Menu da página -->
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #11101D;">
+            <!-- Conteúdo do menu -->
+            <div class="container-fluid">
+                <!-- Titulo -->
+                <div class="text navbar-brand">Perfil</div>
+                
+                <!-- Menu responsivo -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Itens do menu -->
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="#">Conta</a>
+                        <a class="nav-link" href="#">Dados pessoais</a>
+                        <a class="nav-link" href="#">Formas de pagamento</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+
+        <section class="ps-5 pe-5">
+            
+        </section>
     </main>
 </body>
 <!-- js do preloader -->

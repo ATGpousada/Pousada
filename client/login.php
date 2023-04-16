@@ -43,6 +43,12 @@
 
             // Verifica se a senha está correta
             if($senha == $loginQueryRow['SENHA']) {
+                // Se o cliente estiver arquivado, ele será restaurado
+                if ($loginQueryRow['ARQUIVAR_EM'] != null) {
+                    // Restaura cliente
+                    $connect->query("UPDATE clientes SET ARQUIVAR_EM = NULL WHERE ID =  ".$loginQueryRow['ID'].";");
+                }
+
                 // Atribui o ID a sessão
                 $_SESSION['email'] = $loginQueryRow['EMAIL'];
 

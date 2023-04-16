@@ -1088,10 +1088,9 @@ ul {
 
 .home-section .text {
     display: inline-block;
-    color: var(--cor-preto);
+    color: var(--cor-branca);
     font-size: 25px;
-    font-weight: 500;
-    margin: 18px
+    font-weight: 400;
 }
 
 @media (max-width: 420px) {
@@ -1139,6 +1138,17 @@ ul {
     opacity: 0.9 !important;
 }
 /* ########################### FIM GERAL CLIENTE ################ */
+
+
+
+
+/* ########################### COMEÇO CONFIGURAÇÕES CLIENTE ################ */
+.linha-vertical {
+    height: 320px;
+    border-left: 2px solid;
+    opacity: 0.2;
+}
+/* ########################### FIM CONFIGURAÇÕES CLIENTE ################ */
 
 
 

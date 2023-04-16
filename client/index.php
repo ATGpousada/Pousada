@@ -39,7 +39,14 @@ include '../connection/connect.php';
 
     <!-- Página principal -->
     <main class="home-section bg-body-tertiary">
-        <div class="text">Geral</div>
+        <!-- Menu da página -->
+        <nav class="navbar navbar-expand-lg mb-4" data-bs-theme="dark" style="background-color: #11101D;">
+            <!-- Conteúdo do menu -->
+            <div class="container-fluid">
+                <!-- Titulo -->
+                <div class="text navbar-brand">Geral</div>
+            </div>
+        </nav>
         
         <!-- Cards geral -->
         <section class="bg-body-secondary p-4 me-4 ms-4 rounded-2">
@@ -53,7 +60,7 @@ include '../connection/connect.php';
                             
                             <h5 class="card-title fs-4 text-uppercase card-texts ms-2 fw-semibold">Perfil</h5>
 
-                            <p class="card-text card-texts w-75 ms-2 fw-medium">Caso dejese visualizar e mudar seus dados pessoais, entre aqui <?php echo $_SESSION['nome']?>.</p>
+                            <p class="card-text card-texts w-75 ms-2 fw-medium">Caso deseje visualizar e mudar seus dados pessoais, entre aqui <?php echo $_SESSION['nome']?>.</p>
 
                             <a href="perfil.php" class="card-link text-white bg-info bg-gradient bg-opacity-25 shadow-lg position-absolute bottom-0 w-100 p-4 d-flex justify-content-between text-decoration-none" style="height: 70px;">
                                 <span class="fs-5 d-flex align-items-center">Ver datalhes</span>
@@ -134,10 +141,10 @@ include '../connection/connect.php';
                             <!-- Grupo de listas com informaçoes <behavior> -->
                             <div class="col-6">
                                 <div class="tab-content" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Nessa aréa você terá uma visão geral das páginas acessíveis na área do cliente. Por exemplo: a Página de Perfil, a Página de reservas e a Página de Configurações.</div>
-                                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Já no perfil, é uma página dedicada para expor os seus dados dados pessoais <?php echo $_SESSION['nome']?>, para caso desejar ou sentir a necessidade de mudar.</div>
-                                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Na página de reserva você pode ver dados do seu pedido de reserva e a sua situação atual, e, caso desejar, se tiver dentro das diretrizes aceitas no momento que realizou a reserva, poderá fazer alterações. Também terá acesso ao histórico das reservas efetuadas.</div>
-                                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Aqui, na página de configurações, terá opções para desativar ou excluir sua conta no nosso site.</div>
+                                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Nessa área você terá uma visão geral das páginas acessíveis na área do cliente. Por exemplo: a Página de Perfil, a Página de reservas e a Página de Configurações.</div>
+                                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Já no perfil, é uma página dedicada para expor os seus dados pessoais <?php echo $_SESSION['nome']?>, para caso desejar ou sentir a necessidade de mudar.</div>
+                                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Na página de reserva você poderá ver dados do seu pedido de reserva e a sua situação atual, e, caso desejar, se tiver dentro das diretrizes aceitas no momento que realizou a reserva, poderá fazer alterações. Também terá acesso ao histórico das reservas efetuadas.</div>
+                                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Aqui, na página de configurações, terá opções para desativar ou excluir sua conta do nosso site.</div>
                                 </div>
                             </div>
                         </div>
