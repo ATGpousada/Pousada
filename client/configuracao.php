@@ -104,7 +104,7 @@ include '../connection/connect.php';
                 <!-- Corpo do modal -->
                 <div class="modal-body">
                     <h1 class="fs-5">
-                        Tem certeza que dejesa desativar sua conta?
+                        Tem certeza que deseja desativar sua conta?
                     </h1>
                 </div>
 
@@ -126,7 +126,7 @@ include '../connection/connect.php';
                 <!-- Corpo do modal -->
                 <div class="modal-body">
                     <h1 class="fs-5">
-                        Tem certeza que dejesa excluir sua conta?
+                        Tem certeza que deseja excluir sua conta?
                     </h1>
                 </div>
 

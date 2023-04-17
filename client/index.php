@@ -63,7 +63,7 @@ include '../connection/connect.php';
                             <p class="card-text card-texts w-75 ms-2 fw-medium">Caso deseje visualizar e mudar seus dados pessoais, entre aqui <?php echo $_SESSION['nome']?>.</p>
 
                             <a href="perfil.php" class="card-link text-white bg-info bg-gradient bg-opacity-25 shadow-lg position-absolute bottom-0 w-100 p-4 d-flex justify-content-between text-decoration-none" style="height: 70px;">
-                                <span class="fs-5 d-flex align-items-center">Ver datalhes</span>
+                                <span class="fs-5 d-flex align-items-center">Ver detalhes</span>
                                 
                                 <i class='bx bx-chevron-right fs-5'></i>
                             </a>
@@ -82,7 +82,7 @@ include '../connection/connect.php';
                             <p class="card-text card-texts w-75 ms-2 fw-medium">Clique aqui para ver os detalhes das suas reservas <?php echo $_SESSION['nome']?>.</p>
                             
                             <a href="reservas.php" class="card-link text-white bg-danger bg-gradient bg-opacity-25 shadow-lg position-absolute bottom-0 w-100 p-4 d-flex justify-content-between text-decoration-none" style="height: 70px;">
-                                <span class="fs-5 d-flex align-items-center">Ver datalhes</span>
+                                <span class="fs-5 d-flex align-items-center">Ver detalhes</span>
                                 
                                 <i class='bx bx-chevron-right fs-5'></i>
                             </a>
@@ -101,7 +101,7 @@ include '../connection/connect.php';
                             <p class="card-text text-white card-texts w-75 ms-2 fw-medium">Entre aqui para, caso desejar desativar ou excluir sua conta <?php echo $_SESSION['nome']?>.</p>
                             
                             <a href="configuracao.php" class="card-link text-white bg-warning bg-gradient bg-opacity-25 shadow-lg position-absolute bottom-0 w-100 p-4 d-flex justify-content-between text-decoration-none" style="height: 70px;">
-                                <span class="fs-5 d-flex align-items-center">Ver datalhes</span>
+                                <span class="fs-5 d-flex align-items-center">Ver detalhes</span>
                                 
                                 <i class='bx bx-chevron-right fs-5'></i>
                             </a>

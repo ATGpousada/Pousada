@@ -61,7 +61,7 @@
                 </a>
 
                 <!-- Tooltip -->
-                <span class="tooltip">Rerservas</span>
+                <span class="tooltip">Reservas</span>
             </li>
 
 
