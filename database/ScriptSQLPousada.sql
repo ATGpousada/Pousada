@@ -7,6 +7,10 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pousada
 -- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema pousada
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `pousada` DEFAULT CHARACTER SET utf8 ;
 USE `pousada` ;
 
@@ -34,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`clientes` (
   `RG` VARCHAR(9) NOT NULL,
   `SENHA` VARCHAR(10) NOT NULL,
   `EMAIL` VARCHAR(70) NOT NULL,
-  `RECUPERAR_SENHA` VARCHAR(100) NULL DEFAULT NULL,
+  `RECUPERAR_SENHA` VARCHAR(45) NULL DEFAULT NULL,
   `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC),
@@ -178,6 +182,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
 -- -----------------------------------------------------
 -- Table `pousada`.`tipos`
 -- -----------------------------------------------------
@@ -186,6 +191,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`tipos` (
   `TIPO` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `pousada`.`quartos`
@@ -359,32 +365,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `pousada`.`notas_fiscais`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`notas_fiscais` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `ATIVIDADE` TEXT NOT NULL,
-  `DESCRICAO` TEXT NOT NULL,
-  `pagamentos_ID` INT(11) NOT NULL,
-  `reservas_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_notas_fiscais_pagamentos1_idx` (`pagamentos_ID` ASC),
-  INDEX `fk_notas_fiscais_reservas1_idx` (`reservas_ID` ASC),
-  CONSTRAINT `fk_notas_fiscais_pagamentos1`
-    FOREIGN KEY (`pagamentos_ID`)
-    REFERENCES `pousada`.`pagamentos` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_notas_fiscais_reservas1`
-    FOREIGN KEY (`reservas_ID`)
-    REFERENCES `pousada`.`reservas` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `pousada`.`permissoes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pousada`.`permissoes` (
@@ -443,9 +423,22 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
+-- Table `pousada`.`novidades`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`novidades` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(70) NOT NULL,
+  `EMAIL` VARCHAR(70) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 
@@ -997,8 +990,3 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
-
--- criando uma view
-create view vwquartos as
-select quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.PRECO_DIARIA, quartos.QTDE_PESSOAS, quartos.DESTAQUE, quartos.ARQUIVAR_EM, imagens.IMAGEM_CAMINHO_1, imagens.IMAGEM_CAMINHO_2, imagens.quartos_ID
-from quartos, imagens;
