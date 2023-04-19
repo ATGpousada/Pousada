@@ -25,6 +25,20 @@ include '../connection/connect.php';
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Login - Pousada do Sossego</title>
 </head>
+<style>
+    fieldset {
+        padding: 15px !important;
+        border: 2px solid rgba(0, 0, 0, 0.2) !important;
+        border-radius: 5px;
+        margin-bottom: 30px !important;
+    }
+    legend {
+        float: unset !important;
+        width: unset !important;
+        padding: 0 10px !important;
+        width:inherit;
+    }
+</style>
 <body>
     <!-- início do preloader -->
     <div id="preloader">
@@ -54,17 +68,89 @@ include '../connection/connect.php';
                 <!-- Itens do menu -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="#">Conta</a>
-                        <a class="nav-link" href="#">Dados pessoais</a>
-                        <a class="nav-link" href="#">Formas de pagamento</a>
+                        <a class="nav-link" aria-current="page" href="perfil.php">Conta</a>
+                        <a class="nav-link" href="formasPagamentoPerfil.php">Formas de pagamento</a>
                     </div>
                 </div>
             </div>
         </nav>
         
 
-        <section class="ps-5 pe-5">
-            
+        <section class="ps-5 pe-5 pb-4 pt-2">
+            <h3>Conta</h4>
+
+            <fieldset>
+                <legend>Login</legend>
+
+                <div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-end">
+                            <a href="" class="btn btn-primary ms-auto"><i class="bi bi-pencil-fill"></i> Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dados Pessoias</legend>
+                
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    
+                    <div class="col-md-12">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                        <a href="" class="btn btn-primary ms-auto"><i class="bi bi-pencil-fill"></i> Editar</a>
+                    </div>
+                </div>
+            </fieldset>
         </section>
     </main>
 </body>
