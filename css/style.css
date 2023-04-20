@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+@font-face{
+    font-family: 'textoproduto';
+    src: url(../fonts/CursiveSans-Bold.ttf);
+}
 @font-face {
     font-family: 'titulos';
     src: url(../font/comfortaa/Comfortaa-Regular.ttf);
@@ -533,68 +537,93 @@
 /* ###########################  COMEÇO PRODUTOS ########################## */
 .PARTIÇÃO{
     display: flex;
- margin-left: 4px;
- justify-content:space-around;
- margin: 3px;
- padding: 2px;
+    justify-content: space-around;
 }
 .centraliza_q1{
     display: flex;
     justify-content:space-around;
+}   
+.icones{
+    list-style: none;
+    text-decoration: none;
+    margin: 50px 55px -35px 55px;
 }
-.distribuição{
+.fonte_p{
+font-family:'textoproduto';
+
+}
+
+.icones li{
     display: inline-block;
-    padding: 30px 55px;
+    text-decoration: none;
+    margin: 30px;
 }
-  
-  .center {
-    width: 180px;
-    height: 60px;
-    position: absolute;
-    margin: 52px 10px;
-    
-  }
-  
-  .btn_p {
-    width: 180px;
-    height: 60px;
+
+.button {
+    appearance: button;
+    background-color: #1a01f8;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
     cursor: pointer;
-    background: rgb(5, 62, 148);
-    border: 1px solid #91C9FF;
-    border-radius: 7px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
     outline: none;
-    transition: 1s ease-in-out;
-  }
-  
-  svg {
-    position: absolute;
+    overflow: visible;
+    padding: 14px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .4s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+   }
+   
+   .button:after {
+    background-clip: padding-box;
+    background-color:var(--cor-azul-escuro);
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
     left: 0;
+    position: absolute;
+    right: 0;
     top: 0;
-    fill: none;
-    stroke: white;
-    stroke-dasharray: 150 480;
-    stroke-dashoffset: 150;
-    transition: 2s ease-in-out;
-  }
-  
-  .btn_p:hover {
-    transition: 2s ease-in-out;
-    background: #4F95DA;
-  }
-  
-  .btn_p:hover svg {
-    stroke-dashoffset: -480;
-  }
-  
-  .btn_p span {
-    color: white;
-    font-size: 18px;
-    font-weight: 100;
-  }
-  .font{
-    font-family:'fonts/HangingRegular.ttf'   ;
-}
-         
+    z-index: -1;
+   }
+   
+   .button:main, button:focus {
+    user-select: auto;
+   }
+   
+   .button:hover:not(:disabled) {
+    filter: brightness(1.1);
+   }
+   
+   .button:disabled {
+    cursor: auto;
+   }
+   
+   .button:active:after {
+    border-width: 0 0 0px;
+   }
+   
+   .button:active {
+    padding-bottom: 10px;
+   }
+   
+ 
 /* ###########################  FIM PRODUTOS ########################## */
 
 
@@ -744,7 +773,7 @@
 
 .card_detalhe{
     --bg: #ffffff;
-    --hover-bg: #FFE5F4;
+    --hover-bg: #7bbbf7;
     --hover-text: #E50087;
     max-width: 30ch;
     text-align: center;
@@ -797,8 +826,17 @@
 
 .card_detalhe a{
     text-decoration: none;
-    color: aqua;
+    color: rgb(255, 255, 255);
     font-size: x-large;
+}
+
+.card_detalhe a:hover{
+    color:#7bbbf7;
+    border: 1px solid #7bbbf7;
+    border-radius: 100%;
+    background-color: white;
+    padding: 15px;
+    transition: 0.2s all ease;
 }
   
 .card_detalhe:hover span {

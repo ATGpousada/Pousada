@@ -24,12 +24,6 @@
         </div>
     </div>
 
-        <!-- Início do Scroll -->
-        <a href ="#subir">
-        <span class ="quadradinhodasetinha">
-            <i class="bi bi-arrow-up"></i>
-        </span >
-    </a>
 
     <script>
     window.scroll({
@@ -44,7 +38,7 @@
     include "../cabecalhoGeral/cabecalhoGeral.php"
     ?>
     <!-- Fim Menu Público -->
-    <div class="container mb-3 bg-body-tertiary rounded p-4">
+    <div class="container-5 bg-body-tertiary rounded p-0"style="margin:0 auto;width:90%;">
         <div class="row mb-5">
     <!-- Início Carrossel Produtos-->
     <?php 

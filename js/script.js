@@ -92,16 +92,49 @@ function mascara(i) {
   }
   
 // Mascara do Cpf
-        function mascarac(i){
-            var v = i.value;
-            if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-                i.value = v.substring(0, v.length-1);
-                return;
-            }
-            i.setAttribute("maxlength", "14");
-            if (v.length == 3 || v.length == 7) i.value += ".";
-            if (v.length == 11) i.value += "-";
+    function mascarac(i){
+        var v = i.value;
+        if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+            i.value = v.substring(0, v.length-1);
+            return;
         }
+    i.setAttribute("maxlength", "14");
+    if (v.length == 3 || v.length == 7) i.value += ".";
+    if (v.length == 11) i.value += "-";
+    }
+
+// Mascara do RG
+function mascaraRG(i) {
+    var v = i.value;
+    if(isNaN(v[v.length-1])) { // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+    }
+    i.setAttribute("maxlength", "12");
+    if(v.length == 2 || v.length == 6) {
+      i.value += ".";
+    } else if(v.length == 10) {
+      i.value += "-";
+    }
+  }
+
+// Mascara Cep
+function mascaraCEP(i) {
+    var v = i.value;
+    if(!/[\d\-]/.test(v[v.length-1])) { // impede entrar outro caractere que não seja número ou hífen
+      i.value = v.substring(0, v.length-1);
+      return;
+    }
+    i.setAttribute("maxlength", "9");
+    if(v.length == 5) {
+      i.value = i.value + "-";
+    } else if(v.length == 9) {
+      i.value = i.value.substring(0, 8);
+    }
+  }
+  
+  
+  
 
 // ---------------------------- Fim SingUp ----------------------------
 
