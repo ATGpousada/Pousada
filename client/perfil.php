@@ -93,17 +93,17 @@ $rows = $lista->num_rows;
                 <div>
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['EMAIL']?>" aria-label="Disabled input example" disabled readonly>
+                            <label for="emailLogin" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="emailLogin" value="<?php echo $row['EMAIL']?>" disabled readonly>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="inputPassword4" value="<?php echo $row['SENHA']?>" aria-label="Disabled input example" disabled readonly>
+                            <label for="senhaLogin" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="senhaLogin" value="<?php echo $row['SENHA']?>" disabled readonly>
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="" class="btn btn-primary ms-auto"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="bi bi-pencil-fill"></i> Editar</button>
                         </div>
                     </div>
                 </div>
@@ -114,53 +114,145 @@ $rows = $lista->num_rows;
                 
                 <div class="row g-3">
                     <div class="col-md-12">
-                        <label for="inputEmail4" class="form-label">Nome</label>
-                        <input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['NOME']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="nomeDados" class="form-label">Nome</label>
+                        <input type="email" class="form-control" id="nomeDados" value="<?php echo $row['NOME']?>" disabled readonly>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="inputPassword4" value="<?php echo $row['CPF']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="cpfDados" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpfDados" value="<?php echo $row['CPF']?>" disabled readonly>
                     </div>
 
                     <div class="col-6">
-                        <label for="inputAddress" class="form-label">RG</label>
-                        <input type="text" class="form-control" id="inputAddress" value="<?php echo $row['RG']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="rgDados" class="form-label">RG</label>
+                        <input type="text" class="form-control" id="rgDados" value="<?php echo $row['RG']?>" disabled readonly>
                     </div>
 
                     <div class="col-4">
-                        <label for="inputAddress2" class="form-label">CEP</label>
-                        <input type="text" class="form-control" id="inputAddress2" value="<?php echo $row['CEP']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="cepDados" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cepDados" value="<?php echo $row['CEP']?>" disabled readonly>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="inputCity" class="form-label">CIDADE</label>
-                        <input type="text" class="form-control" id="inputCity" value="<?php echo $row['CIDADE']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="cidadeDados" class="form-label">CIDADE</label>
+                        <input type="text" class="form-control" id="cidadeDados" value="<?php echo $row['CIDADE']?>" disabled readonly>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="inputZip" class="form-label">UF</label>
-                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['UF']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="ufDados" class="form-label">UF</label>
+                        <input type="text" class="form-control" id="ufDados" value="<?php echo $row['UF']?>" disabled readonly>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputZip" class="form-label">Número contato</label>
-                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['NUMERO']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="numeroDados" class="form-label">Número contato</label>
+                        <input type="text" class="form-control" id="numeroDados" value="<?php echo $row['TEL']?>" disabled readonly>
                     </div>
 
                     
                     <div class="col-md-6">
-                        <label for="inputZip" class="form-label">Tipo</label>
-                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['TIPO']?>" aria-label="Disabled input example" disabled readonly>
+                        <label for="tipoDados" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" id="tipoDados" value="<?php echo $row['TIPO']?>" disabled readonly>
                     </div>
 
                     <div class="col-12 d-flex justify-content-end">
-                        <a href="" class="btn btn-primary ms-auto"><i class="bi bi-pencil-fill"></i> Editar</a>
+                        <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalDados"><i class="bi bi-pencil-fill"></i> Editar</button>
                     </div>
                 </div>
             </fieldset>
         </section>
     </main>
+    <!-- Modal Login -->
+    <div class="modal fade" id="modalLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailAlterar" value="<?php echo $row['EMAIL']?>">
+                            <label for="emailAlterar">E-mail</label>
+                        </div>
+                        
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="senhaAlterar" value="<?php echo $row['SENHA']?>">
+                            <label for="senhaAlterar">Senha</label>
+                        </div>
+                        
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Descartar alterações</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dados pessoais -->
+    <div class="modal fade" id="modalDados" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Dados Pessoais</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                <div class="modal-body">
+                    <form action="" class="row g-2">
+                        <div class="form-floating col-md-12">
+                            <input type="text" class="form-control" id="nomeAlterar" value="<?php echo $row['NOME']?>">
+                            <label for="nomeAlterar">Nome</label>
+                        </div>
+                        
+                        <div class="form-floating col-md-6">
+                            <input type="text" class="form-control" id="cpfAlterar" value="<?php echo $row['CPF']?>">
+                            <label for="cpfAlterar">CPF</label>
+                        </div>
+                        
+                        <div class="form-floating col-md-6">
+                            <input type="text" class="form-control" id="rgAlterar" value="<?php echo $row['RG']?>">
+                            <label for="rgAlterar">RG</label>
+                        </div>
+                        
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="cepAlterar" value="<?php echo $row['CEP']?>">
+                            <label for="cepAlterar">CEP</label>
+                        </div>
+
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="cidadeAlterar" value="<?php echo $row['CIDADE']?>">
+                            <label for="cidadeAlterar">Cidade</label>
+                        </div>
+                        
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="ufAlterar" value="<?php echo $row['UF']?>">
+                            <label for="ufAlterar">UF</label>
+                        </div>
+
+                        <div class="form-floating col-md-6">
+                            <input type="text" class="form-control" id="numeroAlterar" value="<?php echo $row['TEL']?>">
+                            <label for="numeroAlterar">Número de contato</label>
+                        </div>
+
+                        <div class="form-floating col-md-6">
+                            <input type="text" class="form-control" id="tipoAlterar" value="<?php echo $row['TIPO']?>">
+                            <label for="tipoAlterar">Tipo</label>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Descartar alterações</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>
