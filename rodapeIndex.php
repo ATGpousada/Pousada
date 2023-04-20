@@ -3,7 +3,7 @@
 <footer  class="bg-body-tertiary">
 
 <div class="cor_footer p-4" style="background: #c2daf2;">
-    <form id="form_oferta">
+    <form id="form_oferta" action="enviar_form">
         <div class="flex">
 
             <div class="flex-end w25">

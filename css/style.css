@@ -744,7 +744,7 @@
 
 .card_detalhe{
     --bg: #ffffff;
-    --hover-bg: #FFE5F4;
+    --hover-bg: #7bbbf7;
     --hover-text: #E50087;
     max-width: 30ch;
     text-align: center;
@@ -797,8 +797,17 @@
 
 .card_detalhe a{
     text-decoration: none;
-    color: aqua;
+    color: rgb(255, 255, 255);
     font-size: x-large;
+}
+
+.card_detalhe a:hover{
+    color:#7bbbf7;
+    border: 1px solid #7bbbf7;
+    border-radius: 100%;
+    background-color: white;
+    padding: 15px;
+    transition: 0.2s all ease;
 }
   
 .card_detalhe:hover span {
