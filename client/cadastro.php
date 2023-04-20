@@ -1,9 +1,54 @@
 <?php 
+// Conexão com o banco 
+include '../connection/connect.php';
 
+// Verifica se tem valor nos INPUT's
+if ($_POST){
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $rg = $_POST['rg'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $cep = $_POST['cep'];
+    $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
+
+    // Consulta para ver se há Cliente cadastrado com o email especificado
+    $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email'");
+
+    // Recupera a quantidade de linhas
+    $loginQueryNum = $loginQuery->num_rows;
     
-
-
-
+    // Verifica se já existe um Cliente com o email informado
+    if($loginQueryNum > 0) {
+        // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
+        echo "O email informado já está sendo utilizado. Por favor, informe outro email.";
+    } else {
+        // Insere os dados dos clientes no banco de dados
+        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
+        VALUES 
+        ('$nome','$cpf','$rg','$senha','$email');";
+        $resultado = $connect->query($insereCli);
+        
+        // Verifica se a inserção foi bem sucedida
+        if($resultado){
+            // Após a gravação bem sucedida dos dados do cliente, vai (atualiza) para "client/endereco.php"
+            // para cadastrar os dados de endereço 
+            if(mysqli_insert_id($connect)){
+                header('location: endereco.php');
+            }
+            
+            // Inicia uma sessão
+            session_start();
+        } else {
+            // Informa o Cliente que ocorreu um erro na gravação dos dados
+            echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
+        }
+        $insereCli = "INSERT INTO enderecos_cli (CEP, CIDADE, UF, cliente_ID)
+         values ('$cep','$cidade','$uf','$conexao->lastInsertId();')";
+    }
+}
 ?>
 
 

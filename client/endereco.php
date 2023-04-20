@@ -86,7 +86,7 @@
             <!-- Cep -->
             <div class="form-item">
                 <label for="cep">Digite seu CEP</label>
-                <input type="text" id="cep" name="cep" class="form-control form-input-item" required>
+                <input type="text" id="cep" name="cep" class="form-control form-input-item" oninput="mascaraCEP(this)" required>
             </div>
 
             <!-- Cidade -->
