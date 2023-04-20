@@ -68,7 +68,7 @@ $linhasIMGres = $listaIMGres->num_rows;
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: #d7e8f7;">
             <div class="modal-header" style="display: block !important;">
                 <h4 class="modal-title text-center" id="staticBackdropLabel">

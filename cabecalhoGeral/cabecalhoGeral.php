@@ -32,7 +32,7 @@
                     </li>
                     
                     <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="../product/index.php">Serviços</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="../product/index.php">Quartos</a>
                     </li>
 
                     <li class="nav-item ms-auto me-auto">

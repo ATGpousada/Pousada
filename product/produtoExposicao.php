@@ -19,7 +19,6 @@ $linhas = $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    
     <!-- INÍCIO MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <?php if($linhas == 0){?>
         <h2 class="breadcrumb alert-danger">
@@ -31,61 +30,57 @@ $linhas = $lista->num_rows;
     <div class="row w100">
     <?php do {?>
     <div class="PARTIÇÃO">
-        <div>
-            <img src="<?php echo $linha['IMAGEM_CAMINHO_2'];?>" alt="" style="width: 600px;border-radius:30px;">
+        <div style="margin: 30px;">
+            <img src="<?php echo $linha['IMAGEM_CAMINHO_2'];?>" alt="" style="width: 620px;border-radius:30px;">
         </div>
 
-        <div>
-            <div class="centraliza_q1">
-                <h1 class="font"><?php echo $linha['QUARTO'];?></h1>
-            </div>
+        <div style="width: 50%;margin: 48px;">
+            
+                <h1 class="font text-center fonte_p" style="font-size: 40px;"><?php echo $linha['QUARTO'];?></h1>
 
-            <div class="distribuição">
+
+                <div>
+                <ul class="icones">
+            <li>
                 <span class="fas fa-car" style="font-size: 50px;"></span>
-                <h6>Estacionamento</h6>
-            </div>
+             </li>
 
-            <div class="distribuição">
+                <li>
                 <span class="fas fa-bath"style="font-size: 50px;"></span>
-                <h6>Banheiro</h6>
-            </div>
+                 </li>
 
-            <div class="distribuição">
+                <li>
                 <span class="fa-solid fa-mug-hot"style="font-size: 50px;"></span>
-                <h6>Café da manhã</h6>
-            </div>
-
-            <div class="distribuição">
+                      </li>
+                <li>    
                 <span class="fas fa-desktop"style="font-size: 50px;"></span>
-                <h6>Tv Smart</h6> 
-            </div>
-
-            <div class="distribuição">
+                
+                </li>
+       
+                <li>
                 <span class="fas fa-snowflake"style="font-size: 50px;"></span>
-                <h6>Ar condicionado</h6> 
-            </div>
-
-            <div class="distribuição">
+                
+                </li>
+         
+                <li>
                 <span class="fas fa-paw" style="font-size: 50px;"></span>
-                <h6>Pets</h6> 
-            </div>
-
-            <div class="container">
-                <div class="center">
-                    <a href="../details/index.php?ID=<?php echo $linha['ID']?>">
-                    <button class="btn_p">
-                        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                        </svg>
-                        <span>Saiba Mais...</span>
-                    </button>
-                    </a>
+                
+                </li>
+                </ul>
+                <hr style="margin: 4rem 0;color: inherit;border: 0;border-top: var(--bs-border-width) solid;opacity: 0.36;">
+                </div>
+                    <div class="text-center" style="width: 100%; margin-top: 55px;">
+                        <a href="../details/index.php?ID=<?php echo $linha['ID']?>" class="botao_saiba">
+                        <button class="button" style="margin-left 100%;">Saiba Mais</button>
+                        </a>
+                    </div>
                 </div>
             </div> 
-        </div>
-    </div>
+            
     <?php } while ($linha = $lista -> fetch_assoc());?>
-    <?php }?>
+    <?php }?>         
+</div> 
+</div>
     <!-- FIM SE A CONSULTAR NÃO RETORNAR VAZIO -->
 </body>
 </html>
