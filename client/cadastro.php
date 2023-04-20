@@ -1,4 +1,11 @@
-<?php ?>
+<?php 
+
+    
+
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -43,7 +50,7 @@
         <h2>Cadastre-se</h2>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login">
+        <form class="form-login" method="post" >
 
             <!-- Nome -->
             <div class="form-item">
@@ -61,6 +68,12 @@
             <div class="form-item">
                 <label for="cpf">Digite seu CPF</label>        
                 <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
+            </div>
+
+            <!-- Rg -->
+            <div class="form-item">
+                <label for="rg">Digite seu RG</label>        
+                <input type="rg" id="rg" name="rg" class="form-control form-input-item" required>
             </div>
 
             <!-- Telefone -->
@@ -81,7 +94,7 @@
                 <input type="password" id="confSenha" name="confSenha" class="form-control form-input-item" required autocomplete="off">
             </div>
 
-            <button href="client/endereco.php" type="submit">Proximo</button>
+            <button id="entrarLogin" name="entrarLogin" type="submit">Proximo</button>
         </form>
         
         <!-- Footer do Sing Up -->
