@@ -48,8 +48,10 @@
                     // Restaura cliente
                     $connect->query("UPDATE clientes SET ARQUIVAR_EM = NULL WHERE ID =  ".$loginQueryRow['ID'].";");
                 }
-
                 // Atribui o ID a sessão
+                $_SESSION['id'] = $loginQueryRow['ID'];
+
+                // Atribui o email a sessão
                 $_SESSION['email'] = $loginQueryRow['EMAIL'];
 
                 // Atribui o nome a sessão

@@ -4,6 +4,14 @@ include 'verificacao.php';
 
 // Conexão com o banco
 include '../connection/connect.php';
+
+
+$lista = $connect->query("SELECT * FROM clientes 
+                        INNER JOIN enderecos_cli ON clientes.ID = enderecos_cli.cliente_ID
+                        INNER JOIN telefones_cli ON clientes.ID = telefones_cli.cliente_ID
+                        WHERE clientes.ID = ".$_SESSION['id'].";");
+$row = $lista->fetch_assoc();
+$rows = $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -85,13 +93,13 @@ include '../connection/connect.php';
                 <div>
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                            <label for="inputEmail4" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['EMAIL']?>" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                            <label for="inputPassword4" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="inputPassword4" value="<?php echo $row['SENHA']?>" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
@@ -105,45 +113,45 @@ include '../connection/connect.php';
                 <legend>Dados Pessoias</legend>
                 
                 <div class="row g-3">
-                    <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Nome</label>
+                        <input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['NOME']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                        <label for="inputPassword4" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="inputPassword4" value="<?php echo $row['CPF']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    <div class="col-6">
+                        <label for="inputAddress" class="form-label">RG</label>
+                        <input type="text" class="form-control" id="inputAddress" value="<?php echo $row['RG']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
-                    <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    <div class="col-4">
+                        <label for="inputAddress2" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="inputAddress2" value="<?php echo $row['CEP']?>" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="inputCity" class="form-label">CIDADE</label>
+                        <input type="text" class="form-control" id="inputCity" value="<?php echo $row['CIDADE']?>" aria-label="Disabled input example" disabled readonly>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="inputZip" class="form-label">UF</label>
+                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['UF']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                        <label for="inputZip" class="form-label">Número contato</label>
+                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['NUMERO']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
                     
-                    <div class="col-md-12">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly>
+                    <div class="col-md-6">
+                        <label for="inputZip" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" id="inputZip" value="<?php echo $row['TIPO']?>" aria-label="Disabled input example" disabled readonly>
                     </div>
 
                     <div class="col-12 d-flex justify-content-end">
