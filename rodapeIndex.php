@@ -3,7 +3,7 @@
 <footer  class="bg-body-tertiary">
 
 <div class="cor_footer p-4" style="background: #c2daf2;">
-    <form id="form_oferta">
+    <form id="form_oferta" action="enviar_form.php">
         <div class="flex">
 
             <div class="flex-end w25">
@@ -15,15 +15,17 @@
             </div>
 
             <div class="align-items-center flex-end w30">
-                <input type="text" id="nome" class="form-control input_oferta"  placeholder="Nome" required>
+                <input type="text" id="nome" name="nome" class="form-control input_oferta"  placeholder="Nome" required>
             </div>
 
             <div class="align-items-center flex-end w30">
-                <input type="email" id="email" class="form-control input_oferta" placeholder="Email" required>
+                <input type="email" id="email" name="email" class="form-control input_oferta" placeholder="Email" required>
             </div>
 
             <div class="d-flex align-items-center justify-content-center w15">
-                <button type="submit" value="Enviar" id="botao_oferta" class="btn btn-primary p-2 botao_form" style="font-weight: bold; font-size: 20px;">Enviar</button>
+                <button role="button" value="Enviar" id="botao_oferta" aria-label="enviar" class="btn btn-primary p-2 botao_form" style="font-weight: bold; font-size: 20px;">
+                    Enviar
+                </button>
             </div>
         </div>
     </form>

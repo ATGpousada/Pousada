@@ -32,7 +32,7 @@ $linhas = $lista->num_rows;
                 <p>
                     <?php echo substr($linha['DESCRICAO'], 30, 70)?>...
                 </p>
-                    <button><a href="details/index.php?ID=<?php echo $linha['ID']?>">Ver mais...</a></button>
+                    <a href="details/index.php?ID=<?php echo $linha['ID']?>" class="bg-primary text-decoration-none">Ver mais...</a>
             </div>
         </div>
         <?php }while($linha = $lista->fetch_assoc());?>
