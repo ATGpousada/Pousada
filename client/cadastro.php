@@ -73,7 +73,7 @@
             <!-- Rg -->
             <div class="form-item">
                 <label for="rg">Digite seu RG</label>        
-                <input type="rg" id="rg" name="rg" class="form-control form-input-item" required>
+                <input type="rg" id="rg" name="rg" class="form-control form-input-item" oninput="mascaraRG(this)" required>
             </div>
 
             <!-- Telefone -->
