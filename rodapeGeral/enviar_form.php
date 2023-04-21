@@ -24,12 +24,12 @@ try
     $mail->setFrom('pousada_do_sossego@outlook.com', 'Pousada do Sossego');        // Quem vai enviar o email
 
     //Destinatario
-    $mail->addAddress($_GET['email'], 'Pousada do Sossego');     // Pra quem você quer enviar o email
+    $mail->addAddress($_GET['email'], $_GET['nome']);     // Pra quem você quer enviar o email
 
     // Conteúdo da mensagem
-    $mail->Subject = 'CONTATO';
-    $mail->Body    = '<b>Olá Pousada do Sossego!</b><br><hr>';
-    $mail->AltBody = '<b>Olá Churrascaria Chuleta Quente!</b><br><hr>';
+    $mail->Subject = 'Ofertas da Pousada do Sossego';
+    $mail->Body    = '<b>Ola!</b><br><hr> Recebemos o seu email '.$_GET['nome'].', agora você está ligado sobre todas as ofertas da pousada!';
+    $mail->AltBody = '<b>Ola!</b><br><hr> Recebemos o seu email '.$_GET['nome'].', agora você está ligado sobre todas as ofertas da pousada!';
     $mail->CharSet = 'UTF-8';
     $mail->Debugoutput = 'html';
     $mail->setLanguage('pt');
