@@ -47,7 +47,7 @@
                     $mail->Port = 587;                                          // Número da porta TCP
 
                     $mail->Username = 'pousada_do_sossego@outlook.com';         // SMTP email
-                    $mail->Password = 'pousada_do_sossego_HJMMPV';              // SMTP senha
+                    $mail->Password = 'pousadadosossegoHJMMPV';                 // SMTP senha
 
                     $mail->setFrom('pousada_do_sossego@outlook.com', 'Atendimento');
                     $mail->addAddress($rowRecuperaSenha['EMAIL'], $rowRecuperaSenha['NOME']);
