@@ -55,7 +55,6 @@ include '../connection/connect.php';
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="#">Pedidos</a>
-                        <a class="nav-link" href="#">Status</a>
                         <a class="nav-link" href="#">Histórico</a>
                     </div>
                 </div>
