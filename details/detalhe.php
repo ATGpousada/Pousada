@@ -42,9 +42,9 @@ $linhasIMGres = $listaIMGres->num_rows;
                 R$&nbsp;<?php echo $linha['PRECO_DIARIA'];?>
             </p>
 
-            <button id="reservar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                 RESERVAR
-            </button>
+            </a>
         </div>
     </div>
 
@@ -66,8 +66,29 @@ $linhasIMGres = $listaIMGres->num_rows;
     </div>
 </main> 
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal 1 -->
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background: #d7e8f7;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">REGRAS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="regras">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae reiciendis quo voluptas delectus. Harum, necessitatibus ea voluptate doloremque reprehenderit illo aperiam, dolore impedit ducimus et, unde debitis tempore iste corrupti?</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2-->
+<div class="modal fade" id="exampleModalToggle2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: #d7e8f7;">
             <div class="modal-header" style="display: block !important;">
@@ -88,13 +109,6 @@ $linhasIMGres = $listaIMGres->num_rows;
                         <h4>DATA FINAL</h4>
                         <input type="date" name="data_final" id="data_final">
                     </span>
-                </div>
-
-                <hr>
-
-                <div id="regras">
-                    <h5 class="text-center">REGRAS</h5>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae reiciendis quo voluptas delectus. Harum, necessitatibus ea voluptate doloremque reprehenderit illo aperiam, dolore impedit ducimus et, unde debitis tempore iste corrupti?</p>
                 </div>
 
                 <hr>
