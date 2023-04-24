@@ -8,8 +8,14 @@ $linhasIMG = $listaIMG->num_rows;
 $listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
-?>
 
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['nome_da_sessao'])) {
+    echo '<script>$("#btn-consultar").attr("href", "../client/login.php")</script>
+';
+}
+?>
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -140,21 +146,10 @@ $linhasIMGres = $listaIMGres->num_rows;
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
-                    
-                        <?php if (isset($_SESSION['pousada'])){ // condição para verificar se existe a sessão pousada?> 
-                            <button type="button" class="btn btn-success">
-                                    CONSULTAR
-                            </button>
-                        <?php }else if(isset($_SESSION['nome_da_sessao']) != "pousada"){ // condição para ser executada se o if não for executado, funciona quando a sessão pousada não existir?>
-                            <button type="button" class="btn btn-success">
-                                <a href="../client/login.php" class="text-decoration-none text-reset">
-                                    CONSULTAR
-                                </a>
-                            </button >
-                        <?php } ?>
 
-
-                    
+                    <a href="" type="button" class="btn btn-success text-decoration-none text-reset" id="btn-consultar">
+                        CONSULTAR
+                    </a>
                 </div>
             </div>
         </div>

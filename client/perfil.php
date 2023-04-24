@@ -81,102 +81,113 @@ $row = $lista->fetch_assoc();
         <!-- Conteúdo cliente -->
         <section class="ps-5 pe-5 pb-4 pt-2">
             <!-- Título da página -->
-            <h3>Conta</h4>
+            <h3 class="col-md-12">Conta</h4>
             
             <!-- Área para consultar ou realizar alteações do login -->
-            <fieldset>
+            <fieldset class="col-md-12">
                 <!-- Título da área do login -->
-                <legend>Login</legend>
+                <legend>Informações da conta</legend>
 
                 <!-- Começo do formulário para consulta -->
                 <div>
-                    <div class="row g-3">
+                    <div class="row g-3 pb-4">
                         <!-- E-mail -->
                         <div class="col-md-6">
                             <label for="emailLogin" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="emailLogin" name="emailLogin" value="<?php echo $row['EMAIL']?>" disabled readonly>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="emailLogin" name="emailLogin" value="<?php echo $row['EMAIL']?>" disabled readonly>
+                                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modalEmail"><i class="bi bi-pencil-fill"></i> Editar</button>
+                            </div>
                         </div>
-                        
-                        <!-- Senha -->
+
+                        <!-- Nome -->
                         <div class="col-md-6">
-                            <label for="senhaLogin" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senhaLogin" name="senhaLogin" value="<?php echo $row['SENHA']?>" disabled readonly>
+                            <label for="nomeDados" class="form-label">Nome</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="nomeDados" name="nomeDados" value="<?php echo $row['NOME']?>" disabled readonly>
+                                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modalNome"><i class="bi bi-pencil-fill"></i> Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="d-flex gap-5">
+                <!-- Área para consultar ou realizar alteações dos dados pessoais -->
+                <fieldset class="w-50">
+                    <!-- Título da área dos dados pessoais -->
+                    <legend>Dados Pessoias</legend>
+                    
+                    <!-- Começo do formulário para consulta -->
+                    <div class="row g-3">
+                        <!-- CPF -->
+                        <div class="col-md-12">
+                            <label for="cpfDados" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpfDados" name="cpfDados" value="<?php echo $row['CPF']?>" disabled readonly>
+                        </div>
+
+                        <!-- RG -->
+                        <div class="col-12">
+                            <label for="rgDados" class="form-label">RG</label>
+                            <input type="text" class="form-control" id="rgDados" name="rgDados" value="<?php echo $row['RG']?>" disabled readonly>
                         </div>
 
                         <!-- Botão para editar -->
                         <div class="col-12 d-flex justify-content-end">
-                            <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="bi bi-pencil-fill"></i> Editar</button>
+                            <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalDados"><i class="bi bi-pencil-fill"></i> Editar</button>
                         </div>
                     </div>
-                </div>
-            </fieldset>
+                </fieldset>
 
-            <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-            <fieldset>
-                <!-- Título da área dos dados pessoais -->
-                <legend>Dados Pessoias</legend>
-                
-                <!-- Começo do formulário para consulta -->
-                <div class="row g-3">
-                    <!-- Nome -->
-                    <div class="col-md-12">
-                        <label for="nomeDados" class="form-label">Nome</label>
-                        <input type="email" class="form-control" id="nomeDados" name="nomeDados" value="<?php echo $row['NOME']?>" disabled readonly>
-                    </div>
+                <!-- Área para consultar ou realizar alteações dos dados pessoais -->
+                <fieldset class="w-50">
+                    <!-- Título da área dos dados pessoais -->
+                    <legend>Contato</legend>
+                    
+                    <!-- Começo do formulário para consulta -->
+                    <div class="row g-3">
+                        <!-- CEP -->
+                        <div class="col-4">
+                            <label for="cepDados" class="form-label">CEP</label>
+                            <input type="text" class="form-control" id="cepDados" name="cepDados" value="<?php echo $row['CEP']?>" disabled readonly>
+                        </div>
 
-                    <!-- CPF -->
-                    <div class="col-md-6">
-                        <label for="cpfDados" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpfDados" name="cpfDados" value="<?php echo $row['CPF']?>" disabled readonly>
-                    </div>
+                        <!-- Cidade -->
+                        <div class="col-md-4">
+                            <label for="cidadeDados" class="form-label">CIDADE</label>
+                            <input type="text" class="form-control" id="cidadeDados" name="cidadeDados" value="<?php echo $row['CIDADE']?>" disabled readonly>
+                        </div>
 
-                    <!-- RG -->
-                    <div class="col-6">
-                        <label for="rgDados" class="form-label">RG</label>
-                        <input type="text" class="form-control" id="rgDados" name="rgDados" value="<?php echo $row['RG']?>" disabled readonly>
-                    </div>
+                        <!-- UF -->
+                        <div class="col-md-4">
+                            <label for="ufDados" class="form-label">UF</label>
+                            <input type="text" class="form-control" id="ufDados" name="ufDados" value="<?php echo $row['UF']?>" disabled readonly>
+                        </div>
 
-                    <!-- CEP -->
-                    <div class="col-4">
-                        <label for="cepDados" class="form-label">CEP</label>
-                        <input type="text" class="form-control" id="cepDados" name="cepDados" value="<?php echo $row['CEP']?>" disabled readonly>
-                    </div>
+                        <!-- Número de telefone -->
+                        <div class="col-md-6">
+                            <label for="numeroDados" class="form-label">Número de contato</label>
+                            <input type="text" class="form-control" id="numeroDados" name="numeroDados" value="<?php echo $row['TEL']?>" disabled readonly>
+                        </div>
 
-                    <!-- Cidade -->
-                    <div class="col-md-4">
-                        <label for="cidadeDados" class="form-label">CIDADE</label>
-                        <input type="text" class="form-control" id="cidadeDados" name="cidadeDados" value="<?php echo $row['CIDADE']?>" disabled readonly>
-                    </div>
+                        <!-- Tipo do número do telefone -->
+                        <div class="col-md-6">
+                            <label for="tipoDados" class="form-label">Tipo</label>
+                            <input type="text" class="form-control" id="tipoDados" name="tipoDados" value="<?php echo $row['TIPO']?>" disabled readonly>
+                        </div>
 
-                    <!-- UF -->
-                    <div class="col-md-4">
-                        <label for="ufDados" class="form-label">UF</label>
-                        <input type="text" class="form-control" id="ufDados" name="ufDados" value="<?php echo $row['UF']?>" disabled readonly>
+                        <!-- Botão para editar -->
+                        <div class="col-12 d-flex justify-content-end">
+                            <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalContato"><i class="bi bi-pencil-fill"></i> Editar</button>
+                        </div>
                     </div>
-
-                    <!-- Número de telefone -->
-                    <div class="col-md-6">
-                        <label for="numeroDados" class="form-label">Número de contato</label>
-                        <input type="text" class="form-control" id="numeroDados" name="numeroDados" value="<?php echo $row['TEL']?>" disabled readonly>
-                    </div>
-
-                    <!-- Tipo do número do telefone -->
-                    <div class="col-md-6">
-                        <label for="tipoDados" class="form-label">Tipo</label>
-                        <input type="text" class="form-control" id="tipoDados" name="tipoDados" value="<?php echo $row['TIPO']?>" disabled readonly>
-                    </div>
-
-                    <!-- Botão para editar -->
-                    <div class="col-12 d-flex justify-content-end">
-                        <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalDados"><i class="bi bi-pencil-fill"></i> Editar</button>
-                    </div>
-                </div>
-            </fieldset>
+                </fieldset>
+            </div>
         </section>
     </main>
 
-    <!-- Modal Login -->
-    <div class="modal fade" id="modalLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal E-mail -->
+    <div class="modal fade" id="modalEmail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <!-- Conteúdo do modal -->
             <div class="modal-content">
@@ -195,16 +206,37 @@ $row = $lista->fetch_assoc();
                             <input type="email" class="form-control" id="emailAlterar" name="emailAlterar" value="<?php echo $row['EMAIL']?>">
                             <label for="emailAlterar">E-mail</label>
                         </div>
-                        
-                        <!-- Senha -->
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="senhaAlterar" name="senhaAlterar" value="<?php echo $row['SENHA']?>">
-                            <label for="senhaAlterar">Senha</label>
-                        </div>
 
-                        <!-- Informação para o cliente -->
-                        <div class="alert alert-primary mb-3 mt-3" role="alert">
-                            <strong>Atenção: </strong> Caso desejar mudar apenas um dado, mantenha os outros como estavam!
+                        <!-- Botão para realizar a alteração  -->
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Descartar alterações</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nome -->
+    <div class="modal fade" id="modalNome" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <!-- Formulário para alterar o login -->
+                    <form action="alterarLogin.php" method="post">
+                        <!-- E-mail -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailAlterar" name="emailAlterar" value="<?php echo $row['EMAIL']?>">
+                            <label for="emailAlterar">E-mail</label>
                         </div>
 
                         <!-- Botão para realizar a alteração  -->
@@ -218,8 +250,40 @@ $row = $lista->fetch_assoc();
         </div>
     </div>
 
-    <!-- Modal Dados pessoais -->
+    <!-- Modal Dados Pessoais -->
     <div class="modal fade" id="modalDados" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <!-- Formulário para alterar o login -->
+                    <form action="alterarLogin.php" method="post">
+                        <!-- E-mail -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailAlterar" name="emailAlterar" value="<?php echo $row['EMAIL']?>">
+                            <label for="emailAlterar">E-mail</label>
+                        </div>
+
+                        <!-- Botão para realizar a alteração  -->
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Descartar alterações</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Contato -->
+    <div class="modal fade" id="modalContato" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered  modal-lg">
             <!-- Conteúdo do modal -->
             <div class="modal-content">
