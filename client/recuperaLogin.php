@@ -59,7 +59,7 @@
 
                     $mail->send();
 
-                    $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
+                    $_SESSION['msg'] = "<p style='color: #008000'>E-mail enviado com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
                     header("Location: login.php");
 
                     // Caso o envio não seja efetuado 
@@ -134,10 +134,7 @@
                 } elseif (isset($_SESSION['msg_email'])) {
                     echo $_SESSION['msg_email'];
                     unset($_SESSION['msg_email']);
-                } elseif(isset($_SESSION['msg'])){
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
+                } 
             ?>
             
             <!-- E-mail -->

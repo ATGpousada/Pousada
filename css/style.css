@@ -1195,7 +1195,7 @@ ul {
 /* Começo área Conta*/
 fieldset {
     padding: 15px !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid #00000033 !important;
     border-radius: 5px;
     margin-bottom: 30px !important;
 }

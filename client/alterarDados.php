@@ -10,11 +10,11 @@
         // Verificação para tratar possível erro 
         try {
             // Alteração da tabela do cliente (dados pessoais) 
-            $alterarDadosCli = $connect->query("UPDATE clientes SET NOME = '".$_POST['nomeAlterar']."' , CPF = '".$_POST['cpfAlterar']."', RG = '".$_POST['rgAlterar']."' WHERE ID = ".$_SESSION["id"].";");
+            $connect->query("UPDATE clientes SET NOME = '".$_POST['nomeAlterar']."' , CPF = '".$_POST['cpfAlterar']."', RG = '".$_POST['rgAlterar']."' WHERE ID = ".$_SESSION["id"].";");
             // Alteração da tabela de enderecos_cli (dados pessoais)
-            $alterarDadosEnd = $connect->query("UPDATE enderecos_cli SET CEP = '".$_POST['cepAlterar']."' , CIDADE = '".$_POST['cidadeAlterar']."', UF = '".$_POST['ufAlterar']."' WHERE ID = ".$_SESSION["id"].";");
+            $connect->query("UPDATE enderecos_cli SET CEP = '".$_POST['cepAlterar']."' , CIDADE = '".$_POST['cidadeAlterar']."', UF = '".$_POST['ufAlterar']."' WHERE ID = ".$_SESSION["id"].";");
             // Alteração da tabela de telefones_cli (dados pessoais)
-            $alterarDadosTel = $connect->query("UPDATE telefones_cli SET TIPO = '".$_POST['tipoAlterar']."' , TEL = '".$_POST['numeroAlterar']."' WHERE ID = ".$_SESSION["id"].";");
+            $connect->query("UPDATE telefones_cli SET TIPO = '".$_POST['tipoAlterar']."' , TEL = '".$_POST['numeroAlterar']."' WHERE ID = ".$_SESSION["id"].";");
 
             // Após a alteração, voltar para a página de pefil.php
             header('location: perfil.php');

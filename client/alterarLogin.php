@@ -7,25 +7,37 @@
         // Conexão com o banco
         include "../connection/connect.php";
 
-        // Verificação para tratar possível erro 
-        try {
-            // Alteração da tabela do cliente (login) 
-            $alterarLogin = $connect->query("UPDATE clientes SET EMAIL = '".$_POST['emailAlterar']."' , SENHA = '".$_POST['senhaAlterar']."' WHERE ID = ".$_SESSION["id"].";");
-
-            // Após a alteração, voltar para a página de pefil.php
+        // Consulta para tratar erro caso insira email já existente
+        $verificacaoEmail = $connect->query("SELECT EMAIL FROM clientes where EMAIL = '".$_POST['emailAlterar']."';");
+        
+        // Verificação se email já existe
+        if ($verificacaoEmail->num_rows > 0) {
+            // Após a verificação, voltar para a página de pefil.php
             header('location: perfil.php');
-
-            // Retorno caso dar certo
-            return true;
-        } catch (\Throwable $th) {
-            // Variável com erro
-            throw $th;
             
-            // Após a alteração, voltar para a página de pefil.php
-            header('location: perfil.php');
-
-            // Retorno caso dar errado
+            // retorna falso
             return false;
+        } else {
+            // Verificação para tratar possível erro 
+            try {
+                // Alteração da tabela do cliente (login) 
+                $connect->query("UPDATE clientes SET EMAIL = '".$_POST['emailAlterar']."' , SENHA = '".$_POST['senhaAlterar']."' WHERE ID = ".$_SESSION["id"].";");
+
+                // Após a alteração, voltar para a página de pefil.php
+                header('location: perfil.php');
+
+                // Retorno caso dar certo
+                return true;
+            } catch (\Throwable $th) {
+                // Variável com erro
+                throw $th;
+                
+                // Após a alteração, voltar para a página de pefil.php
+                header('location: perfil.php');
+
+                // Retorno caso dar errado
+                return false;
+            }
         }
     }
 
