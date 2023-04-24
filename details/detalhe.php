@@ -145,7 +145,7 @@ $linhasIMGres = $listaIMGres->num_rows;
                             <button type="button" class="btn btn-success">
                                     CONSULTAR
                             </button>
-                        <?php }else if(!isset($_SESSION['pousada'])){ // condição para ser executada se o if não for executado, funciona quando a sessão pousada não existir?>
+                        <?php }else if(isset($_SESSION['nome_da_sessao']) != "pousada"){ // condição para ser executada se o if não for executado, funciona quando a sessão pousada não existir?>
                             <button type="button" class="btn btn-success">
                                 <a href="../client/login.php" class="text-decoration-none text-reset">
                                     CONSULTAR
