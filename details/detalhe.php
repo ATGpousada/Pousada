@@ -79,12 +79,12 @@ $linhasIMGres = $listaIMGres->num_rows;
 
                 <div class="d-flex justify-content-center" style="margin-top:30px;">
 
-                    <span id="datas_modal" class="text-center" style="margin: 0 30px;">
+                    <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                         <h4>DATA INICIO</h4>
                         <input type="date" name="data_inicio" id="data_inicio">
                     </span>
 
-                    <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;">
+                    <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                         <h4>DATA FINAL</h4>
                         <input type="date" name="data_final" id="data_final">
                     </span>
@@ -127,11 +127,11 @@ $linhasIMGres = $listaIMGres->num_rows;
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
                     
-                        <?php if (isset($_SESSION['pousada'])){?>
+                        <?php if (isset($_SESSION['pousada'])){ // condição para verificar se existe a sessão pousada?> 
                             <button type="button" class="btn btn-success">
                                     CONSULTAR
-                            </button >
-                        <?php }else if(!isset($_SESSION['pousada'])){?>
+                            </button>
+                        <?php }else if(!isset($_SESSION['pousada'])){ // condição para ser executada se o if não for executado, funciona quando a sessão pousada não existir?>
                             <button type="button" class="btn btn-success">
                                 <a href="../client/login.php" class="text-decoration-none text-reset">
                                     CONSULTAR
