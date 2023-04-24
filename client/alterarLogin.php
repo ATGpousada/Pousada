@@ -20,6 +20,9 @@
         } catch (\Throwable $th) {
             // Variável com erro
             throw $th;
+            
+            // Após a alteração, voltar para a página de pefil.php
+            header('location: perfil.php');
 
             // Retorno caso dar errado
             return false;
