@@ -140,7 +140,21 @@ $linhasIMGres = $listaIMGres->num_rows;
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
-                    <button type="button" class="btn btn-success">CONSULTAR</button>
+                    
+                        <?php if (isset($_SESSION['pousada'])){?>
+                            <button type="button" class="btn btn-success">
+                                    CONSULTAR
+                            </button >
+                        <?php }else if(!isset($_SESSION['pousada'])){?>
+                            <button type="button" class="btn btn-success">
+                                <a href="../client/login.php" class="text-decoration-none text-reset">
+                                    CONSULTAR
+                                </a>
+                            </button >
+                        <?php } ?>
+
+
+                    
                 </div>
             </div>
         </div>

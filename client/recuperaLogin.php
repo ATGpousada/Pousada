@@ -47,7 +47,7 @@
                     $mail->Port = 587;                                          // Número da porta TCP
 
                     $mail->Username = 'pousada_do_sossego@outlook.com';         // SMTP email
-                    $mail->Password = 'pousada_do_sossego_HJMMPV';              // SMTP senha
+                    $mail->Password = 'pousadadosossegoHJMMPV';                 // SMTP senha
 
                     $mail->setFrom('pousada_do_sossego@outlook.com', 'Atendimento');
                     $mail->addAddress($rowRecuperaSenha['EMAIL'], $rowRecuperaSenha['NOME']);
@@ -59,7 +59,7 @@
 
                     $mail->send();
 
-                    $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
+                    $_SESSION['msg'] = "<p style='color: #008000'>E-mail enviado com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
                     header("Location: login.php");
 
                     // Caso o envio não seja efetuado 
@@ -134,10 +134,7 @@
                 } elseif (isset($_SESSION['msg_email'])) {
                     echo $_SESSION['msg_email'];
                     unset($_SESSION['msg_email']);
-                } elseif(isset($_SESSION['msg'])){
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
+                } 
             ?>
             
             <!-- E-mail -->

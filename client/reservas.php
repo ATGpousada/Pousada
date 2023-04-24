@@ -54,9 +54,8 @@ include '../connection/connect.php';
                 <!-- Itens do menu -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="#">Pedidos de reservas</a>
-                        <a class="nav-link" href="#">Situação das reservas</a>
-                        <a class="nav-link" href="#">Histórico das reservas</a>
+                        <a class="nav-link" aria-current="page" href="#">Pedidos</a>
+                        <a class="nav-link" href="#">Histórico</a>
                     </div>
                 </div>
             </div>
