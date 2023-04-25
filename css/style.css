@@ -1487,6 +1487,16 @@ legend {
     }
     /* Fim Detalhes */
 
+
+    /* Começo index */
+    @media screen and (max-width: 650px) {
+        #servFree {
+            display: none !important;
+        }
+    }
+    /* Fim index */
+
+
     /*Começo login*/
     @media (width >=500px){
         .body-login{
