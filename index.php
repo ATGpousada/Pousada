@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -34,9 +33,9 @@
     <main style="width: 90%; margin: auto;">
         <!-- Mensagem na tela -->
         <?php 
-            if(isset($_SESSION['conf'])){
-                echo $_SESSION['conf'];
-                unset($_SESSION['conf']);
+            if(isset($_SESSION['conf-s'])){
+                echo $_SESSION['conf-s'];
+                unset($_SESSION['conf-s']);
             }
         ?>
 
