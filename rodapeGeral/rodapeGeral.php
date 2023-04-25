@@ -127,9 +127,9 @@
 <button class="icon-btn add-btn">
     <div class="add-icon"></div>
     <div class="btn-txt">       
-        <a href="#"><img src="../images/redes_sociais/instagram.webp" alt="" style="width: 70px;"></a>
-        <a href="#"><img src="../images/redes_sociais/facebook.webp" alt="" style="width: 70px;"></a>
-        <a href="#"><img src="../images/redes_sociais/whatsapp.webp" alt="" style="width: 70px;"></a>
+        <a href="#"><img src="../images/redes_sociais/instagram.webp" alt="" style="width: 60px; margin-right: 10px;"></a>
+        <a href="#"><img src="../images/redes_sociais/facebook.webp" alt="" style="width: 60px;"></a>
+        <a href="#"><img src="../images/redes_sociais/whatsapp.webp" alt="" style="width: 60px; margin-left: 10px;"></a>
     </div>
 </button>
 
