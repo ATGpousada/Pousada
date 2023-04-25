@@ -42,7 +42,7 @@
 
 
                 <!-- Adição do destaque -->               
-                    <?php include 'destaqueQuartos.php';?>
+                <?php include 'destaqueQuartos.php';?>
                     
 
                 

@@ -3,7 +3,7 @@ include 'connection/connect.php';
 
 $email = $_GET['email'];
 $nome = $_GET['nome'];
-$lista = $connect->query("select * from novidades where email = $email");
+$lista = $connect->query("select * from novidades where email = '$email'");
 $num_linhas = $lista->num_rows; //
 
 if($num_linhas == 0){
