@@ -26,7 +26,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
 <main>
     <!-- Div principal (Foto quarto, titulo, preço, botão...) -->
-    <div id="geral_del" class="flex-sa" style="margin-top: 110px;">
+    <div id="geral_del" class="flex-sa" style="margin-top: 190px;">
 
         <!-- Imagem Principal -->
         <span id="img_principal">
