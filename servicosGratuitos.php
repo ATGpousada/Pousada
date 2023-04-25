@@ -1,5 +1,5 @@
 <html>
-    <div class="d-flex justify-content-around bg-primary p-4">
+    <div class="d-flex justify-content-around bg-primary p-4" id="servFree">
         <div class="text-light m-2" style="text-align:center;">
             <h3 style="font-size:larger;">Wi-Fi grátis para você aproveitar</h3>
             <i class="bi bi-router fs-3"></i>
