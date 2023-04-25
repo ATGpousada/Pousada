@@ -1,48 +1,42 @@
 <?php 
+    function ultimoCadastro($conexao, $tabela, $campo) {
+        // Monta a consulta SQL
+        $sql = "SELECT $campo FROM $tabela ORDER BY $campo DESC LIMIT 1";
+        
+        // Executa a consulta SQL
+        $resultado = mysqli_query($conexao, $sql);
+        
+        // Verifica se a consulta retornou algum resultado
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
+            // Obtém o último registro inserido
+            $registro = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
+            
+            // Retorna o registro
+            return $registro['ID'];
+        } else {
+            return false;
+        }
+    }
 
     // Conexão com o banco 
     include '../connection/connect.php';
 
     // Verifica se tem valor nos INPUT's
     if ($_POST){
-        $nome = $_POST['nome'];
-        $cpf = $_POST['cpf'];
-        $rg = $_POST['rg'];
-        $senha = $_POST['senha'];
-        $email = $_POST['email'];
-        $telefone = $_POST['telefone'];
+        $cep = $_POST['cep'];
+        $cidade = $_POST['cidade'];
+        $uf = $_POST['uf'];
+        $id = ultimoCadastro($connect, 'clientes', "ID");
 
-        // Consulta para ver se há Cliente cadastrado com o email especificado
-        $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email'");
-
-        // Recupera a quantidade de linhas
-        $loginQueryNum = $loginQuery->num_rows;
+        // Insere os dados de endereco dos clientes no banco de dados
+        $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep','$cidade','$uf', $id);");
         
-        // Verifica se já existe um Cliente com o email informado
-        if($loginQueryNum > 0) {
-            // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
-            echo "O email informado já está sendo utilizado. Por favor, informe outro email.";
+        // Verifica se a inserção foi bem sucedida
+        if($connect->query($insereEndCli)){
+            header('location: login.php');
         } else {
-            // Insere os dados dos clientes no banco de dados
-            $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
-            VALUES 
-            ('$nome','$cpf','$rg','$senha','$email');";
-            $resultado = $connect->query($insereCli);
-            
-            // Verifica se a inserção foi bem sucedida
-            if($resultado){
-                // Após a gravação bem sucedida dos dados do cliente, vai (atualiza) para "client/endereco.php"
-                // para cadastrar os dados de endereço 
-                if(mysqli_insert_id($connect)){
-                    header('location: endereco.php');
-                }
-                
-                // Inicia uma sessão
-                session_start();
-            } else {
-                // Informa o Cliente que ocorreu um erro na gravação dos dados
-                echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
-            }
+            // Informa o Cliente que ocorreu um erro na gravação dos dados
+            echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
         }
     }
 
@@ -81,7 +75,7 @@
         <h2>Cadastre um Endereço</h2>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login">
+        <form class="form-login" method="post">
 
             <!-- Cep -->
             <div class="form-item">
