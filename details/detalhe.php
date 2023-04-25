@@ -16,6 +16,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 ';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -23,52 +24,77 @@ if (!isset($_SESSION['nome_da_sessao'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
-
 <main>
-
+    <!-- Div principal (Foto quarto, titulo, preço, botão...) -->
     <div id="geral_del" class="flex-sa" style="margin-top: 110px;">
 
+        <!-- Imagem Principal -->
         <span id="img_principal">
             <img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
         </span>
+             
+        <!-- Icons -->
+        <span class="text-center" style="font-size: 40px; margin-top: 135px;">
 
+            <div class="icons_del text-center">
+                <i class="fa-solid fa-users"></i>
+                <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
+            </div>
+
+            <div class="icons_del text-center">
+                <i class="fa-solid fa-car-side"></i>
+                <span class="texto_del">1</span>
+            </div>
+
+            <div class="icons_del text-center">
+                <i class="fa-solid fa-paw"></i>
+                <span class="texto_del">✓</span>
+            </div>
+
+            <div class="icons_del text-center">
+                <i class="fa-solid fa-mug-hot"></i>
+                <span class="texto_del">✓</span>
+            </div>
+        </span>
+
+        <!-- Sub-Imagens do Responsivo -->
         <div id="esconder_imgs" class="sub-imgs">
         <?php do{?>
             <img src="<?php echo $linhaIMGres['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
         <?php }while($linhaIMGres = $listaIMGres->fetch_assoc());?>
         </div>
 
+        <!-- Titulo, preço do Quarto e Botão de Reserva -->
         <div class="text-detail">
 
-            <p id="titulo" class="text-center">
-                <?php echo $linha['QUARTO'];?>
-            </p>
+            <p id="titulo" class="text-center"><?php echo $linha['QUARTO'];?></p>
 
-            <p class="preco" style="cursor: default;">
-                R$&nbsp;<?php echo $linha['PRECO_DIARIA'];?>
-            </p>
+            <p class="preco"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
 
-            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
-                RESERVAR
+            <a class="botao_del" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="vertical-align:middle">
+                <span>
+                    Reservar
+                </span>
             </a>
         </div>
     </div>
 
+    <!-- Sub-Imagens do Quarto (Normal) -->
     <div id="sub-normal" class="sub-imgs">
     <?php do{?>
         <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
     <?php }while($linhaIMG = $listaIMG->fetch_assoc());?>
     </div>
 
-    <hr class="linha_del">
-
+    <!-- Descrição do Quarto -->
     <div class="desc_del">
-        <h4 class="text-center">Detalhes do Quarto</h4>
-        <p> <?php echo $linha['DESCRICAO'];?></p>
 
-        <p>
-            Até <?php echo $linha['QTDE_PESSOAS'];?> pessoas!
-        </p>
+        <hr class="linha_del">
+        <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
+            Detalhes do Quarto
+        </h2>
+
+        <p><?php echo $linha['DESCRICAO'];?></p>
     </div>
 </main> 
 
@@ -147,7 +173,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
 
-                    <a href="" type="button" class="btn btn-success text-decoration-none text-reset" id="btn-consultar">
+                    <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
                         CONSULTAR
                     </a>
                 </div>
@@ -157,7 +183,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 </div>
 
 
-<!-- Script Provisório  -->
+<!-- Script do Angular (Modal)  -->
 <script>
       var app = angular.module('meuApp', []);
       app.controller('Controlador', function($scope){
@@ -174,6 +200,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
       });
 </script>
 
+<!-- Script JS para imagens -->
 <script>
       const imagensPequenas = document.querySelectorAll('.imagem-pequena');
       const imagemGrande = document.querySelector('.imagem-grande');
@@ -185,8 +212,6 @@ if (!isset($_SESSION['nome_da_sessao'])) {
         });
       });
 </script>
-
-
 
 </body>
 </html>

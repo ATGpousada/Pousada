@@ -52,7 +52,7 @@ $linhas = $lista->num_rows;
             <p style="margin-left: 10px; color: black;"><?php echo $linha['tipo']?></p>
             <p><i class="fa-solid fa-users" style="color: black; margin-right: 10px"></i><?php echo $linha['QTDE_PESSOAS']?> Pessoas</p>
             </div>
-            <span><a href="index.php?ID=<?php echo $linha['ID']?>">Saiba Mais...</span></a>
+           <a href="index.php?ID=<?php echo $linha['ID']?>"><span>Saiba Mais...</span></a>
         </div>
         <?php }while($linha = $lista->fetch_assoc())?>
     </div>

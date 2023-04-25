@@ -126,18 +126,16 @@
 </a>
 <!-- Fim do Scroll -->
     
-<div class="dropdownn">
-    <button class="redes">
-        <i class="fa-solid fa-mobile-screen"></i>
-     </button>
-    <div class="drop_link">
-        <a href="#"><img src="images/instagram.svg" alt="" style="width: 70px;"></a>
-        <a href="#"><i class="fa-brands fa-square-facebook img_redes" style="font-size: 70px; color: blue;"></i></a>
-        <a href="#"><img src="images/whatsapp.svg" alt="" style="width: 70px;"></i></a>
+<button class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">       
+        <a href="#"><img src="images/redes_sociais/instagram.webp" alt="" style="width: 70px;"></a>
+        <a href="#"><img src="images/redes_sociais/facebook.webp" alt="" style="width: 70px;"></a>
+        <a href="#"><img src="images/redes_sociais/whatsapp.webp" alt="" style="width: 70px;"></a>
     </div>
-</div>
+</button>
 
-    <div class="text-center" id="copy">
-        &copy; Todos os Direitos Reservados á Pousada do Sossego - 2023
-    </div>
+<div class="text-center" id="copy">
+     &copy; Pousada do Sossego - 2023 - Todos os Direitos Reservados
+</div>
 </footer>
