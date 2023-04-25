@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -31,6 +32,14 @@
     <?php include 'cabecalhoIndex.php'; ?>
     
     <main style="width: 90%; margin: auto;">
+        <!-- Mensagem na tela -->
+        <?php 
+            if(isset($_SESSION['conf'])){
+                echo $_SESSION['conf'];
+                unset($_SESSION['conf']);
+            }
+        ?>
+
         <div class="container-fluid mb-2 rounded bg-body-tertiary pe-0 ps-0">
         <!-- Adição do Carrousel Promoção -->
                 <?php include 'carrouselIndex.php'; ?>
@@ -42,7 +51,7 @@
 
 
                 <!-- Adição do destaque -->               
-                    <?php include 'destaqueQuartos.php';?>
+                <?php include 'destaqueQuartos.php';?>
                     
 
                 

@@ -1,6 +1,6 @@
 <?php ?>
 
-<footer  class="bg-body-tertiary">
+<footer class="bg-body-tertiary">
 
 <div class="cor_footer p-4" style="background: #c2daf2;">
     <form id="form_oferta" action="../enviar_form.php">
@@ -120,7 +120,7 @@
 <a href ="#subir">
     <span class ="quadradinhodasetinha">
         <i class="bi bi-arrow-up"></i>
-    </span >
+    </span>
 </a>
 <!-- Fim do Scroll -->
 
