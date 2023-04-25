@@ -62,6 +62,17 @@
     --cor-azul-escuro-opc: #0077ff9c;
     --cor-azul: #6aadfa; 
     --cor-azul-claro: #a7e2fd;
+
+    /* Paleta de cores */
+    --cor-marrom: #AB8863;
+    --cor-marrom-claro: #A1876B;
+    --cor-marrom-mais-claro: #968672;
+    --cor-marrom-menos-azulado: #818481;
+    --cor-marrom-azulado: #6C8290;
+    --cor-marrom-mais-azulado: #577F9E;
+    --cor-azul-claro: #427DAD; 
+    --cor-azul: #2d7abb;
+    --cor-azul-bootstrap: #0275D8;
 }
 
 /* ########################### COMEÇO GERAL ########################### */
@@ -589,95 +600,135 @@
 
 
 /* ###########################  COMEÇO PRODUTOS ########################## */
-.PARTIÇÃO{
-    display: flex;
-    justify-content: space-around;
-}
-.centraliza_q1{
-    display: flex;
-    justify-content:space-around;
-}   
-.icones{
-    list-style: none;
-    text-decoration: none;
-    margin: 50px 55px -35px 55px;
-}
-.fonte_p{
-font-family:'textoproduto';
 
-}
-
-.icones li{
-    display: inline-block;
-    text-decoration: none;
-    margin: 30px;
-}
-
-.button {
-    appearance: button;
-    background-color: #1a01f8;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 14px 19px;
+.card_quarto{
+    background-color: #C0DDF6;
+    max-width: 50ch;
     text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .4s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-   }
-   
-   .button:after {
-    background-clip: padding-box;
-    background-color:var(--cor-azul-escuro);
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
+    padding: 1.5em;
+    padding-block: 0.8em;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s cubic-bezier(.6,.4,0,1),transform .15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin: 40px 55px;
+    box-shadow: -1px 2px 19px 0px rgba(5,0,5,1);
+}
+  
+.card__corpo {
+    color: #030202;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+.card_quarto strong{
+    color: #000000;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+.card_quarto p{
+    color: #000000;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+.preco_quarto{
+    color: rgb(7, 3, 3);
+    font-weight: bold;
+}
+
+.icon_quarto{
+    width: 100%;
+    height: 230px;
+}
+
+.icon_quarto img{
+    width: 100%;
+    height: 230px;
+}
+  
+.card_quarto > :not(span) {
+    transition: .3s cubic-bezier(.6,.4,0,1);
+}
+  
+.card_quarto > strong {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -.035em;
+}
+  
+.card_quarto span{
     position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-   }
-   
-   .button:main, button:focus {
-    user-select: auto;
-   }
-   
-   .button:hover:not(:disabled) {
-    filter: brightness(1.1);
-   }
-   
-   .button:disabled {
-    cursor: auto;
-   }
-   
-   .button:active:after {
-    border-width: 0 0 0px;
-   }
-   
-   .button:active {
-    padding-bottom: 10px;
-   }
-   
- 
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hover-text);
+    font-weight: bold;
+    top: 100%;
+    transition: all .3s cubic-bezier(.6,.4,0,1);
+}
+
+.card_quarto a{
+    text-decoration: none;
+    color: rgb(0, 47, 255);
+    font-size: 14px;
+}
+
+.my-button {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .my-button:after {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  
+  .my-button:hover:after {
+    animation: ripple_401 1s ease-out;
+  }
+  
+  @keyframes ripple_401 {
+    0% {
+      width: 5px;
+      height: 5px;
+      opacity: 1;
+    }
+  
+    100% {
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+    }
+  }
+  
+
 /* ###########################  FIM PRODUTOS ########################## */
 
 
