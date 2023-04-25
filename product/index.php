@@ -48,11 +48,11 @@
     <main class="container">
     <!-- Fim Carrossel Produtos-->
     <!-- Início Produto Exposição -->
-    <p>&nbsp;</p>
+
     <?php 
     include "produtoExposicao.php";
     ?>
-    <p>&nbsp;</p>
+
     <!-- Fim Produto Exposição -->
     </main>
         </div>
