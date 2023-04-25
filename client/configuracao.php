@@ -48,6 +48,14 @@ include '../connection/connect.php';
             </div>
         </nav>
 
+        <!-- Mensagem na tela -->
+        <?php 
+            if(isset($_SESSION['conf'])){
+                echo $_SESSION['conf'];
+                unset($_SESSION['conf']);
+            }
+        ?>
+
         <!-- Conteúdo da página -->
         <section class="pt-4 ps-4 pe-4 rounded-2 d-flex">
             <!-- Área para desativar a conta -->
@@ -111,7 +119,7 @@ include '../connection/connect.php';
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Confirmar</button>
+                    <a href="desativarConta.php" type="button" class="btn btn-primary" id="btnDesativa">Confirmar</a>
                 </div>
             </div>
         </div>
@@ -133,7 +141,7 @@ include '../connection/connect.php';
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Confirmar</button>
+                    <a href="excluirConta.php" type="button" class="btn btn-primary" id="btnExclui">Confirmar</a>
                 </div>
             </div>
         </div>
