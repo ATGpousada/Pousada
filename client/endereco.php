@@ -75,7 +75,7 @@
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço</h2>
+        <h2>Cadastre um Endereço <br> e um Contato</h2>
         
         <!-- Formulario do Sing Up -->
         <form class="form-login" method="post">
