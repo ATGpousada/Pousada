@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
     <div style="display: flex; margin-top: 50px; margin-bottom: 25px;">
         <div style="display: inline-block; width: 60%; text-align:center;">
             <div style="display: flex; width: 100%; flex-flow: row nowrap; justify-content:center; align-content:center; height:100%; align-items:center;">
@@ -17,9 +18,6 @@
                     <li><span class="fa-solid fa-bed" style="font-size: 22px;"></span> <span style="font-weight: bolder;">SERVIÇO DE QUARTO DIÁRIO</span></li>
                 </ul>
             </div>
-        </div>
-        <div style="display: inline-block; width: 40%; text-align:center; ">
-            <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="" style="width:60%">
         </div>
     </div>
 </body>
