@@ -315,6 +315,8 @@
 
 
 /* ########################### COMEÇO FOOTER ########################### */
+
+/* Flexbox do footer */
 .flex{
     display: flex;
 }
@@ -333,11 +335,13 @@
     display: flex;
     justify-content: space-between;
 }
+/* Fim do Flexbox */
 
 .cor_footer{
     background-color: #e2e1e1;
 }
 
+/* Tamanhos do footer */
 .w15{
     width: 15%;
 }
@@ -365,26 +369,15 @@
 .w100{
     width: 100%;
 }
+/* Fim dos Tamanhos */
 
-.texto_footer{
-    font-size: 30px;
-    font-weight: bold;
-}
-
+/* Formulario */
 .text_fp{
     font-size: 1.25rem;
     line-height: 1.875rem;
     font-weight: 700;
     white-space: nowrap;
     margin: 10px 0 0 0;
-}
-
-.logo_div{
-    width: 100px;
-}
-
-#telefone span{
-    white-space: nowrap;
 }
 
 .input_oferta{
@@ -395,6 +388,12 @@
 .botao_form{
     width: 130px;
     height: 50px;
+}
+/* Fim do Formulario */
+
+/* Mapa do Site */
+#telefone span{
+    white-space: nowrap;
 }
 
 .map_text{
@@ -434,9 +433,13 @@
     margin: 10px 10px;
 }
 
+.logo_div{
+    width: 100px;
+}
+/* Fim do Mapa do Site */
+
 
 /* Botão Redes Sociais */
-
 .icon-btn {
     width: 50px;
     height: 80px;
@@ -448,7 +451,7 @@
     transition: width 0.2s ease-in-out;
     font-weight: 500;
     font-family: inherit;
-  }
+}
 
 .icon-btn {
     width: 50px;
@@ -547,14 +550,13 @@
     height: 4px;
     top: calc(50% - 2px);
 }
-
+/* Fim Redes Sociais */
 /* ########################### FIM FOOTER ############################## */
-
-
 
 
 /* ########################   COMEÇO SCROLL   ############################ */
 
+/* Quadrado do Scroll */
 .quadradinhodasetinha{
     position: fixed;
     background-color: #0275d8;
@@ -587,9 +589,8 @@
     transition: 0.2s ease-in;
     z-index: 999;
  }
-/* ###########################  FIM SCROLL    ############################ */
-
-
+ /* Fim Quadrado Scroll */
+/* ###########################  FIM SCROLL ############################### */
 
 
 /* ########################### COMEÇO INDEX ############################## */
@@ -597,10 +598,9 @@
 /* ########################### FIM INDEX ############################## */
 
 
+/* ###########################  COMEÇO QUARTOS ########################## */
 
-
-/* ###########################  COMEÇO PRODUTOS ########################## */
-
+/* Card dos Quartos */
 .card_quarto{
     background-color: #74baf8;
     max-width: 50ch;
@@ -699,7 +699,7 @@
     display: block;
  }
  
- .sub-texto{
+.sub-texto{
     display: none;
     position: absolute;
     top: -30px;
@@ -759,20 +759,19 @@
       height: 200px;
       opacity: 0;
     }
-  }
-  
+}
+/* Fim do Card */
 
-/* ###########################  FIM PRODUTOS ########################## */
+/* ###########################  FIM QUARTOS ########################## */
 
 
 
 /* ########################### COMEÇO DETALHES ############################ */
-
+/* Foto Quarto Principal */
 #img_principal{
     width: 50%;
     display: flex;
     justify-content: center;
-    
 }
 
 #img_principal img{
@@ -780,8 +779,58 @@
     border-radius: 20px;
 }
 
+.imagem-grande{
+    width: 100%;
+    height: 400px;
+    box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
+}
+/* Fim Quarto Principal */
+
+/* Icone (Responsivo "None") */
+.icones_responsivo {
+    margin-bottom: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.icones_responsivo i {
+    margin-right: 10px;
+}
+
+.icones_responsivo .texto_del {
+    font-size: 20px;
+}
+
+.linha_icon{
+    width: 50%;
+    display: flex;
+    align-items: center;
+} 
+/* Fim Icone (Responsivo "None") */
+
+/* Icones */
+.icones_del{
+    width: 8%;
+}
+
+.icons_del {
+    margin-bottom: 10px;
+}
+
+.icons_del i {
+    margin-right: 10px;
+}
+
+.icons_del .texto_del {
+    font-size: 20px;
+}
+/* Fim Icones */
+
+/* Titulo, Preço, Botão */
 .text-detail {
-    width: 45%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -839,32 +888,6 @@
     right: 0;
 }
 
-.linha_del{
-    border: 1px solid black;
-    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-}
-
-.desc_del{
-    width: 90%;
-    margin: 0 auto;
-}
-
-.desc_del p{
-    font-size: 20px;
-}
-
-.icons_del {
-    margin-bottom: 10px;
-}
-
-.icons_del i {
-    margin-right: 10px;
-}
-
-.icons_del .texto_del {
-    font-size: 20px;
-}
-
 .preco{
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
@@ -883,11 +906,30 @@
     font-size: 20px;
     font-family: 'Impact, fantasy';
 }
+/* Fim Titulo, Preço, Botão */
 
+/* Descrição */
+.linha_del{
+    border: 1px solid black;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+.desc_del{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.desc_del p{
+    font-size: 20px;
+}
+/* Fim Descrição */
+
+/* Sub-Imagens Responsivo "None" */
 #esconder_imgs{
     display: none;
 }
+/* Fim Sub-Imagens Responsivo "None" */
 
+/* Sub-Imagens */
 .sub-imgs{
     display: flex;
     justify-content: center;
@@ -907,13 +949,9 @@
 .imagem-pequena:hover{
     transform: scale(1.2);
 }
+/* Fim Sub-Imagens */
 
-.imagem-grande{
-    width: 100%;
-    height: 90%;
-    box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
-}
-
+/* Modal */
 #datas_modal input[type="date"]{
     background-color: #85b7e9;
     padding: 15px;
@@ -959,7 +997,9 @@
     background-color: #1855fd;
     border-radius: 30px;
 }
+/* Fim Modal */
 
+/* Destaques */
 .img-destaque{
     width: 230px;
     height: 150px;
@@ -1044,6 +1084,7 @@
 .card_detalhe:hover>div,.card_detalhe:hover>strong {
     opacity: 0;
 }
+/* Fim Destaques */
 /* ########################### FIM DETALHES ############################## */
 
 
@@ -1456,10 +1497,20 @@ legend {
     /*Fim footer*/
 
     /* Começo Detalhes */
-    @media screen and (max-width: 1300px){
+    @media screen and (max-width: 1500px){
         #titulo{
             font-size: 35px;
         }    
+    }
+
+    @media screen and (max-width: 1300px){ 
+        .icones_del{
+            display: none;
+        }
+
+        .icones_responsivo{
+            display: flex;
+        }
     }
 
     @media screen and (max-width: 1200px){
@@ -1469,7 +1520,7 @@ legend {
         }
     }
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 1000px){
         #geral_del{
             display: inline;
         }
@@ -1510,7 +1561,16 @@ legend {
             margin: 0 auto;
         }
 
+        .icones_responsivo{
+            display: flex;
+            margin-top: 15px;
+            width: 100%;
+            justify-content: center;
+        }
 
+        .linha_icon{
+            width: 5%;
+        }
     }
     /* Fim Detalhes */
 

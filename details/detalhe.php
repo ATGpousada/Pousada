@@ -26,7 +26,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 <body style="background-color: #ebf4fa;" ng-app="meuApp" ng-controller="Controlador">
 <main>
     <!-- Div principal (Foto quarto, titulo, preço, botão...) -->
-    <div id="geral_del" class="flex-sa" style="margin-top: 190px;">
+    <div id="geral_del" class="flex-sa" style="margin-top: 130px;">
 
         <!-- Imagem Principal -->
         <span id="img_principal">
@@ -34,7 +34,7 @@ if (!isset($_SESSION['nome_da_sessao'])) {
         </span>
              
         <!-- Icons -->
-        <span class="text-center" style="font-size: 40px; margin-top: 135px;">
+        <span class="text-center icones_del" style="font-size: 40px; margin-top: 135px;">
 
             <div class="icons_del text-center">
                 <i class="fa-solid fa-users"></i>
@@ -77,13 +77,44 @@ if (!isset($_SESSION['nome_da_sessao'])) {
                 </span>
             </a>
         </div>
+
     </div>
 
     <!-- Sub-Imagens do Quarto (Normal) -->
-    <div id="sub-normal" class="sub-imgs">
-    <?php do{?>
-        <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
-    <?php }while($linhaIMG = $listaIMG->fetch_assoc());?>
+    <div class="flex">
+        <div id="sub-normal" class="sub-imgs">
+            <?php do{?>
+                <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
+            <?php }while($linhaIMG = $listaIMG->fetch_assoc());?>
+        </div>
+
+     <!-- Icons Responsivo-->
+     <section class="text-center icones_responsivo" style="font-size: 30px;">
+        <article class="icones_responsivo text-center">
+
+        <span class="linha_icon" style="margin-right: 30px;">
+            <i class="fa-solid fa-users"></i>
+            <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
+        </span>
+
+        <span class="linha_icon" style="margin-right: 30px;">
+            <i class="fa-solid fa-car-side"></i>
+            <span class="texto_del">1</span>
+        </span>
+
+        <span class="linha_icon" style="margin-right: 30px;">
+            <i class="fa-solid fa-paw"></i>
+            <span class="texto_del">✓</span>
+        </span>
+
+        <span class="linha_icon">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span class="texto_del">✓</span>
+        </span>
+
+        </article>
+     </section>
+
     </div>
 
     <!-- Descrição do Quarto -->
@@ -99,7 +130,6 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 </main> 
 
 <!-- Modal 1 -->
-
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="background: #d7e8f7;">
