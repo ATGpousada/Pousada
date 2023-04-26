@@ -1531,6 +1531,7 @@ legend {
 
         .imagem-grande{
             width: 150% !important;
+            height: 250px;
         }
 
         #reservar{
