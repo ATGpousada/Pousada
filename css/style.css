@@ -771,23 +771,18 @@
     width: 50%;
     display: flex;
     justify-content: center;
-}
-
-#img_principal img{
-    width: 90%;
-    border-radius: 20px;
+    margin: 0 50px;
 }
 
 .imagem-grande{
-    width: 100%;
-    height: 400px;
+    height: 480px;
+    border-radius: 20px;
     box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
 }
 /* Fim Quarto Principal */
 
 /* Icone (Responsivo "None") */
 .icones_responsivo {
-    margin-bottom: 10px;
     display: none;
     justify-content: center;
     align-items: center;
@@ -1502,7 +1497,7 @@ legend {
         }    
     }
 
-    @media screen and (max-width: 1300px){ 
+    @media screen and (max-width: 1400px){ 
         .icones_del{
             display: none;
         }
@@ -1517,6 +1512,11 @@ legend {
             width: 18%;
             height: 80px;
         }
+
+        .imagem-grande{
+            width: 100% !important;
+            height: 100%;
+        }
     }
 
     @media screen and (max-width: 1000px){
@@ -1525,12 +1525,13 @@ legend {
         }
 
         #img_principal{
+            height: 100%;
             margin: 125px auto 60px auto;
         }
 
         .imagem-grande{
             width: 150% !important;
-            height: 250px;
+            height: 300px;
         }
 
         #reservar{
@@ -1567,9 +1568,32 @@ legend {
             width: 100%;
             justify-content: center;
         }
+        
+        .icones_responsivo i {
+            margin: 20px 15px 20px 0;
+        }
 
         .linha_icon{
-            width: 5%;
+            width: 10%;
+            margin: 0;
+        }
+
+        .desc_del p{
+            font-size: 15px;
+        }
+    }
+
+    @media screen and (max-width: 700px){
+        .icones_responsivo{
+
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .linha_icon{
+            justify-content: center;
+            width: 100px;
+            margin: 20px 0;
         }
     }
     /* Fim Detalhes */
