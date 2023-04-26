@@ -112,9 +112,9 @@ $row = $lista->fetch_assoc();
                 </div>
             </fieldset>
 
-            <div class="d-flex gap-5">
+            <div class="d-flex gap-5" id='group-formulario'>
                 <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50">
+                <fieldset class="w-50" id="dados-pessoais">
                     <!-- Título da área dos dados pessoais -->
                     <legend>Dados Pessoias</legend>
                     
@@ -140,14 +140,14 @@ $row = $lista->fetch_assoc();
                 </fieldset>
 
                 <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50">
+                <fieldset class="w-50" id="contato">
                     <!-- Título da área dos dados pessoais -->
                     <legend>Contato</legend>
                     
                     <!-- Começo do formulário para consulta -->
                     <div class="row g-3">
                         <!-- CEP -->
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <label for="cepDados" class="form-label">CEP</label>
                             <input type="text" class="form-control" id="cepContato" name="cepContato" value="<?php echo $row['CEP']?>" disabled readonly>
                         </div>
@@ -355,12 +355,12 @@ $row = $lista->fetch_assoc();
         </div>
     </div>
 </body>
-<!-- js do preloader -->
-<script src="../js/preloader.js"></script>
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
+<!-- js do client -->
+<script src="../js/client.js"></script>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<!-- Nosso script -->
-<script type="text/javascript" src="../js/script.js"></script>
 </html>

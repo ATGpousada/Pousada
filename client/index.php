@@ -129,7 +129,7 @@ include '../connection/connect.php';
                         <!-- Lista do card -->
                         <div class="row border rounded pt-3 pb-4">
                             <!-- Grupo de listas -->
-                            <div class="col-6">
+                            <div class="col-6" id="item-select">
                                 <div class="list-group rounded" id="list-tab" role="tablist">
                                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Página Geral</a>
                                     <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Página Perfil</a>
@@ -139,7 +139,7 @@ include '../connection/connect.php';
                             </div>
                             
                             <!-- Grupo de listas com informaçoes <behavior> -->
-                            <div class="col-6">
+                            <div class="col-6" id="item-info">
                                 <div class="tab-content" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Nessa área você terá uma visão geral das páginas acessíveis na área do cliente. Por exemplo: a Página de Perfil, a Página de reservas e a Página de Configurações.</div>
                                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Já no perfil, é uma página dedicada para expor os seus dados pessoais <?php echo $_SESSION['nome']?>, para caso desejar ou sentir a necessidade de mudar.</div>
@@ -154,12 +154,12 @@ include '../connection/connect.php';
         </section>
     </main>
 </body>
-<!-- js do preloader -->
-<script src="../js/preloader.js"></script>
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
+<!-- js do client -->
+<script src="../js/client.js"></script>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
-<!-- Nosso script -->
-<script type="text/javascript" src="../js/script.js"></script>
 </html>
