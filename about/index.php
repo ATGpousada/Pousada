@@ -32,7 +32,7 @@
     ?>
     <!-- Fim Menu Público -->
 
-    <div class="container mb-3 bg-body-tertiary rounded p-4">
+    <div class="container bg-body-tertiary rounded p-4">
         <div class="row mb-5">
         <h1 class="text-center text-uppercase">SOBRE NÓS</h1>
         <hr>
