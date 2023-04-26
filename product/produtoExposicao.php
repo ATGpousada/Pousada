@@ -38,7 +38,30 @@ $linhas = $lista->num_rows;
             <p style="margin: 0;"><?php echo $linha['TIPO']?></p>
             <div class="card__corpo">
             <p class="preco_quarto"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
-            <p><i class="fa-solid fa-users" style="color: white; margin-right: 10px"></i><?php echo $linha['QTDE_PESSOAS']?> Pessoas</p>
+
+            <div class="icones">
+                <div class="icone">
+                    <p><i class="fa-solid fa-users" style="color: white;"></i></p>
+                    <div class="sub-texto">
+                        <?php echo $linha['QTDE_PESSOAS']?> Pessoas
+                    </div>
+                </div>
+
+                <div class="icone">
+                    <p><i class="fa-solid fa-paw" style="color: white;"></i></p>
+                    <div class="sub-texto">
+                        Animais
+                    </div>
+                </div>
+
+                <div class="icone">
+                    <p><i class="fa-solid fa-mug-hot" style="color: white;"></i></p>
+                    <div class="sub-texto">
+                        Café da Manhã
+                    </div>
+                </div>
+            </div>
+
             </div>
             <a class="my-button" href="../details/index.php?ID=<?php echo $linha['ID']?>">
                 Saiba mais!
