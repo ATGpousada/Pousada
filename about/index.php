@@ -32,34 +32,27 @@
     ?>
     <!-- Fim Menu Público -->
 
-    <div class="container bg-body-tertiary rounded p-4">
+    <div class="container bg-body-tertiary mb-3 rounded p-4">
         <div class="row mb-5">
-        <h1 class="text-center text-uppercase">SOBRE NÓS</h1>
-        <hr>
+            <h1 class="text-center text-uppercase">SOBRE NÓS</h1>
+            <hr>
 
-    <!-- Início Descrição Pousada -->
-    <?php 
-    include "descricaoPousada.php";
-    ?>
-    <!-- Fim Descrição Pousada -->
+            <!-- Início Descrição Pousada -->
+            <?php include "descricaoPousada.php";?>
+            <!-- Fim Descrição Pousada -->
 
-    <!-- Início banner, v.m.v da Pousada -->
-    <?php 
-    include "visaomissaovalores.php";
-    ?>
-    <!-- Fim banner, v.m.v da Pousada -->
+            <!-- Início banner, v.m.v da Pousada -->
+            <?php include "visaomissaovalores.php";?>
+            <!-- Fim banner, v.m.v da Pousada -->
 
-    <!-- Início do sobre a Equipe -->
-    <?php 
-    include "sobreEquipe.php";
-    ?>
-    <!-- Fim do sobre a Equipe -->
+            <!-- Início do sobre a Equipe -->
+            <?php include "sobreEquipe.php";?>
+            <!-- Fim do sobre a Equipe -->
         </div>
     </div>
+
     <!-- Início Rodapé Público -->
-    <?php 
-    include "../rodapeGeral/rodapeGeral.php";
-    ?>
+    <?php include "../rodapeGeral/rodapeGeral.php";?>
     <!-- Fim Rodapé Público -->
 </body>
 <!-- js do preloader -->

@@ -51,6 +51,7 @@ body{
     padding-left: 50px;
     padding-right: 50px;
     background: #ffffff;
+    border: solid 1px #acacac;
     border-radius: 24px;
     width: 80%;
     min-width: 100px;
