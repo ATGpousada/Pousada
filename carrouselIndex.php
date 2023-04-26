@@ -18,19 +18,15 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active"> 
-                <img src="images/banners/Pousada.jpg" class="d-block w-100" alt="...">
+            <img src="images/banners/Bem_vindo.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item">
-                <img src="images/banners/Bem_vindo.jpg" class="d-block w-100" alt="...">
+            <img src="images/banners/Pousada.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item"> 
                 <img src="images/banners/Cafe.jpg" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item">
