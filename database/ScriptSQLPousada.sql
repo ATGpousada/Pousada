@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`clientes` (
   UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC),
   UNIQUE INDEX `RG_UNIQUE` (`RG` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -86,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`enderecos_cli` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -180,6 +182,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`status` (
   `STATUS` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -187,10 +190,12 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `pousada`.`tipos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pousada`.`tipos` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `TIPO` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -205,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
   `DESTAQUE` BIT(1) NOT NULL,
   `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
   `status_ID` INT(11) NOT NULL,
-  `tipos_ID` INT NOT NULL,
+  `tipos_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_quartos_status1_idx` (`status_ID` ASC),
   INDEX `fk_quartos_tipos1_idx` (`tipos_ID` ASC),
@@ -220,6 +225,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -239,6 +245,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`imagens` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -250,19 +257,15 @@ CREATE TABLE IF NOT EXISTS `pousada`.`pedidos_reservas` (
   `DATA_RESERVA` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
   `DATA_ENTRADA` DATETIME NOT NULL,
   `DATA_SAIDA` DATETIME NOT NULL,
+  `NOME` VARCHAR(70) NOT NULL,
+  `CPF` VARCHAR(14) NOT NULL,
+  `EMAIL` VARCHAR(70) NOT NULL,
   `ACOMPANHANTES` INT(11) NOT NULL,
   `quartos_ID` INT(11) NOT NULL,
   `status_ID` INT(11) NOT NULL,
-  `clientes_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_pedidos_reservas_quartos1_idx` (`quartos_ID` ASC),
   INDEX `fk_pedidos_reservas_status1_idx` (`status_ID` ASC),
-  INDEX `fk_pedidos_reservas_clientes1_idx` (`clientes_ID` ASC),
-  CONSTRAINT `fk_pedidos_reservas_clientes1`
-    FOREIGN KEY (`clientes_ID`)
-    REFERENCES `pousada`.`clientes` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_pedidos_reservas_quartos1`
     FOREIGN KEY (`quartos_ID`)
     REFERENCES `pousada`.`quartos` (`ID`)
@@ -298,6 +301,19 @@ CREATE TABLE IF NOT EXISTS `pousada`.`negativas` (
     REFERENCES `pousada`.`pedidos_reservas` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `pousada`.`novidades`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`novidades` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(70) NOT NULL,
+  `EMAIL` VARCHAR(70) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -401,6 +417,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`telefones_cli` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -423,18 +440,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
--- -----------------------------------------------------
--- Table `pousada`.`novidades`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pousada`.`novidades` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `NOME` VARCHAR(70) NOT NULL,
-  `EMAIL` VARCHAR(70) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC))
-ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -445,60 +450,61 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
+
 -- INSERT STATUS -------------------------------------------------------------------------------------------------------
 -- Status 1 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("DISPONÍVEL");
+(1, "DISPONÍVEL");
 
 
 
 -- Status 2 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("INDISPONÍVEL");
+(2, "INDISPONÍVEL");
 
 
 
 -- Status 3 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("MANUTENÇÃO");
+(3, "MANUTENÇÃO");
 
 
 
 -- Status 4 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("CONFIRMADO");
+(4, "CONFIRMADO");
 
 
 
 -- Status 5 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("PENDENTE");
+(5, "PENDENTE");
 
 
 
 -- Status 6 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("CANCELADO");
+(6, "CANCELADO");
 
 
 
 -- Status 7 ---------------------------------
 INSERT INTO `pousada`.`status`
-(`STATUS`)
+(`ID`, `STATUS`)
 VALUES
-("EM ANDAMENTO");
+(7, "EM ANDAMENTO");
 
 
 
