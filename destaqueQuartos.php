@@ -24,13 +24,13 @@ $linhas = $lista->num_rows;
 
     <div id="card">
         <?php do{?>
-        <div class="card">
+        <div class="card1" style="background: #c0ddff ">
             <img src="<?php echo $linha['IMAGEM_CAMINHO_1']?>" alt="" />
             <div>
                 <h2><?php echo $linha['QUARTO']?></h2>
                 <h3><?php echo $linha['tipo']?></h3>
                 <p>
-                    <?php echo substr($linha['DESCRICAO'], 30, 70)?>...
+                    <?php echo substr($linha['DESCRICAO'], 30, 40)?>...
                 </p>
                     <a href="details/index.php?ID=<?php echo $linha['ID']?>" class="bg-primary text-decoration-none">Ver mais...</a>
             </div>

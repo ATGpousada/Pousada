@@ -10,7 +10,6 @@ if ($_POST){
     $rg = $_POST['rg'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
 
     // Consulta para ver se há Cliente cadastrado com o email especificado
     $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email'");
@@ -108,12 +107,6 @@ if ($_POST){
             <div class="form-item">
                 <label for="rg">Digite seu RG</label>        
                 <input type="rg" id="rg" name="rg" class="form-control form-input-item" oninput="mascaraRG(this)" required>
-            </div>
-
-            <!-- Telefone -->
-            <div class="form-item">
-                <label for="telefone">Informe seu Telefone</label>        
-                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
             </div>
 
             <!-- Senha -->

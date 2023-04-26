@@ -39,7 +39,7 @@
             }
         ?>
 
-        <div class="container-fluid mb-2 rounded bg-body-tertiary pe-0 ps-0">
+        <div class="container-fluid mb-2 rounded pe-0 ps-0" style="background: rgb(235, 234, 253);">
         <!-- Adição do Carrousel Promoção -->
                 <?php include 'carrouselIndex.php'; ?>
 

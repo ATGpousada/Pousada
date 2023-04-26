@@ -6,21 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div style="display: flex; margin-top: 50px; margin-bottom: 25px;">
-        <div style="display: inline-block; width: 60%; text-align:center;">
-            <div style="display: flex; width: 100%; flex-flow: row nowrap; justify-content:center; align-content:center; height:100%; align-items:center;">
-                <ul style="list-style: none; text-align:left;">
-                    <li><span class="fas fa-paw" style="font-size: 22px;"></span> <span style="font-weight: bolder;">ACEITAMOS SEU PET</span></li>
-                    <li><span class="fa-solid fa-mug-hot" style="font-size: 22px;"></span> <span style="font-weight: bolder;">CAFÉ DA MANHÃ TODOS OS DIAS DAS 07h00 ÀS 10h00</span></li>
-                    <li><span class="fa-solid fa-bath" style="font-size: 22px;"></span> <span style="font-weight: bolder;">BANHEIRO EM TODOS OS QUARTOS</span></li>
-                    <li><span class="fa-solid fa-car" style="font-size: 22px;"></span> <span style="font-weight: bolder;">ESTACIONAMENTO GRATUITO</span></li>
-                    <li><span class="fa-solid fa-bed" style="font-size: 22px;"></span> <span style="font-weight: bolder;">SERVIÇO DE QUARTO DIÁRIO</span></li>
-                </ul>
-            </div>
-        </div>
-        <div style="display: inline-block; width: 40%; text-align:center; ">
-            <img src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="" style="width:60%">
-        </div>
-    </div>
+<div style="padding:70px 70px 0px 70px;">   
+ <h6>Nossa pousada se esforça para fornecer um ambiente confiável e acolhedor para os nossos hóspedes. Nós sempre tentamos manter nossos quartos limpos e arrumados com roupas de cama e toalhas limpas e frescas. A equipe é simpática, cortês e sempre pronta para ajudar os hóspedes com suas necessidades. Alimentos e bebidas também são preparados de forma meticulosa e higiênica para garantir a qualidade da comida servida. Sempre ouvimos as necessidades e preocupações de nossos hóspedes e tomamos medidas para resolver quaisquer problemas que possam surgir durante sua estadia. Preparámos um ambiente seguro para que os clientes possam passar o seu tempo de forma confortável e confortável.</h6>
+</div>
+   
 </body>
 </html>

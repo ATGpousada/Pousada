@@ -92,17 +92,17 @@ if (!isset($_SESSION['nome_da_sessao'])) {
      <section class="text-center icones_responsivo" style="font-size: 30px;">
         <article class="icones_responsivo text-center">
 
-        <span class="linha_icon" style="margin-right: 30px;">
+        <span class="linha_icon">
             <i class="fa-solid fa-users"></i>
             <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
         </span>
 
-        <span class="linha_icon" style="margin-right: 30px;">
+        <span class="linha_icon">
             <i class="fa-solid fa-car-side"></i>
             <span class="texto_del">1</span>
         </span>
 
-        <span class="linha_icon" style="margin-right: 30px;">
+        <span class="linha_icon">
             <i class="fa-solid fa-paw"></i>
             <span class="texto_del">✓</span>
         </span>

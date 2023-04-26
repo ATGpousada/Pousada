@@ -16,47 +16,82 @@ body{
 }
 
 .card {
-    display: flex;
+
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 80px 30px 80px;
-    width: 75vw;
-    min-width: 400px;
-    max-width: 850px;
+    margin: 8px 30px 0px;
+    width: 60vw;
+    min-width: 200px;
+    max-width: 750px;
     padding: 30px 10px 30px 0px;
     background: #ffffff;
     border-radius: 24px;
-    height: 250px;
+    height: 200px;
     font-size: smaller;
 }
-
-.card div{
-    font-size: smaller;
-}
-
 .card img {
-    max-width: 200px;
+    max-width: 150px;
+    background: #ffffff79;
     width: 28vw;
-    height: 180px;
+    height: 130px;
     object-fit: cover;
     margin-left: -60px;
     margin-right: 30px;
     border-radius: inherit;
     box-shadow: 0 10px 9px rgb(0 0 0 / 30%)
 }
+.card1{
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 30px 80px;
+    text-align: center;
+    margin-top: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: #ffffff;
+    border: solid 1px #acacac;
+    border-radius: 24px;
+    width: 80%;
+    min-width: 100px;
+    max-width: 380px;
+    max-height: 900px;
+    min-height: 400px;
+    padding: 30px 10px 30px 0px;
+    height: 250px;
+    display: flex;
+    font-size: smaller;
+}
 
-.card h2{
+.card1 img{
+    margin: -100px 0 30px 0;
+    height: 180px;
+    width: 60%;
+    object-fit: cover;
+    max-width: 200px;
+    min-width: 180px;
+    border-radius: inherit;
+    box-shadow: 0 10px 9px rgb(0 0 0 / 30%)
+}
+
+.card1 div{
+    font-size: smaller;
+}
+
+
+
+.card1 h2{
     font-size: x-large;
 }
 
-.card h3 {
+.card1 h3 {
     color: rgb(0 0 0 / 90%);
     font-size:small;
 }
-.card p { color: rgb(0 0 0 / 90%);}
+.card1 p { color: rgb(0 0 0 / 90%);}
 
-.card a {
+.card1 a {
     border: 0;
     color: #f8f8f8;
     text-decoration: none;

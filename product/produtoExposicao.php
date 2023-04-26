@@ -28,7 +28,7 @@ $linhas = $lista->num_rows;
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
 
-    <div class="d-flex justify-content-around flex-wrap">
+    <div class="d-flex justify-content-around flex-wrap" style="background: rgb(235, 234, 253);">
     <?php do{?>
         <div class="card_quarto">
             <div class="icon_quarto">
@@ -41,21 +41,21 @@ $linhas = $lista->num_rows;
 
             <div class="icones">
                 <div class="icone">
-                    <p><i class="fa-solid fa-users" style="color: white;"></i></p>
+                    <p><i class="fa-solid fa-users" style="color: black;"></i></p>
                     <div class="sub-texto">
                         <?php echo $linha['QTDE_PESSOAS']?> Pessoas
                     </div>
                 </div>
 
                 <div class="icone">
-                    <p><i class="fa-solid fa-paw" style="color: white;"></i></p>
+                    <p><i class="fa-solid fa-paw" style="color: black;"></i></p>
                     <div class="sub-texto">
                         Animais
                     </div>
                 </div>
 
                 <div class="icone">
-                    <p><i class="fa-solid fa-mug-hot" style="color: white;"></i></p>
+                    <p><i class="fa-solid fa-mug-hot" style="color: black;"></i></p>
                     <div class="sub-texto">
                         Café da Manhã
                     </div>
@@ -63,7 +63,7 @@ $linhas = $lista->num_rows;
             </div>
 
             </div>
-            <a class="my-button" href="../details/index.php?ID=<?php echo $linha['ID']?>">
+            <a class="my-button bg-primary" href="../details/index.php?ID=<?php echo $linha['ID']?>">
                 Saiba mais!
             </a>
         </div>

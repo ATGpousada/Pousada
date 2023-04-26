@@ -26,14 +26,17 @@
         $cep = $_POST['cep'];
         $cidade = $_POST['cidade'];
         $uf = $_POST['uf'];
+        $tipoTel = $_POST['tipoTel'];
+        $telefone = $_POST['telefone'];
         $id = ultimoCadastro($connect, 'clientes', "ID");
 
         // Insere os dados de endereco dos clientes no banco de dados
-        $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep','$cidade','$uf', $id);");
+        $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
+        $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     
         
         // Verifica se a inserção foi bem sucedida
-        if($connect->query($insereEndCli)){
-            header('location: login.php');
+        if($connect->query($insereEndCli) AND $connect->query($insereTelCli)){
+            header('location: index.php');
         } else {
             // Informa o Cliente que ocorreu um erro na gravação dos dados
             echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
@@ -72,10 +75,22 @@
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço</h2>
+        <h2>Cadastre um Endereço <br> e um Contato</h2>
         
         <!-- Formulario do Sing Up -->
         <form class="form-login" method="post">
+
+            <!-- Telefone -->
+            <div class="form-item">
+                <label for="telefone">Informe seu Telefone</label>        
+                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
+            </div>
+
+            <!-- Tipo Tell -->
+            <div class="form-item">
+                <label for="tipoTel">Informe o tipo de contato</label>        
+                <input type="text" id="tipoTel" name="tipoTel" class="form-control form-input-item" required>
+            </div>
 
             <!-- Cep -->
             <div class="form-item">
@@ -95,8 +110,8 @@
                 <input type="uf" id="uf" name="uf" class="form-control form-input-item" required>
             </div>
 
-            <button href="client/endereco.php" type="submit">Proximo</button>
-            <button href="client/singUp.php" type="submit">Voltar</button>
+            <button type="submit">Proximo</button>
+            <button type="submit">Voltar</button>
         </form>
         
         <!-- Footer do Sing Up -->
