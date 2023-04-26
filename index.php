@@ -30,7 +30,7 @@
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoIndex.php'; ?>
     
-    <main style="width: 90%; margin: auto;">
+    <main class="mb-5" style="width: 90%; margin: auto;">
         <!-- Mensagem na tela -->
         <?php 
             if(isset($_SESSION['conf-s'])){

@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Produtos</title>
 </head>
-<body class="fundofixo" style="padding-top: 6.5em !important;">
+<body class="fundofixo body-geral">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
