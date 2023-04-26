@@ -28,8 +28,6 @@ $(window).resize(() => {
         $('#item-info').removeClass('col-12').addClass('col-6');
     }
 });
-
-
 // ------------------------------------------ Fim da área geral ------------------------------------//
 
 
@@ -67,6 +65,4 @@ $(window).resize(() => {
         $('#group-formulario').addClass('d-flex gap-5');
     }
 });
-
-
 // ------------------------------------------ Fim da área perfil ------------------------------------//
