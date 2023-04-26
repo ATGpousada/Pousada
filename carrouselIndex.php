@@ -30,10 +30,6 @@
             </div>
 
             <div class="carousel-item">
-                <img src="images/banners/Area_brinquedo.jpg" class="d-block w-100" alt="...">
-            </div>
-
-            <div class="carousel-item">
                 <img src="images/banners/Area_de_lazer.jpg" class="d-block w-100" alt="...">
             </div>
 
