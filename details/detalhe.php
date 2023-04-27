@@ -33,29 +33,6 @@ if (!isset($_SESSION['nome_da_sessao'])) {
             <img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" class="imagem-grande">
         </span>
              
-        <!-- Icons -->
-        <span class="text-center icones_del" style="font-size: 40px; margin-top: 135px;">
-
-            <div class="icons_del text-center">
-                <i class="fa-solid fa-users"></i>
-                <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
-            </div>
-
-            <div class="icons_del text-center">
-                <i class="fa-solid fa-car-side"></i>
-                <span class="texto_del">1</span>
-            </div>
-
-            <div class="icons_del text-center">
-                <i class="fa-solid fa-paw"></i>
-                <span class="texto_del">✓</span>
-            </div>
-
-            <div class="icons_del text-center">
-                <i class="fa-solid fa-mug-hot"></i>
-                <span class="texto_del">✓</span>
-            </div>
-        </span>
 
         <!-- Sub-Imagens do Responsivo -->
         <div id="esconder_imgs" class="sub-imgs">
@@ -69,13 +46,40 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 
             <p id="titulo" class="text-center"><?php echo $linha['QUARTO'];?></p>
 
+             <!-- Icons -->
+        <div class="text-center icones_detalhes" style="font-size: 30px; margin-top: 20px; margin-bottom: 20px;">
+
+            <div class="icones_detalhes text-center" style="margin-right: 25px;">
+                <i class="fa-solid fa-users"></i>
+                <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
+            </div>
+
+            <div class="icones_detalhes text-center" style="margin-right: 25px;">
+                <i class="fa-solid fa-car-side"></i>
+                <span class="texto_del">1</span>
+            </div>
+
+            <div class="icones_detalhes text-center" style="margin-right: 25px;">
+                <i class="fa-solid fa-paw"></i>
+                <span class="texto_del">✓</span>
+            </div>
+
+            <div class="icones_detalhes text-center">
+                <i class="fa-solid fa-mug-hot"></i>
+                <span class="texto_del">✓</span>
+            </div>
+        </div>
+
+            <span style="display: flex;justify-content: space-around; width: 60%; align-items: center;">
+
             <p class="preco"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
 
-            <a class="botao_del" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="vertical-align:middle">
+            <a class="botao_del" style="max-height: 50px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="vertical-align:middle">
                 <span>
                     Reservar
                 </span>
             </a>
+            </span>
         </div>
 
     </div>
@@ -87,34 +91,6 @@ if (!isset($_SESSION['nome_da_sessao'])) {
                 <img src="<?php echo $linhaIMG['IMAGEM_CAMINHO_2']?>" class="imagem-pequena">
             <?php }while($linhaIMG = $listaIMG->fetch_assoc());?>
         </div>
-
-     <!-- Icons Responsivo-->
-     <section class="text-center icones_responsivo" style="font-size: 30px;">
-        <article class="icones_responsivo text-center">
-
-        <span class="linha_icon">
-            <i class="fa-solid fa-users"></i>
-            <span class="texto_del"><?php echo $linha['QTDE_PESSOAS'];?></span>
-        </span>
-
-        <span class="linha_icon">
-            <i class="fa-solid fa-car-side"></i>
-            <span class="texto_del">1</span>
-        </span>
-
-        <span class="linha_icon">
-            <i class="fa-solid fa-paw"></i>
-            <span class="texto_del">✓</span>
-        </span>
-
-        <span class="linha_icon">
-            <i class="fa-solid fa-mug-hot"></i>
-            <span class="texto_del">✓</span>
-        </span>
-
-        </article>
-     </section>
-
     </div>
 
     <!-- Descrição do Quarto -->

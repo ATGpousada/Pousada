@@ -23,24 +23,35 @@
 
     // Verifica se tem valor nos INPUT's
     if ($_POST){
-        $cep = $_POST['cep'];
-        $cidade = $_POST['cidade'];
-        $uf = $_POST['uf'];
-        $tipoTel = $_POST['tipoTel'];
-        $telefone = $_POST['telefone'];
-        $id = ultimoCadastro($connect, 'clientes', "ID");
+        session_start();
+        $dadosCli = $_SESSION['dadosCliente'];
+        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
+        VALUES 
+        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$dadosCli['senha']."','".$dadosCli['email']."');";
 
-        // Insere os dados de endereco dos clientes no banco de dados
-        $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
-        $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     
-        
-        // Verifica se a inserção foi bem sucedida
-        if($connect->query($insereEndCli) AND $connect->query($insereTelCli)){
-            header('location: index.php');
+        if ($connect->query($insereCli)) {
+            $cep = $_POST['cep'];
+            $cidade = $_POST['cidade'];
+            $uf = $_POST['uf'];
+            $tipoTel = $_POST['tipoTel'];
+            $telefone = $_POST['telefone'];
+            $id = ultimoCadastro($connect, 'clientes', "ID");
+
+            // Insere os dados de endereco dos clientes no banco de dados
+            $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
+            $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     
+            
+            // Verifica se a inserção foi bem sucedida
+            if($connect->query($insereEndCli) AND $connect->query($insereTelCli)){
+                header('location: index.php');
+            } else {
+                // Informa o Cliente que ocorreu um erro na gravação dos dados
+                echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
+            }
         } else {
-            // Informa o Cliente que ocorreu um erro na gravação dos dados
-            echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
+            header('location: cadastro.php');
         }
+
     }
 
 ?>
@@ -75,7 +86,7 @@
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço <br> e um Contato</h2>
+        <h2>Cadastre um Endereço <br> e um Numero de Contato</h2>
         
         <!-- Formulario do Sing Up -->
         <form class="form-login" method="post">
@@ -86,10 +97,14 @@
                 <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
             </div>
 
-            <!-- Tipo Tell -->
+            <!-- Tipo de telefone -->
             <div class="form-item">
-                <label for="tipoTel">Informe o tipo de contato</label>        
-                <input type="text" id="tipoTel" name="tipoTel" class="form-control form-input-item" required>
+                <select class="form-select form-control form-input-item" id="tipoAlterar" name="tipoTel">
+                    <option selected>Selecione o Tipo</option>
+                    <option value="Pessoal">Pessoal</option>
+                    <option value="Residêncial">Residêncial</option>
+                    <option value="Profissional">Profissional</option>
+                </select>
             </div>
 
             <!-- Cep -->
@@ -111,14 +126,19 @@
             </div>
 
             <button type="submit">Proximo</button>
-            <button type="submit">Voltar</button>
+
+            
         </form>
         
         <!-- Footer do Sing Up -->
         <footer id="footer-login">
             Já tem uma conta? 
         
-            <a href="index.php" class="ancora-login">Entre</a>
+            <a href="index.php" class="ancora-login">Entre</a> <br>
+
+            Mudou de ideia, deseja 
+            
+            <a href="../index.php" class="ancora-login">Cancelar</a>
         </footer>
     </div>
 </body>
