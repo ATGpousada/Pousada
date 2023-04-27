@@ -311,7 +311,38 @@
 /* ########################### FIM LOGIN ############################ */
 
 
+/* ########################## COMEÇO SOBRE NÓS ############################## */
+.dividir{
+    display:flex;
+     justify-content: space-around; 
+    margin-top:20px;
+}
+.margin_titulo{
+    margin-top: 95px;
+}
+.texto_titulo{
+    margin:0 auto;
+    width:90%;
+    font-size:20px;
+}
+.texto_h6{
+    margin:2px; 
+    padding:70px 70px 0px 70px;
+}
+.tamanho_l_sobre {
+width: 30%;
+}
+.imagem_sobre{
+    width: 45%;
+     margin:50px;
+     border-radius: 60px;
+}
+.textmg{
+    margin-top: 100px;
+}
 
+
+/*  ################## FIM SOBRE NÓS ################################ */
 
 /* ########################### COMEÇO FOOTER ########################### */
 
@@ -1619,4 +1650,124 @@ legend {
         }
     }
     /*Fim login*/
+
+/* sobre nos */
+ /* começo imagem */
+@media (width <= 1200px) {
+ 
+    .dividir{   
+        display: inline-block; 
+        margin: 0%;
+    }
+    .tamanho_l_sobre {
+        display: none;
+        margin: 45px;
+    }
+    .imagem_sobre{
+    width: 350px;
+    margin: 20px;
+    border-radius: 15px;
+    }
+    .textmg{
+        margin-top: 30px;
+    }
+}
+@media (width <= 999px) {
+    .dividir{   
+        display: inline-block; 
+        margin: 0%;
+    }
+    .tamanho_l_sobre {
+        display: none;
+      margin: 45px;
+    }
+    .imagem_sobre{
+    width: 550px;
+    margin: 20px;
+    }
+    .inline{
+        flex-direction: column;
+        align-items: center ;
+    }
+}
+
+@media (width <= 800px) {
+    .dividir{   
+        display: inline-block; 
+        margin: 0%;
+    }
+    .tamanho_l_sobre {
+        display: none;
+      margin: 45px;
+    }
+    .imagem_sobre{
+    width: 600px;
+    margin: 0%;
+    }
+    .inline{
+        flex-direction: column;
+        align-items: center ;
+    }
+
+}  
+@media (width <= 770px) {
+
+    .imagem_sobre{
+    width: 450px;
+    }
+    .texto_h6{
+        padding: 0;
+        margin-top: 20px;
+    }
+
+} 
+@media (width <= 570px) { 
+ 
+    .dividir{   
+        display: inline-block; 
+        margin: 0%;
+    }
+    .tamanho_l_sobre {
+        display: none;
+        margin: 45px;
+    }
+    .imagem_sobre{
+    width: 350px;
+    margin: 20px;
+    }
+    .inline{
+        flex-direction: column;
+        align-items: center ;
+    }
+    .textmg{
+        margin: 0;
+    }
+}
+@media (width <= 410px) { 
+ 
+    .dividir{   
+        display: inline-block; 
+        margin: 0%;
+    }
+    .tamanho_l_sobre {
+        display: none;
+        margin: 45px;
+    }
+    .imagem_sobre{
+    width: 250px;
+    margin: 20px;
+    border-radius: 15px;
+    }
+    .inline{
+        flex-direction: column;
+        align-items: center ;
+    }
+}
+    /* fim imagem */
+    /* começo texto */
+    @media (width <= 800) {
+        
+    }
+
+
     /* ########################### FIM RESPONSIVO ###################*/

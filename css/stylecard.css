@@ -153,14 +153,14 @@ body{
         max-width: 100px !important     ;
     }
 }
-@media (width <= 740px){
+@media (width <= 767px){
     .card{
         flex-direction: column !important;
         justify-content: center;
         text-align: center;
         margin: auto 20px;
-        margin-bottom: 80px;
-        margin-top: 120px;
+        margin-bottom: 30px;
+        margin-top: 60px;
         padding-left: 15px;
         padding-right: 15px;
         width: 40%;
