@@ -5,12 +5,14 @@ include 'verificacao.php';
 // Conexão com o banco
 include '../connection/connect.php';
 
+// Pegando cartões do cliente
 $lista = $connect->query("SELECT * FROM clientes 
                         INNER JOIN cartoes ON clientes.ID = cartoes.clientes_ID
                         WHERE clientes.ID = ".$_SESSION['id'].";");
 
 // Pegando a linha do cliente logado
 $row = $lista->fetch_assoc();
+// Pegando a quantidade de linhas da consulta
 $rows = $lista->num_rows;
 ?>
 
@@ -78,11 +80,12 @@ $rows = $lista->num_rows;
             <!-- Título da página -->
             <h3>Formas de pagamento</h4>
 
+            <!-- Laço de repetição para pegar os catões com uma verificação para ver se tem algum cadastrado -->
             <?php 
                 if ($rows > 0) { 
                     do {
             ?>
-
+                <!-- Informações a vista do cartão -->
                 <div class="accordion mt-4 mb-3" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -90,7 +93,8 @@ $rows = $lista->num_rows;
                                 Cartão de débito
                             </button>
                         </h2>
-
+                        
+                        <!-- Detalhes do cartão -->
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 though the transition does limit overflow.
@@ -99,11 +103,13 @@ $rows = $lista->num_rows;
                     </div>
                 </div>
 
+            <!-- Final do laço de repetição -->
             <?php 
                     } while ($row = $lista->fetch_assoc());
                 } else {
             ?>
 
+                <!-- Mostrar que não tem cartões cadastrados -->
                 <div class="alert alert-dark mt-4" role="alert">
                     <i class="bi bi-exclamation-diamond-fill"></i> Nenhum cartão cadastrado.
                 </div>
@@ -111,7 +117,8 @@ $rows = $lista->num_rows;
             <?php 
                 }
             ?>
-
+            
+            <!-- Botão para abrir modal e adicionar cartão  -->
             <div class="d-flex justify-content-end">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Adicionar</button>
             </div>
@@ -121,36 +128,43 @@ $rows = $lista->num_rows;
     <!-- Modal adicionar cartão -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     <div class="d-flex justify-content-around align-items-center gap-4">
-                        <form action="" method="post" class="row g-3">
+                        <form action="adicionaCartao.php" method="post" class="row g-3">
+                            <!-- Tipo de número do cartão -->
                             <div class="form-floating col-md-7">
-                                <input type="text" class="form-control" id="floatingInput" required ng-model="numero">
+                                <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" maxlength="19" value="">
                                 <label for="floatingInput">Número</label>
                             </div>
 
+                            <!-- Tipo de data de validade do cartão -->
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" id="floatingPassword" required ng-model="dataValidade">
+                                <input type="text" class="form-control" id="dataValidade" required ng-model="dataValidade" data-js="data">
                                 <label for="floatingPassword">Data de Validade</label>
                             </div>
 
+                            <!-- Tipo de nome do titular do cartão -->
                             <div class="form-floating col-md-9">
-                                <input type="text" class="form-control" id="floatingInput" required ng-model="nomeTitular">
+                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular">
                                 <label for="floatingInput">Nome do Titular</label>
                             </div>
 
+                            <!-- Tipo de cvv do cartão -->
                             <div class="form-floating col-md-3">
-                                <input type="text" class="form-control" id="cvv" required ng-model="cvv">
+                                <input type="text" class="form-control" id="cvv" required ng-model="cvv" data-js="cvv" maxlength="3">
                                 <label for="floatingPassword">CVV</label>
                             </div>
 
-                            <!-- Tipo de telefone -->
+                            <!-- Tipo de tipo do cartão -->
                             <div class="form-floating col-md-12">
                                 <select class="form-select" id="tipoAlterar" name="tipoAlterar">
                                     <option selected>Selecione o Tipo</option>
@@ -160,18 +174,30 @@ $rows = $lista->num_rows;
 
                                 <label for="floatingSelect">Tipo</label>
                             </div>
+
+                            <!-- Botão para adicionar o cartão -->
+                            <div class="col-md-12 ps-2 pe-2">
+                                <button type="submit" class="btn btn-primary col-md-12">Adicionar</button>
+                            </div>
                         </form>
 
+                        <!-- Modelo do cartão -->
                         <div class="w-50 pe-3">
+                            <!-- Cartão completo -->
                             <div class="flip-card">
+                                <!-- Back e front do cartão juntos -->
                                 <div class="flip-card-inner">
+                                    <!-- Frente do cartão -->
                                     <div class="flip-card-front">
+                                        <!-- Nome cartão -->
                                         <p class="heading_8264 text-white">MASTERCARD</p>
                                         
+                                        <!-- Imagem bandeira -->
                                         <svg viewBox="0 0 48 48" height="36" width="36" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg" class="logo">
                                             <path d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z" fill="#ff9800"></path><path d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z" fill="#d50000"></path><path d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z" fill="#ff3d00"></path>
                                         </svg>
 
+                                        <!-- Chip do cartão (icone) -->
                                         <svg xml:space="preserve" viewBox="0 0 50 50" height="30px" width="30px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="chip" version="1.1">  
                                             <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                             AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
@@ -202,6 +228,7 @@ $rows = $lista->num_rows;
                                             </image>
                                         </svg>
 
+                                        <!-- Sinal de aproximação (icone) -->
                                         <svg xml:space="preserve" viewBox="0 0 50 50" height="20px" width="20px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="contactless" version="1.1">  
                                             <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAQAAAC0NkA6AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                             AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
@@ -226,22 +253,26 @@ $rows = $lista->num_rows;
                                             </image>
                                         </svg>
 
-                                        <p class="number text-white">9759 2484 5269 6576 {{numero}}</p>
-
+                                        <!-- Numero do cartão -->
+                                        <p class="number text-white"> {{numero?numero:'1111 1111 1111 1111'}}</p>
+                                        <!-- Data de validade do cartão -->
                                         <p class="valid_thru text-white">DATA DE VALIDADE</p>
-
-                                        <p class="date_8264 text-white">1 2 / 2 4 {{dataValidade}}</p>
-
-                                        <p class="name text-white">BRUCE WAYNE {{nomeTitular}}</p>
+                                        <p class="date_8264 text-white">{{dataValidade?dataValidade:'11 / 11'}}</p>
+                                        <!-- Nome do titular do cartão -->
+                                        <p class="name text-white text-uppercase">{{nomeTitular?nomeTitular:'XXXX XXXX'}}</p>
                                     </div>
 
+                                    <!-- Back do cartão -->
                                     <div class="flip-card-back">
+                                        <!-- Linha do cartão -->
                                         <div class="strip"></div>
+                                        
+                                        <!-- Numero no back do cartão -->
+                                        <div class="mstrip"><strong>{{numero?numero:'1111 1111 1111 1111'}}</strong></div>
 
-                                        <div class="mstrip"></div>
-
+                                        <!-- cvv do cartão -->
                                         <div class="sstrip">
-                                            <p class="code">*** {{cvv}}</p>
+                                            <p class="code">{{cvv?cvv:'***'}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -250,9 +281,10 @@ $rows = $lista->num_rows;
                     </div>
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Adicionar</button>
+                    <!-- Fechar modal -->
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
