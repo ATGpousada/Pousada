@@ -5,35 +5,19 @@ include '../connection/connect.php';
 
 // Verifica se tem valor nos INPUT's
 if ($_POST){
-    $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $rg = $_POST['rg'];
-    $senha = $_POST['senha'];
-    $email = $_POST['email'];
+    $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
     // Consulta para ver se há Cliente cadastrado com o email especificado
-    $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email'");
-
-    // Recupera a quantidade de linhas
-    $loginQueryNum = $loginQuery->num_rows;
+    $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '".$dadosInput['email']."';");
     
     // Verifica se já existe um Cliente com o email informado
-    if($loginQueryNum > 0) {
+    if($loginQuery->num_rows > 0) {
         // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
         echo "<p>O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
     } else {
-        // Insere os dados dos clientes no banco de dados
-        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
-        VALUES 
-        ('$nome','$cpf','$rg','$senha','$email');";
-        
-        // Verifica se a inserção foi bem sucedida
-        if($connect->query($insereCli)){
-            header('location: endereco.php');
-        } else {
-            // Informa o Cliente que ocorreu um erro na gravação dos dados
-            echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
-        }
+        session_start();
+        $_SESSION['dadosCliente'] = $dadosInput;
+        header('location: endereco.php');
     }
 }
 
