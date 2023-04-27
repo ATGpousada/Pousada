@@ -5,12 +5,14 @@ include 'verificacao.php';
 // Conexão com o banco
 include '../connection/connect.php';
 
+// Pegando cartões do cliente
 $lista = $connect->query("SELECT * FROM clientes 
                         INNER JOIN cartoes ON clientes.ID = cartoes.clientes_ID
                         WHERE clientes.ID = ".$_SESSION['id'].";");
 
 // Pegando a linha do cliente logado
 $row = $lista->fetch_assoc();
+// Pegando a quantidade de linhas da consulta
 $rows = $lista->num_rows;
 ?>
 
@@ -23,6 +25,8 @@ $rows = $lista->num_rows;
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- Nosso estilo -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cartão estilo -->
+    <link rel="stylesheet" href="../css/cartao.css">
     <!-- Icons do Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- Icons do FontAwansome -->
@@ -31,154 +35,11 @@ $rows = $lista->num_rows;
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
+    <!-- Link para o angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Login - Pousada do Sossego</title>
 </head>
-<style>
-    .flip-card {
-  background-color: transparent;
-  width: 240px;
-  height: 154px;
-  perspective: 1000px;
-}
-
-.heading_8264 {
-  position: absolute;
-  letter-spacing: .2em;
-  font-size: 0.5em;
-  top: 2em;
-  left: 18.6em;
-}
-
-.logo {
-  position: absolute;
-  top: 6.8em;
-  left: 11.7em;
-}
-
-.chip {
-  position: absolute;
-  top: 2.3em;
-  left: 1.5em;
-}
-
-.contactless {
-  position: absolute;
-  top: 3.5em;
-  left: 12.4em;
-}
-
-.number {
-  position: absolute;
-  font-weight: bold;
-  font-size: .6em;
-  top: 8.3em;
-  left: 1.6em;
-}
-
-.valid_thru {
-  position: absolute;
-  font-weight: bold;
-  top: 635.8em;
-  font-size: .01em;
-  left: 140.3em;
-}
-
-.date_8264 {
-  position: absolute;
-  font-weight: bold;
-  font-size: 0.5em;
-  top: 13.6em;
-  left: 3.2em;
-}
-
-.name {
-  position: absolute;
-  font-weight: bold;
-  font-size: 0.5em;
-  top: 16.1em;
-  left: 2em;
-}
-
-.strip {
-  position: absolute;
-  background-color: black;
-  width: 15em;
-  height: 1.5em;
-  top: 2.4em;
-  background: repeating-linear-gradient(
-    45deg,
-    #303030,
-    #303030 10px,
-    #202020 10px,
-    #202020 20px
-  );
-}
-
-.mstrip {
-  position: absolute;
-  background-color: rgb(255, 255, 255);
-  width: 8em;
-  height: 0.8em;
-  top: 5em;
-  left: .8em;
-  border-radius: 2.5px;
-}
-
-.sstrip {
-  position: absolute;
-  background-color: rgb(255, 255, 255);
-  width: 4.1em;
-  height: 0.8em;
-  top: 5em;
-  left: 10em;
-  border-radius: 2.5px;
-}
-
-.code {
-  font-weight: bold;
-  text-align: center;
-  margin: .2em;
-  color: black;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 1rem;
-}
-
-.flip-card-front {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
-  background-color: #171717;
-}
-
-.flip-card-back {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
-  background-color: #171717;
-  transform: rotateY(180deg);
-}
-</style>
-<body>
+<body ng-app="">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -219,11 +80,12 @@ $rows = $lista->num_rows;
             <!-- Título da página -->
             <h3>Formas de pagamento</h4>
 
+            <!-- Laço de repetição para pegar os catões com uma verificação para ver se tem algum cadastrado -->
             <?php 
                 if ($rows > 0) { 
                     do {
             ?>
-
+                <!-- Informações a vista do cartão -->
                 <div class="accordion mt-4 mb-3" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -231,7 +93,8 @@ $rows = $lista->num_rows;
                                 Cartão de débito
                             </button>
                         </h2>
-
+                        
+                        <!-- Detalhes do cartão -->
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 though the transition does limit overflow.
@@ -240,11 +103,13 @@ $rows = $lista->num_rows;
                     </div>
                 </div>
 
+            <!-- Final do laço de repetição -->
             <?php 
                     } while ($row = $lista->fetch_assoc());
                 } else {
             ?>
 
+                <!-- Mostrar que não tem cartões cadastrados -->
                 <div class="alert alert-dark mt-4" role="alert">
                     <i class="bi bi-exclamation-diamond-fill"></i> Nenhum cartão cadastrado.
                 </div>
@@ -252,7 +117,8 @@ $rows = $lista->num_rows;
             <?php 
                 }
             ?>
-
+            
+            <!-- Botão para abrir modal e adicionar cartão  -->
             <div class="d-flex justify-content-end">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Adicionar</button>
             </div>
@@ -262,46 +128,76 @@ $rows = $lista->num_rows;
     <!-- Modal adicionar cartão -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     <div class="d-flex justify-content-around align-items-center gap-4">
-                        <form action="" method="post" class="row g-3">
-                            <div class="form-floating col-md-6">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Email address</label>
+                        <form action="adicionaCartao.php" method="post" class="row g-3">
+                            <!-- Tipo de número do cartão -->
+                            <div class="form-floating col-md-7">
+                                <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" maxlength="19" value="">
+                                <label for="floatingInput">Número</label>
                             </div>
 
-                            <div class="form-floating col-md-6">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Password</label>
+                            <!-- Tipo de data de validade do cartão -->
+                            <div class="form-floating col-md-5">
+                                <input type="text" class="form-control" id="dataValidade" required ng-model="dataValidade" data-js="data">
+                                <label for="floatingPassword">Data de Validade</label>
                             </div>
 
-                            <div class="form-floating col-md-6">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Email address</label>
+                            <!-- Tipo de nome do titular do cartão -->
+                            <div class="form-floating col-md-9">
+                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular">
+                                <label for="floatingInput">Nome do Titular</label>
                             </div>
 
-                            <div class="form-floating col-md-6">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Password</label>
+                            <!-- Tipo de cvv do cartão -->
+                            <div class="form-floating col-md-3">
+                                <input type="text" class="form-control" id="cvv" required ng-model="cvv" data-js="cvv" maxlength="3">
+                                <label for="floatingPassword">CVV</label>
+                            </div>
+
+                            <!-- Tipo de tipo do cartão -->
+                            <div class="form-floating col-md-12">
+                                <select class="form-select" id="tipoAlterar" name="tipoAlterar">
+                                    <option selected>Selecione o Tipo</option>
+                                    <option value="Crédito">Crédito</option>
+                                    <option value="Débito">Débito</option>
+                                </select>
+
+                                <label for="floatingSelect">Tipo</label>
+                            </div>
+
+                            <!-- Botão para adicionar o cartão -->
+                            <div class="col-md-12 ps-2 pe-2">
+                                <button type="submit" class="btn btn-primary col-md-12">Adicionar</button>
                             </div>
                         </form>
 
+                        <!-- Modelo do cartão -->
                         <div class="w-50 pe-3">
+                            <!-- Cartão completo -->
                             <div class="flip-card">
+                                <!-- Back e front do cartão juntos -->
                                 <div class="flip-card-inner">
+                                    <!-- Frente do cartão -->
                                     <div class="flip-card-front">
+                                        <!-- Nome cartão -->
                                         <p class="heading_8264 text-white">MASTERCARD</p>
                                         
+                                        <!-- Imagem bandeira -->
                                         <svg viewBox="0 0 48 48" height="36" width="36" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg" class="logo">
-                                        <path d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z" fill="#ff9800"></path><path d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z" fill="#d50000"></path><path d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z" fill="#ff3d00"></path>
+                                            <path d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z" fill="#ff9800"></path><path d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z" fill="#d50000"></path><path d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z" fill="#ff3d00"></path>
                                         </svg>
 
+                                        <!-- Chip do cartão (icone) -->
                                         <svg xml:space="preserve" viewBox="0 0 50 50" height="30px" width="30px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="chip" version="1.1">  
                                             <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                             AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB6VBMVEUAAACNcTiVeUKVeUOY
@@ -328,9 +224,11 @@ $rows = $lista->num_rows;
                                             S24ra7Tq1cbWjpXV3sHRCb1idXZ0sGdltXNxRateRwHRAACYHutzk/2I5QAAACV0RVh0ZGF0ZTpj
                                             cmVhdGUAMjAyMy0wMi0xM1QwODoxNToyOSswMDowMEUnN7UAAAAldEVYdGRhdGU6bW9kaWZ5ADIw
                                             MjMtMDItMTNUMDg6MTU6MjkrMDA6MDA0eo8JAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTAy
-                                            LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg==" y="0" x="0" height="50" width="50" id="image0"></image>
+                                            LTEzVDA4OjE1OjI5KzAwOjAwY2+u1gAAAABJRU5ErkJggg==" y="0" x="0" height="50" width="50" id="image0">
+                                            </image>
                                         </svg>
 
+                                        <!-- Sinal de aproximação (icone) -->
                                         <svg xml:space="preserve" viewBox="0 0 50 50" height="20px" width="20px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="contactless" version="1.1">  
                                             <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAQAAAC0NkA6AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                             AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
@@ -351,25 +249,30 @@ $rows = $lista->num_rows;
                                             xDyxm9MmISKCWrzB7bSlaqGlsf0FC0gMjzTg6GgAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDIt
                                             MTNUMDg6MTk6NTYrMDA6MDCjlq7LAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAyLTEzVDA4OjE5
                                             OjU2KzAwOjAw0ssWdwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0xM1QwODoxOTo1Nisw
-                                            MDowMIXeN6gAAAAASUVORK5CYII=" y="0" x="0" height="50" width="50" id="image0"></image>
+                                            MDowMIXeN6gAAAAASUVORK5CYII=" y="0" x="0" height="50" width="50" id="image0">
+                                            </image>
                                         </svg>
 
-                                        <p class="number text-white">9759 2484 5269 6576</p>
-
-                                        <p class="valid_thru text-white">VALID THRU</p>
-
-                                        <p class="date_8264 text-white">1 2 / 2 4</p>
-
-                                        <p class="name text-white">BRUCE WAYNE</p>
+                                        <!-- Numero do cartão -->
+                                        <p class="number text-white"> {{numero?numero:'1111 1111 1111 1111'}}</p>
+                                        <!-- Data de validade do cartão -->
+                                        <p class="valid_thru text-white">DATA DE VALIDADE</p>
+                                        <p class="date_8264 text-white">{{dataValidade?dataValidade:'11 / 11'}}</p>
+                                        <!-- Nome do titular do cartão -->
+                                        <p class="name text-white text-uppercase">{{nomeTitular?nomeTitular:'XXXX XXXX'}}</p>
                                     </div>
 
+                                    <!-- Back do cartão -->
                                     <div class="flip-card-back">
+                                        <!-- Linha do cartão -->
                                         <div class="strip"></div>
+                                        
+                                        <!-- Numero no back do cartão -->
+                                        <div class="mstrip"><strong>{{numero?numero:'1111 1111 1111 1111'}}</strong></div>
 
-                                        <div class="mstrip"></div>
-
+                                        <!-- cvv do cartão -->
                                         <div class="sstrip">
-                                            <p class="code">***</p>
+                                            <p class="code">{{cvv?cvv:'***'}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -378,18 +281,21 @@ $rows = $lista->num_rows;
                     </div>
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <!-- Fechar modal -->
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
-<!-- js do preloader -->
-<script src="../js/preloader.js"></script>
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
+<!-- js do client -->
+<script src="../js/client.js"></script>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <!-- Nosso script -->

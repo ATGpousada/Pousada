@@ -41,21 +41,21 @@ $linhas = $lista->num_rows;
 
             <div class="icones">
                 <div class="icone">
-                    <p><i class="fa-solid fa-users" style="color: black;"></i></p>
+                    <p><i class="fa-solid fa-users" style="color: white;"></i></p>
                     <div class="sub-texto">
                         <?php echo $linha['QTDE_PESSOAS']?> Pessoas
                     </div>
                 </div>
 
                 <div class="icone">
-                    <p><i class="fa-solid fa-paw" style="color: black;"></i></p>
+                    <p><i class="fa-solid fa-paw" style="color: white;"></i></p>
                     <div class="sub-texto">
                         Animais
                     </div>
                 </div>
 
                 <div class="icone">
-                    <p><i class="fa-solid fa-mug-hot" style="color: black;"></i></p>
+                    <p><i class="fa-solid fa-mug-hot" style="color: white;"></i></p>
                     <div class="sub-texto">
                         Café da Manhã
                     </div>

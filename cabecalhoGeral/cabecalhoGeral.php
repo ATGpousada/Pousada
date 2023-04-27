@@ -1,4 +1,4 @@
-<header onbeforeunload="headerResponsivo();" id="subir">
+<header onbeforeunload="headerResponsivo();">
     <!-- Cabeçalho -->
     <nav class="navbar navbar-expand-lg shadow-sm mb-5 bg-body-tertiary rounded-bottom p-2 fixed-top" id="area-header" style="transition: 0.3s;">
         <!-- Conteúdo  do cabeçalho -->

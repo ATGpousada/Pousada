@@ -625,6 +625,42 @@ width: 30%;
 
 /* ########################### COMEÇO INDEX ############################## */
 
+.img-pontos{
+    display: flex;
+}
+
+.img-ponto{
+    width: 60%;
+    height: 405px;
+    margin: 10px 20px;
+}
+.subimg-turistico{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img-turistico{
+    border: 5px solid blue;
+    border-radius: 10%;
+    cursor: pointer;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    margin: 50px;
+    width: 20%;
+    padding: 15px;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.img-turistico:hover{
+    transform: scale(1.2);
+}
+
+  
+
 /* ########################### FIM INDEX ############################## */
 
 
@@ -813,18 +849,18 @@ width: 30%;
 /* Fim Quarto Principal */
 
 /* Icone (Responsivo "None") */
-.icones_responsivo {
-    display: none;
+.icones_detalhes {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
 }
 
-.icones_responsivo i {
+.icones_detalhes i {
     margin-right: 10px;
 }
 
-.icones_responsivo .texto_del {
+.icones_detalhes .texto_del {
     font-size: 20px;
 }
 
@@ -837,7 +873,8 @@ width: 30%;
 
 /* Icones */
 .icones_del{
-    width: 8%;
+    display: flex;
+    justify-content: center;
 }
 
 .icons_del {
@@ -864,7 +901,7 @@ width: 30%;
 
 .text-detail p{
     font-size: 40px;
-    margin-top: 50px;
+    margin: 0;
 }
 
 #titulo{
@@ -1522,26 +1559,32 @@ legend {
     /*Fim footer*/
 
     /* Começo Detalhes */
-    @media screen and (max-width: 1500px){
+    @media screen and (max-width: 1605px){
         #titulo{
-            font-size: 35px;
+            font-size: 40px;
         }    
+
+        .preco{
+            font-size: 30px !important;
+        }
     }
 
     @media screen and (max-width: 1400px){ 
-        .icones_del{
-            display: none;
+        .text-detail span{
+            width: 100% !important;
         }
 
-        .icones_responsivo{
-            display: flex;
-        }
+
     }
 
     @media screen and (max-width: 1200px){
         .imagem-pequena{
             width: 18%;
             height: 80px;
+        }
+
+        .sub-imgs{
+            width: 55%;
         }
 
         .imagem-grande{
@@ -1556,13 +1599,12 @@ legend {
         }
 
         #img_principal{
-            height: 100%;
             margin: 125px auto 60px auto;
         }
 
         .imagem-grande{
-            width: 150% !important;
-            height: 300px;
+            min-width: 150% !important;
+            height: 135%;
         }
 
         #reservar{
@@ -1572,6 +1614,10 @@ legend {
         .text-detail{
             width: 70%;
         }
+
+        #titulo{
+            font-size: 30px;
+        }    
 
         #esconder_imgs{
             display: flex;
@@ -1593,14 +1639,14 @@ legend {
             margin: 0 auto;
         }
 
-        .icones_responsivo{
+        .icones_detalhes{
             display: flex;
             margin-top: 15px;
             width: 100%;
             justify-content: center;
         }
         
-        .icones_responsivo i {
+        .icones_detalhes i {
             margin: 20px 15px 20px 0;
         }
 
@@ -1615,15 +1661,14 @@ legend {
     }
 
     @media screen and (max-width: 700px){
-        .icones_responsivo{
-
+        .icones_detalhes{
             width: 100%;
             justify-content: center;
         }
         
         .linha_icon{
             justify-content: center;
-            width: 100px;
+            width: 20%;
             margin: 20px 0;
         }
     }

@@ -66,3 +66,114 @@ $(window).resize(() => {
     }
 });
 // ------------------------------------------ Fim da área perfil ------------------------------------//
+
+
+
+// ------------------------------------------ Começo da área formas pagamento ------------------------------------//
+// Rotação do cartão qaundo o input cvv estiver focus
+$(function() {
+    // Rotação com o focus
+    $('#cvv').focusin(function() {
+        $('.flip-card-inner').css({
+            transform: 'rotateY(180deg)'
+        });
+    });
+
+    // Tira a rotação sem o focus
+    $('#cvv').focusout(function() {
+        $('.flip-card-inner').removeAttr('style');
+    });
+});
+
+// Array com mask para os input
+const mask = {
+    // Expressões regulares para as masks
+    cpf(value) {
+        return value
+            .replace(/\D/g, '') // aceita somente caracteres numero.
+            .replace(/(\d{3})(\d)/, '$1.$2') // () => permite criar grupos de captura.
+            .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+            .replace(/(\d{3})(\d{2})/, '$1-$2') // substitui '78910' por '789-10'.
+            .replace(/(-\d{2})\d+?$/, '$1');
+    },
+
+    phone(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{2})(\d)/, '($1) - $2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+            .replace(/(\d{4})\d+?$/, '$1');
+    },
+
+    cep(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{3})\d+?$/, '$1');
+    },
+
+    cartao(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{4})(\d)/, '$1 $2')
+            .replace(/(\d{4})(\d)/, '$1 $2')
+            .replace(/(\d{4})(\d)/, '$1 $2')
+            .replace(/(-\d{4})\d+?$/, '$1');
+    },
+
+    data(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{2})(\d)/, '$1 / $2')
+            .replace(/(\d{2})(\d)/, '$1');
+    },
+
+    cvv(value) {
+        return value
+            .replace(/\D/g, '');
+    },
+};
+
+// Adiciona mask nos input
+document.querySelectorAll('input').forEach((input) => {
+    const field = input.dataset.js;
+  
+    input.addEventListener('input', (event) => {
+      event.target.value = mask[field](event.target.value);
+    });
+});
+
+// Função para detectar a bandeira do cartão
+function detectarBandeiraCartao(numeroCartao) {
+    // Expressões regulares para identificar as bandeiras
+    var expressoes = [
+        /^4\d{12}(\d{3})?$/, // Visa
+        /^5[1-5]\d{14}$/, // Mastercard
+        /^3[47]\d{13}$/, // American Express
+        /^6(?:011|5\d{2})\d{12}$/, // Discover
+        /^(?:2131|1800|35\d{3})\d{11}$/ // JCB
+    ];
+
+    // Verifica qual expressão regular casa com o número do cartão
+    for(var i = 0; i < expressoes.length; i++) {
+        if(expressoes[i].test(numeroCartao)) {
+        // Retorna o nome da bandeira
+            if(expressoes[i] == /^4\d{12}(\d{3})?$/) {
+                return 'Visa';
+            } else if(expressoes[i] == /^5[1-5]\d{14}$/) {
+                return 'Mastercard';
+            } else if(expressoes[i] == /^3[47]\d{13}$/) {
+                return 'American Express';
+            } else if(expressoes[i] == /^6(?:011|5\d{2})\d{12}$/) {
+                return 'Discover';
+            } else if(expressoes[i] == /^(?:2131|1800|35\d{3})\d{11}$/) {
+                return 'JCB';
+            }
+        }
+    }
+
+    // Se nenhuma expressão regular casar com o número do cartão, retorna false
+    return false;
+}
+// ------------------------------------------ Fim da área formas pagamento ------------------------------------//
