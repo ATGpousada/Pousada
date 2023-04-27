@@ -97,10 +97,14 @@
                 <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
             </div>
 
-            <!-- Tipo Tell -->
+            <!-- Tipo de telefone -->
             <div class="form-item">
-                <label for="tipoTel">Informe o tipo de contato</label>        
-                <input type="text" id="tipoTel" name="tipoTel" class="form-control form-input-item" required>
+                <select class="form-select form-control form-input-item" id="tipoAlterar" name="tipoTel">
+                    <option selected>Selecione o Tipo</option>
+                    <option value="Pessoal">Pessoal</option>
+                    <option value="Residêncial">Residêncial</option>
+                    <option value="Profissional">Profissional</option>
+                </select>
             </div>
 
             <!-- Cep -->
