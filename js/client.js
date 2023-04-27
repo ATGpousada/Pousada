@@ -66,3 +66,20 @@ $(window).resize(() => {
     }
 });
 // ------------------------------------------ Fim da área perfil ------------------------------------//
+
+
+
+$(function() {
+    $('#cvv').focusin(function() {
+    $('.flip-card-inner').css({
+            transform: 'rotateY(180deg)'
+        });
+    });
+
+    $('#cvv').focusout(function() {
+        if ($('#cvv').val() == "") {
+            $('.flip-card-back').css({
+                transform: 'rotateY(180deg)'
+        });
+    }});
+});
