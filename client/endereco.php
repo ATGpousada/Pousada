@@ -86,7 +86,7 @@
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço <br> e um Contato</h2>
+        <h2>Cadastre um Endereço <br> e um Numero de Contato</h2>
         
         <!-- Formulario do Sing Up -->
         <form class="form-login" method="post">
@@ -126,14 +126,19 @@
             </div>
 
             <button type="submit">Proximo</button>
-            <a href="cadastro.php" class="">Voltar</a>
+
+            
         </form>
         
         <!-- Footer do Sing Up -->
         <footer id="footer-login">
             Já tem uma conta? 
         
-            <a href="index.php" class="ancora-login">Entre</a>
+            <a href="index.php" class="ancora-login">Entre</a> <br>
+
+            Mudou de ideia, deseja 
+            
+            <a href="../index.php" class="ancora-login">Cancelar</a>
         </footer>
     </div>
 </body>

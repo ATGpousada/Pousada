@@ -249,7 +249,7 @@
     cursor: text;
 }
 
-.form-login .form-item > input , .form-login > button {
+.form-login .form-item > input , .form-login > button  {
     width: 100%;
     height: 50px;
     border-radius: 10px;
