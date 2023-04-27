@@ -1,5 +1,6 @@
 <?php
     // Inicia uma sessão
+    session_name('start');
     session_start();
     
     // Conexão com o banco 
