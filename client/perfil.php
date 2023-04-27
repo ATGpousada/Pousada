@@ -267,13 +267,13 @@ $row = $lista->fetch_assoc();
                     <form action="alterarDados.php" method="post" class="row g-3">                      
                         <!-- CPF -->
                         <div class="form-floating col-md-12">
-                            <input type="text" class="form-control" id="cpfAlterar" name="cpfAlterar" value="<?php echo $row['CPF']?>" required>
+                            <input type="text" class="form-control" id="cpfAlterar" name="cpfAlterar" value="<?php echo $row['CPF']?>" oninput="mascarac(this)" required>
                             <label for="cpfAlterar">CPF</label>
                         </div>
                         
                         <!-- RG -->
                         <div class="form-floating col-md-12">
-                            <input type="text" class="form-control" id="rgAlterar" name="rgAlterar" value="<?php echo $row['RG']?>" required>
+                            <input type="text" class="form-control" id="rgAlterar" name="rgAlterar" value="<?php echo $row['RG']?>" oninput="mascaraRG(this)" required>
                             <label for="rgAlterar">RG</label>
                         </div>
 
@@ -305,7 +305,7 @@ $row = $lista->fetch_assoc();
                     <form action="alterarContato.php" method="post" class="row g-3">
                         <!-- CEP -->
                         <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="cepAlterar" name="cepAlterar" value="<?php echo $row['CEP']?>" required>
+                            <input type="text" class="form-control" id="cepAlterar" name="cepAlterar" value="<?php echo $row['CEP']?>" oninput="mascaraCEP(this)" required>
                             <label for="cepAlterar">CEP</label>
                         </div>
 
@@ -323,7 +323,7 @@ $row = $lista->fetch_assoc();
 
                         <!-- Número de telefone -->
                         <div class="form-floating col-md-6">
-                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['TEL']?>" required>
+                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['TEL']?>" oninput="mascara(this)" required>
                             <label for="numeroAlterar">Número de contato</label>
                         </div>
 
@@ -363,4 +363,6 @@ $row = $lista->fetch_assoc();
 <script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<!-- Nosso script -->
+<script type="text/javascript" src="../js/script.js"></script>
 </html>
