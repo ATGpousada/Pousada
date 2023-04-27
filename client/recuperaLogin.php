@@ -146,7 +146,7 @@
             <!-- CPF -->
             <div class="form-item">
                 <label for="cpf">Digite seu CPF</label>        
-                <input type="text" id="cpf" name="cpf" class="form-control form-input-item" required>
+                <input type="text" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
             </div>
 
             <!-- Link para voltar no login -->

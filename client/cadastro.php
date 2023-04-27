@@ -1,23 +1,39 @@
 <?php 
 
-// Conexão com o banco 
-include '../connection/connect.php';
+    // Conexão com o banco 
+    include '../connection/connect.php';
 
-// Verifica se tem valor nos INPUT's
-if ($_POST){
+    // Verifica se tem valor nos INPUT's
+    if ($_POST){
     $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-    // Consulta para ver se há Cliente cadastrado com o email especificado
+    // Consulta para ver se há Cliente cadastrado com o mesmo email especificado
     $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '".$dadosInput['email']."';");
     
     // Verifica se já existe um Cliente com o email informado
     if($loginQuery->num_rows > 0) {
-        // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
-        echo "<p>O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
+
+    // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
+    echo "<p>O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
+
     } else {
+
+    // Verifica se as senhas são iguais
+    if ($dadosInput['senha'] == $dadosInput['confSenha']) {
+
+        // Recebe a nova senha do usúario
+        $senhaCliente = $dadosInput['senha'];
+
+        // Abre a session e envia o cliente para logar e entrar na are de cliente
         session_start();
         $_SESSION['dadosCliente'] = $dadosInput;
         header('location: endereco.php');
+
+    // Caso as senhas não sejam iguais
+    } else {
+        // Mensagem de erro na tela
+        $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+    }
     }
 }
 
@@ -42,6 +58,7 @@ if ($_POST){
     <title>Sing Up - Pousada do Sossego</title>
 </head>
 <body class="body-login">
+
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -68,6 +85,14 @@ if ($_POST){
         
         <!-- Formulario do Sing Up -->
         <form class="form-login" method="post" >
+
+        <!-- Mensagem na tela -->
+        <?php 
+            if(isset($_SESSION['msg_atu'])){
+                echo $_SESSION['msg_atu'];
+                unset($_SESSION['msg_atu']);
+            }
+        ?>
 
             <!-- Nome -->
             <div class="form-item">
