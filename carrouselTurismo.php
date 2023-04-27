@@ -7,29 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active " data-bs-interval="5000">
-                <img src="images/banners/Pontos_turisticos.jpg" class="d-block w-100 rounded" alt="...">
+        <!-- Imagem Principal -->
+        <div class="img-pontos">
+        <img src="images/banners/Pontos_turisticos.jpg" class="img-ponto">
 
-            </div>
 
-            <div class="carousel-item " data-bs-interval="4000">
-                <img src="images/banners/Ilha_grande.jpg" class="d-block w-100 rounded" alt="...">
-            </div>
-
-            <div class="carousel-item" data-bs-interval="4000">
-                <img src="images/banners/Lagoa_azul.jpg" class="d-block w-100 rounded" alt="...">
-            </div>
-
-            <div class="carousel-item" data-bs-interval="4000">
-                <img src="images/banners/Praia_de_mangaratiba.jpg" class="d-block w-100 rounded" alt="...">
-            </div>
-
-            <div class="carousel-item" data-bs-interval="1000">
-                <img src="images/banners/Abraão.jpg" class="d-block w-100 rounded" alt="...">
-            </div>
+        <div class="subimg-turistico">
+                <p class="img-turistico" id="images/banners/Ilha_grande.jpg">ILHA GRANDE</p>
+                <p class="img-turistico" id="images/banners/Lagoa_azul.jpg">LAGOA AZUL</p>
+                <p class="img-turistico" id="images/banners/Praia_de_mangaratiba.jpg">PRAIA MANGARATIBA</p>
+                <p class="img-turistico" id="images/banners/Abraão.jpg">PRAIA ABRAÃO</p>
         </div>
     </div>
+    
+<!-- Script JS para imagens -->
+<script>
+      const textoImagem = document.querySelectorAll(".img-turistico")
+      const imagemGrande = document.querySelector('.img-ponto');
+
+      textoImagem.forEach((texto) => {
+        texto.addEventListener('click', () => {
+          const novaSrc = texto.getAttribute('id');
+          imagemGrande.setAttribute('src', novaSrc);
+        });
+      });
+</script>
 </body>
 </html>

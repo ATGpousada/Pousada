@@ -594,6 +594,42 @@
 
 /* ########################### COMEÇO INDEX ############################## */
 
+.img-pontos{
+    display: flex;
+}
+
+.img-ponto{
+    width: 60%;
+    height: 405px;
+    margin: 10px 20px;
+}
+.subimg-turistico{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img-turistico{
+    border: 5px solid blue;
+    border-radius: 22%;
+    cursor: pointer;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    margin: 50px;
+    width: 20%;
+    padding: 15px;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.img-turistico:hover{
+    transform: scale(1.2);
+}
+
+  
+
 /* ########################### FIM INDEX ############################## */
 
 
