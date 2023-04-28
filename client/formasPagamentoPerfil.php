@@ -132,7 +132,7 @@ $rows = $lista->num_rows;
             <div class="modal-content">
                 <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar cartão</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 
@@ -140,22 +140,22 @@ $rows = $lista->num_rows;
                 <div class="modal-body">
                     <div class="d-flex justify-content-around align-items-center gap-4" id="conteudoPagamento">
                         <form action="adicionaCartao.php" method="post" class="row g-3">
+                            <!-- Tipo de nome do titular do cartão -->
+                            <div class="form-floating col-md-12">
+                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular" maxlength="35">
+                                <label for="floatingInput">Nome do Titular</label>
+                            </div>
+
                             <!-- Tipo de número do cartão -->
-                            <div class="form-floating col-md-7">
+                            <div class="form-floating col-md-8">
                                 <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" data-numero="numero" maxlength="19">
                                 <label for="floatingInput">Número</label>
                             </div>
 
                             <!-- Tipo de data de validade do cartão -->
-                            <div class="form-floating col-md-5">
+                            <div class="form-floating col-md-4">
                                 <input type="text" class="form-control" id="dataValidade" required ng-model="dataValidade" data-js="data">
                                 <label for="floatingPassword">Data de Validade</label>
-                            </div>
-
-                            <!-- Tipo de nome do titular do cartão -->
-                            <div class="form-floating col-md-9">
-                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular" maxlength="30">
-                                <label for="floatingInput">Nome do Titular</label>
                             </div>
 
                             <!-- Tipo de cvv do cartão -->
@@ -165,7 +165,7 @@ $rows = $lista->num_rows;
                             </div>
 
                             <!-- Tipo de tipo do cartão -->
-                            <div class="form-floating col-md-12">
+                            <div class="form-floating col-md-9">
                                 <select class="form-select" id="tipoAlterar" name="tipoAlterar">
                                     <option selected>Selecione o Tipo</option>
                                     <option value="Crédito">Crédito</option>
@@ -177,12 +177,12 @@ $rows = $lista->num_rows;
 
                             <!-- Botão para adicionar o cartão -->
                             <div class="col-md-12 ps-2 pe-2">
-                                <button type="submit" class="btn btn-primary col-md-12">Adicionar</button>
+                                <button type="submit" class="btn btn-primary col-12">Adicionar</button>
                             </div>
                         </form>
 
                         <!-- Modelo do cartão -->
-                        <div class="w-50 pe-3 user-select-none" role="button">
+                        <div class="pe-3 user-select-none" role="button" id="cardFormasPagamento">
                             <!-- Cartão completo -->
                             <div class="flip-card">
                                 <!-- Back e front do cartão juntos -->

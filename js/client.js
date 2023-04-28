@@ -70,17 +70,39 @@ $(window).resize(() => {
 
 
 // ------------------------------------------ Começo da área formas pagamento ------------------------------------//
+//Inicializa sem um evento
+function inicializaResponsivoPagamento() {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+    
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela <= 992) {
+        $('#conteudoPagamento').addClass('flex-column');
+        $('#item-info').removeClass('col-6').addClass('col-12');
+    }
+}
+
+// Chamando a função
+inicializaResponsivoPagamento();
+
+// Evento que dispara quando a tela é redimensionada
 $(window).resize(() => {
     // Lagura atual da tela
     let larguraTela = $(window).width();
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela < 992) {
-        $('#conteudoPagamento').addClass('flex-column align-items-center');
+        $('#conteudoPagamento').addClass('flex-column');
         $('#item-info').removeClass('col-6').addClass('col-12');
     } else {
-        $('conteudo-pagamento').removeClass('col-12 mb-3').addClass('col-6');
-        $('#item-info').removeClass('col-12').addClass('col-6');
+        $('#conteudoPagamento').removeClass('flex-column');
+        $('#item-info').addClass('col-16').removeClass('col-12');
+    }
+
+    if (larguraTela < 380) {
+        $('#cardFormasPagamento').addClass('d-none');
+    } else {
+        $('#cardFormasPagamento').removeClass('d-none');
     }
 });
 
