@@ -41,9 +41,7 @@
     <div class="container-5 bg-body-tertiary rounded p-0"style="margin:0 auto;width:90%;">
         <div class="row mb-5">
     <!-- Início Carrossel Produtos-->
-    <?php 
-    include "carrouselPousada.php";
-    ?>
+
     <!-- Início container -->
     <main class="container">
     <!-- Fim Carrossel Produtos-->

@@ -25,17 +25,50 @@
     if ($_POST){
         session_start();
         $dadosCli = $_SESSION['dadosCliente'];
+        // Gera o hash MD5 da senha
+        $senha_criptografada = md5($dadosCli['senha']);
+        // Codifica o hash MD5 em Base64
+        $senha_base64 = base64_encode($senha_criptografada);
+        // Combina o hash MD5 e a codificação Base64 em uma string única
+        $senha_final = $senha_criptografada . ':' . $senha_base64;
+         
+        //insere os dados do Cliente no Banco de Dados
         $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
         VALUES 
-        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$dadosCli['senha']."','".$dadosCli['email']."');";
+        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['email']."');";
 
-        if ($connect->query($insereCli)) {
-            $cep = $_POST['cep'];
-            $cidade = $_POST['cidade'];
-            $uf = $_POST['uf'];
-            $tipoTel = $_POST['tipoTel'];
-            $telefone = $_POST['telefone'];
-            $id = ultimoCadastro($connect, 'clientes', "ID");
+
+    if ($connect->query($insereCli)) {
+        $cep = $_POST['cep'];
+        $cidade = $_POST['cidade'];
+        $uf = $_POST['uf'];
+        $tipoTel = $_POST['tipoTel'];
+        $telefone = $_POST['telefone'];
+        $id = ultimoCadastro($connect, 'clientes', "ID");
+
+        function busca_cep($cep){  
+            // faz uma consulta do cep informado pelo Cliente
+            $resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep='.urlencode($cep).'&formato=query_string');  
+            if(!$resultado){  
+                $resultado = "&resultado=0&resultado_txt=erro+ao+buscar+cep";  
+            }  
+            parse_str($resultado, $retorno);   
+            return $retorno;  
+        }
+        
+        // Atribui o valor da busca por Cep a uma variavel
+        $resultado_busca = busca_cep($cep);
+        
+        if ($resultado_busca['resultado'] != 0) {
+            $cidade = $resultado_busca['cidade'];
+            $uf = $resultado_busca['uf'];
+        } else {
+            $cidade = '';
+            $uf = '';
+        }
+    
+    echo "<script>document.getElementById('cidade').value = '$cidade';</script>";
+    echo "<script>document.getElementById('uf').value = '$uf';</script>";
 
             // Insere os dados de endereco dos clientes no banco de dados
             $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");

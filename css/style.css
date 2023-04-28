@@ -470,18 +470,6 @@ width: 30%;
 
 
 /* Botão Redes Sociais */
-.icon-btn {
-    width: 50px;
-    height: 80px;
-    border: 1px solid #cdcdcd;
-    background:  #0275d8;
-    border-radius: 25px;
-    overflow: hidden;
-    position: relative;
-    transition: width 0.2s ease-in-out;
-    font-weight: 500;
-    font-family: inherit;
-}
 
 .icon-btn {
     width: 50px;
@@ -496,6 +484,7 @@ width: 30%;
     transition: width 0.2s ease-in-out;
     font-weight: 500;
     font-family: inherit;
+    z-index: 1000;
 }
   
 .add-btn:hover {
@@ -611,7 +600,7 @@ width: 30%;
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    display: flex;
+    display: flex;  
     justify-content: center;
     bottom: 25px;
     right: 20px;
@@ -636,6 +625,7 @@ width: 30%;
     border: 10px ridge #c0ddff;
     border-radius: 3%;
 }
+
 .subimg-turistico{
     display: flex;
     flex-wrap: wrap;
@@ -1728,6 +1718,10 @@ legend {
         .desc_del p{
             font-size: 15px;
         }
+
+        .quadradinhodasetinha{
+            display: none;
+        }
     }
 
     @media screen and (max-width: 700px){
@@ -1751,6 +1745,90 @@ legend {
             display: none !important;
         }
     }
+
+    @media screen and (max-width: 1680px){
+        .img-ponto{
+            width: 60%;
+            height: 280px;
+        }
+
+        .subimg-turistico{
+            height: 270px;
+        }
+    }
+
+    @media screen and (max-width: 1120px){
+        .img-ponto{
+            width: 60%;
+            height: 200px;
+        }
+
+        .img-turistico{
+            height: 34px;
+        }
+
+        .subimg-turistico{
+            height: 100%;
+        }
+    }
+
+    @media screen and (max-width: 1000px){
+        .img-pontos{
+            flex-direction: column-reverse;
+        }
+
+        .img-ponto{
+            width: 95%;
+            height: 100%;
+            margin: auto;
+        }
+
+        .img-turistico{
+            width: 50%;
+            height: 45px;
+            font-size: 13px;
+        }
+
+        .subimg-turistico{
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0 10px;
+        }
+    }
+
+    @media screen and (max-width: 856px){
+        .img-turistico{
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+        .subimg-turistico{
+            width: 100% !important;
+        }
+        .img-pontos{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .txt-1{
+            width: 42%;
+        }
+
+        .subimg-turistico{
+            margin: 0;
+            width: 70%;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media screen and (max-width: 556px){
+        .txt-1{
+            width: 38%;
+        }
+    }
+
     /* Fim index */
 
 
@@ -1879,10 +1957,19 @@ legend {
     }
 }
     /* fim imagem */
-    /* começo texto */
-    @media (width <= 800) {
-        
+    /* começo botão redes sociais */
+    @media (width <= 410px){
+        .add-btn{
+            margin-left: -15px !important;
+        }
+        .add-btn:hover {
+            width: 260px !important;
+        }
+        .quadradinhodasetinha{
+            display: none;
+        }
     }
+    /* fim botao redes sociais */
 
 
     /* ########################### FIM RESPONSIVO ###################*/

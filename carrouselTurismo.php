@@ -13,10 +13,10 @@
 
 
         <div class="subimg-turistico">
-                <p class="img-turistico" id="images/banners/Ilha_grande.jpg">ILHA GRANDE</p>
-                <p class="img-turistico" id="images/banners/Lagoa_azul.jpg">LAGOA AZUL</p>
-                <p class="img-turistico" id="images/banners/Praia_de_mangaratiba.jpg">PRAIA MANGARATIBA</p>
-                <p class="img-turistico" id="images/banners/Abraão.jpg">PRAIA ABRAÃO</p>
+                <p class="img-turistico txt-1" id="images/banners/Ilha_grande.jpg">ILHA GRANDE</p>
+                <p class="img-turistico txt-1" id="images/banners/Lagoa_azul.jpg">LAGOA AZUL</p>
+                <p class="img-turistico txt-1" id="images/banners/Praia_de_mangaratiba.jpg">PRAIA MANGARATIBA</p>
+                <p class="img-turistico txt-1" id="images/banners/Abraão.jpg">PRAIA ABRAÃO</p>
         </div>
     </div>
     

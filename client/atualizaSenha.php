@@ -33,12 +33,21 @@
                 if ($dadosAtualizaInput['senha'] == $dadosAtualizaInput['senhaConfirma']) {
                     // Recebe a nova senha do usúario
                     $senhaCliente = $dadosAtualizaInput['senha'];
+
+                    // Gera o hash MD5 da senha
+                    $senha_criptografada = md5($senhaCliente);
+
+                    // Codifica o hash MD5 em Base64
+                    $senha_base64 = base64_encode($senha_criptografada);
+
+                    // Combina o hash MD5 e a codificação Base64 em uma string única
+                    $senha_final = $senha_criptografada . ':' . $senha_base64;
                     
                     // Zera o campo "RECUPERAR_SENHA" no banco de dados
                     $recuperarSenha = 'NULL';
 
                     // Atribui a nova senha do usuário
-                    $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = '$senhaCliente', RECUPERAR_SENHA = '$recuperarSenha' WHERE ID = ". $rowConsulta['ID']);
+                    $AtualizaSenhaQuery = ("UPDATE clientes SET SENHA = '$senha_final', RECUPERAR_SENHA = '$recuperarSenha' WHERE ID = ". $rowConsulta['ID']);
 
                     // Verifica se foi efetuado com sucesso o comando SQL
                     if ($connect->query($AtualizaSenhaQuery)) {
