@@ -1976,7 +1976,9 @@ legend {
         .add-btn:hover {
             width: 260px !important;
         }
-
+        .quadradinhodasetinha{
+            display: none;
+        }
     }
     /* fim botao redes sociais */
 
