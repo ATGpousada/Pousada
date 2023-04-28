@@ -24,9 +24,6 @@
             // Retorno caso dar certo
             return true;
         } catch (\Throwable $th) {
-            // Variável com erro
-            throw $th;
-
             // Após a desativação, voltar para a página de index.php
             header('location: configuracao.php');
 

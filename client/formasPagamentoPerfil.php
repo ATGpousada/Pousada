@@ -74,7 +74,14 @@ $rows = $lista->num_rows;
                 </div>
             </div>
         </nav>
-        
+
+        <!-- Mensagem na tela -->
+        <?php 
+            if(isset($_SESSION['adicionarCartao'])){
+                echo $_SESSION['adicionarCartao'];
+                unset($_SESSION['adicionarCartao']);
+            }
+        ?>
 
         <section class="ps-5 pe-5 pb-4 pt-2">
             <!-- Título da página -->
@@ -83,19 +90,21 @@ $rows = $lista->num_rows;
             <!-- Laço de repetição para pegar os catões com uma verificação para ver se tem algum cadastrado -->
             <?php 
                 if ($rows > 0) { 
+                    $cont = 0;
                     do {
+                        $cont += 1;
             ?>
                 <!-- Informações a vista do cartão -->
-                <div class="accordion mt-4 mb-3" id="accordionExample">
+                <div class="accordion mt-2 mb-3" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapseTwo">
                                 Cartão de débito
                             </button>
                         </h2>
                         
                         <!-- Detalhes do cartão -->
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapse<?php echo $cont; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 though the transition does limit overflow.
                             </div>
@@ -132,7 +141,7 @@ $rows = $lista->num_rows;
             <div class="modal-content">
                 <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar cartão</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Cartão</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 
@@ -142,31 +151,31 @@ $rows = $lista->num_rows;
                         <form action="adicionaCartao.php" method="post" class="row g-3">
                             <!-- Tipo de nome do titular do cartão -->
                             <div class="form-floating col-md-12">
-                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular" maxlength="35">
+                                <input type="text" class="form-control text-uppercase" id="nomeTitular" name="nomeTitular" required ng-model="nomeTitular" maxlength="35">
                                 <label for="floatingInput">Nome do Titular</label>
                             </div>
 
                             <!-- Tipo de número do cartão -->
                             <div class="form-floating col-md-8">
-                                <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" data-numero="numero" maxlength="19">
+                                <input type="text" class="form-control" id="numeroCartao" name="numeroCartao" required ng-model="numero" data-js="cartao" data-numero="numero" maxlength="19">
                                 <label for="floatingInput">Número</label>
                             </div>
 
                             <!-- Tipo de data de validade do cartão -->
                             <div class="form-floating col-md-4">
-                                <input type="text" class="form-control" id="dataValidade" required ng-model="dataValidade" data-js="data">
+                                <input type="text" class="form-control" id="dataValidade" name="dataValidade" required ng-model="dataValidade" data-js="data">
                                 <label for="floatingPassword">Data de Validade</label>
                             </div>
 
                             <!-- Tipo de cvv do cartão -->
                             <div class="form-floating col-md-3">
-                                <input type="text" class="form-control" id="cvv" required ng-model="cvv" data-js="cvv" maxlength="3">
+                                <input type="text" class="form-control" id="cvv" name="cvv" required ng-model="cvv" data-js="cvv" maxlength="3">
                                 <label for="floatingPassword">CVV</label>
                             </div>
 
                             <!-- Tipo de tipo do cartão -->
                             <div class="form-floating col-md-9">
-                                <select class="form-select" id="tipoAlterar" name="tipoAlterar">
+                                <select class="form-select" id="tipoCartao" name="tipoCartao">
                                     <option selected>Selecione o Tipo</option>
                                     <option value="Crédito">Crédito</option>
                                     <option value="Débito">Débito</option>

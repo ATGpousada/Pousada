@@ -18,8 +18,8 @@
             // Retorno caso dar certo
             return true;
         } catch (\Throwable $th) {
-            // Variável com erro
-            throw $th;
+            // Após o erro, voltar para a página de pefil.php
+            header('location: perfil.php');
 
             // Retorno caso dar errado
             return false;
