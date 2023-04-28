@@ -70,6 +70,20 @@ $(window).resize(() => {
 
 
 // ------------------------------------------ Começo da área formas pagamento ------------------------------------//
+$(window).resize(() => {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela < 992) {
+        $('#conteudoPagamento').addClass('flex-column align-items-center');
+        $('#item-info').removeClass('col-6').addClass('col-12');
+    } else {
+        $('conteudo-pagamento').removeClass('col-12 mb-3').addClass('col-6');
+        $('#item-info').removeClass('col-12').addClass('col-6');
+    }
+});
+
 // Rotação do cartão qaundo o input cvv estiver focus
 $(function() {
     // Rotação com o focus

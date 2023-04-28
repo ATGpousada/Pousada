@@ -138,11 +138,11 @@ $rows = $lista->num_rows;
                 
                 <!-- Corpo do modal -->
                 <div class="modal-body">
-                    <div class="d-flex justify-content-around align-items-center gap-4">
+                    <div class="d-flex justify-content-around align-items-center gap-4" id="conteudoPagamento">
                         <form action="adicionaCartao.php" method="post" class="row g-3">
                             <!-- Tipo de número do cartão -->
                             <div class="form-floating col-md-7">
-                                <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" maxlength="19" value="">
+                                <input type="text" class="form-control" id="numeroCartao" required ng-model="numero" data-js="cartao" data-numero="numero" maxlength="19">
                                 <label for="floatingInput">Número</label>
                             </div>
 
@@ -154,7 +154,7 @@ $rows = $lista->num_rows;
 
                             <!-- Tipo de nome do titular do cartão -->
                             <div class="form-floating col-md-9">
-                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular">
+                                <input type="text" class="form-control text-uppercase" id="nomeTitular" required ng-model="nomeTitular" maxlength="30">
                                 <label for="floatingInput">Nome do Titular</label>
                             </div>
 
@@ -182,7 +182,7 @@ $rows = $lista->num_rows;
                         </form>
 
                         <!-- Modelo do cartão -->
-                        <div class="w-50 pe-3">
+                        <div class="w-50 pe-3 user-select-none" role="button">
                             <!-- Cartão completo -->
                             <div class="flip-card">
                                 <!-- Back e front do cartão juntos -->
@@ -259,7 +259,7 @@ $rows = $lista->num_rows;
                                         <p class="valid_thru text-white">DATA DE VALIDADE</p>
                                         <p class="date_8264 text-white">{{dataValidade?dataValidade:'11 / 11'}}</p>
                                         <!-- Nome do titular do cartão -->
-                                        <p class="name text-white text-uppercase">{{nomeTitular?nomeTitular:'XXXX XXXX'}}</p>
+                                        <p class="name_card text-white text-uppercase">{{nomeTitular?nomeTitular:'XXXX XXXX'}}</p>
                                     </div>
 
                                     <!-- Back do cartão -->
