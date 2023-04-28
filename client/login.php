@@ -9,9 +9,10 @@
     if ($_POST) {
         // Pega o email do INPUT
         $email = $_POST['email'];
-
         // Pega a senha do INPUT
         $senha = $_POST['senha'];
+        // Gera o hash MD5 da senha
+        $senha_criptografada = md5($senha);
 
         // Consulta para ver se há usuário cadastrado com o email especificado
         $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email' LIMIT 1");
@@ -39,10 +40,10 @@
 
         // Verifica se teve retorno de cliente
         if($loginQueryNum != 0) {
-            // Pega a linha do retorno
-
-            // Verifica se a senha está correta
-            if($senha == $loginQueryRow['SENHA']) {
+            // Descriptografa a senha vinda do Banco de Dados 
+            $senha_descriptografada = $connect->query("SELECT SUBSTRING_INDEX(senha, ':', 1) as hash_md5 FROM clientes;");
+            // Verifica se a senha vinda do input é igual a senha vinda do Banco de Dados
+            if($senha_criptografada == $loginQueryRow['SENHA']) {
                 // Se o cliente estiver arquivado, ele será restaurado
                 if ($loginQueryRow['ARQUIVAR_EM'] != null) {
                     // Restaura cliente
