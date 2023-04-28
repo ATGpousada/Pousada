@@ -1879,10 +1879,17 @@ legend {
     }
 }
     /* fim imagem */
-    /* começo texto */
-    @media (width <= 800) {
-        
+    /* começo botão redes sociais */
+    @media (width <= 410px){
+        .add-btn{
+            margin-left: -15px !important;
+        }
+        .add-btn:hover {
+            width: 260px !important;
+        }
+
     }
+    /* fim botao redes sociais */
 
 
     /* ########################### FIM RESPONSIVO ###################*/
