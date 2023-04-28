@@ -12,6 +12,31 @@ function headerReponsivo() {
     }
 }
 /* Fim responsivo */
+function inicializaResponsivoIcon() {
+  // Lagura atual da tela
+  let larguraTela = $(window).width();
+  
+  // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+  if (larguraTela <= 340) {
+    $('#icones').attr('style','display: none');
+    $('#mnlogin').removeAttr('style');
+  }
+}
+inicializaResponsivoIcon();
+$(window).resize(() => {
+  // Lagura atual da tela
+  let larguraTela = $(window).width();
+
+  // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+  if (larguraTela <= 340) {
+      $('#icones').attr('style','display: none');
+      $('#mnlogin').removeAttr('style');
+  }else{
+    $('#icones').removeAttr('style');
+    $('#mnlogin').attr('style','display: none');
+  }
+});
+
 
 
 /* Começo efeito header fixo */
