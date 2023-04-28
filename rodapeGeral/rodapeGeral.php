@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="mb-1">
-                        <a href="../product/index.php" class="map_link">SERVIÇOS</a>
+                        <a href="../product/index.php" class="map_link">QUARTOS</a>
                     </div>
 
                     <div class="mb-1">

@@ -46,13 +46,13 @@
                     <hr class="mb-3 map_linha">
                 </span>
 
-                <div>
+                <div id="mapa_site">
                     <div class="mb-1">
                         <a href="index.php" class="map_link">HOME</a>
                     </div>
 
                     <div class="mb-1">
-                        <a href="product/index.php" class="map_link">SERVIÇOS</a>
+                        <a href="product/index.php" class="map_link">QUARTOS</a>
                     </div>
 
                     <div class="mb-1">
