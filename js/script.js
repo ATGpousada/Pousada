@@ -158,6 +158,16 @@ function mascaraCEP(i) {
   }
 }
 
+$(document).ready(function(){
+  $("input[name='cep']").blur(function(){
+    $.getJSON('endereco.php',{
+      cep: $(this).val()
+    },function(json){
+      $cidade.val(json.cidade);
+      $uf.val(json.uf);
+    });
+  });
+});
 
 // ---------------------------- Fim SingUp ----------------------------
 
@@ -202,4 +212,3 @@ window.scroll({
     behavior:'smooth'
 })
 // ---------------------------- Fim geral ----------------------------
-// Detalhes do Produto
