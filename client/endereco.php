@@ -25,9 +25,18 @@
     if ($_POST){
         session_start();
         $dadosCli = $_SESSION['dadosCliente'];
+        // Gera o hash MD5 da senha
+        $senha_criptografada = md5($dadosCli['senha']);
+        // Codifica o hash MD5 em Base64
+        $senha_base64 = base64_encode($senha_criptografada);
+        // Combina o hash MD5 e a codificação Base64 em uma string única
+        $senha_final = $senha_criptografada . ':' . $senha_base64;
+         
+        //insere os dados do Cliente no Banco de Dados
         $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
         VALUES 
-        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$dadosCli['senha']."','".$dadosCli['email']."');";
+        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['email']."');";
+
 
         if ($connect->query($insereCli)) {
             $cep = $_POST['cep'];
