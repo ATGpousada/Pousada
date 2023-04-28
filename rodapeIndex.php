@@ -7,7 +7,7 @@
         <div class="flex">
 
             <div class="flex-end w25">
-                <i class="fa-solid fa-square-envelope d-flex align-items-center" style="font-size: 60px;"></i>
+                <i class="fa-solid fa-square-envelope d-flex align-items-center oferta-icon" style="font-size: 60px;"></i>
                 <span style="margin-left: 10px;">
                     <p class="text_fp">RECEBA NOSSAS OFERTAS</p>
                     <p class="text-center" style="font-weight: bold;">Cadastre seu email Já!</p>

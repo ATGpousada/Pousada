@@ -1968,6 +1968,9 @@ legend {
         .quadradinhodasetinha{
             display: none;
         }
+        .oferta-icon{
+            display: none !important;
+        }
     }
     /* fim botao redes sociais */
 
