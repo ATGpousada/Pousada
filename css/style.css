@@ -470,18 +470,6 @@ width: 30%;
 
 
 /* Botão Redes Sociais */
-.icon-btn {
-    width: 50px;
-    height: 80px;
-    border: 1px solid #cdcdcd;
-    background:  #0275d8;
-    border-radius: 25px;
-    overflow: hidden;
-    position: relative;
-    transition: width 0.2s ease-in-out;
-    font-weight: 500;
-    font-family: inherit;
-}
 
 .icon-btn {
     width: 50px;
@@ -496,6 +484,7 @@ width: 30%;
     transition: width 0.2s ease-in-out;
     font-weight: 500;
     font-family: inherit;
+    z-index: 1000;
 }
   
 .add-btn:hover {
