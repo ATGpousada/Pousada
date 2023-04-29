@@ -32,6 +32,7 @@ $(window).resize(() => {
 
 
 
+
 // ------------------------------------------ Começo da área perfil ------------------------------------//
 //Inicializa sem um evento
 function inicializaResponsivoPerfil() {
@@ -66,6 +67,7 @@ $(window).resize(() => {
     }
 });
 // ------------------------------------------ Fim da área perfil ------------------------------------//
+
 
 
 
@@ -213,3 +215,38 @@ function detectarBandeiraCartao(numeroCartao) {
     return false;
 }
 // ------------------------------------------ Fim da área formas pagamento ------------------------------------//
+
+
+
+
+// ------------------------------------------ Começo da área configuração ------------------------------------//
+//Inicializa sem um evento
+function inicializaResponsivoConfiguracao() {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+    
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela <= 670) {
+        $('#areaConfiguracao').addClass('flex-column align-items-center');
+        $('#linha-vertical').attr('style', 'height: 0; width: 80%; margin: 48px 0;');
+    }
+}
+
+// Chamando a função
+inicializaResponsivoConfiguracao();
+
+// Evento que dispara quando a tela é redimensionada
+$(window).resize(() => {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela < 670) {
+        $('#areaConfiguracao').addClass('flex-column align-items-center');
+        $('#linha-vertical').attr('style', 'height: 0; width: 80%; margin: 48px 0;');
+    } else {
+        $('#areaConfiguracao').removeClass('flex-column align-items-center');
+        $('#linha-vertical').removeAttr('style', 'height: 0; width: 80%; margin: 48px 0;');
+    }
+});
+// ------------------------------------------ Fim da área configuração -------------------------------------//

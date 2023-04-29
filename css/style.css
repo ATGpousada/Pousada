@@ -1495,8 +1495,8 @@ ul {
 
 /* ########################### COMEÇO CONFIGURAÇÕES CLIENTE ################ */
 .linha-vertical {
-    height: 320px;
-    border-left: 2px solid;
+    height: 80vh;
+    border: 1.5px solid;
     opacity: 0.2;
 }
 /* ########################### FIM CONFIGURAÇÕES CLIENTE ################ */

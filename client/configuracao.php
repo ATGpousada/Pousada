@@ -57,7 +57,7 @@ include '../connection/connect.php';
         ?>
 
         <!-- Conteúdo da página -->
-        <section class="pt-4 ps-4 pe-4 rounded-2 d-flex">
+        <section class="pt-4 ps-4 pe-4 rounded-2 d-flex" id="areaConfiguracao">
             <!-- Área para desativar a conta -->
             <div class="col-md-6">
                 <!-- Botão para desativar a conta (modal desativar) -->
@@ -67,7 +67,7 @@ include '../connection/connect.php';
 
                 <!-- Card com informaçoes -->
                 <div class="d-flex justify-content-center mt-5">
-                    <div class="card border-danger" style="max-width: 30rem;">
+                    <div class="card border-danger" style="max-width: 85%;">
                         <div class="card-header"><strong>Informações:</strong></div>
                         
                         <div class="card-body text-danger">
@@ -79,7 +79,7 @@ include '../connection/connect.php';
             </div>
             
             <!-- Linha da vertical para dividir a tela -->
-            <div class="linha-vertical"></div>
+            <div class="linha-vertical" id="linha-vertical"></div>
 
             <!-- Área para excluir a conta -->
             <div class="col-md-6">
@@ -90,7 +90,7 @@ include '../connection/connect.php';
 
                 <!-- Card com informaçoes -->
                 <div class="d-flex justify-content-center mt-5">
-                    <div class="card border-danger" style="max-width: 30rem;">
+                    <div class="card border-danger" style="max-width: 85%;">
                         <div class="card-header"><strong>Informações:</strong></div>
                         
                         <div class="card-body text-danger">
@@ -151,6 +151,8 @@ include '../connection/connect.php';
 <script src="../js/preloader.js"></script>
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
+<!-- js do client -->
+<script src="../js/client.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <!-- Nosso script -->
