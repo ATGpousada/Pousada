@@ -12,6 +12,7 @@ function headerReponsivo() {
     }
 }
 /* Fim responsivo */
+/* ---------- começo responsivo icon----------*/
 function inicializaResponsivoIcon() {
   // Lagura atual da tela
   let larguraTela = $(window).width();
@@ -36,7 +37,7 @@ $(window).resize(() => {
     $('#mnlogin').attr('style','display: none');
   }
 });
-
+/* ---------- fim responsivo icon----------*/
 
 
 /* Começo efeito header fixo */
@@ -52,7 +53,6 @@ document.addEventListener('scroll', function () {
 });
 /* Fim efeito header fixo */
 // ---------------------------- Fim header ----------------------------
-
 
 
 
