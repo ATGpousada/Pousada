@@ -1,5 +1,4 @@
 <?php 
-
     // Conexão com o banco 
     include '../connection/connect.php';
 
@@ -84,15 +83,14 @@
         <h2>Cadastre-se</h2>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login" method="post" >
-
-        <!-- Mensagem na tela -->
-        <?php 
-            if(isset($_SESSION['msg_atu'])){
-                echo $_SESSION['msg_atu'];
-                unset($_SESSION['msg_atu']);
-            }
-        ?>
+        <form class="form-login" method="post">
+            <!-- Mensagem na tela -->
+            <?php 
+                if(isset($_SESSION['msg_atu'])){
+                    echo $_SESSION['msg_atu'];
+                    unset($_SESSION['msg_atu']);
+                }
+            ?>
 
             <!-- Nome -->
             <div class="form-item">

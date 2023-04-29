@@ -61,8 +61,8 @@ include '../connection/connect.php';
             <!-- Área para desativar a conta -->
             <div class="col-md-6">
                 <!-- Botão para desativar a conta (modal desativar) -->
-                <div class="d-grid gap-2 ps-5 pe-5">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Desativar conta</button>
+                <div class="d-grid gap-2 ps-5 pe-5 col-md-12">
+                    <button class="btn btn-primary col-12" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Desativar conta</button>
                 </div>
 
                 <!-- Card com informaçoes -->
@@ -84,8 +84,8 @@ include '../connection/connect.php';
             <!-- Área para excluir a conta -->
             <div class="col-md-6">
                 <!-- Botão para excluir a conta (modal excluir) -->
-                <div class="d-grid gap-2 ps-5 pe-5">
-                    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleExcluir">Excluir conta</button>
+                <div class="d-grid gap-2 ps-5 pe-5 col-md-12">
+                    <button class="btn btn-danger col-12" type="button" data-bs-toggle="modal" data-bs-target="#exampleExcluir">Excluir conta</button>
                 </div>
 
                 <!-- Card com informaçoes -->
