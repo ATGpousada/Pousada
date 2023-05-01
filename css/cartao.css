@@ -119,7 +119,7 @@
 }
 
 .flip-card-front, .flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2); */
     position: absolute;
     display: flex;
     flex-direction: column;
