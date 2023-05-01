@@ -247,6 +247,8 @@ $(document).ready(function() {
             } else if (tgdeveloper.getCardFlag(valor) == 'mastercard') {
                 // Cor do cartão
                 $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#8b1616');
+                // Nome da bandeira - Texto
+                $('#add-cartaoNome').text('MASTERCARD');
 
               // Caso seja american express  
             } else if (tgdeveloper.getCardFlag(valor) == 'amex') {
@@ -321,7 +323,7 @@ $(document).ready(function() {
             // Icone da bandeira - Posição
             $('#add-logoModal').css('left', '');
             // Nome da bandeira - Texto
-            $('#add-cartaoNome').text('MASTERCARD');
+            $('#add-cartaoNome').text('XXXXXXXXXX');
             // Icone da bandeira - Imagem
             $('#add-logoModal').html('<img src="../images/bandeiras_cartao/mastercard.svg" alt=""></img>');
         }

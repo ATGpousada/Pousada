@@ -355,7 +355,7 @@ $rows = $lista->num_rows;
                                     <!-- Frente do cartão -->
                                     <div class="flip-card-front" id="add-flip-card-front">
                                         <!-- Nome cartão -->
-                                        <p class="heading_8264 text-white" id="add-cartaoNome">MASTERCARD</p>
+                                        <p class="heading_8264 text-white" id="add-cartaoNome">XXXXXXXXXX</p>
 
                                         <!-- Imagem bandeira -->
                                         <div class="logo" id="add-logoModal">
