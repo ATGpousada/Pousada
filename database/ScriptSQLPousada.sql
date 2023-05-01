@@ -121,6 +121,9 @@ CREATE TABLE IF NOT EXISTS `pousada`.`funcionarios` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+ALTER TABLE `pousada`.`funcionarios` 
+CHANGE COLUMN `ADMISSAO` `ADMISSAO` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
 
 -- -----------------------------------------------------
 -- Table `pousada`.`enderecos_func`
