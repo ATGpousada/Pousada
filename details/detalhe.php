@@ -1,15 +1,19 @@
 <?php 
 session_start();
 // select para repetição de sub-imagens
-$listaIMG = $connect->query("select * from imagens where quartos_ID = $id;");
+$listaIMG = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
 $linhasIMG = $listaIMG->num_rows;
 
 // select para repetição de sub-imagens no responsivo
-$listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
+$listaIMGres = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
+//select para consultar a tabela de pedido de reservas para poder realizar o pedido clicando no botão reservar agora
+$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
+$linha = $lista->fetch_assoc();
+$linhas = $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -175,9 +179,19 @@ $linhasIMGres = $listaIMGres->num_rows;
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
                     <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) {?>
                         <?php 
-                        
+                        if ($_POST)
+                        {
+                            if ($linha["DATA_ENTRADA"] == data_inicio && $linha["DATA_SAIDA"] == data_final)
+                            {
+                                echo "DATA INDISPONÍVEL PARA RESERVA POR FAVOR ALTERE A DATA";
+                            }
+                            else 
+                            {
+                                $inserePedidoReserva = "INSERT INTO pedidos_reservas VALUES (default, data_inicio, data_final, 'juquinha', '22255445522', 'juquinha@gmail.com', 3, 1, 5)";
+                            }
+                        }
                         ?>
-                        <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
+                        <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar" method="post">
                             CONSULTAR
                         </a>
                     <?php }else {?>
