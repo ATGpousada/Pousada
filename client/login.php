@@ -1,5 +1,7 @@
 <?php
-    
+    // Inicia sessão
+    session_start();
+
     // Conexão com o banco 
     include '../connection/connect.php';
 
@@ -35,10 +37,11 @@
                     // Restaura cliente
                     $connect->query("UPDATE clientes SET ARQUIVAR_EM = NULL WHERE ID =  ".$loginQueryRow['ID'].";");
                 }
-                session_start();
 
+                // Atribui o pousada a sessão
                 $_SESSION['pousada'] = "pousada";
-                 // Atribui o ID a sessão
+                
+                // Atribui o ID a sessão
                 $_SESSION['id'] = $loginQueryRow['ID'];
 
                 // Atribui o email a sessão
@@ -46,14 +49,11 @@
 
                 // Atribui o nome a sessão
                 $_SESSION['nome'] = $loginQueryRow['NOME'];
-
-                // Inicia o nome da sessão
-                
                 
                 // Encaminha ele a aréa do cliente
                 header("Location: index.php");
 
-                // Caso a senha ou email esteja errado
+            // Caso a senha ou email esteja errado
             }else{
                 // Mensagem de erro na tela
                 $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: E-mail ou senha inválida!</p>";
