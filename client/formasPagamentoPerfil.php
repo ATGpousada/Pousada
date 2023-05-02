@@ -81,6 +81,16 @@ $rows = $lista->num_rows;
                 echo $_SESSION['adicionarCartao'];
                 unset($_SESSION['adicionarCartao']);
             }
+
+            if(isset($_SESSION['editarCartao'])){
+                echo $_SESSION['editarCartao'];
+                unset($_SESSION['editarCartao']);
+            }
+
+            if(isset($_SESSION['excluirCartao'])){
+                echo $_SESSION['excluirCartao'];
+                unset($_SESSION['excluirCartao']);
+            }
         ?>
 
         <section class="ps-5 pe-5 pb-4 pt-2">
@@ -119,6 +129,9 @@ $rows = $lista->num_rows;
                         <div class="accordion-body">
                             <!-- Todo o conteúdo do accordion -->
                             <div class="row">
+                                <!-- ID -->
+                                <input hidden id="idCartao" value="<?php echo $row['ID'];?>">
+                    
                                 <!-- Lista das informações -->
                                 <ol class="list-group col-md-4 justify-content-center">
                                     <!-- Nome -->
@@ -308,25 +321,25 @@ $rows = $lista->num_rows;
                             <!-- Tipo de nome do titular do cartão -->
                             <div class="form-floating col-md-12">
                                 <input type="text" class="form-control text-uppercase" id="nomeTitular" name="nomeTitular" required ng-model="nomeTitular" maxlength="35">
-                                <label for="floatingInput">Nome do Titular</label>
+                                <label for="nomeTitular">Nome do Titular</label>
                             </div>
 
                             <!-- Tipo de número do cartão -->
                             <div class="form-floating col-md-8">
                                 <input type="text" class="form-control" id="numeroCartao" name="numeroCartao" required ng-model="numero" data-js="cartao" data-numero="numero" maxlength="19">
-                                <label for="floatingInput">Número</label>
+                                <label for="numeroCartao">Número</label>
                             </div>
 
                             <!-- Tipo de data de validade do cartão -->
                             <div class="form-floating col-md-4">
                                 <input type="text" class="form-control" id="dataValidade" name="dataValidade" required ng-model="dataValidade" data-js="data">
-                                <label for="floatingPassword">Data de Validade</label>
+                                <label for="dataValidade">Data de Validade</label>
                             </div>
 
                             <!-- Tipo de cvv do cartão -->
                             <div class="form-floating col-md-3">
                                 <input type="text" class="form-control" id="cvv" name="cvv" required ng-model="cvv" data-js="cvv" maxlength="3">
-                                <label for="floatingPassword">CVV</label>
+                                <label for="cvv">CVV</label>
                             </div>
 
                             <!-- Tipo de tipo do cartão -->
@@ -460,19 +473,41 @@ $rows = $lista->num_rows;
     <!-- Modal Editar Cartão-->
     <div class="modal fade" id="staticBackdropEditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Cartão</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
-                    ...
+                    <!-- Formulário alterar -->
+                    <form action="" method="post" class="row g-3" id="formAlterarCartao">
+                        <!-- Tipo de nome do titular do cartão -->
+                        <div class="form-floating col-md-8">
+                            <input type="text" class="form-control text-uppercase" id="nomeTitular" name="nomeTitularAlterar" required maxlength="35">
+                            <label for="nomeTitular">Nome do Titular</label>
+                        </div>
+
+                        <!-- Tipo de data de validade do cartão -->
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="dataValidade" name="dataValidadeAlterar" data-js="data" required>
+                            <label for="dataValidade">Data de Validade</label>
+                        </div>
+
+                        <!-- Botão para alterar o cartão -->
+                        <div class="col-md-12 ps-2 pe-2">
+                            <button type="submit" class="btn btn-primary col-12" id="modalButtonAlterar">Alterar</button>
+                        </div>
+                    </form>
                 </div>
                 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <!-- Botão fechar modal -->
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -481,19 +516,27 @@ $rows = $lista->num_rows;
     <!-- Modal Excluir Cartão-->
     <div class="modal fade" id="staticBackdropExcluir" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir Cartão</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
-                    ...
+                    <p class="fs-5">
+                        Tem certeza que deseja excluir esse cartão?
+                    </p>
                 </div>
                 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <!-- Botão fechar modal -->
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <!-- Botão para excluir o cartão -->
+                    <a href="#" type="button" class="btn btn-primary" id="modalButtonExcluir">Confirmar</a>
                 </div>
             </div>
         </div>

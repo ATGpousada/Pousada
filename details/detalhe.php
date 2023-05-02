@@ -69,15 +69,15 @@ $linhas = $lista->num_rows;
             </div>
         </div>
 
-            <span style="display: flex;justify-content: space-around; width: 60%; align-items: center;">
+            <span style="display: flex;justify-content: space-around; width: 60%; align-items: center;" class="flex-wrap">
 
-            <p class="preco"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
+                <p class="preco"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
 
-            <a class="botao_del" style="max-height: 50px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="vertical-align:middle">
-                <span>
-                    Reservar
-                </span>
-            </a>
+                <a class="botao_del" style="max-height: 50px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="vertical-align:middle">
+                    <span>
+                        Reservar
+                    </span>
+                </a>
             </span>
         </div>
 

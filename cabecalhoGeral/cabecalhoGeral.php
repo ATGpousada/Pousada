@@ -4,7 +4,7 @@
         <!-- Conteúdo  do cabeçalho -->
         <div class="container-fluid me-2">
             <!-- Logo -->
-            <a class="navbar-brand ms-4" href="../index.php" style="width: 165px;">
+            <a class="navbar-brand ms-2" href="index.php" style="width: 165px;">
                 <img src="../images/logo/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
             </a>
 
@@ -41,6 +41,10 @@
 
                     <li class="nav-item ms-auto me-auto">
                         <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="../about/index.php">Sobre nós</a>
+                    </li>
+
+                    <li class="nav-item ms-auto me-auto" style="display: none;" id="mnlogin">
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="client/index.php">Login</a>
                     </li>
                 </ul>
             </div>
