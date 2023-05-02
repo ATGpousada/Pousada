@@ -241,7 +241,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14.5em');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/visa-17.svg" alt="" style="width: 50px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/visa-17.svg" alt="Cartão visa" style="width: 50px;"></img>');
        
               // Caso seja mastercard
             } else if (tgdeveloper.getCardFlag(valor) == 'mastercard') {
@@ -249,6 +249,13 @@ $(document).ready(function() {
                 $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#8b1616');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('MASTERCARD');
+                // Nome da bandeira - Posição
+                $('#add-cartaoNome').css('left', '');
+                // Icone da bandeira - Posição
+                $('#add-logoModal').css('left', '');
+                // Icone da bandeira - Imagem
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/mastercard.svg" alt="Cartão mastercard"></img>');
+
 
               // Caso seja american express  
             } else if (tgdeveloper.getCardFlag(valor) == 'amex') {
@@ -259,7 +266,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14.5em');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/american-express-28.svg" alt="" style="width: 45px; border-radius: 3px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/american-express-28.svg" alt="Cartão american express" style="width: 45px; border-radius: 3px;"></img>');
 
               // Caso seja diners  
             } else if (tgdeveloper.getCardFlag(valor) == 'diners') {
@@ -272,7 +279,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14.5em');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/diners-svgrepo-com.svg" alt="" style="width: 60px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/diners-svgrepo-com.svg" alt="Cartão diners club" style="width: 60px;"></img>');
 
               // Caso seja discover  
             } else if (tgdeveloper.getCardFlag(valor) == 'discover') {
@@ -285,7 +292,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14.5');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/discover-svgrepo-com.svg" alt="" style="width: 50px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/discover-svgrepo-com.svg" alt="Cartão discover" style="width: 50px;"></img>');
 
               // Caso seja hipercard  
             } else if (tgdeveloper.getCardFlag(valor) == 'hipercard') {
@@ -298,7 +305,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14em');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/hipercard-29.svg" alt="" style="width: 60px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/hipercard-29.svg" alt="Cartão hipercard" style="width: 60px;"></img>');
 
               // Caso seja elo  
             } else if (tgdeveloper.getCardFlag(valor) == 'elo') {
@@ -311,7 +318,7 @@ $(document).ready(function() {
                 // Icone da bandeira - Posição
                 $('#add-logoModal').css('left', '14.5em');
                 // Icone da bandeira - Imagem
-                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/elo-30.svg" alt="" style="width: 50px;"></img>');
+                $('#add-logoModal').html('<img src="../images/bandeiras_cartao/elo-30.svg" alt="Cartão elo" style="width: 50px;"></img>');
 
             }
         // Caso não, ele deixa como default os dados do "modelo cartão"
@@ -330,19 +337,20 @@ $(document).ready(function() {
     });
 });
 
-// ocultar numeros cartao deixando somente os 4 ultimos
-const mascaraNumero = (numero) => {
-    return [...new Array(3).fill('****'), numero.slice(-4)].join('-');
-  };
-  
-  document.getElementById('mascara-cartao').addEventListener('click', (event) => {
-    const numeroCartao = document.querySelector('[data-js="cartao"]').value;
-  
-    if (numeroCartao.split('-').join('').length === 16) {
-      document.getElementById('numero-salvo').innerHTML = mascaraNumero(
-        numeroCartao,
-      );
-    }
+// Excluir cartão
+$('#modalButtonExcluir').on('click',function(){
+    // busca o id
+    var id = $('#idCartao').val(); 
+    //chama o arquivo php para excluir o produto
+    $('#modalButtonExcluir').attr('href','excluirCartao.php?ID_CARTAO='+id); 
+});
+
+// Alterar cartão
+$('#modalButtonAlterar').on('click',function(){
+    // busca o id
+    var id = $('#idCartao').val();
+    //chama o arquivo php para alterar o produto
+    $('#formAlterarCartao').attr('action','editarCartao.php?ID_CARTAO='+id); 
 });
 // ------------------------------------------ Fim da área formas pagamento ------------------------------------//
 

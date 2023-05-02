@@ -43,7 +43,7 @@
                         <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="about/index.php">Sobre nós</a>
                     </li>
 
-                    <li class="nav-item ms-item me-auto" style="display: none;" id="mnlogin">
+                    <li class="nav-item ms-auto me-auto" style="display: none;" id="mnlogin">
                         <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="client/index.php">Login</a>
                     </li>
                 </ul>
