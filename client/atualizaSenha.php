@@ -143,6 +143,7 @@
             <div class="form-item">
                 <label for="senha">Digite sua nova senha</label>        
                 <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
+                <i class="bi bi-eye" id="btny" onclick="mostrarSenha()"></i>
             </div>
 
             <!-- Confirma nova senha -->

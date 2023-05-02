@@ -292,6 +292,17 @@
     columns: var(--cor-branca);
     background: var(--cor-azul-escuro);
 }
+
+/* Password Flutter */
+.form-login > .form-item > i{
+    font-size: 30px;
+    cursor: pointer;
+    right: 5%;
+    position: absolute;
+    top: 1px;
+    color: var(--cor-grafite);
+}
+
 /* Fim formulario */
 
 .card-login > #footer-login {

@@ -46,30 +46,6 @@
         $telefone = $_POST['telefone'];
         $id = ultimoCadastro($connect, 'clientes', "ID");
 
-        function busca_cep($cep){  
-            // faz uma consulta do cep informado pelo Cliente
-            $resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep='.urlencode($cep).'&formato=query_string');  
-            if(!$resultado){  
-                $resultado = "&resultado=0&resultado_txt=erro+ao+buscar+cep";  
-            }  
-            parse_str($resultado, $retorno);   
-            return $retorno;  
-        }
-        
-        // Atribui o valor da busca por Cep a uma variavel
-        $resultado_busca = busca_cep($cep);
-        
-        if ($resultado_busca['resultado'] != 0) {
-            $cidade = $resultado_busca['cidade'];
-            $uf = $resultado_busca['uf'];
-        } else {
-            $cidade = '';
-            $uf = '';
-        }
-    
-    echo "<script>document.getElementById('cidade').value = '$cidade';</script>";
-    echo "<script>document.getElementById('uf').value = '$uf';</script>";
-
             // Insere os dados de endereco dos clientes no banco de dados
             $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
             $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     

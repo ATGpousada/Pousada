@@ -89,6 +89,21 @@ $(function() {
         }
     });
 });
+
+// Password Flutter 
+function mostrarSenha(){
+  var inputPass = document.getElementById('senha')
+  var btnShowPass = document.getElementById('btny')
+
+  if (inputPass.type === 'password'){
+    inputPass.setAttribute('type', 'text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash-fill')
+  }else{
+    inputPass.setAttribute('type', 'password')
+    btnShowPass.classList.replace('bi-eye-slash-fill', 'bi-eye')
+  }
+}
+
 // ---------------------------- Fim login ----------------------------
 
 
@@ -157,17 +172,6 @@ function mascaraCEP(i) {
     i.value = i.value.substring(0, 9);
   }
 }
-
-$(document).ready(function(){
-  $("input[name='cep']").blur(function(){
-    $.getJSON('endereco.php',{
-      cep: $(this).val()
-    },function(json){
-      $cidade.val(json.cidade);
-      $uf.val(json.uf);
-    });
-  });
-});
 
 // ---------------------------- Fim SingUp ----------------------------
 
