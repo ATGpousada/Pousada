@@ -295,11 +295,11 @@
 
 /* Password Flutter */
 .form-login > .form-item > i{
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
     right: 5%;
     position: absolute;
-    top: 1px;
+    top: 10px;
     color: var(--cor-grafite);
 }
 
