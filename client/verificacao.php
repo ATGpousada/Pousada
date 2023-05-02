@@ -1,6 +1,4 @@
 <?php 
-    // Nome da sessão
-
     // Verifica se há uma sessão aberta
     if (!isset($_SESSION)) {
         // Abre uma sessão
