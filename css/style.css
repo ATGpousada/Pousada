@@ -138,9 +138,32 @@
     -webkit-background-size: cover;
     background-size: cover;
 }
+.body-login-cadastro {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0 32px;
+    animation: rotate 6s infinite alternate linear;
+    background: url('../images/fundo/loginCadastro.jpg') no-repeat fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
 
 /* Icon para voltar */
 .icon-voltar {
+    background-color: var(--cor-branca);
+    padding: 10px 15px;
+    border-radius: 30px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 999;
+    text-decoration: none;
+    color: var(--cor-preto);
+}
+
+.icon-voltar-cadastro {
     background-color: var(--cor-branca);
     padding: 10px 15px;
     border-radius: 30px;
@@ -160,6 +183,19 @@
     width: 100vmin;
     height: 100vmin;
     border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+    background: #1f65da;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+}
+
+.circulo-cadastro {
+    position: fixed;
+    top: -50vmin;
+    left: -50vmin;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
     background: #ffcf00;
     -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
     -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
@@ -167,6 +203,20 @@
 }
 
 .circulo::after {
+    content: "";
+    position: inherit;
+    right: -50vmin;
+    bottom: -55vmin;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: #ffcf00;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+}
+
+.circulo-cadastro::after {
     content: "";
     position: inherit;
     right: -50vmin;
@@ -196,10 +246,37 @@
     box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
 }
 
+.card-login-cadastro {
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    margin: 0 20px;
+    padding: 160px 30px 38px;
+    border-radius: 1.25rem;
+    background: var(--cor-branca);
+    text-align: center;
+    box-shadow: 0 100% 100% rgb(0 0 0 / 10%);
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+}
+
 .card-login::before {
     content: "";
     position: absolute;
     background: var(--cor-azul);
+    top: -880px;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    translate: -50% 0;
+}
+
+.card-login-cadastro::before{
+    content: "";
+    position: absolute;
+    background: #ffcf00;
     top: -880px;
     left: 50%;
     width: 1000px;
@@ -222,7 +299,28 @@
     translate: -50% 0;
 }
 
+.card-login-cadastro .logo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--cor-branca);
+    height: 94px;
+    width: 94px;
+    top: 10px;
+    left: 50%;
+    translate: -50% 0;
+}
+
 .card-login > h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 30px;
+    color: var(--cor-preto);
+}
+
+.card-login-cadastro > h2 {
     font-size: 22px;
     font-weight: 400;
     margin: 0 0 30px;
@@ -236,11 +334,31 @@
     gap: 18px;
 }
 
+.form-login-cadastro {
+    margin: 0 0 30px;
+    width: 260px;
+    display: grid;
+    gap: 18px;
+}
+
 .form-login .form-item {
     position: relative;
 }
 
+.form-login-cadastro .form-item {
+    position: relative;
+}
+
 .form-login .form-item label {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color: var(--cor-grafite);
+    transition: linear 0.2s;
+    cursor: text;
+}
+
+.form-login-cadastro .form-item label {
     position: absolute;
     left: 20px;
     top: 15px;
@@ -255,7 +373,22 @@
     border-radius: 10px;
 }
 
+.form-login-cadastro .form-item > input , .form-login > button {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+}
+
 .form-login .form-item > input {
+    border: 2px solid #e0e0e0;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 28px 24px 10px 24px;
+    color: var(--cor-preto);
+    transition: all 0.375s;
+}
+
+.form-login-cadastro .form-item > input {
     border: 2px solid #e0e0e0;
     font-family: inherit;
     font-size: 16px;
@@ -268,7 +401,15 @@
     border: 2px solid var(--cor-azul-escuro);
 }
 
+.form-login-cadastro .form-item > input:hover {
+    border: 2px solid #c7a200;
+}
+
 .form-login .form-item > input::placeholder {
+    color: var(--cor-cinza-escuro);
+}
+
+.form-login-cadastro .form-item > input::placeholder {
     color: var(--cor-cinza-escuro);
 }
 
@@ -288,9 +429,31 @@
     transition: all 0.375s;
 }
 
+.form-login-cadastro > button {
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    background: #ffcf00;
+    color: var(--cor-branca);
+    border: 0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+}
+
 .form-login > button:hover {
     columns: var(--cor-branca);
     background: var(--cor-azul-escuro);
+}
+
+.form-login-cadastro > button:hover {
+    columns: var(--cor-branca);
+    background: #c7a200;
 }
 
 /* Password Flutter */
@@ -303,9 +466,21 @@
     color: var(--cor-grafite);
 }
 
+.form-login-cadastro > .form-item > i{
+    font-size: 20px;
+    cursor: pointer;
+    right: 5%;
+    position: absolute;
+    top: 10px;
+    color: var(--cor-grafite);
+}
+
 /* Fim formulario */
 
 .card-login > #footer-login {
+    color: var(--cor-grafite);
+}
+.card-login-cadastro > #footer-login {
     color: var(--cor-grafite);
 }
 

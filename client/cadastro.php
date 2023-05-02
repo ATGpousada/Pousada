@@ -56,7 +56,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Sing Up - Pousada do Sossego</title>
 </head>
-<body class="body-login">
+<body class="body-login-cadastro">
 
     <!-- início do preloader -->
     <div id="preloader">
@@ -67,13 +67,13 @@
     </div>
 
     <!-- Icone para voltar -->
-    <a class="icon-voltar" href="login.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
+    <a class="icon-voltar-cadastro" href="login.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
     
     <!-- Circulo no fundo(Amarelo e Azul) -->
-    <div class="circulo"></div>
+    <div class="circulo-cadastro"></div>
     
     <!-- Card Sing Up -->
-    <div class="card-login">
+    <div class="card-login-cadastro">
         <!-- Logo no Sing Up -->
         <div class="logo">
             <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
@@ -83,7 +83,7 @@
         <h2>Cadastre-se</h2>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login" method="post">
+        <form class="form-login-cadastro" method="post">
             <!-- Mensagem na tela -->
             <?php 
                 if(isset($_SESSION['msg_atu'])){

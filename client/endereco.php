@@ -82,7 +82,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Sing Up - Pousada do Sossego</title>
 </head>
-<body class="body-login">
+<body class="body-login-cadastro">
     
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo"></div>
