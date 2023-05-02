@@ -1,6 +1,4 @@
 <?php
-    // Inicia uma sessão
-    session_start();
     
     // Conexão com o banco 
     include '../connection/connect.php';
@@ -24,19 +22,7 @@
         $loginQueryNum = $loginQuery->num_rows;
         
         // Verifica se há uma sessão aberta
-        if (isset($_SESSION)) {
-            // Destrói sessão atual
-            session_destroy();
-
-            // Nome da sessão antiga
-            $sessaoAntiga = session_name('pousada');
-            
-            //Inicia uma nova sessão
-            session_start();
-
-            // Nova sessão
-            $session_name_new = session_name();
-        }
+        
 
         // Verifica se teve retorno de cliente
         if($loginQueryNum != 0) {
@@ -49,7 +35,10 @@
                     // Restaura cliente
                     $connect->query("UPDATE clientes SET ARQUIVAR_EM = NULL WHERE ID =  ".$loginQueryRow['ID'].";");
                 }
-                // Atribui o ID a sessão
+                session_start();
+
+                $_SESSION['pousada'] = "pousada";
+                 // Atribui o ID a sessão
                 $_SESSION['id'] = $loginQueryRow['ID'];
 
                 // Atribui o email a sessão
@@ -59,7 +48,7 @@
                 $_SESSION['nome'] = $loginQueryRow['NOME'];
 
                 // Inicia o nome da sessão
-                $_SESSION['nome_da_sessao'] = session_name();
+                
                 
                 // Encaminha ele a aréa do cliente
                 header("Location: index.php");

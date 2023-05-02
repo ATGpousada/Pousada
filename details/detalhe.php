@@ -1,4 +1,5 @@
 <?php 
+session_start();
 // select para repetição de sub-imagens
 $listaIMG = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
@@ -9,12 +10,6 @@ $listaIMGres = $connect->query("select * from imagens where quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['nome_da_sessao'])) {
-    echo '<script>$("#btn-consultar").attr("href", "../client/login.php")</script>
-';
-}
 ?>
 
 <!DOCTYPE html>
@@ -178,10 +173,19 @@ if (!isset($_SESSION['nome_da_sessao'])) {
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
+                    <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) {?>
+                        <?php 
+                        
+                        ?>
+                        <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
+                            CONSULTAR
+                        </a>
+                    <?php }else {?>
+                        <a href="../client/login.php" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
+                            CONSULTAR
+                        </a>
+                    <?php }?>
 
-                    <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
-                        CONSULTAR
-                    </a>
                 </div>
             </div>
         </div>
