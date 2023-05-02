@@ -1,6 +1,5 @@
 <?php 
     // Nome da sessão
-    session_name('pousada');
     
     // Inicia uma sessão
     session_start();
