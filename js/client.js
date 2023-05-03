@@ -112,14 +112,14 @@ $(window).resize(() => {
 $(function() {
     // Rotação com o focus
     $('#cvv').focusin(function() {
-        $('.flip-card-inner').css({
+        $('#add-flip-card-inner').css({
             transform: 'rotateY(180deg)'
         });
     });
 
     // Tira a rotação sem o focus
     $('#cvv').focusout(function() {
-        $('.flip-card-inner').removeAttr('style');
+        $('#add-flip-card-inner').removeAttr('style');
     });
 });
 
@@ -246,7 +246,7 @@ $(document).ready(function() {
               // Caso seja mastercard
             } else if (tgdeveloper.getCardFlag(valor) == 'mastercard') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#8b1616');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#95330f');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('MASTERCARD');
                 // Nome da bandeira - Posição
@@ -260,7 +260,7 @@ $(document).ready(function() {
               // Caso seja american express  
             } else if (tgdeveloper.getCardFlag(valor) == 'amex') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#0c01a7');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#016fd0');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('AMERICAN EXPRESS');
                 // Icone da bandeira - Posição
@@ -271,7 +271,7 @@ $(document).ready(function() {
               // Caso seja diners  
             } else if (tgdeveloper.getCardFlag(valor) == 'diners') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#747474');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#5591b3');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('DINERS');
                 // Nome da bandeira - Posição
@@ -284,7 +284,7 @@ $(document).ready(function() {
               // Caso seja discover  
             } else if (tgdeveloper.getCardFlag(valor) == 'discover') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#098b00');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#34495e');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('DISCOVER');
                 // Nome da bandeira - Posição
@@ -297,7 +297,7 @@ $(document).ready(function() {
               // Caso seja hipercard  
             } else if (tgdeveloper.getCardFlag(valor) == 'hipercard') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#d70000');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#822124');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('HIPERCARD');
                 // Nome da bandeira - Posição
@@ -310,7 +310,7 @@ $(document).ready(function() {
               // Caso seja elo  
             } else if (tgdeveloper.getCardFlag(valor) == 'elo') {
                 // Cor do cartão
-                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#3c3838');
+                $('#add-flip-card-front, #add-flip-card-back').css('background-color', '#000000');
                 // Nome da bandeira - Texto
                 $('#add-cartaoNome').text('ELO');
                 // Nome da bandeira - Posição
@@ -335,6 +335,135 @@ $(document).ready(function() {
             $('#add-logoModal').html('<img src="../images/bandeiras_cartao/mastercard.svg" alt=""></img>');
         }
     });
+});
+
+// Função (evento) para identificar a bandeira do cartão no according
+$(document).ready(function() {
+    // For para percorrer todos os cartões
+    for (let i = 1; i <= 7; i++) {
+        // Valor do número do cartão
+        var valor = $('#numeroCartaoDetalhes'+i).text();
+
+        // Caso seja visa
+        if (tgdeveloper.getCardFlag(valor) == 'visa') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#69d0e1');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('VISA');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '21.9em');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14.5em');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/visa-17.svg" alt="Cartão visa" style="width: 50px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/visa-17.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('VISA');
+
+            // Caso seja mastercard
+        } else if (tgdeveloper.getCardFlag(valor) == 'mastercard') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#95330f');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('MASTERCARD');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/mastercard.svg" alt="Cartão mastercard"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/mastercard.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('MASTERCARD');
+
+            // Caso seja american express  
+        } else if (tgdeveloper.getCardFlag(valor) == 'amex') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#016fd0');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('AMERICAN EXPRESS');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14.5em');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/american-express-28.svg" alt="Cartão american express" style="width: 45px; border-radius: 3px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/american-express-28.svg" width="50px" alt="Cartões">');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/american-express-28.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('American Express');
+
+            // Caso seja diners  
+        } else if (tgdeveloper.getCardFlag(valor) == 'diners') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#5591b3');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('DINERS');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '20.5em');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14.5em');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/diners-svgrepo-com.svg" alt="Cartão diners club" style="width: 60px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/diners-svgrepo-com.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('DINERS');
+           
+            // Caso seja discover  
+        } else if (tgdeveloper.getCardFlag(valor) == 'discover') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#34495e');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('DISCOVER');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '19.5em');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14.5');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/discover-svgrepo-com.svg" alt="Cartão discover" style="width: 50px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/discover-svgrepo-com.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('DISCOVER');
+
+            // Caso seja hipercard  
+        } else if (tgdeveloper.getCardFlag(valor) == 'hipercard') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#822124');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('HIPERCARD');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '18.5em');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14em');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/hipercard-29.svg" alt="Cartão hipercard" style="width: 60px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/hipercard-29.svg" width="50px" alt="Cartões">');
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('HIPERCARD');
+
+            // Caso seja elo  
+        } else if (tgdeveloper.getCardFlag(valor) == 'elo') {
+            // Cor do cartão
+            $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#000000');
+            // Nome da bandeira - Texto
+            $('#info-cartaoNome'+i).text('ELO');
+            // Nome da bandeira - Posição
+            $('#info-cartaoNome'+i).css('left', '21.9em');
+            // Icone da bandeira - Posição
+            $('#info-logoModal'+i).css('left', '14.5em');
+            // Icone da bandeira - Imagem
+            $('#info-logoModal'+i).html('<img src="../images/bandeiras_cartao/elo-30.svg" alt="Cartão elo" style="width: 50px;"></img>');
+            // Imagem icone cabeçalho do according
+            $('#infoImagemGeral'+i).html('<img class="img-thumbnail img-fluid rounded-3" src="../images/bandeiras_cartao/elo-30.svg" width="50px" alt="Cartões">');        
+            // Nome do cartão no cabeçalho do according
+            $('#infoNomeGeral'+i).text('ELO');        
+        }
+    }
 });
 
 // Excluir cartão

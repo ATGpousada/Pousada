@@ -77,22 +77,26 @@ $rows = $lista->num_rows;
 
         <!-- Mensagem na tela -->
         <?php 
+            // Adiciona cartão
             if(isset($_SESSION['adicionarCartao'])){
                 echo $_SESSION['adicionarCartao'];
                 unset($_SESSION['adicionarCartao']);
             }
 
+            // Edita cartão
             if(isset($_SESSION['editarCartao'])){
                 echo $_SESSION['editarCartao'];
                 unset($_SESSION['editarCartao']);
             }
-
+            
+            // Excluir cartão
             if(isset($_SESSION['excluirCartao'])){
                 echo $_SESSION['excluirCartao'];
                 unset($_SESSION['excluirCartao']);
             }
         ?>
 
+        <!-- Seção com todo o conteúdo -->
         <section class="ps-5 pe-5 pb-4 pt-2">
             <!-- Título da página -->
             <h3>Formas de pagamento</h4>
@@ -100,8 +104,10 @@ $rows = $lista->num_rows;
             <!-- Laço de repetição para pegar os catões com uma verificação para ver se tem algum cadastrado -->
             <?php 
                 if ($rows > 0) { 
+                    // Contador para diferenciar cada cartão
                     $cont = 0;
                     do {
+                        // Inicio com um
                         $cont += 1;
             ?>
             <!-- Informações do cartão -->
@@ -111,15 +117,18 @@ $rows = $lista->num_rows;
                     <!-- Cabeçalho do accordion -->
                     <h2 class="accordion-header">
                         <!-- Botão para abrir o conteúdo do accordion -->
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapse<?php echo $cont; ?>">
-                            <!-- Icone do cartão - Bandeira -->
-                            <div>
-                                <!-- Imagem -->
-                                <img src="" alt="">
+                        <button class="accordion-button collapsed flex-wrap gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapse<?php echo $cont; ?>">
+                            <!-- Icone do cartão - Bandeira -->    
+                            <div style="width: 50px;" class="me-4" id="<?php echo 'infoImagemGeral'.$cont?>">
+                                <img class="img-thumbnail img-fluid rounded-3" src="" width="50px" alt="Cartões">
                             </div>
+                            <div class="me-4"><strong id="<?php echo 'infoNomeGeral'.$cont?>"></strong></div>
+                            
+                            <!-- Numero escondido para eu pegar o numero do cartão -->
+                            <p hidden id="numeroCartaoDetalhes<?php echo $cont;?>"><?php echo $row['NUMERO'];?></p>
 
                             <!-- Numero do carão -->
-                            <p><?php echo $row['NUMERO']?></p>
+                            <div><?php echo ('<strong>**** **** **** '.substr($row['NUMERO'], 15, 4).'</strong>');?></div>
                         </button>
                     </h2>
                     
@@ -132,7 +141,7 @@ $rows = $lista->num_rows;
                                 <!-- ID -->
                                 <input hidden id="idCartao" value="<?php echo $row['ID'];?>">
                     
-                                <!-- Lista das informações -->
+                                <!-- Primeira lista -->
                                 <ol class="list-group col-md-4 justify-content-center">
                                     <!-- Nome -->
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -146,7 +155,7 @@ $rows = $lista->num_rows;
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold">Número:</div>
-                                            &nbsp;<?php echo $row['NUMERO']; ?>
+                                            &nbsp;<?php echo ('**** **** **** '.substr($row['NUMERO'], 15, 4));  ?>
                                         </div>
                                     </li>
                                 </ol>
@@ -177,12 +186,12 @@ $rows = $lista->num_rows;
                                         <!-- Back e front do cartão juntos -->
                                         <div class="flip-card-inner">
                                             <!-- Frente do cartão -->
-                                            <div class="flip-card-front" id="info-flip-card-front">
+                                            <div class="flip-card-front" id="<?php echo 'info-flip-card-front'.$cont;?>">
                                                 <!-- Nome cartão -->
-                                                <p class="heading_8264 text-white" id="info-cartaoNome">MASTERCARD</p>
+                                                <p class="heading_8264 text-white" id="<?php echo 'info-cartaoNome'.$cont;?>">MASTERCARD</p>
                                                 
                                                 <!-- Imagem bandeira -->
-                                                <div class="logo" id="info-logoModal">
+                                                <div class="logo" id="<?php echo 'info-logoModal'.$cont;?>">
                                                     <svg viewBox="0 0 48 48" height="36" width="36" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z" fill="#ff9800"></path><path d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z" fill="#d50000"></path><path d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z" fill="#ff3d00"></path>
                                                     </svg>
@@ -245,7 +254,7 @@ $rows = $lista->num_rows;
                                                 </svg>
 
                                                 <!-- Numero do cartão -->
-                                                <p class="number text-white"><?php echo $row['NUMERO']?></p>
+                                                <p class="number text-white"><?php echo ('**** **** **** '.substr($row['NUMERO'], 15, 4))?></p>
                                                 <!-- Data de validade do cartão -->
                                                 <p class="valid_thru text-white">DATA DE VALIDADE</p>
                                                 <p class="date_8264 text-white"><?php echo $row['VALIDADE']?></p>
@@ -254,16 +263,16 @@ $rows = $lista->num_rows;
                                             </div>
 
                                             <!-- Back do cartão -->
-                                            <div class="flip-card-back" id="info-flip-card-back">
+                                            <div class="flip-card-back" id="<?php echo 'info-flip-card-back'.$cont;?>">
                                                 <!-- Linha do cartão -->
                                                 <div class="strip"></div>
                                                 
                                                 <!-- Numero no back do cartão -->
-                                                <div class="mstrip"><strong><?php echo $row['NUMERO']?></strong></div>
+                                                <div class="mstrip"><strong><?php echo ('**** **** **** '.substr($row['NUMERO'], 15, 4));?></strong></div>
 
                                                 <!-- cvv do cartão -->
                                                 <div class="sstrip">
-                                                    <p class="code"><?php echo $row['CVV']?></p>
+                                                    <p class="code"><?php echo "***";?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,9 +281,9 @@ $rows = $lista->num_rows;
                                 <!-- Botões -->
                                 <div class="col-md-6">
                                     <!-- Botão para editar  -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropEditar">Editar</button>
+                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdropEditar">Editar</button>
                                     <!-- Botão para excluir -->
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropExcluir">Excluir</button>
+                                    <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#staticBackdropExcluir">Excluir</button>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +373,7 @@ $rows = $lista->num_rows;
                             <!-- Cartão completo -->
                             <div class="flip-card">
                                 <!-- Back e front do cartão juntos -->
-                                <div class="flip-card-inner">
+                                <div class="flip-card-inner" id="add-flip-card-inner">
                                     <!-- Frente do cartão -->
                                     <div class="flip-card-front" id="add-flip-card-front">
                                         <!-- Nome cartão -->
@@ -550,6 +559,4 @@ $rows = $lista->num_rows;
 <script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<!-- Nosso script -->
-<script type="text/javascript" src="../js/script.js"></script>
 </html>

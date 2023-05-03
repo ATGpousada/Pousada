@@ -30,7 +30,7 @@
     if (alterarDados()) {
         // mensagem de erro atribuida a variável alterar (sucesso)
         $_SESSION['alterar'] = '
-            <div class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+            <div style="z-index: 9999;" class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
                 <div class="d-flex">
                     <div class="toast-body">
                         Dados pessoais alterado com sucesso!
@@ -42,7 +42,7 @@
     } else {
         // mensagem de erro atribuida a variável alterar (erro)
         $_SESSION['alterar'] = '
-            <div class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000"">
+            <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000"">
                 <div class="d-flex">
                     <div class="toast-body">
                         Erro: Ação mal sucedida, tente novamente!

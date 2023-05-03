@@ -1681,7 +1681,7 @@ ul {
 
 /* ########################### COMEÇO CONFIGURAÇÕES CLIENTE ################ */
 .linha-vertical {
-    height: 80vh;
+    height: 60vh;
     border: 1.5px solid;
     opacity: 0.2;
 }
