@@ -58,7 +58,6 @@
     <title>Sing Up - Pousada do Sossego</title>
 </head>
 <body class="body-login-cadastro">
-
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">

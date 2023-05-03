@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`cargos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(45) NOT NULL,
   `DESCRICAO` TEXT NOT NULL,
-  `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
+  `ARQUIVAR_EM` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`clientes` (
   `SENHA` VARCHAR(32) NOT NULL,
   `EMAIL` VARCHAR(70) NOT NULL,
   `RECUPERAR_SENHA` VARCHAR(100) NULL DEFAULT NULL,
-  `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
+  `ARQUIVAR_EM` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC),
   UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC),
@@ -54,13 +54,14 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `pousada`.`cartoes` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `NOME_TITULAR` VARCHAR(45) NOT NULL,
-  `NUMERO` VARCHAR(16) NOT NULL,
+  `NUMERO` VARCHAR(21) NOT NULL,
   `VALIDADE` VARCHAR(7) NOT NULL,
-  `CVV` VARCHAR(3) NOT NULL,
+  `CVV` VARCHAR(32) NOT NULL,
   `TIPO` VARCHAR(12) NOT NULL,
   `clientes_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_cartoes_clientes1_idx` (`clientes_ID` ASC),
+  UNIQUE INDEX `CVV_UNIQUE` (`CVV` ASC),
   CONSTRAINT `fk_cartoes_clientes1`
     FOREIGN KEY (`clientes_ID`)
     REFERENCES `pousada`.`clientes` (`ID`)
@@ -104,14 +105,13 @@ CREATE TABLE IF NOT EXISTS `pousada`.`funcionarios` (
   `EMAIL` VARCHAR(70) NOT NULL,
   `SENHA` VARCHAR(32) NOT NULL,
   `PERIODO` VARCHAR(20) NOT NULL,
-  `ADMISSAO` DATETIME NOT NULL,
-  `DEMISSAO` DATETIME NULL DEFAULT NULL,
+  `ADMISSAO` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DEMISSAO` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `cargos_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC),
   UNIQUE INDEX `RG_UNIQUE` (`RG` ASC),
   UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC),
-  UNIQUE INDEX `SENHA_UNIQUE` (`SENHA` ASC),
   INDEX `fk_funcionarios_cargos1_idx` (`cargos_ID` ASC),
   CONSTRAINT `fk_funcionarios_cargos1`
     FOREIGN KEY (`cargos_ID`)
@@ -120,9 +120,6 @@ CREATE TABLE IF NOT EXISTS `pousada`.`funcionarios` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-ALTER TABLE `pousada`.`funcionarios` 
-CHANGE COLUMN `ADMISSAO` `ADMISSAO` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
 
 
 -- -----------------------------------------------------
@@ -212,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`quartos` (
   `PRECO_DIARIA` DOUBLE(6,2) NOT NULL,
   `QTDE_PESSOAS` INT(11) NOT NULL,
   `DESTAQUE` BIT(1) NOT NULL,
-  `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
+  `ARQUIVAR_EM` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `status_ID` INT(11) NOT NULL,
   `tipos_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -329,8 +326,8 @@ CREATE TABLE IF NOT EXISTS `pousada`.`reservas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `PRECO_TOTAL` FLOAT(6,2) NOT NULL,
   `PARCELAS_TOTAL` INT(2) NOT NULL,
-  `DATA_ENTRADA` DATETIME NULL DEFAULT NULL,
-  `DATA_SAIDA` DATETIME NULL DEFAULT NULL,
+  `DATA_ENTRADA` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `DATA_SAIDA` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `pedidos_reservas_ID` INT(11) NOT NULL,
   `funcionarios_ID` INT(11) NOT NULL,
   `status_ID` INT(11) NOT NULL,
@@ -385,6 +382,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `pousada`.`acoes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pousada`.`acoes` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(45) NOT NULL,
+  `cargos_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_acoes_cargos1_idx` (`cargos_ID` ASC),
+  CONSTRAINT `fk_acoes_cargos1`
+    FOREIGN KEY (`cargos_ID`)
+    REFERENCES `pousada`.`cargos` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `pousada`.`permissoes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pousada`.`permissoes` (
@@ -393,12 +407,12 @@ CREATE TABLE IF NOT EXISTS `pousada`.`permissoes` (
   `DELETE` BIT(1) NOT NULL,
   `CRIAR` BIT(1) NOT NULL,
   `ALTERAR` BIT(1) NOT NULL,
-  `cargos_ID` INT(11) NOT NULL,
+  `acoes_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `fk_permissoes_cargos1_idx` (`cargos_ID` ASC),
-  CONSTRAINT `fk_permissoes_cargos1`
-    FOREIGN KEY (`cargos_ID`)
-    REFERENCES `pousada`.`cargos` (`ID`)
+  INDEX `fk_permissoes_acoes1_idx` (`acoes_ID` ASC),
+  CONSTRAINT `fk_permissoes_acoes1`
+    FOREIGN KEY (`acoes_ID`)
+    REFERENCES `pousada`.`acoes` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -447,6 +461,7 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 
@@ -999,10 +1014,70 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
-
-
-
-
-
-
 -- Cliente ---------------------------------
+INSERT INTO `pousada`.`clientes`
+(`ID`,
+`NOME`,
+`CPF`,
+`RG`,
+`SENHA`,
+`EMAIL`)
+VALUES
+(1,
+"Carlos Silva Oliveira",
+"231.456.343-65",
+"23.678.342-8",
+"1234",
+"carlos@gmail.com");
+
+
+
+
+INSERT INTO `pousada`.`enderecos_cli`
+(`ID`,
+`CEP`,
+`CIDADE`,
+`UF`,
+`cliente_ID`)
+VALUES
+(1,
+"90890-200",
+"São Paulo",
+"SP",
+1);
+
+INSERT INTO `pousada`.`telefones_cli`
+(`ID`,
+`TIPO`,
+`TEL`,
+`cliente_ID`)
+VALUES
+(1,
+"Celular Pessoal",
+"(+55) 11 9780-0987",
+1);
+
+
+
+
+-- View Cliente Cartão ---------------------------------
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `clienteCartao` AS
+    SELECT 
+        `cartoes`.`ID` AS `ID`,
+        `clientes`.`NOME` AS `NOME`,
+        `clientes`.`CPF` AS `CPF`,
+        `clientes`.`RG` AS `RG`,
+        `clientes`.`EMAIL` AS `EMAIL`,
+        `cartoes`.`NOME_TITULAR` AS `NOME_TITULAR`,
+        `cartoes`.`NUMERO` AS `NUMERO`,
+        `cartoes`.`VALIDADE` AS `VALIDADE`,
+        `cartoes`.`CVV` AS `CVV`,
+        `cartoes`.`TIPO` AS `TIPO`,
+        `cartoes`.`clientes_ID` AS `clientes_ID`
+    FROM
+        (`clientes`
+        JOIN `cartoes` ON (`clientes`.`ID` = `cartoes`.`clientes_ID`))

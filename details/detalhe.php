@@ -11,9 +11,22 @@ $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
 //select para consultar a tabela de pedido de reservas para poder realizar o pedido clicando no botão reservar agora
-$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
-$linha = $lista->fetch_assoc();
-$linhas = $lista->num_rows;
+//$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
+//$linha = $lista->fetch_assoc();
+//$linhas = $lista->num_rows;
+if ($_SESSION)
+{
+    // select para consultar o id, nome, email e cpf do cliente logado
+    $lista_cliente = $connect->query("SELECT clientes.ID, clientes.NOME, clientes.EMAIL, clientes.CPF FROM clientes WHERE clientes.ID = ".$_SESSION['id'].";");
+    // linha do id, nome, email e cpf do cliente consultado
+    $linha_cliente = $lista_cliente->fetch_assoc();
+}
+// select para consultar o id do quarto aberto 
+$lista_quarto = $connect->query("SELECT quartos.ID FROM quartos WHERE quartos.ID = $id");
+// linha do id do quarto consultado
+$linha_quarto = $lista_quarto->fetch_assoc();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +111,7 @@ $linhas = $lista->num_rows;
         <hr class="linha_del">
         <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
             Detalhes do Quarto
+            <?php echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
         </h2>
 
         <p><?php echo $linha['DESCRICAO'];?></p>
@@ -142,7 +156,7 @@ $linhas = $lista->num_rows;
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
-                De acordo com as regras
+                Concordo com as regras
             </label>
         </div>
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
