@@ -1014,12 +1014,6 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
-
-
-
-
-
-
 -- Cliente ---------------------------------
 INSERT INTO `pousada`.`clientes`
 (`ID`,

@@ -11,9 +11,22 @@ $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
 //select para consultar a tabela de pedido de reservas para poder realizar o pedido clicando no botão reservar agora
-$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
-$linha = $lista->fetch_assoc();
-$linhas = $lista->num_rows;
+//$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
+//$linha = $lista->fetch_assoc();
+//$linhas = $lista->num_rows;
+if ($_SESSION)
+{
+    // select para consultar o id, nome, email e cpf do cliente logado
+    $lista_cliente = $connect->query("SELECT clientes.ID, clientes.NOME, clientes.EMAIL, clientes.CPF FROM clientes WHERE clientes.ID = ".$_SESSION['id'].";");
+    // linha do id, nome, email e cpf do cliente consultado
+    $linha_cliente = $lista_cliente->fetch_assoc();
+}
+// select para consultar o id do quarto aberto 
+$lista_quarto = $connect->query("SELECT quartos.ID FROM quartos WHERE quartos.ID = $id");
+// linha do id do quarto consultado
+$linha_quarto = $lista_quarto->fetch_assoc();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +111,7 @@ $linhas = $lista->num_rows;
         <hr class="linha_del">
         <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
             Detalhes do Quarto
+            <?php echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
         </h2>
 
         <p><?php echo $linha['DESCRICAO'];?></p>
@@ -106,7 +120,7 @@ $linhas = $lista->num_rows;
 
 <!-- Modal 1 -->
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content" style="background: #d7e8f7;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel">REGRAS</h5>
@@ -114,10 +128,37 @@ $linhas = $lista->num_rows;
       </div>
       <div class="modal-body">
         <div id="regras">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae reiciendis quo voluptas delectus. Harum, necessitatibus ea voluptate doloremque reprehenderit illo aperiam, dolore impedit ducimus et, unde debitis tempore iste corrupti?</p>
+            <ul class="list-group list-group-numbered">
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">Os pedidos devem ser solicitados com dias de entrada e saída, assim como quantidade de acompanhantes;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">É obrigatório em cada reserva ter ao menos 1 adulto;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">Toda criança é abaixo de 12 anos de idade, toda criança não paga valor algum;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">Se o cliente pagar e não comparecer, ou chegar nos dias seguintes, não será reembolsado pelos dias perdidos, e no caso de o cliente não cancelar sua reserva e não comparecer dia algum, também não será reembolsado;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">O cliente poderá realizar o cancelamento da reserva com antecedência mínima de 36 horas;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">Após aprovação do pedido de reserva será solicitado 30% do valor da reserva de adiantamento;</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">O tempo de permanência máxima da pousada é de 14 dias.</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+            </ul>
         </div>
       </div>
       <div class="modal-footer">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Concordo com as regras
+            </label>
+        </div>
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
       </div>
     </div>
