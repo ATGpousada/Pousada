@@ -6,12 +6,11 @@ include 'verificacao.php';
 include '../connection/connect.php';
 
 // Pegando cartões do cliente
-$lista = $connect->query("SELECT * FROM clientes 
-                        INNER JOIN cartoes ON clientes.ID = cartoes.clientes_ID
-                        WHERE clientes.ID = ".$_SESSION['id'].";");
+$lista = $connect->query("SELECT * FROM clienteCartao WHERE clientes_ID = ".$_SESSION['id'].";");
 
 // Pegando a linha do cliente logado
 $row = $lista->fetch_assoc();
+
 // Pegando a quantidade de linhas da consulta
 $rows = $lista->num_rows;
 ?>
@@ -106,6 +105,9 @@ $rows = $lista->num_rows;
                 if ($rows > 0) { 
                     // Contador para diferenciar cada cartão
                     $cont = 0;
+
+                    // Contador da consulta 
+                    echo '<div id="LinhasDeConsulta" hidden>'.$rows.'</div>';
                     do {
                         // Inicio com um
                         $cont += 1;
@@ -117,18 +119,20 @@ $rows = $lista->num_rows;
                     <!-- Cabeçalho do accordion -->
                     <h2 class="accordion-header">
                         <!-- Botão para abrir o conteúdo do accordion -->
-                        <button class="accordion-button collapsed flex-wrap gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapse<?php echo $cont; ?>">
+                        <button class="accordion-button collapsed flex-wrap gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapse<?php echo $cont; ?>">
+                            <!-- Numero escondido para eu pegar o numero do cartão -->
+                            <p hidden id="numeroCartaoDetalhes<?php echo $cont;?>"><?php echo $row['NUMERO'];?></p>    
+                        
                             <!-- Icone do cartão - Bandeira -->    
-                            <div style="width: 50px;" class="me-4" id="<?php echo 'infoImagemGeral'.$cont?>">
+                            <div style="width: 50px;" class="me-3" id="<?php echo 'infoImagemGeral'.$cont?>">
                                 <img class="img-thumbnail img-fluid rounded-3" src="" width="50px" alt="Cartões">
                             </div>
-                            <div class="me-4"><strong id="<?php echo 'infoNomeGeral'.$cont?>"></strong></div>
-                            
-                            <!-- Numero escondido para eu pegar o numero do cartão -->
-                            <p hidden id="numeroCartaoDetalhes<?php echo $cont;?>"><?php echo $row['NUMERO'];?></p>
 
                             <!-- Numero do carão -->
-                            <div><?php echo ('<strong>**** **** **** '.substr($row['NUMERO'], 15, 4).'</strong>');?></div>
+                            <div><?php echo ('<strong>'.substr($row['NUMERO'], 15, 4).'</strong>');?></div>
+
+                            <!-- Nome da bandeira do cartão -->
+                            <div class="me-4"><strong id="<?php echo 'infoNomeGeral'.$cont?>"></strong></div>
                         </button>
                     </h2>
                     
@@ -137,12 +141,12 @@ $rows = $lista->num_rows;
                         <!-- Corpo do accordion -->
                         <div class="accordion-body">
                             <!-- Todo o conteúdo do accordion -->
-                            <div class="row">
+                            <div class="row conteudoCartao">
                                 <!-- ID -->
-                                <input hidden id="idCartao" value="<?php echo $row['ID'];?>">
+                                <input hidden class="idCartao" value="<?php echo $row['ID'];?>">
                     
                                 <!-- Primeira lista -->
-                                <ol class="list-group col-md-4 justify-content-center">
+                                <ol class="list-group col-md-4 justify-content-center listaInfoCartao1">
                                     <!-- Nome -->
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
@@ -161,7 +165,7 @@ $rows = $lista->num_rows;
                                 </ol>
 
                                 <!-- Segunda lista -->
-                                <ol class="list-group col-md-4 justify-content-center">
+                                <ol class="list-group col-md-4 justify-content-center listaInfoCartao2">
                                     <!-- Data de validade -->
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
@@ -180,13 +184,13 @@ $rows = $lista->num_rows;
                                 </ol>
 
                                 <!-- Modelo do cartão -->
-                                <div class="pe-3 user-select-none col-md-4 d-flex justify-content-center" role="button" id="cardFormasPagamento">
+                                <div class="pe-3 user-select-none col-md-4 d-flex justify-content-center cardFormasPagamento" role="button" id="cardFormasPagamento">
                                     <!-- Cartão completo -->
                                     <div class="flip-card">
                                         <!-- Back e front do cartão juntos -->
-                                        <div class="flip-card-inner">
+                                        <div class="flip-card-inner" style="width: 300px;">
                                             <!-- Frente do cartão -->
-                                            <div class="flip-card-front" id="<?php echo 'info-flip-card-front'.$cont;?>">
+                                            <div class="flip-card-front" id="<?php echo 'info-flip-card-front'.$cont;?>" style="width: 300px;">
                                                 <!-- Nome cartão -->
                                                 <p class="heading_8264 text-white" id="<?php echo 'info-cartaoNome'.$cont;?>">MASTERCARD</p>
                                                 
@@ -263,7 +267,7 @@ $rows = $lista->num_rows;
                                             </div>
 
                                             <!-- Back do cartão -->
-                                            <div class="flip-card-back" id="<?php echo 'info-flip-card-back'.$cont;?>">
+                                            <div class="flip-card-back" id="<?php echo 'info-flip-card-back'.$cont;?>" style="width: 300px;">
                                                 <!-- Linha do cartão -->
                                                 <div class="strip"></div>
                                                 
@@ -279,7 +283,7 @@ $rows = $lista->num_rows;
                                     </div>
                                 </div>
                                 <!-- Botões -->
-                                <div class="col-md-6">
+                                <div class="col-md-6 botaoInfoCartao">
                                     <!-- Botão para editar  -->
                                     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdropEditar">Editar</button>
                                     <!-- Botão para excluir -->

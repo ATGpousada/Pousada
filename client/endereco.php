@@ -1,4 +1,7 @@
-<?php 
+<?php
+    // Conexão com o banco 
+    include '../connection/connect.php';
+
     function ultimoCadastro($conexao, $tabela, $campo) {
         // Monta a consulta SQL
         $sql = "SELECT $campo FROM $tabela ORDER BY $campo DESC LIMIT 1";
@@ -18,9 +21,6 @@
         }
     }
 
-    // Conexão com o banco 
-    include '../connection/connect.php';
-
     // Verifica se tem valor nos INPUT's
     if ($_POST){
         session_start();
@@ -38,13 +38,13 @@
         ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['email']."');";
 
 
-    if ($connect->query($insereCli)) {
-        $cep = $_POST['cep'];
-        $cidade = $_POST['cidade'];
-        $uf = $_POST['uf'];
-        $tipoTel = $_POST['tipoTel'];
-        $telefone = $_POST['telefone'];
-        $id = ultimoCadastro($connect, 'clientes', "ID");
+        if ($connect->query($insereCli)) {
+            $cep = $_POST['cep'];
+            $cidade = $_POST['cidade'];
+            $uf = $_POST['uf'];
+            $tipoTel = $_POST['tipoTel'];
+            $telefone = $_POST['telefone'];
+            $id = ultimoCadastro($connect, 'clientes', "ID");
 
             // Insere os dados de endereco dos clientes no banco de dados
             $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
@@ -62,7 +62,6 @@
         }
 
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +82,17 @@
     <title>Sing Up - Pousada do Sossego</title>
 </head>
 <body class="body-login-cadastro">
-    
+    <!-- início do preloader -->
+    <div id="preloader">
+        <div class="inner">
+            <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+            <img src="../images/sol.gif" alt="">
+        </div>
+    </div>
+
+    <!-- Icone para voltar -->
+    <a class="icon-voltar-cadastro" href="cadastro.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
+
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo"></div>
     
@@ -151,6 +160,8 @@
         </footer>
     </div>
 </body>
+<!-- js do preloader -->
+<script src="../js/preloader.js"></script>
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->

@@ -108,6 +108,62 @@ $(window).resize(() => {
     }
 });
 
+
+
+
+//Inicializa sem um evento
+function inicializaResponsivoPagamentoAccoding() {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+    
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela < 1020) {
+        $('.conteudoCartao').addClass('flex-column');
+        $('.cardFormasPagamento').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        $('.listaInfoCartao1').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        $('.listaInfoCartao2').removeClass('col-md-4').addClass('col-md-12 mb-3');
+    } 
+
+    if (larguraTela < 500) {
+        $('.cardFormasPagamento').addClass('d-none');
+        $('.botaoInfoCartao').removeClass('col-md-6').addClass('col-md-12 d-flex justify-content-between');
+    }
+}
+
+// Chamando a função
+inicializaResponsivoPagamentoAccoding();
+
+// Evento que dispara quando a tela é redimensionada
+$(window).resize(() => {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+
+    // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
+    if (larguraTela < 1020) {
+        $('.conteudoCartao').addClass('flex-column');
+        $('.cardFormasPagamento').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        $('.listaInfoCartao1').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        $('.listaInfoCartao2').removeClass('col-md-4').addClass('col-md-12 mb-3');
+    } else {
+        $('.conteudoCartao').removeClass('flex-column col-md-12');
+        $('.cardFormasPagamento').addClass('col-md-4').removeClass('col-md-12 mb-3');
+        $('.listaInfoCartao1').addClass('col-md-4').removeClass('col-md-12 mb-3');
+        $('.listaInfoCartao2').addClass('col-md-4').removeClass('col-md-12 mb-3');
+    }
+
+    if (larguraTela < 500) {
+        $('.cardFormasPagamento').addClass('d-none');
+        $('.botaoInfoCartao').removeClass('col-md-6').addClass('col-md-12 d-flex justify-content-between');
+    } else {
+        $('.cardFormasPagamento').removeClass('d-none');
+        $('.botaoInfoCartao').addClass('col-md-6').removeClass('col-md-12 d-flex justify-content-between');
+    }
+});
+
+
+
+
+
 // Rotação do cartão qaundo o input cvv estiver focus
 $(function() {
     // Rotação com o focus
@@ -339,8 +395,12 @@ $(document).ready(function() {
 
 // Função (evento) para identificar a bandeira do cartão no according
 $(document).ready(function() {
+    // Numero de cartoes cadastrados
+    linhasConsulta = $('#LinhasDeConsulta').text();
+    console.log(linhasConsulta);
+
     // For para percorrer todos os cartões
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 1; i <= linhasConsulta; i++) {
         // Valor do número do cartão
         var valor = $('#numeroCartaoDetalhes'+i).text();
 
@@ -361,7 +421,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('VISA');
 
-            // Caso seja mastercard
+        // Caso seja mastercard
         } else if (tgdeveloper.getCardFlag(valor) == 'mastercard') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#95330f');
@@ -378,7 +438,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('MASTERCARD');
 
-            // Caso seja american express  
+        // Caso seja american express  
         } else if (tgdeveloper.getCardFlag(valor) == 'amex') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#016fd0');
@@ -395,7 +455,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('American Express');
 
-            // Caso seja diners  
+        // Caso seja diners  
         } else if (tgdeveloper.getCardFlag(valor) == 'diners') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#5591b3');
@@ -412,7 +472,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('DINERS');
            
-            // Caso seja discover  
+        // Caso seja discover  
         } else if (tgdeveloper.getCardFlag(valor) == 'discover') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#34495e');
@@ -429,7 +489,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('DISCOVER');
 
-            // Caso seja hipercard  
+        // Caso seja hipercard  
         } else if (tgdeveloper.getCardFlag(valor) == 'hipercard') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#822124');
@@ -446,7 +506,7 @@ $(document).ready(function() {
             // Nome do cartão no cabeçalho do according
             $('#infoNomeGeral'+i).text('HIPERCARD');
 
-            // Caso seja elo  
+        // Caso seja elo  
         } else if (tgdeveloper.getCardFlag(valor) == 'elo') {
             // Cor do cartão
             $('#info-flip-card-front'+i+', #info-flip-card-back'+i).css('background-color', '#000000');
@@ -469,15 +529,15 @@ $(document).ready(function() {
 // Excluir cartão
 $('#modalButtonExcluir').on('click',function(){
     // busca o id
-    var id = $('#idCartao').val(); 
+    var id = $('.idCartao').val(); 
     //chama o arquivo php para excluir o produto
-    $('#modalButtonExcluir').attr('href','excluirCartao.php?ID_CARTAO='+id); 
+    console.log(id);
 });
 
 // Alterar cartão
 $('#modalButtonAlterar').on('click',function(){
     // busca o id
-    var id = $('#idCartao').val();
+    var id = $('.idCartao').val();
     //chama o arquivo php para alterar o produto
     $('#formAlterarCartao').attr('action','editarCartao.php?ID_CARTAO='+id); 
 });
