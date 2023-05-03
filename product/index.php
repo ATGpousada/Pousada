@@ -33,12 +33,14 @@
     </script>
     <!-- Fim do Scroll -->
 
+
     <!-- Início Menu Público -->
     <?php 
     include "../cabecalhoGeral/cabecalhoGeral.php"
     ?>
     <!-- Fim Menu Público -->
-    <div class="container-5 bg-body-tertiary rounded p-0"style="margin:0 auto;width:90%;">
+    <div class="mt-4 container-5 bg-body-tertiary rounded p-0"style="margin:0 auto;width:90%;">
+        
         <div class="row mb-5">
     <!-- Início Carrossel Produtos-->
 

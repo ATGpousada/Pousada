@@ -150,10 +150,8 @@
             <div class="form-item">
                 <label for="senhaConfirma">Confirme sua nova senha</label>
                 <input type="password" id="senhaConfirma" name="senhaConfirma" class="form-control form-input-item" required autocomplete="off">
+                <i class="bi bi-eye" id="btny2" onclick="mostrarSenha2()"></i>
             </div>
-
-            <!-- Link para voltar no login -->
-            <p>Lembrou a senha? <a href="login.php" class="me-auto text-decoration-none ancora-login">clique aqui</a></p>
 
             <!-- Botão para enviar os valores do formulário -->
             <button id="enviarAtualizaSenha" name="enviarAtualizaSenha" type="submit">Enviar</button>

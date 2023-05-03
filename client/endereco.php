@@ -17,6 +17,25 @@
             return false;
         }
     }
+    //código busca o cep
+    if(isset($_POST['cep'])){
+        $cep = $_POST['cep'];
+        $url = "https://viacep.com.br/ws/$cep/json/";
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response, true);
+    
+        if(isset($data['erro'])){
+            header('location: config_perfil.php?cep=n');
+        } else {
+            $cidade = isset($data['localidade']) ? $data['localidade'] : '';
+            $uf = isset($data['uf']) ? $data['uf'] : '';
+        }
+    }
+
+    
 
     // Conexão com o banco 
     include '../connection/connect.php';
@@ -85,10 +104,10 @@
 <body class="body-login-cadastro">
     
     <!-- Circulo no fundo(Amarelo e Azul) -->
-    <div class="circulo"></div>
+    <div class="circulo-cadastro"></div>
     
     <!-- Card Sing Up -->
-    <div class="card-login">
+    <div class="card-login-cadastro">
         <!-- Logo no Sing Up -->
         <div class="logo">
             <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
@@ -98,7 +117,7 @@
         <h2>Cadastre um Endereço <br> e um Numero de Contato</h2>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login" method="post">
+        <form class="form-login-cadastro" method="post">
 
             <!-- Telefone -->
             <div class="form-item">
@@ -108,12 +127,13 @@
 
             <!-- Tipo de telefone -->
             <div class="form-item">
-                <select class="form-select form-control form-input-item" id="tipoAlterar" name="tipoTel">
-                    <option selected>Selecione o Tipo</option>
-                    <option value="Pessoal">Pessoal</option>
-                    <option value="Residêncial">Residêncial</option>
-                    <option value="Profissional">Profissional</option>
-                </select>
+            <label for="tipo">Digite o Tipo</label>
+                <input list="tipos" name="tipo" id="tipo">
+                <datalist id="tipos">
+                    <option value="Pessoal">
+                    <option value="Residêncial">
+                    <option value="Profissional">
+                </datalist>
             </div>
 
             <!-- Cep -->
@@ -122,17 +142,6 @@
                 <input type="text" id="cep" name="cep" class="form-control form-input-item" oninput="mascaraCEP(this)" required>
             </div>
 
-            <!-- Cidade -->
-            <div class="form-item">
-                <label for="cidade">Informe sua Cidade</label>        
-                <input type="cidade" id="cidade" name="cidade" class="form-control form-input-item" required>
-            </div>
-
-            <!-- Uf -->
-            <div class="form-item">
-                <label for="uf">Digite seu UF</label>        
-                <input type="uf" id="uf" name="uf" class="form-control form-input-item" required>
-            </div>
 
             <button type="submit">Proximo</button>
 
@@ -144,10 +153,6 @@
             Já tem uma conta? 
         
             <a href="index.php" class="ancora-login">Entre</a> <br>
-
-            Mudou de ideia, deseja 
-            
-            <a href="../index.php" class="ancora-login">Cancelar</a>
         </footer>
     </div>
 </body>
@@ -157,4 +162,9 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <!-- Nosso script -->
 <script type="text/javascript" src="../js/script.js"></script>
+<!-- busca de cep -->
+<script>
+    document.getElementById('cidade').value = '<?php echo $cidade; ?>';
+    document.getElementById('uf').value = '<?php echo $uf; ?>';
+</script>
 </html>

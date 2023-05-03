@@ -9,6 +9,7 @@
     // Consulta para ver se há Cliente cadastrado com o mesmo email especificado
     $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '".$dadosInput['email']."';");
     
+    
     // Verifica se já existe um Cliente com o email informado
     if($loginQuery->num_rows > 0) {
 
@@ -18,7 +19,7 @@
     } else {
 
     // Verifica se as senhas são iguais
-    if ($dadosInput['senha'] == $dadosInput['confSenha']) {
+    if ($dadosInput['senha'] == $dadosInput['senhaConfirma']) {
 
         // Recebe a nova senha do usúario
         $senhaCliente = $dadosInput['senha'];
@@ -123,10 +124,11 @@
                 <i class="bi bi-eye" id="btny" onclick="mostrarSenha()"></i>
             </div>
 
-            <!-- ConfirSenha -->
+            <!-- Confirma senha -->
             <div class="form-item">
-                <label for="confSenha">Confirme sua senha</label>
-                <input type="password" id="confSenha" name="confSenha" class="form-control form-input-item" required autocomplete="off">
+                <label for="senhaConfirma">Confirme sua senha</label>
+                <input type="password" id="senhaConfirma" name="senhaConfirma" class="form-control form-input-item" required autocomplete="off">
+                <i class="bi bi-eye" id="btny2" onclick="mostrarSenha2()"></i>
             </div>
 
             <button id="entrarLogin" name="entrarLogin" type="submit">Proximo</button>

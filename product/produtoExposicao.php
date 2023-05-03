@@ -27,8 +27,9 @@ $linhas = $lista->num_rows;
     <?php } else {?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
-
-    <div class="d-flex justify-content-around flex-wrap" style="background: rgb(235, 234, 253);">
+    <div class="d-flex justify-content-around flex-wrap rounded" style="background: rgb(235, 234, 253);">
+        <h2 class="display-4">Quartos</h2>
+            <div class="d-flex justify-content-around flex-wrap">
     <?php do{?>
         <div class="card_quarto">
             <div class="icon_quarto">
@@ -69,7 +70,8 @@ $linhas = $lista->num_rows;
         </div>
         <?php }while($linha = $lista->fetch_assoc())?>
     </div>
-    <?php }?>         
+    <?php }?>    
+    </div>     
 </div> 
 
 
