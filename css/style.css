@@ -1261,6 +1261,20 @@
     background-color: #1855fd;
     border-radius: 30px;
 }
+
+.s-modal .modal-content{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 0px;
+}
+
+.s-modal .modal-header{
+    padding: 30px 15px
+}
+
+s.modal.primary .modal-header{
+    background-color: yellow;
+}
 /* Fim Modal */
 
 /* Destaques */

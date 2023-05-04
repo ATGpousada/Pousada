@@ -111,7 +111,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         <hr class="linha_del">
         <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
             Detalhes do Quarto
-            <?php echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
+            <?php //echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
         </h2>
 
         <p><?php echo $linha['DESCRICAO'];?></p>
@@ -119,9 +119,9 @@ $linha_quarto = $lista_quarto->fetch_assoc();
 </main> 
 
 <!-- Modal 1 -->
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal s-modal primary fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content" style="background: #d7e8f7;">
+    <div class="modal-content" >
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel">REGRAS</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
