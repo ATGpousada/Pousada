@@ -14,7 +14,7 @@ $linhasIMGres = $listaIMGres->num_rows;
 //$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
 //$linha = $lista->fetch_assoc();
 //$linhas = $lista->num_rows;
-if ($_SESSION)
+if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
 {
     // select para consultar o id, nome, email e cpf do cliente logado
     $lista_cliente = $connect->query("SELECT clientes.ID, clientes.NOME, clientes.EMAIL, clientes.CPF FROM clientes WHERE clientes.ID = ".$_SESSION['id'].";");
@@ -222,7 +222,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         <?php 
                         if ($_POST)
                         {
-                            if ($linha["DATA_ENTRADA"] == data_inicio && $linha["DATA_SAIDA"] == data_final)
+                            if (true)
                             {
                                 echo "DATA INDISPONÍVEL PARA RESERVA POR FAVOR ALTERE A DATA";
                             }
