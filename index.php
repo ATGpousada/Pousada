@@ -39,6 +39,11 @@
                 echo $_SESSION['conf-s'];
                 unset($_SESSION['conf-s']);
             }
+
+            if(isset($_SESSION['msg_footer'])){
+                echo $_SESSION['msg_footer'];
+                unset($_SESSION['msg_footer']);
+            }
         ?>
 
         <div class="container-fluid mb-2 rounded pe-0 ps-0" style="background: rgb(235, 234, 253);">

@@ -24,12 +24,12 @@
     //código busca o cep
     if(isset($_POST['cep'])){
         $cep = $_POST['cep'];
-        $url = "https://viacep.com.br/ws/$cep/json/";
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch); 
-        $data = json_decode($response, true);
+            $url = "https://viacep.com.br/ws/$cep/json/";
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch); 
+            $data = json_decode($response, true);
     
         if(isset($data['erro'])){
             // mensagem de erro atribuida a variável alterar (sucesso)
@@ -46,8 +46,8 @@
         } else {
             $cidade = isset($data['localidade']) ? $data['localidade'] : '';
             $uf = isset($data['uf']) ? $data['uf'] : '';
-        }
-    }
+        }};
+    
 
     // Verifica se tem valor nos INPUT's
     if ($_POST){
@@ -169,7 +169,7 @@
             <!-- Uf -->
             <div class="form-item">
                 <label for="uf">Digite seu UF</label>        
-                <input type="uf" id="uf" name="uf" value="<?php isset($data['']) ? $data['localidade'] : ''?>" class="form-control form-input-item" required>
+                <input type="uf" id="uf" name="uf" value="" class="form-control form-input-item" required>
             </div>
 
             <button type="submit">Proximo</button>
@@ -189,14 +189,31 @@
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- API cep -->
+<script>
+ $(document).ready(function(){
+    $("input[name=cep]").blur(function(){
+        var cep = $(this).val().replace(/[^0-9]/, '');
+        if(cep){
+            var url = 'https://viacep.com.br/ws/'+cep+'/json/';
+            $.ajax({
+                    url: url,
+                    dataType: 'jsonp',
+                    crossDomain: true,
+                    contentType: "application/json",
+                    success : function(json){
+                        if(json.logradouro){
+                            $("input[name=cidade]").val(json.localidade);
+                            $("input[name=uf]").val(json.estado);
+                        }
+                    }
+            });
+        }                   
+    }); 
+});    
+</script>
 <!-- Nosso script -->
 <script type="text/javascript" src="../js/script.js"></script>
 <!-- busca de cep -->
-<script>
-    if (cidade != '') {
-        
-    }
-    cidade = document.getElementById('cidade').value = <?php echo $data['cidade'] ?>;
-    uf = document.getElementById('uf').value = <?php echo $data['uf'] ?>;
-</script>
+
 </html>

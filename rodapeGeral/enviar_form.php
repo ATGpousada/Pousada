@@ -1,4 +1,3 @@
-
 <?php 
 
 include '../connection/connect.php';
@@ -49,11 +48,33 @@ try
     // Enviar
     $mail->send();
     echo 'A mensagem foi enviada!';
+    
+    session_start(); 
+    $_SESSION['msg_footer'] = '            
+        <div style="z-index: 9999;" class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+            <div class="d-flex">
+                <div class="toast-body">
+                    E-mail enviado com sucesso!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    ';
 }
 catch (Exception $e)
 {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    session_start(); 
+    $_SESSION['msg_footer'] = '            
+        <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Não foi possível enviar menssagem. Mailer Error: {$mail->ErrorInfo}!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    ';
 }
 
-header('location:index.php')
+header('location: index.php')
 ?>

@@ -52,7 +52,16 @@
                     // Verifica se foi efetuado com sucesso o comando SQL
                     if ($connect->query($AtualizaSenhaQuery)) {
                         // Envia mensagem de sucesso na página LOGIN
-                        $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
+                        $_SESSION['msg'] = '            
+                            <div style="z-index: 9999;" class="toast align-items-center text-bg-success border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        Senha atualizada com sucesso!
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        ';
                         
                         // Encaminha para a página login
                         header("Location: login.php");
@@ -60,20 +69,47 @@
                         // Caso a atualização no banco dar errado 
                     } else {
                         // Mostra mensagem de erro na tela
-                        echo "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
+                        $_SESSION['msg_atu'] = '            
+                            <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        Erro: Tente novamente!
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        ';
                     }
                     
                     // Caso as senhas não sejam iguais
                 } else {
                     // Mensagem de erro na tela
-                    $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+                    $_SESSION['msg_atu'] = '            
+                        <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    Erro: As senhas não são iguais! Digite novamente
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    ';
                 }
             }
             
             // Caso o hash_code seja inválido
         } else {
             // Mensagem de erro na tela
-            $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+            $_SESSION['msg_rec'] = '            
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Erro: Link inválido, solicite novo link para atualizar a senha!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';
             
             // Encaminha para recuperaLogin
             header("Location: recuperaLogin.php");
@@ -82,7 +118,16 @@
         // Caso o hash_code seja inválido
     } else {
         // Mensagem de erro na tela
-        $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+        $_SESSION['msg_rec'] = '            
+            <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Erro: Link inválido, solicite novo link para atualizar a senha!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        ';
         
         // Encaminha para recuperaLogin
         header("Location: recuperaLogin.php");
@@ -115,6 +160,14 @@
         </div>
     </div>
     
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['msg_atu'])){
+            echo $_SESSION['msg_atu'];
+            unset($_SESSION['msg_atu']);
+        }
+    ?>
+
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo"></div>
 
@@ -130,15 +183,6 @@
         
         <!-- Formulario do Atualiza senha -->
         <form method="post" action="atualizaSenha.php?chave=<?php echo $chaveRecupera ?>" class="form-login">
-            
-            <!-- Mensagem na tela -->
-            <?php 
-                if(isset($_SESSION['msg_atu'])){
-                    echo $_SESSION['msg_atu'];
-                    unset($_SESSION['msg_atu']);
-                }
-            ?>
-
             <!-- Nova senha -->
             <div class="form-item">
                 <label for="senha">Digite sua nova senha</label>        
