@@ -6,6 +6,7 @@ function inicializaResponsivoGeral() {
     
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 630) {
+        // Responsivo
         $('#item-select').removeClass('col-6').addClass('col-12 mb-3');
         $('#item-info').removeClass('col-6').addClass('col-12');
     }
@@ -21,9 +22,11 @@ $(window).resize(() => {
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 630) {
+        // Responsivo
         $('#item-select').removeClass('col-6').addClass('col-12 mb-3');
         $('#item-info').removeClass('col-6').addClass('col-12');
     } else {
+        // Volta para o padrão
         $('#item-select').removeClass('col-12 mb-3').addClass('col-6');
         $('#item-info').removeClass('col-12').addClass('col-6');
     }
@@ -41,6 +44,7 @@ function inicializaResponsivoPerfil() {
     
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 970) {
+        // Responsivo
         $('#dados-pessoais').removeClass('w-50').addClass('w-100');
         $('#contato').removeClass('w-50').addClass('w-100');
         $('#group-formulario').removeClass('d-flex gap-5');
@@ -57,10 +61,12 @@ $(window).resize(() => {
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 970) {
+        // Responsivo
         $('#dados-pessoais').removeClass('w-50').addClass('w-100');
         $('#contato').removeClass('w-50').addClass('w-100');
         $('#group-formulario').removeClass('d-flex gap-5');
     } else {
+        // volta padrão
         $('#dados-pessoais').removeClass('w-100').addClass('w-50');
         $('#contato').removeClass('w-100').addClass('w-50');
         $('#group-formulario').addClass('d-flex gap-5');
@@ -79,7 +85,9 @@ function inicializaResponsivoPagamento() {
     
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 992) {
+        // Deixa form em coluna
         $('#conteudoPagamento').addClass('flex-column');
+        // Cada item ocupa col-12 (tudo)
         $('#item-info').removeClass('col-6').addClass('col-12');
     }
 }
@@ -94,22 +102,26 @@ $(window).resize(() => {
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela < 992) {
+        // Deixa form em coluna
         $('#conteudoPagamento').addClass('flex-column');
+        // Cada item ocupa col-12 (tudo)
         $('#item-info').removeClass('col-6').addClass('col-12');
     } else {
+        // Remove estrutura coluna do formulário
         $('#conteudoPagamento').removeClass('flex-column');
-        $('#item-info').addClass('col-16').removeClass('col-12');
+        // retorna o padrão do que o item ocupa
+        $('#item-info').addClass('col-6').removeClass('col-12');
     }
 
+    // Caso a tela for de celular
     if (larguraTela < 380) {
+        // Tira o cartão
         $('#cardFormasPagamento').addClass('d-none');
     } else {
+        // Coloca ele novamente
         $('#cardFormasPagamento').removeClass('d-none');
     }
 });
-
-
-
 
 //Inicializa sem um evento
 function inicializaResponsivoPagamentoAccoding() {
@@ -118,14 +130,20 @@ function inicializaResponsivoPagamentoAccoding() {
     
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela < 1020) {
+        // Coloca formulário e cartão em coluna
         $('.conteudoCartao').addClass('flex-column');
+        // Coloca o que o cartão ocupa
         $('.cardFormasPagamento').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        // Coloca o que a lista 1 ocupa
         $('.listaInfoCartao1').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        // Coloca o que a lista 2 ocupa
         $('.listaInfoCartao2').removeClass('col-md-4').addClass('col-md-12 mb-3');
     } 
 
     if (larguraTela < 500) {
+        // Remove o cartão da tela
         $('.cardFormasPagamento').addClass('d-none');
+        // E deixa o botão editar e excluir between
         $('.botaoInfoCartao').removeClass('col-md-6').addClass('col-md-12 d-flex justify-content-between');
     }
 }
@@ -140,34 +158,43 @@ $(window).resize(() => {
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela < 1020) {
+        // Coloca formulário e cartão em coluna
         $('.conteudoCartao').addClass('flex-column');
+        // Coloca o que o cartão ocupa
         $('.cardFormasPagamento').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        // Coloca o que a lista 1 ocupa
         $('.listaInfoCartao1').removeClass('col-md-4').addClass('col-md-12 mb-3');
+        // Coloca o que a lista 2 ocupa
         $('.listaInfoCartao2').removeClass('col-md-4').addClass('col-md-12 mb-3');
     } else {
+        // Volta formulário e cartão para o padrão
         $('.conteudoCartao').removeClass('flex-column col-md-12');
+        // Voltar o cartão para o padrão
         $('.cardFormasPagamento').addClass('col-md-4').removeClass('col-md-12 mb-3');
+        // Voltar a lista 1 para o padrão
         $('.listaInfoCartao1').addClass('col-md-4').removeClass('col-md-12 mb-3');
+        // Voltar a lista 2 para o padrão
         $('.listaInfoCartao2').addClass('col-md-4').removeClass('col-md-12 mb-3');
     }
 
     if (larguraTela < 500) {
+        // Remove o cartão da tela
         $('.cardFormasPagamento').addClass('d-none');
+        // E deixa o botão editar e excluir between
         $('.botaoInfoCartao').removeClass('col-md-6').addClass('col-md-12 d-flex justify-content-between');
     } else {
+        // Reaparece o cartão
         $('.cardFormasPagamento').removeClass('d-none');
+        // E o cartão sai do between
         $('.botaoInfoCartao').addClass('col-md-6').removeClass('col-md-12 d-flex justify-content-between');
     }
 });
-
-
-
-
 
 // Rotação do cartão qaundo o input cvv estiver focus
 $(function() {
     // Rotação com o focus
     $('#cvv').focusin(function() {
+        // Adiciona css
         $('#add-flip-card-inner').css({
             transform: 'rotateY(180deg)'
         });
@@ -175,6 +202,7 @@ $(function() {
 
     // Tira a rotação sem o focus
     $('#cvv').focusout(function() {
+        // Remove o css
         $('#add-flip-card-inner').removeAttr('style');
     });
 });
@@ -182,6 +210,7 @@ $(function() {
 // Array com mask para os input
 const mask = {
     // Expressões regulares para as masks
+    //cpf
     cpf(value) {
         return value
             .replace(/\D/g, '') // aceita somente caracteres numero.
@@ -191,6 +220,7 @@ const mask = {
             .replace(/(-\d{2})\d+?$/, '$1');
     },
 
+    // Telefone
     phone(value) {
         return value
             .replace(/\D/g, '')
@@ -200,6 +230,7 @@ const mask = {
             .replace(/(\d{4})\d+?$/, '$1');
     },
 
+    // CEP
     cep(value) {
         return value
             .replace(/\D/g, '')
@@ -207,6 +238,7 @@ const mask = {
             .replace(/(-\d{3})\d+?$/, '$1');
     },
 
+    // Cartao
     cartao(value) {
         return value
             .replace(/\D/g, '')
@@ -216,6 +248,7 @@ const mask = {
             .replace(/(-\d{4})\d+?$/, '$1');
     },
 
+    // Data
     data(value) {
         return value
             .replace(/\D/g, '')
@@ -223,6 +256,7 @@ const mask = {
             .replace(/(\d{2})(\d)/, '$1');
     },
 
+    // CVV
     cvv(value) {
         return value
             .replace(/\D/g, '');
@@ -231,14 +265,17 @@ const mask = {
 
 // Adiciona mask nos input
 document.querySelectorAll('input').forEach((input) => {
+    // Pegar cada data-js
     const field = input.dataset.js;
   
+    // Adiciona a mask
     input.addEventListener('input', (event) => {
-      event.target.value = mask[field](event.target.value);
+        // Adicionando mask
+        event.target.value = mask[field](event.target.value);
     });
 });
 
-// Var para descobrir bandeira do cartão
+// Array para descobrir bandeira do cartão
 var tgdeveloper = {
     // Funcão que irá descobrir
     getCardFlag: function(cardnumber) {
@@ -397,7 +434,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     // Numero de cartoes cadastrados
     linhasConsulta = $('#LinhasDeConsulta').text();
-    console.log(linhasConsulta);
 
     // For para percorrer todos os cartões
     for (let i = 1; i <= linhasConsulta; i++) {
@@ -554,6 +590,7 @@ function inicializaResponsivoConfiguracao() {
     
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela <= 670) {
+        // Responsivo
         $('#areaConfiguracao').addClass('flex-column align-items-center');
         $('#linha-vertical').attr('style', 'height: 0; width: 80%; margin: 48px 0;');
     }
@@ -569,9 +606,11 @@ $(window).resize(() => {
 
     // Condição para mudar classes do bootstrap quando a tela for redimensionada no tamanho especificado
     if (larguraTela < 670) {
+        // Responsivo
         $('#areaConfiguracao').addClass('flex-column align-items-center');
         $('#linha-vertical').attr('style', 'height: 0; width: 80%; margin: 48px 0;');
     } else {
+        // Voltar para o padrão
         $('#areaConfiguracao').removeClass('flex-column align-items-center');
         $('#linha-vertical').removeAttr('style', 'height: 0; width: 80%; margin: 48px 0;');
     }

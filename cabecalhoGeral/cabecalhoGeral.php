@@ -4,7 +4,7 @@
         <!-- Conteúdo  do cabeçalho -->
         <div class="container-fluid me-2">
             <!-- Logo -->
-            <a class="navbar-brand ms-2" href="index.php" style="width: 165px;">
+            <a class="navbar-brand ms-2" href="../index.php" style="width: 165px;">
                 <img src="../images/logo/LOGO POUSADA POR EXTENSO.png" alt="Bootstrap" style="width: 100%;">
             </a>
 

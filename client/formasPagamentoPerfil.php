@@ -109,7 +109,7 @@ $rows = $lista->num_rows;
                     // Contador da consulta 
                     echo '<div id="LinhasDeConsulta" hidden>'.$rows.'</div>';
                     do {
-                        // Inicio com um
+                        // Inicia com um
                         $cont += 1;
             ?>
             <!-- Informações do cartão -->
@@ -120,7 +120,7 @@ $rows = $lista->num_rows;
                     <h2 class="accordion-header">
                         <!-- Botão para abrir o conteúdo do accordion -->
                         <button class="accordion-button collapsed flex-wrap gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $cont; ?>" aria-expanded="false" aria-controls="collapse<?php echo $cont; ?>">
-                            <!-- Numero escondido para eu pegar o numero do cartão -->
+                            <!-- Numero escondido para eu pegar a bandeira do cartão -->
                             <p hidden id="numeroCartaoDetalhes<?php echo $cont;?>"><?php echo $row['NUMERO'];?></p>    
                         
                             <!-- Icone do cartão - Bandeira -->    
@@ -259,9 +259,11 @@ $rows = $lista->num_rows;
 
                                                 <!-- Numero do cartão -->
                                                 <p class="number text-white"><?php echo ('**** **** **** '.substr($row['NUMERO'], 15, 4))?></p>
+                                                
                                                 <!-- Data de validade do cartão -->
                                                 <p class="valid_thru text-white">DATA DE VALIDADE</p>
                                                 <p class="date_8264 text-white"><?php echo $row['VALIDADE']?></p>
+                                                
                                                 <!-- Nome do titular do cartão -->
                                                 <p class="name_card text-white text-uppercase"><?php echo $row['NOME_TITULAR']?></p>
                                             </div>
@@ -448,9 +450,11 @@ $rows = $lista->num_rows;
 
                                         <!-- Numero do cartão -->
                                         <p class="number text-white"> {{numero?numero:'1111 1111 1111 1111'}}</p>
+                                        
                                         <!-- Data de validade do cartão -->
                                         <p class="valid_thru text-white">DATA DE VALIDADE</p>
                                         <p class="date_8264 text-white">{{dataValidade?dataValidade:'11 / 11'}}</p>
+                                        
                                         <!-- Nome do titular do cartão -->
                                         <p class="name_card text-white text-uppercase">{{nomeTitular?nomeTitular:'XXXX XXXX'}}</p>
                                     </div>
