@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="pt_BR" id="subir">
 <head>
@@ -23,6 +25,14 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
+
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['msg_contato'])){
+            echo $_SESSION['msg_contato'];
+            unset($_SESSION['msg_contato']);
+        }
+    ?>
 
     <!-- Adição do cabeçalho -->
     <?php include '../cabecalhoGeral/cabecalhoGeral.php'; ?>

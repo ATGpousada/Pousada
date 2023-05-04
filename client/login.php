@@ -56,13 +56,31 @@
             // Caso a senha ou email esteja errado
             }else{
                 // Mensagem de erro na tela
-                $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: E-mail ou senha inválida!</p>";
+                $_SESSION['msg'] = '            
+                    <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Erro: E-mail ou senha inválida!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                ';
             }
             
             // Caso a senha ou email esteja errado
         }else{
             // Mensagem de erro na tela
-            $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: E-mail ou senha inválida!</p>";
+            $_SESSION['msg'] = '            
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Erro: E-mail ou senha inválida!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';
         } 
     }
 ?>
@@ -93,11 +111,17 @@
         </div>
     </div>
 
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['msg'])){
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+    ?>
+
     <!-- Icone para voltar -->
     <a class="icon-voltar" href="../index.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
 
-
-    
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo"></div>
     
@@ -113,14 +137,6 @@
         
         <!-- Formulario do login -->
         <form method="post" action="login.php" class="form-login">
-
-            <!-- Mensagem na tela -->
-            <?php 
-                if(isset($_SESSION['msg'])){
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
-            ?>
 
             <!-- E-mail -->
             <div class="form-item">

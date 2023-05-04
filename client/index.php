@@ -127,7 +127,7 @@ include '../connection/connect.php';
                     <!-- Texto do card -->
                     <p class="card-text">
                         <!-- Lista do card -->
-                        <div class="row border rounded pt-3 pb-4">
+                        <div class="row rounded pt-3 pb-4">
                             <!-- Grupo de listas -->
                             <div class="col-6" id="item-select">
                                 <div class="list-group rounded" id="list-tab" role="tablist">

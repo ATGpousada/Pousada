@@ -59,25 +59,63 @@
 
                     $mail->send();
 
-                    $_SESSION['msg'] = "<p style='color: #008000'>E-mail enviado com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
+                    // Mensagem na tela
+                    $_SESSION['msg'] = '            
+                        <div style="z-index: 9999;" class="toast align-items-center text-bg-success border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    E-mail enviado com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    ';
+
                     header("Location: login.php");
 
                     // Caso o envio não seja efetuado 
                 } catch (Exception $e) {
                     // Mensagem na tela mostrando o erro
-                    $_SESSION['msg_email'] = "<p style='color: #ff0000'>Erro: E-mail não enviado. Mailer Error: {$mail->ErrorInfo}</p>";
+                    $_SESSION['msg_email'] = '            
+                        <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    Erro: E-mail não enviado. Mailer Error: {$mail->ErrorInfo}
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    ';
                 }
                 
                 // Se a consulta não foi feita
             } else {
                 // Mensagem na tela mostrando o erro
-                $_SESSION['msg_email'] = "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
+                $_SESSION['msg_email'] = '            
+                    <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Erro: Tente novamente!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                ';
             }
 
             // Se o usuário não existe
         } else {
             // Mensagem na tela mostrando o erro
-            $_SESSION['msg_email'] = "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>";
+            $_SESSION['msg_email'] = '            
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Erro: Usuário não encontrado!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';
         }
     }
 ?>
@@ -108,6 +146,17 @@
         </div>
     </div>
 
+    <!-- Mensagens de erro -->
+    <?php
+        if (isset($_SESSION['msg_rec'])) {
+            echo $_SESSION['msg_rec'];
+            unset($_SESSION['msg_rec']);
+        } elseif (isset($_SESSION['msg_email'])) {
+            echo $_SESSION['msg_email'];
+            unset($_SESSION['msg_email']);
+        } 
+    ?>
+
     <!-- Icone para voltar -->
     <a class="icon-voltar" href="login.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
     
@@ -125,18 +174,6 @@
 
         <!-- Formulário -->
         <form method="post" action="recuperaLogin.php" class="form-login">
-
-            <!-- Mensagens de erro -->
-            <?php
-                if (isset($_SESSION['msg_rec'])) {
-                    echo $_SESSION['msg_rec'];
-                    unset($_SESSION['msg_rec']);
-                } elseif (isset($_SESSION['msg_email'])) {
-                    echo $_SESSION['msg_email'];
-                    unset($_SESSION['msg_email']);
-                } 
-            ?>
-            
             <!-- E-mail -->
             <div class="form-item">
                 <label for="email">Digite seu E-mail</label>        

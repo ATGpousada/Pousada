@@ -14,7 +14,16 @@
         if($loginQuery->num_rows > 0) {
 
             // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
-            $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
+            $_SESSION['msg_cad'] = '            
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Erro: O email informado já está sendo utilizado. Por favor, informe outro email.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';
         
         } else {
             // Verifica se as senhas são iguais
@@ -31,7 +40,16 @@
             // Caso as senhas não sejam iguais
             } else {
                 // Mensagem de erro na tela
-                $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+                $_SESSION['msg_cad'] = '            
+                    <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Erro: As senhas não são iguais! Digite novamente
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                ';
             }
         }
     }
@@ -64,6 +82,14 @@
         </div>
     </div>
 
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['msg_cad'])){
+            echo $_SESSION['msg_cad'];
+            unset($_SESSION['msg_cad']);
+        }
+    ?>
+
     <!-- Icone para voltar -->
     <a class="icon-voltar-cadastro" href="login.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
     
@@ -82,14 +108,6 @@
         
         <!-- Formulario do Sing Up -->
         <form class="form-login-cadastro" method="post">
-            <!-- Mensagem na tela -->
-            <?php 
-                if(isset($_SESSION['msg_atu'])){
-                    echo $_SESSION['msg_atu'];
-                    unset($_SESSION['msg_atu']);
-                }
-            ?>
-
             <!-- Nome -->
             <div class="form-item">
                 <label for="nome">Digite seu Nome</label>
