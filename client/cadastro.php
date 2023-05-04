@@ -4,39 +4,37 @@
 
     // Verifica se tem valor nos INPUT's
     if ($_POST){
-    $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        $dadosInput = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-    // Consulta para ver se há Cliente cadastrado com o mesmo email especificado
-    $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '".$dadosInput['email']."';");
+        // Consulta para ver se há Cliente cadastrado com o mesmo email especificado
+        $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '".$dadosInput['email']."';");
     
     
-    // Verifica se já existe um Cliente com o email informado
-    if($loginQuery->num_rows > 0) {
+        // Verifica se já existe um Cliente com o email informado
+        if($loginQuery->num_rows > 0) {
 
-    // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
-    echo "<p>O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
+            // Informa o Cliente que o email já está sendo utilizado e solicita que ele insira outro email
+            $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: O email informado já está sendo utilizado. Por favor, informe outro email.</p>";
+        
+        } else {
+            // Verifica se as senhas são iguais
+            if ($dadosInput['senha'] == $dadosInput['senhaConfirma']) {
 
-    } else {
+                // Recebe a nova senha do usúario
+                $senhaCliente = $dadosInput['senha'];
 
-    // Verifica se as senhas são iguais
-    if ($dadosInput['senha'] == $dadosInput['senhaConfirma']) {
+                // Abre a session e envia o cliente para logar e entrar na are de cliente
+                session_start();
+                $_SESSION['dadosCliente'] = $dadosInput;
+                header('location: endereco.php');
 
-        // Recebe a nova senha do usúario
-        $senhaCliente = $dadosInput['senha'];
-
-        // Abre a session e envia o cliente para logar e entrar na are de cliente
-        session_start();
-        $_SESSION['dadosCliente'] = $dadosInput;
-        header('location: endereco.php');
-
-    // Caso as senhas não sejam iguais
-    } else {
-        // Mensagem de erro na tela
-        $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+            // Caso as senhas não sejam iguais
+            } else {
+                // Mensagem de erro na tela
+                $_SESSION['msg_atu'] = "<p style='color: #ff0000'>Erro: As senhas não são iguais! Digite novamente</p>";
+            }
+        }
     }
-    }
-}
-
 ?>
 
 
