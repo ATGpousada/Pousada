@@ -20,7 +20,7 @@ include '../connection/connect.php';
     <!-- Icons do FontAwansome -->
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <!-- Icons do boxicons -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.css' rel='stylesheet'>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Login - Pousada do Sossego</title>
@@ -69,61 +69,66 @@ include '../connection/connect.php';
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Em andamento</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Pendente</button>
                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Confirmada</button>
-                    <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Cancelada</button>
                 </div>
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                     <table class="table table-hover">
-                        <thead>
+                        <thead class="table-dark text-center">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col" class="">#</th>
+                                <th scope="col" class="border-start">Nome</th>
+                                <th scope="col" class="border-start">Data de entrada</th>
+                                <th scope="col" class="border-start">Data de saída</th>
+                                <th scope="col" class="border-start">Acompanhantes</th>
+                                <th scope="col" class="border-start">...</th>
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="text-center">
+                            <?php ?>
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
                                 <td>@twitter</td>
+                                <td>@twitter</td>   
                             </tr>
+                            <? ?>
                         </tbody>
                     </table>
                 </div>
 
 
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-
-                </div>
-
-
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                    <table class="table table-hover">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th scope="col" class="">#</th>
+                                <th scope="col" class="border-start">Nome</th>
+                                <th scope="col" class="border-start">Data de entrada</th>
+                                <th scope="col" class="border-start">Data de saída</th>
+                                <th scope="col" class="border-start">Acompanhantes</th>
+                                <th scope="col" class="border-start">...</th>
+                            </tr>
+                        </thead>
 
-                </div>
-
-
-                <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
-
+                        <tbody class="text-center">
+                            <?php ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@twitter</td>
+                                <td>@twitter</td>   
+                            </tr>
+                            <? ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -134,7 +139,7 @@ include '../connection/connect.php';
 <!-- Jquery -->
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
 <!-- Nosso script -->
 <script type="text/javascript" src="../js/script.js"></script>
 </html>
