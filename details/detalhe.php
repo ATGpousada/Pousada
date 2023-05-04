@@ -111,7 +111,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         <hr class="linha_del">
         <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
             Detalhes do Quarto
-            <?php //echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
+            <?php echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
         </h2>
 
         <p><?php echo $linha['DESCRICAO'];?></p>
@@ -119,47 +119,49 @@ $linha_quarto = $lista_quarto->fetch_assoc();
 </main> 
 
 <!-- Modal 1 -->
-<div class="modal s-modal primary fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal s-modal cor fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content" >
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel">REGRAS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="background-color:#d7e8f7;">
         <div id="regras">
             <ul class="list-group list-group-numbered">
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">Os pedidos devem ser solicitados com dias de entrada e saída, assim como quantidade de acompanhantes;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">É obrigatório em cada reserva ter ao menos 1 adulto;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">Toda criança é abaixo de 12 anos de idade, toda criança não paga valor algum;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">Se o cliente pagar e não comparecer, ou chegar nos dias seguintes, não será reembolsado pelos dias perdidos, e no caso de o cliente não cancelar sua reserva e não comparecer dia algum, também não será reembolsado;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">O cliente poderá realizar o cancelamento da reserva com antecedência mínima de 36 horas;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">Após aprovação do pedido de reserva será solicitado 30% do valor da reserva de adiantamento;</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">O tempo de permanência máxima da pousada é de 14 dias.</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
-                <li class="list-group-item list-group-item-primary"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">Os pedidos devem ser solicitados com dias de entrada e saída, assim como quantidade de acompanhantes;</strong></li>
+                <li class="list-group-item"><strong style="color: black">É obrigatório em cada reserva ter ao menos 1 adulto;</strong></li>
+                <li class="list-group-item"><strong style="color: black">Toda criança é abaixo de 12 anos de idade, toda criança não paga valor algum;</strong></li>
+                <li class="list-group-item"><strong style="color: black">Se o cliente pagar e não comparecer, ou chegar nos dias seguintes, não será reembolsado pelos dias perdidos, e no caso de o cliente não cancelar sua reserva e não comparecer dia algum, também não será reembolsado;</strong></li>
+                <li class="list-group-item"><strong style="color: black">O cliente poderá realizar o cancelamento da reserva com antecedência mínima de 36 horas;</strong></li>
+                <li class="list-group-item"><strong style="color: black">Após aprovação do pedido de reserva será solicitado 30% do valor da reserva de adiantamento;</strong></li>
+                <li class="list-group-item"><strong style="color: black">O tempo de permanência máxima da pousada é de 14 dias.</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
             </ul>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="background-color:#0d6efd;">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <!-- fazer funcionar o required do checkbox -->
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required> 
+            <label class="form-check-label" for="flexCheckDefault" style="color:white">
                 Concordo com as regras
             </label>
+            <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
         </div>
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
+        
       </div>
     </div>
   </div>
@@ -170,7 +172,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: #d7e8f7;">
             <div class="modal-header" style="display: block !important;">
-                <h4 class="modal-title text-center" id="staticBackdropLabel">
+                <h4 class="modal-title text-center" id="staticBackdropLabel" style="color:white">
                     REALIZAR RESERVA
                 </h4>
             </div>

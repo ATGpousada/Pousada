@@ -1262,18 +1262,32 @@
     border-radius: 30px;
 }
 
-.s-modal .modal-content{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 0px;
-}
+/* .s-modal .modal-content{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+} */
 
 .s-modal .modal-header{
-    padding: 30px 15px
+    padding:30px 15px
 }
 
-s.modal.primary .modal-header{
-    background-color: yellow;
+.s-modal .modal-title{
+    text-transform: uppercase;
+    color: white;
+}
+
+.modal-header{
+    background-color: #0d6efd;
+}
+
+.list-group-item{
+    background-color: #d7e8f7;
+}
+
+.form-check-input:checked{
+    background-color: #ffc107;
 }
 /* Fim Modal */
 
