@@ -126,7 +126,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         <h5 class="modal-title" id="exampleModalToggleLabel">REGRAS</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" style="background-color:lightblue;">
+      <div class="modal-body" style="background-color:#d7e8f7;">
         <div id="regras">
             <ul class="list-group list-group-numbered">
                 <li class="list-group-item"><strong style="color: black">Os pedidos devem ser solicitados com dias de entrada e saída, assim como quantidade de acompanhantes;</strong></li>
@@ -154,12 +154,14 @@ $linha_quarto = $lista_quarto->fetch_assoc();
       </div>
       <div class="modal-footer" style="background-color:#0d6efd;">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <!-- fazer funcionar o required do checkbox -->
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required> 
             <label class="form-check-label" for="flexCheckDefault" style="color:white">
                 Concordo com as regras
             </label>
+            <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
         </div>
-        <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
+        
       </div>
     </div>
   </div>
@@ -170,7 +172,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: #d7e8f7;">
             <div class="modal-header" style="display: block !important;">
-                <h4 class="modal-title text-center" id="staticBackdropLabel">
+                <h4 class="modal-title text-center" id="staticBackdropLabel" style="color:white">
                     REALIZAR RESERVA
                 </h4>
             </div>
