@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); 
 include '../connection/connect.php';
 $id = $_GET['ID'];
 $lista = $connect->query("SELECT quartos.*, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo

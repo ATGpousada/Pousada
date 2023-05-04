@@ -1,5 +1,4 @@
 <?php 
-session_start();
 // select para repetição de sub-imagens
 $listaIMG = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
@@ -10,10 +9,6 @@ $listaIMGres = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
-//select para consultar a tabela de pedido de reservas para poder realizar o pedido clicando no botão reservar agora
-//$listaPedidoReserva = $connect->query("SELECT * FROM pedidos_reservas");
-//$linha = $lista->fetch_assoc();
-//$linhas = $lista->num_rows;
 if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
 {
     // select para consultar o id, nome, email e cpf do cliente logado
@@ -22,11 +17,9 @@ if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
     $linha_cliente = $lista_cliente->fetch_assoc();
 }
 // select para consultar o id do quarto aberto 
-$lista_quarto = $connect->query("SELECT quartos.ID FROM quartos WHERE quartos.ID = $id");
+$lista_quarto = $connect->query("SELECT quartos.ID, quartos.status_ID FROM quartos WHERE quartos.ID = $id");
 // linha do id do quarto consultado
 $linha_quarto = $lista_quarto->fetch_assoc();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +104,6 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         <hr class="linha_del">
         <h2 class="text-center" style="font-weight: bold; margin-bottom:15px;">
             Detalhes do Quarto
-            <?php echo $linha_cliente['NOME']." seu quarto é o: ".$linha_quarto['ID']?>
         </h2>
 
         <p><?php echo $linha['DESCRICAO'];?></p>
@@ -179,7 +171,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
             <div class="modal-body">
 
                 <div class="d-flex justify-content-center" style="margin-top:30px;">
-
+                <form method="post" action="confirmaReserva.php">
                     <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                         <h4>DATA INICIO</h4>
                         <input type="date" name="data_inicio" id="data_inicio">
@@ -194,7 +186,6 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                 <hr>
 
                 <div class="d-flex justify-content-around" style="margin-bottom: 15px;">
-
                     <div style="width: 100%;">
                         <div class="btn-pessoas text-center" ng-click="FuncaoA()">
                             ADULTOS &nbsp;
@@ -202,7 +193,8 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         </div>
 
                         <div class="d-flex justify-content-center" ng-show="Adulto" id="reserva-pessoas">
-                            <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=0>
+                            
+                                <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=0 ng-model="adultos">    
                         </div>
                     </div>
                     
@@ -213,36 +205,31 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         </div>
 
                         <div class="d-flex justify-content-center" ng-show="Crianca" id="reserva-pessoas">
-                            <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0>
+                                <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0 ng-model="criancas">
+                            
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
-                    <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) {?>
-                        <?php 
-                        if ($_POST)
-                        {
-                            if (true)
-                            {
-                                echo "DATA INDISPONÍVEL PARA RESERVA POR FAVOR ALTERE A DATA";
-                            }
-                            else 
-                            {
-                                $inserePedidoReserva = "INSERT INTO pedidos_reservas VALUES (default, data_inicio, data_final, 'juquinha', '22255445522', 'juquinha@gmail.com', 3, 1, 5)";
-                            }
-                        }
-                        ?>
+                    <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
+                    {
+                    ?>
                         <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar" method="post">
                             CONSULTAR
                         </a>
-                    <?php }else {?>
+                    <?php
+                    }
+                    else // se caso não tiver sessão ele redireciona o usuário para a página de login
+                    {
+                    ?>
                         <a href="../client/login.php" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
                             CONSULTAR
                         </a>
-                    <?php }?>
-
+                    </form>
+                    <?php 
+                    }?>
                 </div>
             </div>
         </div>
