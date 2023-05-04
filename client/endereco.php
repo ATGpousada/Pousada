@@ -20,6 +20,7 @@
             return false;
         }
     }
+
     //código busca o cep
     if(isset($_POST['cep'])){
         $cep = $_POST['cep'];
@@ -27,18 +28,26 @@
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
-        curl_close($ch);
+        curl_close($ch); 
         $data = json_decode($response, true);
     
         if(isset($data['erro'])){
-            header('location: config_perfil.php?cep=n');
+            // mensagem de erro atribuida a variável alterar (sucesso)
+            $_SESSION['apiCEP'] = '
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Erro na localização do CEP!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';    
         } else {
             $cidade = isset($data['localidade']) ? $data['localidade'] : '';
             $uf = isset($data['uf']) ? $data['uf'] : '';
         }
     }
-
-    
 
     // Verifica se tem valor nos INPUT's
     if ($_POST){
@@ -114,7 +123,7 @@
 
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo-cadastro"></div>
-    
+
     <!-- Card Sing Up -->
     <div class="card-login-cadastro">
         <!-- Logo no Sing Up -->
@@ -136,8 +145,8 @@
 
             <!-- Tipo de telefone -->
             <div class="form-item">
-            <label for="tipo">Digite o Tipo</label>
-                <input list="tipos" name="tipo" id="tipo">
+                <label for="tipo">Digite o Tipo</label>
+                <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
                 <datalist id="tipos">
                     <option value="Pessoal">
                     <option value="Residêncial">
@@ -151,10 +160,19 @@
                 <input type="text" id="cep" name="cep" class="form-control form-input-item" oninput="mascaraCEP(this)" required>
             </div>
 
+            <!-- Cidade -->
+            <div class="form-item">
+                <label for="cidade">Informe sua Cidade</label>        
+                <input type="cidade" id="cidade" value="" name="cidade" class="form-control form-input-item" required>
+            </div>
+
+            <!-- Uf -->
+            <div class="form-item">
+                <label for="uf">Digite seu UF</label>        
+                <input type="uf" id="uf" name="uf" value="<?php isset($data['']) ? $data['localidade'] : ''?>" class="form-control form-input-item" required>
+            </div>
 
             <button type="submit">Proximo</button>
-
-            
         </form>
         
         <!-- Footer do Sing Up -->
@@ -175,7 +193,10 @@
 <script type="text/javascript" src="../js/script.js"></script>
 <!-- busca de cep -->
 <script>
-    document.getElementById('cidade').value = '<?php echo $cidade; ?>';
-    document.getElementById('uf').value = '<?php echo $uf; ?>';
+    if (cidade != '') {
+        
+    }
+    cidade = document.getElementById('cidade').value = <?php echo $data['cidade'] ?>;
+    uf = document.getElementById('uf').value = <?php echo $data['uf'] ?>;
 </script>
 </html>
