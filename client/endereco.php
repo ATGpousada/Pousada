@@ -21,34 +21,6 @@
         }
     }
 
-    //código busca o cep
-    if(isset($_POST['cep'])){
-        $cep = $_POST['cep'];
-            $url = "https://viacep.com.br/ws/$cep/json/";
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch); 
-            $data = json_decode($response, true);
-    
-        if(isset($data['erro'])){
-            // mensagem de erro atribuida a variável alterar (sucesso)
-            $_SESSION['apiCEP'] = '
-                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            Erro na localização do CEP!
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                </div>
-            ';    
-        } else {
-            $cidade = isset($data['localidade']) ? $data['localidade'] : '';
-            $uf = isset($data['uf']) ? $data['uf'] : '';
-        }};
-    
-
     // Verifica se tem valor nos INPUT's
     if ($_POST){
         session_start();
@@ -61,9 +33,9 @@
         $senha_final = $senha_criptografada . ':' . $senha_base64;
          
         //insere os dados do Cliente no Banco de Dados
-        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
+        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, numero)
         VALUES 
-        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['email']."');";
+        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['numero']."');";
 
 
         if ($connect->query($insereCli)) {
@@ -72,10 +44,12 @@
             $uf = $_POST['uf'];
             $tipoTel = $_POST['tipoTel'];
             $telefone = $_POST['telefone'];
+            $numero = $_POST['numero'];
+            $log = $_POST['logradouro'];
             $id = ultimoCadastro($connect, 'clientes', "ID");
 
             // Insere os dados de endereco dos clientes no banco de dados
-            $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, cliente_ID) VALUES ('$cep', '$cidade', '$uf', $id);");
+            $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, logradouro, numero, cliente_ID) VALUES ('$cep', '$cidade', '$uf','$log','$numero', $id);");
             $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     
             
             // Verifica se a inserção foi bem sucedida
@@ -162,15 +136,28 @@
 
             <!-- Cidade -->
             <div class="form-item">
-                <label for="cidade">Informe sua Cidade</label>        
+                <label for="cidade">Cidade</label>        
                 <input type="api" id="cidade" value="" name="cidade" class="form-control form-input-item" disabled>
             </div>
 
             <!-- Uf -->
             <div class="form-item">
-                <label for="uf">Digite seu UF</label>        
+                <label for="uf">UF</label>        
                 <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" disabled>
             </div>
+
+            <!-- Logradouro -->
+            <div class="form-item">
+                <label for="log">Logradouro</label>        
+                <input type="api" id="log" name="log" value="" class="form-control form-input-item" disabled>
+            </div>
+
+            <!-- Numero -->
+            <div class="form-item">
+                <label for="numero">Digite o Numero</label>        
+                <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
+            </div>
+
 
             <button type="submit">Proximo</button>
         </form>
@@ -205,6 +192,7 @@
                         if(json.logradouro){
                             $("input[id=cidade]").val(json.localidade);
                             $("input[id=uf]").val(json.uf);
+                            $("input[id=log]").val(json.logradouro);
                         }
                     }
             });
