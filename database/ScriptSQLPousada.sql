@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `pousada`.`enderecos_cli` (
   `CEP` VARCHAR(9) NOT NULL,
   `CIDADE` VARCHAR(30) NOT NULL COMMENT 'Pensando que o sistema atendera no máximo o BRASIL, a cidade tem varchar de 30 pois o muncipio brasileiro com o nome mais comprido é: São José do Vale do Rio Preto no estado do Rio de Janeiro.',
   `UF` VARCHAR(2) NOT NULL,
+  `logradouro` VARCHAR(60) NOT NULL,
   `numero` VARCHAR(6) NOT NULL,
   `cliente_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -1015,7 +1016,10 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
+<<<<<<< HEAD
 
+=======
+>>>>>>> b61777861e2b615c207e00228da065181186cec9
 
 
 

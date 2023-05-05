@@ -95,6 +95,7 @@ $(function() {
     if ($('#cep').val().replace(/[^0-9]/, '').length == 8) {
       $('#cidade').siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
       $('#uf').siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
+      $('#log').siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
     }
   });
 });
