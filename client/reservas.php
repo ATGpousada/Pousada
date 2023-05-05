@@ -4,6 +4,12 @@ include 'verificacao.php';
 
 // Conexão com o banco
 include '../connection/connect.php';
+
+// Consulta para pegar os dados do cliente logado
+$lista = $connect->query("SELECT * FROM pedidos_reservas WHERE clientes.ID = ".$_SESSION['id'].";");
+
+// Pegando a linha do cliente logado
+$row = $lista->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +19,8 @@ include '../connection/connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Bootstrap dataTable -->
+    <link rel="stylesheet" href="../css/bootstrap-dataTable.css">
     <!-- Nosso estilo -->
     <link rel="stylesheet" href="../css/style.css">
     <!-- Icons do Bootstrap -->
@@ -74,68 +82,65 @@ include '../connection/connect.php';
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active shadow" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <div class="mt-3 col-12 bg-white rounded-top p-3">
-                        <form class="d-flex input-group" role="search">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-primary input-group-text" type="submit"><i class="bi bi-search"></i></button>
-                        </form>
-                    </div>
-                    
-                    <table class="table table-hover table-bordered">
-                        <thead class="table-dark text-center">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Data de entrada</th>
-                                <th scope="col">Data de saída</th>
-                                <th scope="col">Acompanhantes</th>
-                                <th scope="col">...</th>
-                            </tr>
-                        </thead>
+                <div class="tab-pane fade show active shadow rounded mt-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <div class="table-responsive rounded p-3">
+                        <table class="table table-hover table-bordered table-striped table-reserva">
+                            <thead class="table-dark text-center">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Data de entrada</th>
+                                    <th scope="col">Data de saída</th>
+                                    <th scope="col">Acompanhantes</th>
+                                    <th scope="col">...</th>
+                                </tr>
+                            </thead>
 
-                        <tbody class="text-center">
-                            <?php ?>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>   
-                            </tr>
-                            <? ?>
-                        </tbody>
-                    </table>
+                            <tbody class="text-center">
+                                <?php ?>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>   
+                                </tr>
+                                <? ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
 
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                    <table class="table table-hover">
-                        <thead class="table-dark text-center">
-                            <tr>
-                                <th scope="col" class="">#</th>
-                                <th scope="col" class="border-start">Nome</th>
-                                <th scope="col" class="border-start">Data de entrada</th>
-                                <th scope="col" class="border-start">Data de saída</th>
-                                <th scope="col" class="border-start">Acompanhantes</th>
-                                <th scope="col" class="border-start">...</th>
-                            </tr>
-                        </thead>
+                <div class="tab-pane fade active shadow rounded mt-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                    <div class="table-responsive rounded p-3">
+                        <table class="table table-hover table-bordered table-striped table-reserva">
+                            <thead class="table-dark text-center">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Data de entrada</th>
+                                    <th scope="col">Data de saída</th>
+                                    <th scope="col">Acompanhantes</th>
+                                    <th scope="col">...</th>
+                                </tr>
+                            </thead>
 
-                        <tbody class="text-center">
-                            <?php ?>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>   
-                            </tr>
-                            <? ?>
-                        </tbody>
-                    </table>
+                            <tbody class="text-center">
+                                <?php ?>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>   
+                                </tr>
+                                <? ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
@@ -149,4 +154,10 @@ include '../connection/connect.php';
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <!-- Nosso script -->
 <script type="text/javascript" src="../js/script.js"></script>
+<!-- Script DataTable -->
+<script type="text/javascript" src="../js/bootstrap-dataTable.js"></script>
+<!-- Script DataTable -->
+<script type="text/javascript" src="../js/bootstrap-dataTable2.js"></script>
+<!-- Script DataTable -->
+<script type="text/javascript" src="../js/client.js"></script>
 </html>
