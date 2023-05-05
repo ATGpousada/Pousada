@@ -115,7 +115,7 @@ $rows = $lista->num_rows;
             <!-- Informações do cartão -->
             <div class="accordion mt-2 mb-3" id="accordion<?php echo $cont; ?>">
                 <!-- accordion inteiro -->
-                <div class="accordion-item">
+                <div class="accordion-item shadow-sm">
                     <!-- Cabeçalho do accordion -->
                     <h2 class="accordion-header">
                         <!-- Botão para abrir o conteúdo do accordion -->

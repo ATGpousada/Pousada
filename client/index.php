@@ -53,8 +53,8 @@ include '../connection/connect.php';
             <!-- Cards -->
             <div id="cards-paginas" class="d-flex justify-content-around flex-wrap">
                 <!-- Card para o perfil -->
-                <div id="card-perfil" style="width: 340px;">
-                    <div class="card w-100 overflow-hidden mb-3 d-flex align-items-center bg-info bg-gradient" style="width: 22rem; height: 15rem;">
+                <div class="shadow mb-3" id="card-perfil" style="width: 340px; height: 16em;">
+                    <div class="card w-100 overflow-hidden d-flex align-items-center bg-info bg-gradient" style="height: 100%;">
                         <div class="card-body d-flex flex-column p-0 mt-4">
                             <i class='bx bx-user card-icon'></i>
                             
@@ -72,8 +72,8 @@ include '../connection/connect.php';
                 </div>
 
                 <!-- Card para a reserva -->
-                <div id="card-reserva" style="width: 340px;">
-                    <div class="card w-100 overflow-hidden mb-3 d-flex align-items-center bg-danger bg-gradient" style="width: 22rem; height: 15rem;">
+                <div class="shadow mb-3" id="card-reserva" style="width: 340px; height: 16em;">
+                    <div class="card w-100 overflow-hidden d-flex align-items-center bg-danger bg-gradient" style="height: 100%;">
                         <div class="card-body d-flex flex-column p-0 mt-4">
                             <i class='bx bx-calendar card-icon'></i>
                             
@@ -91,8 +91,8 @@ include '../connection/connect.php';
                 </div>
                 
                 <!-- Card para configurações -->
-                <div id="card-config" style="width: 340px;">
-                    <div class="card w-100 overflow-hidden mb-3 d-flex align-items-center bg-warning bg-gradient" style="width: 22rem; height: 15rem;">
+                <div class="shadow mb-3" id="card-config" style="width: 340px; height: 16em;">
+                    <div class="card w-100 overflow-hidden d-flex align-items-center bg-warning bg-gradient" style="height: 100%;">
                         <div class="card-body d-flex flex-column p-0 mt-4">
                             <i class='bx bx-cog card-icon'></i>
                             
@@ -114,7 +114,7 @@ include '../connection/connect.php';
         <!-- Caixa de Informações -->
         <section class="bg-body-secondary p-4 m-4 rounded-2">
             <!-- Card -->
-            <div class="card border-bottom border-danger">
+            <div class="card border-bottom border-danger shadow">
                 <!-- Cabeçalho do card -->
                 <div class="card-header fw-medium bg-danger text-white">
                     Atenção

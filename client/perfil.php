@@ -84,7 +84,7 @@ $row = $lista->fetch_assoc();
             <h3 class="col-md-12">Conta</h4>
             
             <!-- Área para consultar ou realizar alteações do login -->
-            <fieldset class="col-md-12">
+            <fieldset class="col-md-12 shadow">
                 <!-- Título da área do login -->
                 <legend>Informações da conta</legend>
 
@@ -114,7 +114,7 @@ $row = $lista->fetch_assoc();
 
             <div class="d-flex gap-5" id='group-formulario'>
                 <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50" id="dados-pessoais">
+                <fieldset class="w-50 shadow" id="dados-pessoais">
                     <!-- Título da área dos dados pessoais -->
                     <legend>Dados Pessoias</legend>
                     
@@ -140,7 +140,7 @@ $row = $lista->fetch_assoc();
                 </fieldset>
 
                 <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50" id="contato">
+                <fieldset class="w-50 shadow" id="contato">
                     <!-- Título da área dos dados pessoais -->
                     <legend>Contato</legend>
                     

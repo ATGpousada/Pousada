@@ -74,16 +74,23 @@ include '../connection/connect.php';
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <table class="table table-hover">
+                <div class="tab-pane fade show active shadow" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <div class="mt-3 col-12 bg-white rounded-top p-3">
+                        <form class="d-flex input-group" role="search">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-primary input-group-text" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <table class="table table-hover table-bordered">
                         <thead class="table-dark text-center">
                             <tr>
-                                <th scope="col" class="">#</th>
-                                <th scope="col" class="border-start">Nome</th>
-                                <th scope="col" class="border-start">Data de entrada</th>
-                                <th scope="col" class="border-start">Data de saída</th>
-                                <th scope="col" class="border-start">Acompanhantes</th>
-                                <th scope="col" class="border-start">...</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Data de entrada</th>
+                                <th scope="col">Data de saída</th>
+                                <th scope="col">Acompanhantes</th>
+                                <th scope="col">...</th>
                             </tr>
                         </thead>
 
