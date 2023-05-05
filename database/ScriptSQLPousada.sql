@@ -1016,10 +1016,7 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
-<<<<<<< HEAD
 
-=======
->>>>>>> b61777861e2b615c207e00228da065181186cec9
 
 
 
