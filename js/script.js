@@ -90,6 +90,15 @@ $(function() {
     });
 });
 
+$(function() {
+  $('#cep').keyup(function() {
+    if ($('#cep').val().replace(/[^0-9]/, '').length == 8) {
+      $('#cidade').siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
+      $('#uf').siblings("label").css({top:"3px", left:"12px", "font-size":"12px"});
+    }
+  });
+});
+
 // Password Flutter 
 function mostrarSenha(){
   var inputPass = document.getElementById('senha')
@@ -120,70 +129,51 @@ function mostrarSenha2(){
 
 
 // ---------------------------- Começo SingUp ----------------------------
+const mask = {
+  // mascara cpf
+  cpf(value) {
+    return value
+      .replace(/\D/g, '') // aceita somente caracteres numero.
+      .replace(/(\d{3})(\d)/, '$1.$2') // () => permite criar grupos de captura.
+      .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+      .replace(/(\d{3})(\d{2})/, '$1-$2') // substitui '78910' por '789-10'.
+      .replace(/(-\d{2})\d+?$/, '$1');
+  },
+  // mascara rg
+  rg(value) {
+    return value
+      .replace(/\D/g, '') // aceita somente caracteres numero.
+      .replace(/(\d{2})(\d)/, '$1.$2') // () => permite criar grupos de captura.
+      .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+      .replace(/(\d{3})(\d{1})/, '$1-$2') // substitui '78910' por '789-10'.
+      .replace(/(-\d{1})\d+?$/, '$1');
+  },
+  // mascara telefone
+  phone(value) {
+    return value
+      .replace(/\D/g, '')// aceita somente caracteres numero.
+      .replace(/(\d{2})(\d)/, '(+$1) $2')// () => permite criar grupos de captura.
+      .replace(/(\d{2})(\d)/, '$1 $2')// () => permite criar grupos de captura.
+      .replace(/(\d{4})(\d)/, '$1-$2') //
+      .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+      .replace(/(\d{4})\d+?$/, '$1');
+  },
+  // mascara cep
+  cep(value) {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{5})(\d)/, '$1-$2')
+      .replace(/(-\d{3})\d+?$/, '$1');
+  },
+};
 
-// Mascara do Telefone
-function mascara(i) {
-    var v = i.value;
-    if(!/[\d()\-]/.test(v[v.length-1])) { // impede entrar outro caractere que não seja número, parênteses ou hífen
-      i.value = v.substring(0, v.length-1);
-      return;
-    }
-    if(v.length < 2) {
-      i.setAttribute("maxlength", "14");
-    } else {
-      i.setAttribute("maxlength", "15");
-    }
-    if(v.length == 2) {
-      i.value = "(" + i.value + ") ";
-    } else if(v.length == 10) {
-      i.value = i.value + "-";
-    } else if(v.length == 15) {
-      i.value = i.value.substring(0, 15);
-    }
-  }
-  
-// Mascara do Cpf
-    function mascarac(i){
-        var v = i.value;
-        if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-            i.value = v.substring(0, v.length-1);
-            return;
-        }
-    i.setAttribute("maxlength", "14");
-    if (v.length == 3 || v.length == 7) i.value += ".";
-    if (v.length == 11) i.value += "-";
-    }
+document.querySelectorAll('input').forEach((input) => {
+  const field = input.dataset.js;
 
-// Mascara do RG
-function mascaraRG(i) {
-    var v = i.value;
-    if(isNaN(v[v.length-1])) { // impede entrar outro caractere que não seja número
-      i.value = v.substring(0, v.length-1);
-      return;
-    }
-    i.setAttribute("maxlength", "12");
-    if(v.length == 2 || v.length == 6) {
-      i.value += ".";
-    } else if(v.length == 10) {
-      i.value += "-";
-    }
-  }
-
-// Mascara Cep
-function mascaraCEP(i) {
-  var v = i.value;
-  if(!/[\d\-]/.test(v[v.length-1])) { // impede entrar outro caractere que não seja número ou hífen
-    i.value = v.substring(0, v.length-1);
-    return;
-  }
-  i.setAttribute("maxlength", "9");
-  if(v.length == 5) {
-    i.value = i.value + "-";
-  } else if(v.length == 9) {
-    i.value = i.value.substring(0, 9);
-  }
-}
-
+  input.addEventListener('input', (event) => {
+    event.target.value = mask[field](event.target.value);
+  });
+});
 // ---------------------------- Fim SingUp ----------------------------
 
 
