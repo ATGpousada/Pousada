@@ -9,7 +9,7 @@ $listaIMGres = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
-if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
+ if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
 {
     // select para consultar o id, nome, email e cpf do cliente logado
     $lista_cliente = $connect->query("SELECT clientes.ID, clientes.NOME, clientes.EMAIL, clientes.CPF FROM clientes WHERE clientes.ID = ".$_SESSION['id'].";");
@@ -17,9 +17,18 @@ if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada"))
     $linha_cliente = $lista_cliente->fetch_assoc();
 }
 // select para consultar o id do quarto aberto 
-$lista_quarto = $connect->query("SELECT quartos.ID, quartos.status_ID FROM quartos WHERE quartos.ID = $id");
+$lista_quarto = $connect->query("SELECT quartos.ID, quartos.status_ID, quartos.QTDE_PESSOAS FROM quartos WHERE quartos.ID = $id");
 // linha do id do quarto consultado
 $linha_quarto = $lista_quarto->fetch_assoc();
+ if ($_POST) 
+ {
+    // variáveis que armazenam valores do formulário
+    $data_inicio = $_POST['data_inicio']; // variável que armazena a data de inicio enviada do formulario
+    $data_final = $_POST['data_final']; // variável que armazena a data final enviada do formulario
+    $criancas = $_POST['number_criancas']; // variável que armazena o numero de criancas enviado do formulario
+    $adultos = $_POST['number_adultos']; // variável que armazena o numero de adultos enviado do formulario
+    $acompanhantes = $criancas + $adultos; // variável que armazena o numero total de acompanhantes
+ }
 ?>
 
 <!DOCTYPE html>
@@ -160,77 +169,79 @@ $linha_quarto = $lista_quarto->fetch_assoc();
 </div>
 
 <!-- Modal 2-->
-<div class="modal fade" id="exampleModalToggle2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal s-modal fade" id="exampleModalToggle2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: #d7e8f7;">
             <div class="modal-header" style="display: block !important;">
                 <h4 class="modal-title text-center" id="staticBackdropLabel" style="color:white">
-                    REALIZAR RESERVA
+                    REALIZAR PEDIDO DE RESERVA
                 </h4>
             </div>
             <div class="modal-body">
-
+            <form method="post" action="detalhe.php">
                 <div class="d-flex justify-content-center" style="margin-top:30px;">
-                <form method="post" action="confirmaReserva.php">
-                    <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
-                        <h4>DATA INICIO</h4>
-                        <input type="date" name="data_inicio" id="data_inicio">
-                    </span>
+                
+                        <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
+                            <h4>DATA INICIO</h4>
+                            <input type="date" name="data_inicio" id="data_inicio">
+                        </span>
 
-                    <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
-                        <h4>DATA FINAL</h4>
-                        <input type="date" name="data_final" id="data_final">
-                    </span>
+                        <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
+                            <h4>DATA FINAL</h4>
+                            <input type="date" name="data_final" id="data_final">
+                        </span>
                 </div>
 
-                <hr>
+                    <hr>
 
-                <div class="d-flex justify-content-around" style="margin-bottom: 15px;">
-                    <div style="width: 100%;">
-                        <div class="btn-pessoas text-center" ng-click="FuncaoA()">
-                            ADULTOS &nbsp;
-                            <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                    <div class="d-flex justify-content-around" style="margin-bottom: 15px;">
+                        <div style="width: 100%;">
+                            <div class="btn-pessoas text-center" ng-click="FuncaoA()">
+                                ADULTOS &nbsp;
+                                <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                            </div>
+
+                            <div class="d-flex justify-content-center" ng-show="Adulto" id="reserva-pessoas">
+                                    <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=1 max=<?php echo $linha_quarto['QTDE_PESSOAS']; 
+                                    //pega a quantidade máxima de pessoas por quarto?>
+                                    ng-model="adultos">    
+                            </div>
                         </div>
+                        
+                        <div style="width: 100%;">
+                            <div class="btn-pessoas text-center" ng-click="FuncaoC()">
+                                CRIANÇAS &nbsp;
+                                <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                            </div>
 
-                        <div class="d-flex justify-content-center" ng-show="Adulto" id="reserva-pessoas">
-                            
-                                <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=0 ng-model="adultos">    
+                            <div class="d-flex justify-content-center" ng-show="Crianca" id="reserva-pessoas">
+                                    <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0 max=<?php echo $linha_quarto['QTDE_PESSOAS'] - 1; 
+                                    //pega a quantidade máxima de pessoas por quarto -1 por que é obrigatório ter ao menos 1 adulto?>
+                                    ng-model="criancas">
+                            </div>
                         </div>
                     </div>
-                    
-                    <div style="width: 100%;">
-                        <div class="btn-pessoas text-center" ng-click="FuncaoC()">
-                            CRIANÇAS &nbsp;
-                            <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
-                        </div>
 
-                        <div class="d-flex justify-content-center" ng-show="Crianca" id="reserva-pessoas">
-                                <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0 ng-model="criancas">
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
-                    <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
-                    {
-                    ?>
-                        <a href="" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar" method="post">
-                            CONSULTAR
-                        </a>
-                    <?php
-                    }
-                    else // se caso não tiver sessão ele redireciona o usuário para a página de login
-                    {
-                    ?>
-                        <a href="../client/login.php" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
-                            CONSULTAR
-                        </a>
-                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
+                        <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
+                        {
+                        ?>
+                            <button type="submit" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar" method="post">
+                                ENVIAR
+                        </button>
+                        <?php
+                        }
+                        else // se caso não tiver sessão ele redireciona o usuário para a página de login
+                        {
+                        ?>
+                            <a href="../client/login.php" type="button" class="btn btn-success text-decoration-none text-reset" style="color: white !important;"id="btn-consultar">
+                                ENVIAR
+                            </a>
                     <?php 
                     }?>
                 </div>
+                </form>
             </div>
         </div>
     </div>
