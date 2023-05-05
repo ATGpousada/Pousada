@@ -622,7 +622,7 @@ $(window).resize(() => {
 
 // ------------------------------------------ Começo da área reservas -------------------------------------//
 $(document).ready(function () {
-    $('.table-reserva').DataTable({
+    $('.tabela-reserva').DataTable({
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
         },

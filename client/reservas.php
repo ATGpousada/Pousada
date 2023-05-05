@@ -5,11 +5,11 @@ include 'verificacao.php';
 // Conexão com o banco
 include '../connection/connect.php';
 
-// Consulta para pegar os dados do cliente logado
-$lista = $connect->query("SELECT * FROM pedidos_reservas WHERE clientes.ID = ".$_SESSION['id'].";");
+// // Consulta para pegar os dados do cliente logado
+// $lista = $connect->query("SELECT * FROM pedidos_reservas WHERE clientes.ID = ".$_SESSION['id'].";");
 
-// Pegando a linha do cliente logado
-$row = $lista->fetch_assoc();
+// // Pegando a linha do cliente logado
+// $row = $lista->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -84,8 +84,8 @@ $row = $lista->fetch_assoc();
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active shadow rounded mt-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                     <div class="table-responsive rounded p-3">
-                        <table class="table table-hover table-bordered table-striped table-reserva">
-                            <thead class="table-dark text-center">
+                        <table class="table table-hover table-bordered table-striped tabela-reserva">
+                            <thead class="table-dark">
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nome</th>
@@ -96,7 +96,7 @@ $row = $lista->fetch_assoc();
                                 </tr>
                             </thead>
 
-                            <tbody class="text-center">
+                            <tbody>
                                 <?php ?>
                                 <tr>
                                     <th scope="row">1</th>
@@ -115,8 +115,8 @@ $row = $lista->fetch_assoc();
 
                 <div class="tab-pane fade active shadow rounded mt-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                     <div class="table-responsive rounded p-3">
-                        <table class="table table-hover table-bordered table-striped table-reserva">
-                            <thead class="table-dark text-center">
+                        <table class="table table-hover table-bordered table-striped tabela-reserva">
+                            <thead class="table-dark">
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nome</th>
@@ -127,7 +127,7 @@ $row = $lista->fetch_assoc();
                                 </tr>
                             </thead>
 
-                            <tbody class="text-center">
+                            <tbody>
                                 <?php ?>
                                 <tr>
                                     <th scope="row">1</th>
@@ -152,12 +152,10 @@ $row = $lista->fetch_assoc();
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
-<!-- Nosso script -->
-<script type="text/javascript" src="../js/script.js"></script>
 <!-- Script DataTable -->
 <script type="text/javascript" src="../js/bootstrap-dataTable.js"></script>
-<!-- Script DataTable -->
+<!-- Script DataTable2 -->
 <script type="text/javascript" src="../js/bootstrap-dataTable2.js"></script>
-<!-- Script DataTable -->
+<!-- Script client -->
 <script type="text/javascript" src="../js/client.js"></script>
 </html>
