@@ -123,13 +123,13 @@
             <!-- Cpf -->
             <div class="form-item">
                 <label for="cpf">Digite seu CPF</label>        
-                <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
+                <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" data-js="cpf" required>
             </div>
 
             <!-- Rg -->
             <div class="form-item">
                 <label for="rg">Digite seu RG</label>        
-                <input type="rg" id="rg" name="rg" class="form-control form-input-item" oninput="mascaraRG(this)" required>
+                <input type="rg" id="rg" name="rg" class="form-control form-input-item" data-js="rg" required>
             </div>
 
             <!-- Senha -->
