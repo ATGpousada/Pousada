@@ -140,7 +140,7 @@
             <!-- Telefone -->
             <div class="form-item">
                 <label for="telefone">Informe seu Telefone</label>        
-                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" oninput="mascara(this)" required>
+                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
             </div>
 
             <!-- Tipo de telefone -->
@@ -157,19 +157,19 @@
             <!-- Cep -->
             <div class="form-item">
                 <label for="cep">Digite seu CEP</label>
-                <input type="text" id="cep" name="cep" class="form-control form-input-item" oninput="mascaraCEP(this)" required>
+                <input type="text" id="cep" name="cep" class="form-control form-input-item" data-js="cep" required>
             </div>
 
             <!-- Cidade -->
             <div class="form-item">
                 <label for="cidade">Informe sua Cidade</label>        
-                <input type="cidade" id="cidade" value="" name="cidade" class="form-control form-input-item" required>
+                <input type="api" id="cidade" value="" name="cidade" class="form-control form-input-item" disabled>
             </div>
 
             <!-- Uf -->
             <div class="form-item">
                 <label for="uf">Digite seu UF</label>        
-                <input type="uf" id="uf" name="uf" value="" class="form-control form-input-item" required>
+                <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" disabled>
             </div>
 
             <button type="submit">Proximo</button>
@@ -192,7 +192,7 @@
 <!-- API cep -->
 <script>
  $(document).ready(function(){
-    $("input[name=cep]").blur(function(){
+    $("input[name=cep]").keyup(function(){
         var cep = $(this).val().replace(/[^0-9]/, '');
         if(cep){
             var url = 'https://viacep.com.br/ws/'+cep+'/json/';
@@ -203,8 +203,8 @@
                     contentType: "application/json",
                     success : function(json){
                         if(json.logradouro){
-                            $("input[name=cidade]").val(json.localidade);
-                            $("input[name=uf]").val(json.estado);
+                            $("input[id=cidade]").val(json.localidade);
+                            $("input[id=uf]").val(json.uf);
                         }
                     }
             });
@@ -214,6 +214,4 @@
 </script>
 <!-- Nosso script -->
 <script type="text/javascript" src="../js/script.js"></script>
-<!-- busca de cep -->
-
 </html>

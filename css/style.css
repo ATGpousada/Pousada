@@ -1262,14 +1262,7 @@
     border-radius: 30px;
 }
 
-/* .s-modal .modal-content{
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-} */
-
-/* .s-modal .modal-header{
+ .s-modal .modal-header{
     padding:30px 15px
 }
 
@@ -1278,17 +1271,17 @@
     color: white;
 }
 
-.modal-header{
+.s-modal .modal-header{
     background-color: #0d6efd;
 }
 
-.list-group-item{
+.s-modal .list-group-item{
     background-color: #d7e8f7;
 }
 
-.form-check-input:checked{
+.s-modal .form-check-input:checked{
     background-color: #ffc107;
-} */
+}
 /* Fim Modal */
 
 /* Destaques */
