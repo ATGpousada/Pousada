@@ -563,17 +563,17 @@ $(document).ready(function() {
 });
 
 // Excluir cartão
-$('#modalButtonExcluir').on('click',function(){
+$('.idCartaoExcluir').on('click',function(){
     // busca o id
-    var id = $('.idCartao').val(); 
+    var id = $(this).data('id'); 
     //chama o arquivo php para excluir o produto
-    console.log(id);
+    $('#modalButtonExcluir').attr('href','excluirCartao.php?ID_CARTAO='+id);
 });
 
 // Alterar cartão
-$('#modalButtonAlterar').on('click',function(){
+$('.idCartaoEditar').on('click',function(){
     // busca o id
-    var id = $('.idCartao').val();
+    var id = $(this).data('id');
     //chama o arquivo php para alterar o produto
     $('#formAlterarCartao').attr('action','editarCartao.php?ID_CARTAO='+id); 
 });

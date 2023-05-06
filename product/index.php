@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
     <title>Pousada - Produtos</title>
 </head>
-<body class="fundofixo body-geral">
+<body class="fundofixo" style="padding-top: 6.5em !important;">
     <!-- início do preloader -->
     <div id="preloader">
         <div class="inner">
@@ -23,7 +23,6 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
-
 
     <script>
     window.scroll({
@@ -39,25 +38,21 @@
     include "../cabecalhoGeral/cabecalhoGeral.php"
     ?>
     <!-- Fim Menu Público -->
-    <div class="mt-4 container-5 bg-body-tertiary rounded p-0"style="margin:0 auto;width:90%;">
-        
-        <div class="row mb-5">
-    <!-- Início Carrossel Produtos-->
 
     <!-- Início container -->
-    <main class="container">
-    <!-- Fim Carrossel Produtos-->
-    <!-- Início Produto Exposição -->
+    <main class="container bg-body-tertiary rounded">
+        <div class="row mb-5">
 
-    <?php 
-    include "produtoExposicao.php";
-    ?>
-
-    <!-- Fim Produto Exposição -->
-    </main>
+            <!-- Início Produto Exposição -->
+            <?php 
+            include "produtoExposicao.php";
+            ?>
+            <!-- Fim Produto Exposição -->
+            
         </div>
-    </div>
+    </main>
     <!-- Fim Container -->
+    
     <!-- Início Rodapé Público -->
     <?php 
     include "../rodapeGeral/rodapeGeral.php";

@@ -27,50 +27,50 @@ $linhas = $lista->num_rows;
     <?php } else {?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
-    <div class="d-flex justify-content-around flex-wrap rounded" style="background: rgb(235, 234, 253);">
-        <h2 class="display-4">Quartos</h2>
-            <div class="d-flex justify-content-around flex-wrap">
-    <?php do{?>
-        <div class="card_quarto">
-            <div class="icon_quarto">
-                <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
-            </div>
-            <strong><?php echo $linha['QUARTO']?></strong>
-            <p style="margin: 0;"><?php echo $linha['TIPO']?></p>
-            <div class="card__corpo">
-            <p class="preco_quarto"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
+    <div class="d-flex justify-content-around flex-wrap rounded p-4" style="background: rgb(235, 234, 253);">
+        <h1 class="text-center text-uppercase w-100">Quartos <hr></h1>
+        <div class="d-flex justify-content-around flex-wrap">
+            <?php do{?>
+            <div class="card_quarto">
+                <div class="icon_quarto">
+                    <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
+                </div>
+                <strong><?php echo $linha['QUARTO']?></strong>
+                <p style="margin: 0;"><?php echo $linha['TIPO']?></p>
+                <div class="card__corpo">
+                <p class="preco_quarto"> R$&nbsp;<?php echo str_replace('.', ',', $linha['PRECO_DIARIA']);?></p>
 
-            <div class="icones">
-                <div class="icone">
-                    <p><i class="fa-solid fa-users" style="color: white;"></i></p>
-                    <div class="sub-texto">
-                        <?php echo $linha['QTDE_PESSOAS']?> Pessoas
+                <div class="icones">
+                    <div class="icone">
+                        <p><i class="fa-solid fa-users" style="color: white;"></i></p>
+                        <div class="sub-texto">
+                            <?php echo $linha['QTDE_PESSOAS']?> Pessoas
+                        </div>
+                    </div>
+
+                    <div class="icone">
+                        <p><i class="fa-solid fa-paw" style="color: white;"></i></p>
+                        <div class="sub-texto">
+                            Animais
+                        </div>
+                    </div>
+
+                    <div class="icone">
+                        <p><i class="fa-solid fa-mug-hot" style="color: white;"></i></p>
+                        <div class="sub-texto">
+                            Café da Manhã
+                        </div>
                     </div>
                 </div>
 
-                <div class="icone">
-                    <p><i class="fa-solid fa-paw" style="color: white;"></i></p>
-                    <div class="sub-texto">
-                        Animais
-                    </div>
                 </div>
-
-                <div class="icone">
-                    <p><i class="fa-solid fa-mug-hot" style="color: white;"></i></p>
-                    <div class="sub-texto">
-                        Café da Manhã
-                    </div>
-                </div>
+                <a class="my-button bg-primary" href="../details/index.php?ID=<?php echo $linha['ID']?>">
+                    Saiba mais!
+                </a>
             </div>
-
-            </div>
-            <a class="my-button bg-primary" href="../details/index.php?ID=<?php echo $linha['ID']?>">
-                Saiba mais!
-            </a>
+            <?php }while($linha = $lista->fetch_assoc())?>
         </div>
-        <?php }while($linha = $lista->fetch_assoc())?>
-    </div>
-    <?php }?>    
+        <?php }?>    
     </div>     
 </div> 
 

@@ -62,8 +62,8 @@ include '../connection/connect.php';
                 <!-- Itens do menu -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="#">Pedidos</a>
-                        <a class="nav-link" href="#">Histórico</a>
+                        <a class="nav-link" aria-current="page" href="reservas.php">Pedidos</a>
+                        <a class="nav-link" href="historico.php">Histórico</a>
                     </div>
                 </div>
             </div>

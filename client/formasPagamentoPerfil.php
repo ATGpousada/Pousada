@@ -141,10 +141,7 @@ $rows = $lista->num_rows;
                         <!-- Corpo do accordion -->
                         <div class="accordion-body">
                             <!-- Todo o conteúdo do accordion -->
-                            <div class="row conteudoCartao">
-                                <!-- ID -->
-                                <input hidden class="idCartao" value="<?php echo $row['ID'];?>">
-                    
+                            <div class="row conteudoCartao">                    
                                 <!-- Primeira lista -->
                                 <ol class="list-group col-md-4 justify-content-center listaInfoCartao1">
                                     <!-- Nome -->
@@ -287,9 +284,9 @@ $rows = $lista->num_rows;
                                 <!-- Botões -->
                                 <div class="col-md-6 botaoInfoCartao">
                                     <!-- Botão para editar  -->
-                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdropEditar">Editar</button>
+                                    <button type="button" class="btn btn-primary me-2 idCartaoEditar" data-bs-toggle="modal" data-bs-target="#staticBackdropEditar" data-id="<?php echo $row['ID'];?>">Editar</button>
                                     <!-- Botão para excluir -->
-                                    <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#staticBackdropExcluir">Excluir</button>
+                                    <button type="button" class="btn btn-danger ms-2 idCartaoExcluir" data-bs-toggle="modal"  data-bs-target="#staticBackdropExcluir" data-id="<?php echo $row['ID'];?>">Excluir</button>
                                 </div>
                             </div>
                         </div>
@@ -504,14 +501,14 @@ $rows = $lista->num_rows;
                     <form action="" method="post" class="row g-3" id="formAlterarCartao">
                         <!-- Tipo de nome do titular do cartão -->
                         <div class="form-floating col-md-8">
-                            <input type="text" class="form-control text-uppercase" id="nomeTitular" name="nomeTitularAlterar" required maxlength="35">
-                            <label for="nomeTitular">Nome do Titular</label>
+                            <input type="text" class="form-control text-uppercase" id="nomeTitularAlterar" name="nomeTitularAlterar" required maxlength="35">
+                            <label for="nomeTitularAlterar">Nome do Titular</label>
                         </div>
 
                         <!-- Tipo de data de validade do cartão -->
                         <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="dataValidade" name="dataValidadeAlterar" data-js="data" required>
-                            <label for="dataValidade">Data de Validade</label>
+                            <input type="text" class="form-control" id="dataValidadeAlterar" name="dataValidadeAlterar" data-js="data" required>
+                            <label for="dataValidadeAlterar">Data de Validade</label>
                         </div>
 
                         <!-- Botão para alterar o cartão -->

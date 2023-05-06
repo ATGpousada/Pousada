@@ -18,8 +18,8 @@
             // Após a exclusão, voltar para a página de index.php
             header('location: ../index.php');
 
-            // Destrói a sessão
-            session_destroy();
+            // Destrói a variavél da sessão
+            unset($_SESSION['pousada']);
 
             // Retorno caso dar certo
             return true;

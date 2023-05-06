@@ -67,12 +67,12 @@ include '../connection/connect.php';
 
                 <!-- Card com informaçoes -->
                 <div class="d-flex justify-content-center mt-5">
-                    <div class="card border-danger" style="max-width: 85%;">
+                    <div class="card border-primary" style="max-width: 85%;">
                         <div class="card-header"><strong>Informações:</strong></div>
                         
-                        <div class="card-body text-danger">
+                        <div class="card-body text-primary">
                             <h5 class="card-title">Desativar conta</h5>
-                            <p class="card-text">Nessa opção você apenas irá desativar a conta, podendo ativá-la a qualquer momento, apenas logando no nosso site novamente.</p>
+                            <p class="card-text">Nessa opção você apenas irá desativar a conta, podendo ativá-la a qualquer momento, apenas logando no nosso site novamente. <br><br> <span class="bold">Obs:</span> Após a ativação da conta, você terá acesso a todas as informações da sua conta novamente.</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ include '../connection/connect.php';
                         
                         <div class="card-body text-danger">
                             <h5 class="card-title">Excluir conta</h5>
-                            <p class="card-text">Nessa aqui você irá excluir permanentemente sua conta no nosso site, perdendo seu histórico de reservas e outros dados relacionado ao seu perfil.</p>
+                            <p class="card-text">Nessa aqui você irá excluir permanentemente sua conta no nosso site, perdendo seu histórico de reservas e outros dados relacionado ao seu perfil. <br><br> <span class="bold">Obs:</span> Após a exclusão, caso você queira retornar ao nosso site com um novo cadastro, terá de volta suas informaçoes do histórico de reservas se usar o mesmo CPF (Por política da empresa, não apagamos dados das reservas).</p>
                         </div>
                     </div>
                 </div>
