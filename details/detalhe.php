@@ -257,10 +257,10 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     function isDataReservada(data) {
         // Lógica para consultar o banco de dados e verificar se a data está reservada
 
-        if ()
-        {
+        //if () //esse if foi o henrique q fez
+        //{
 
-        }
+        //}
         // Retorne true se a data estiver reservada e false caso contrário
 
         // Exemplo simplificado:
