@@ -509,7 +509,7 @@ VALUES
 INSERT INTO `pousada`.`status`
 (`ID`, `STATUS`)
 VALUES
-(5, "PENDENTE");
+(5, "CANCELADO");
 
 
 
@@ -517,15 +517,7 @@ VALUES
 INSERT INTO `pousada`.`status`
 (`ID`, `STATUS`)
 VALUES
-(6, "CANCELADO");
-
-
-
--- Status 7 ---------------------------------
-INSERT INTO `pousada`.`status`
-(`ID`, `STATUS`)
-VALUES
-(7, "EM ANDAMENTO");
+(6, "EM ANDAMENTO");
 
 
 
@@ -1017,6 +1009,53 @@ VALUES
 ("images/quartos/quarto7-2.jpg",
 "../images/quartos/quarto7-2.jpg",
 7);
+
+
+
+
+
+
+-- INSERT CARGOS -------------------------------------------------------------------------------------------------------
+-- Gerente ---------------------------------
+INSERT INTO `pousada`.`cargos`
+(`ID`,
+`NOME`,
+`DESCRICAO`)
+VALUES
+(1,
+'Gerente',
+'Um gerente de pousada é um profissional responsável pela gestão estratégica da pousada, garantindo que todas as áreas e departamentos estejam alinhados para atingir os objetivos do negócio.
+As principais atividades desse profissional incluem definir e implementar a estratégia de negócio da pousada, gerenciar as finanças e o fluxo de caixa, supervisionar e coordenar a equipe de funcionários, cuidar da manutenção e limpeza das instalações, gerenciar a experiência dos hóspedes e garantir o cumprimento de todas as regulamentações e leis.');
+
+
+
+
+-- ATENDENTE ---------------------------------
+INSERT INTO `pousada`.`cargos`
+(`ID`,
+`NOME`,
+`DESCRICAO`)
+VALUES
+(2,
+'Atendente',
+'Um atendente de pousada é um profissional que trabalha no atendimento ao público. Esse profissional é responsável por receber e atender os hóspedes, prestando informações e orientações sobre a pousada e os serviços oferecidos.
+As principais atividades desse profissional incluem realizar o check-in e o check-out dos hóspedes, fornecer informações sobre a pousada e a região, atender solicitações e reclamações dos clientes, fazer reservas e gerenciar a disponibilidade dos quartos. Além disso, ele também pode ser responsável por realizar a cobrança das diárias e de outros serviços adicionais, como café da manhã e lavanderia.');
+
+
+
+
+-- ADMIN ---------------------------------
+INSERT INTO `pousada`.`cargos`
+(`ID`,
+`NOME`,
+`DESCRICAO`)
+VALUES
+(3,
+'Admin',
+'Um administrador de pousada é um profissional responsável pela gestão e coordenação de todas as atividades relacionadas ao funcionamento da pousada, como finanças, marketing, recursos humanos, manutenção e atendimento ao cliente.
+As principais atividades desse profissional incluem definir e implementar as políticas e estratégias da pousada, gerenciar as finanças e o fluxo de caixa, supervisionar a equipe de funcionários, cuidar da manutenção e limpeza das instalações e coordenar as atividades de marketing e vendas para a atração de novos clientes.');
+
+
 
 
 
