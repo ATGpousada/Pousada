@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS `pousada`.`cargos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+ALTER TABLE `pousada`.`cargos` 
+CHANGE COLUMN `ARQUIVAR_EM` `ARQUIVAR` VARCHAR(2) NOT NULL DEFAULT 'N' ;
 
 -- -----------------------------------------------------
 -- Table `pousada`.`clientes`
