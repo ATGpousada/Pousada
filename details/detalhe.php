@@ -29,6 +29,10 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     $adultos = $_POST['number_adultos']; // variável que armazena o numero de adultos enviado do formulario
     $acompanhantes = $criancas + $adultos; // variável que armazena o numero total de acompanhantes
  }
+ // select para consultar a data de entrada e saida das reservas
+ $lista_reserva = $connect->query("SELECT reservas.DATA_ENTRADA, reservas.DATA_ENTRADA FROM reservas");
+ // linha da data de entrada e saida das reservas
+ $linha_reserva = $lista_reserva->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -247,6 +251,72 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     </div>
 </div>
 
+<!-- Início script para verificar datas reservadas do banco -->
+<script>
+    // Função para verificar se uma data está reservada
+    function isDataReservada(data) {
+        // Lógica para consultar o banco de dados e verificar se a data está reservada
+
+        if ()
+        {
+
+        }
+        // Retorne true se a data estiver reservada e false caso contrário
+
+        // Exemplo simplificado:
+        var datasReservadas = ['2023-05-02', '2023-05-07', '2023-05-12'];
+        return datasReservadas.includes(data);
+    }
+
+    // Desabilitar as datas já reservadas
+    document.getElementById('data_inicio').addEventListener('change', function() {
+        var dataInicio = this.value;
+        var dataFinalInput = document.getElementById('data_final');
+        var dataFinal = dataFinalInput.value;
+
+        // Habilitar todas as datas no início
+        dataFinalInput.disabled = false;
+
+        // Desabilitar as datas já reservadas
+        var todasAsDatas = document.querySelectorAll('input[type="date"]');
+        todasAsDatas.forEach(function(dataInput) {
+            var data = dataInput.value;
+            if (data && isDataReservada(data)) {
+                dataInput.disabled = true;
+            }
+        });
+
+        // Verificar se a data final já está reservada
+        if (dataFinal && isDataReservada(dataFinal)) {
+            dataFinalInput.value = '';
+        }
+    });
+
+    // Desabilitar as datas já reservadas
+    document.getElementById('data_final').addEventListener('change', function() {
+        var dataFinal = this.value;
+        var dataInicioInput = document.getElementById('data_inicio');
+        var dataInicio = dataInicioInput.value;
+
+        // Habilitar todas as datas no início
+        dataInicioInput.disabled = false;
+
+        // Desabilitar as datas já reservadas
+        var todasAsDatas = document.querySelectorAll('input[type="date"]');
+        todasAsDatas.forEach(function(dataInput) {
+            var data = dataInput.value;
+            if (data && isDataReservada(data)) {
+                dataInput.disabled = true;
+            }
+        });
+
+        // Verificar se a data de início já está reservada
+        if (dataInicio && isDataReservada(dataInicio)) {
+            dataInicioInput.value = '';
+        }
+    });
+</script>
+<!-- Fim script para verificar datas reservadas do banco -->
 
 <!-- Script do Angular (Modal)  -->
 <script>
