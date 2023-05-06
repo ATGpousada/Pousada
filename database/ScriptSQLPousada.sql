@@ -428,7 +428,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `pousada`.`telefones_cli` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `TIPO` VARCHAR(20) NOT NULL,
-  `TEL` VARCHAR(18) NOT NULL,
+  `TEL` VARCHAR(21) NOT NULL,
   `cliente_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_telefone_cli_cliente1_idx` (`cliente_ID` ASC),
@@ -448,7 +448,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `pousada`.`telefones_func` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `TIPO` VARCHAR(20) NOT NULL,
-  `TEL` VARCHAR(18) NOT NULL,
+  `TEL` VARCHAR(21) NOT NULL,
   `funcionario_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_telefone_func_funcionario1_idx` (`funcionario_ID` ASC),

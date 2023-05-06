@@ -220,14 +220,25 @@ const mask = {
             .replace(/(-\d{2})\d+?$/, '$1');
     },
 
-    // Telefone
+    // mascara rg
+    rg(value) {
+        return value
+        .replace(/\D/g, '') // aceita somente caracteres numero.
+        .replace(/(\d{2})(\d)/, '$1.$2') // () => permite criar grupos de captura.
+        .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+        .replace(/(\d{3})(\d{1})/, '$1-$2') // substitui '78910' por '789-10'.
+        .replace(/(-\d{1})\d+?$/, '$1');
+    },
+
+    // mascara telefone
     phone(value) {
         return value
-            .replace(/\D/g, '')
-            .replace(/(\d{2})(\d)/, '($1) - $2')
-            .replace(/(\d{4})(\d)/, '$1-$2')
-            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
-            .replace(/(\d{4})\d+?$/, '$1');
+        .replace(/\D/g, '')// aceita somente caracteres numero.
+        .replace(/(\d{2})(\d)/, '(+$1) $2')// () => permite criar grupos de captura.
+        .replace(/(\d{2})(\d)/, '$1 $2')// () => permite criar grupos de captura.
+        .replace(/(\d{4})(\d)/, '$1-$2') //
+        .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+        .replace(/(\d{4})\d+?$/, '$1');
     },
 
     // CEP

@@ -112,22 +112,23 @@ $row = $lista->fetch_assoc();
                 </div>
             </fieldset>
 
+            <!-- Área para consultar ou realizar alteações dos dados pessoais -->
             <div class="d-flex gap-5" id='group-formulario'>
                 <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50 shadow" id="dados-pessoais">
+                <fieldset class="w-50 h-50 shadow" id="dados-pessoais">
                     <!-- Título da área dos dados pessoais -->
                     <legend>Dados Pessoias</legend>
                     
                     <!-- Começo do formulário para consulta -->
                     <div class="row g-3">
                         <!-- CPF -->
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="cpfDados" class="form-label">CPF</label>
                             <input type="text" class="form-control" id="cpfDados" name="cpfDados" value="<?php echo $row['CPF']?>" disabled readonly>
                         </div>
 
                         <!-- RG -->
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <label for="rgDados" class="form-label">RG</label>
                             <input type="text" class="form-control" id="rgDados" name="rgDados" value="<?php echo $row['RG']?>" disabled readonly>
                         </div>
@@ -139,44 +140,13 @@ $row = $lista->fetch_assoc();
                     </div>
                 </fieldset>
 
-                <!-- Área para consultar ou realizar alteações dos dados pessoais -->
-                <fieldset class="w-50 shadow" id="contato">
-                    <!-- Título da área dos dados pessoais -->
+                <!-- Área para consultar ou realizar alteações do contato -->
+                <fieldset class="w-50 h-50 shadow" id="contato">
+                    <!-- Título da área do contato-->
                     <legend>Contato</legend>
                     
                     <!-- Começo do formulário para consulta -->
                     <div class="row g-3">
-                        <!-- CEP -->
-                        <div class="col-md-4">
-                            <label for="cepDados" class="form-label">CEP</label>
-                            <input type="text" class="form-control" id="cepContato" name="cepContato" value="<?php echo $row['CEP']?>" disabled readonly>
-                        </div>
-
-                        <!-- Cidade -->
-                        <div class="col-md-4">
-                            <label for="cidadeContato" class="form-label">CIDADE</label>
-                            <input type="text" class="form-control" id="cidadeContato" name="cidadeContato" value="<?php echo $row['CIDADE']?>" disabled readonly>
-                        </div>
-
-                        <!-- UF -->
-                        <div class="col-md-4">
-                            <label for="ufContato" class="form-label">UF</label>
-                            <input type="text" class="form-control" id="ufContato" name="ufContato" value="<?php echo $row['UF']?>" disabled readonly>
-                        </div>
-
-                        <!-- Logradouro -->
-                        <div class="col-md-8">
-                            <label for="logradouroContato" class="form-label">LOGRADOURO</label>
-                            <input type="text" class="form-control" id="logradouroContato" name="logradouroContato" value="<?php echo $row['LOGRADOURO']?>" disabled readonly>
-                        </div>
-
-                        <!-- NUMERO -->
-                        <div class="col-md-4">
-                            <label for="numeroContato" class="form-label">NÚMERO</label>
-                            <input type="text" class="form-control" id="numeroContato" name="numeroContato" value="<?php echo $row['NUMERO']?>" disabled readonly>
-                        </div>
-
-
                         <!-- Número de telefone -->
                         <div class="col-md-6">
                             <label for="numeroContato" class="form-label">Número de contato</label>
@@ -196,6 +166,50 @@ $row = $lista->fetch_assoc();
                     </div>
                 </fieldset>
             </div>
+
+            <!-- Área para consultar ou realizar alteações do endereço -->
+            <fieldset class="w-100 shadow" id="dados-pessoais">
+                <!-- Título da área do endereço -->
+                <legend>Endereço</legend>
+                
+                <!-- Começo do formulário para consulta -->
+                <div class="row g-3">
+                    <!-- CEP -->
+                    <div class="col-md-4">
+                        <label for="cepEndereco" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cepEndereco" name="cepEndereco" value="<?php echo $row['CEP']?>" disabled readonly>
+                    </div>
+
+                    <!-- Cidade -->
+                    <div class="col-md-4">
+                        <label for="cidadeEndereco" class="form-label">CIDADE</label>
+                        <input type="text" class="form-control" id="cidadeEndereco" name="cidadeEndereco" value="<?php echo $row['CIDADE']?>" disabled readonly>
+                    </div>
+
+                    <!-- UF -->
+                    <div class="col-md-4">
+                        <label for="ufEndereco" class="form-label">UF</label>
+                        <input type="text" class="form-control" id="ufEndereco" name="ufEndereco" value="<?php echo $row['UF']?>" disabled readonly>
+                    </div>
+
+                    <!-- Logradouro -->
+                    <div class="col-md-8">
+                        <label for="logradouroEndereco" class="form-label">LOGRADOURO</label>
+                        <input type="text" class="form-control" id="logradouroEndereco" name="logradouroEndereco" value="<?php echo $row['LOGRADOURO']?>" disabled readonly>
+                    </div>
+
+                    <!-- NUMERO -->
+                    <div class="col-md-4">
+                        <label for="numeroEndereco" class="form-label">NÚMERO</label>
+                        <input type="text" class="form-control" id="numeroEndereco" name="numeroEndereco" value="<?php echo $row['NUMERO']?>" disabled readonly>
+                    </div>
+
+                    <!-- Botão para editar -->
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalEndereco"><i class="bi bi-pencil-fill"></i> Editar</button>
+                    </div>
+                </div>
+            </fieldset>
         </section>
     </main>
 
@@ -280,14 +294,19 @@ $row = $lista->fetch_assoc();
                     <form action="alterarDados.php" method="post" class="row g-3">                      
                         <!-- CPF -->
                         <div class="form-floating col-md-12">
-                            <input type="text" class="form-control" id="cpfAlterar" name="cpfAlterar" value="<?php echo $row['CPF']?>" oninput="mascarac(this)" required>
+                            <input type="text" class="form-control" id="cpfAlterar" name="cpfAlterar" value="<?php echo $row['CPF']?>" data-js="cpf" required>
                             <label for="cpfAlterar">CPF</label>
                         </div>
                         
                         <!-- RG -->
                         <div class="form-floating col-md-12">
-                            <input type="text" class="form-control" id="rgAlterar" name="rgAlterar" value="<?php echo $row['RG']?>" oninput="mascaraRG(this)" required>
+                            <input type="text" class="form-control" id="rgAlterar" name="rgAlterar" value="<?php echo $row['RG']?>" data-js="rg" required>
                             <label for="rgAlterar">RG</label>
+                        </div>
+
+                        <!-- Informação para o cliente -->
+                        <div class="alert alert-primary mb-3 mt-3" role="alert">
+                            <strong>Atenção: </strong> Caso desejar mudar apenas um dado, mantenha os outros como estavam!
                         </div>
 
                         <!-- Botão para realizar a alteração  -->
@@ -303,7 +322,7 @@ $row = $lista->fetch_assoc();
 
     <!-- Modal Contato -->
     <div class="modal fade" id="modalContato" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered  modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
             <!-- Conteúdo do modal -->
             <div class="modal-content">
                 <!-- Cabeçalho do modal -->
@@ -314,11 +333,60 @@ $row = $lista->fetch_assoc();
             
                 <!-- Corpo do modal -->
                 <div class="modal-body">
-                    <!-- Formulário para alterar os dados pessoais -->
+                    <!-- Formulário para alterar os contato -->
                     <form action="alterarContato.php" method="post" class="row g-3">
+                        <!-- Número de telefone -->
+                        <div class="form-floating col-md-6">
+                            <input type="text" class="form-control" id="numeroContatoAlterar" name="numeroContatoAlterar" value="<?php echo $row['TEL']?>" data-js="phone" required>
+                            <label for="numeroContatoAlterar">Número de contato</label>
+                        </div>
+
+                        <!-- Tipo de telefone -->
+                        <div class="form-floating col-md-6">
+                            <input type="text" list="tipos" class="form-control" id="tipoContatoAlterar" name="tipoContatoAlterar" value="<?php echo $row['TIPO']?>" required>
+                            <datalist id="tipos">
+                                <option value="Pessoal">
+                                <option value="Residêncial">
+                                <option value="Profissional">
+                            </datalist>
+
+                            <label for="tipoContatoAlterar">Tipo</label>
+                        </div>
+
+                        <!-- Informação para o cliente -->
+                        <div class="alert alert-primary mb-3 mt-3" role="alert">
+                            <strong>Atenção: </strong> Caso desejar mudar apenas um dado, mantenha os outros como estavam!
+                        </div>
+                        
+                        <!-- Botão para realizar a alteração  -->
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Descartar alterações</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Endereço -->
+    <div class="modal fade" id="modalEndereco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-lg">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Endereço</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <!-- Formulário para alterar o endereço -->
+                    <form action="alterarEndereco.php" method="post" class="row g-3">
                         <!-- CEP -->
                         <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="cepAlterar" name="cepAlterar" value="<?php echo $row['CEP']?>" oninput="mascaraCEP(this)" required>
+                            <input type="text" class="form-control" id="cepAlterar" name="cepAlterar" value="<?php echo $row['CEP']?>" data-js="cep" required>
                             <label for="cepAlterar">CEP</label>
                         </div>
 
@@ -342,26 +410,8 @@ $row = $lista->fetch_assoc();
 
                         <!-- Numero -->
                         <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['NUMERO']?>" required>
-                            <label for="numeroAlterar">Número</label>
-                        </div>
-
-                        <!-- Número de telefone -->
-                        <div class="form-floating col-md-6">
-                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['TEL']?>" required>
-                            <label for="numeroAlterar">Número de contato</label>
-                        </div>
-
-                        <!-- Tipo de telefone -->
-                        <div class="form-floating col-md-6">
-                            <select class="form-select" id="tipoAlterar" name="tipoAlterar">
-                                <option selected>Selecione o Tipo</option>
-                                <option value="Pessoal">Pessoal</option>
-                                <option value="Residêncial">Residêncial</option>
-                                <option value="Profissional">Profissional</option>
-                            </select>
-
-                            <label for="floatingSelect">Tipo</label>
+                            <input type="text" class="form-control" id="numeroEnderecoAlterar" name="numeroEnderecoAlterar" value="<?php echo $row['NUMERO']?>" required>
+                            <label for="numeroEnderecoAlterar">Número</label>
                         </div>
 
                         <!-- Informação para o cliente -->
