@@ -117,6 +117,11 @@
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }
+
+        if(isset($_SESSION['cadastro'])){
+            echo $_SESSION['cadastro'];
+            unset($_SESSION['cadastro']);
+        }
     ?>
 
     <!-- Icone para voltar -->

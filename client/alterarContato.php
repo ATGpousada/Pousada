@@ -10,7 +10,7 @@
         // Verificação para tratar possível erro 
         try {
             // Alteração da tabela de enderecos_cli (dados pessoais)
-            $connect->query("UPDATE enderecos_cli SET CEP = '".$_POST['cepAlterar']."' , CIDADE = '".$_POST['cidadeAlterar']."', UF = '".$_POST['ufAlterar']."' WHERE ID = ".$_SESSION["id"].";");
+            $connect->query("UPDATE enderecos_cli SET CEP = '".$_POST['cepAlterar']."' , CIDADE = '".$_POST['cidadeAlterar']."', UF = '".$_POST['ufAlterar']."', LOGRADOURO = '".$_POST['logradouroAlterar']."', NUMERO = '".$_POST['numeroAlterar']."' WHERE ID = ".$_SESSION["id"].";");
             // Alteração da tabela de telefones_cli (dados pessoais)
             $connect->query("UPDATE telefones_cli SET TIPO = '".$_POST['tipoAlterar']."' , TEL = '".$_POST['numeroAlterar']."' WHERE ID = ".$_SESSION["id"].";");
 
@@ -30,7 +30,7 @@
 
     // Chamando a função para executar a alteração uma condição para enviar mensagem de erro
     if (alterarContato()) {
-        // mensagem de erro atribuida a variável alterar (sucesso)
+        // mensagem de sucesso atribuida a variável alterar (sucesso)
         $_SESSION['alterar'] = '
             <div style="z-index: 9999;" class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
                 <div class="d-flex">

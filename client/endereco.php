@@ -33,9 +33,9 @@
         $senha_final = $senha_criptografada . ':' . $senha_base64;
          
         //insere os dados do Cliente no Banco de Dados
-        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, numero)
+        $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
         VALUES 
-        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['numero']."');";
+        ('".$dadosCli['nome']."','".$dadosCli['cpf']."','".$dadosCli['rg']."','".$senha_final."','".$dadosCli['email']."');";
 
 
         if ($connect->query($insereCli)) {
@@ -45,24 +45,56 @@
             $tipoTel = $_POST['tipoTel'];
             $telefone = $_POST['telefone'];
             $numero = $_POST['numero'];
-            $log = $_POST['logradouro'];
+            $log = $_POST['log'];
             $id = ultimoCadastro($connect, 'clientes', "ID");
 
             // Insere os dados de endereco dos clientes no banco de dados
-            $insereEndCli = ("INSERT INTO enderecos_cli (cep, cidade, uf, logradouro, numero, cliente_ID) VALUES ('$cep', '$cidade', '$uf','$log','$numero', $id);");
+            $insereEndCli = ("INSERT INTO enderecos_cli (CEP, CIDADE, UF, LOGRADOURO, NUMERO, cliente_ID) VALUES ('$cep', '$cidade', '$uf','$log','$numero', $id);");
             $insereTelCli = ("INSERT INTO telefones_cli (TIPO, TEL, cliente_ID) VALUES ('$tipoTel', '$telefone', $id);");     
             
             // Verifica se a inserção foi bem sucedida
             if($connect->query($insereEndCli) AND $connect->query($insereTelCli)){
+                // mensagem de erro atribuida a variável alterar (sucesso)
+                $_SESSION['cadastro'] = '
+                    <div style="z-index: 9999;" class="toast align-items-center text-bg-success border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Cadastro efetuado com sucesso. Faça seu login!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                ';     
+
                 header('location: index.php');
             } else {
                 // Informa o Cliente que ocorreu um erro na gravação dos dados
-                echo "Ocorreu um erro na gravação dos dados. Por favor, tente novamente.";
+                $_SESSION['cadastro'] = '
+                    <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Ocorreu um erro na gravação dos dados. Por favor, tente novamente!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                ';  
             }
         } else {
+            // Informa o Cliente que ocorreu um erro na gravação dos dados
+            $_SESSION['cadastro'] = '
+                <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Ocorreu um erro na gravação dos dados. Por favor, tente novamente!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            ';  
+
             header('location: cadastro.php');
         }
-
     }
 ?>
 
@@ -91,6 +123,14 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
+
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['cadastro'])){
+            echo $_SESSION['cadastro'];
+            unset($_SESSION['cadastro']);
+        }
+    ?>
 
     <!-- Icone para voltar -->
     <a class="icon-voltar-cadastro" href="cadastro.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
@@ -137,19 +177,19 @@
             <!-- Cidade -->
             <div class="form-item">
                 <label for="cidade">Cidade</label>        
-                <input type="api" id="cidade" value="" name="cidade" class="form-control form-input-item" disabled>
+                <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
             </div>
 
             <!-- Uf -->
             <div class="form-item">
                 <label for="uf">UF</label>        
-                <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" disabled>
+                <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
             </div>
 
             <!-- Logradouro -->
             <div class="form-item">
                 <label for="log">Logradouro</label>        
-                <input type="api" id="log" name="log" value="" class="form-control form-input-item" disabled>
+                <input type="api" id="log" name="log" value="" class="form-control form-input-item" required readonly>
             </div>
 
             <!-- Numero -->
@@ -159,7 +199,7 @@
             </div>
 
 
-            <button type="submit">Proximo</button>
+            <button type="submit">Cadastrar-se</button>
         </form>
         
         <!-- Footer do Sing Up -->
@@ -178,7 +218,7 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <!-- API cep -->
 <script>
- $(document).ready(function(){
+$(document).ready(function(){
     $("input[name=cep]").keyup(function(){
         var cep = $(this).val().replace(/[^0-9]/, '');
         if(cep){
@@ -190,9 +230,9 @@
                     contentType: "application/json",
                     success : function(json){
                         if(json.logradouro){
-                            $("input[id=cidade]").val(json.localidade);
-                            $("input[id=uf]").val(json.uf);
-                            $("input[id=log]").val(json.logradouro);
+                            $("input[id=cidade]").attr('value', json.localidade);
+                            $("input[id=uf]").attr('value', json.uf);
+                            $("input[id=log]").attr('value', json.logradouro);
                         }
                     }
             });

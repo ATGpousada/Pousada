@@ -21,13 +21,12 @@ CREATE TABLE IF NOT EXISTS `pousada`.`cargos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(45) NOT NULL,
   `DESCRICAO` TEXT NOT NULL,
-  `ARQUIVAR_EM` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
+  `ARQUIVAR_EM` VARCHAR(5) NULL DEFAULT 'N',
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `NOME_UNIQUE` (`NOME` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-ALTER TABLE `pousada`.`cargos` 
-CHANGE COLUMN `ARQUIVAR_EM` `ARQUIVAR` VARCHAR(2) NOT NULL DEFAULT 'N' ;
 
 -- -----------------------------------------------------
 -- Table `pousada`.`clientes`
@@ -81,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `pousada`.`enderecos_cli` (
   `CEP` VARCHAR(9) NOT NULL,
   `CIDADE` VARCHAR(30) NOT NULL COMMENT 'Pensando que o sistema atendera no máximo o BRASIL, a cidade tem varchar de 30 pois o muncipio brasileiro com o nome mais comprido é: São José do Vale do Rio Preto no estado do Rio de Janeiro.',
   `UF` VARCHAR(2) NOT NULL,
-  `logradouro` VARCHAR(60) NOT NULL,
-  `numero` VARCHAR(6) NOT NULL,
+  `LOGRADOURO` VARCHAR(60) NOT NULL,
+  `NUMERO` VARCHAR(6) NOT NULL,
   `cliente_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_endereco_cli_cliente1_idx` (`cliente_ID` ASC),

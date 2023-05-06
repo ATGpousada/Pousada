@@ -164,6 +164,19 @@ $row = $lista->fetch_assoc();
                             <input type="text" class="form-control" id="ufContato" name="ufContato" value="<?php echo $row['UF']?>" disabled readonly>
                         </div>
 
+                        <!-- Logradouro -->
+                        <div class="col-md-8">
+                            <label for="logradouroContato" class="form-label">LOGRADOURO</label>
+                            <input type="text" class="form-control" id="logradouroContato" name="logradouroContato" value="<?php echo $row['LOGRADOURO']?>" disabled readonly>
+                        </div>
+
+                        <!-- NUMERO -->
+                        <div class="col-md-4">
+                            <label for="numeroContato" class="form-label">NÚMERO</label>
+                            <input type="text" class="form-control" id="numeroContato" name="numeroContato" value="<?php echo $row['NUMERO']?>" disabled readonly>
+                        </div>
+
+
                         <!-- Número de telefone -->
                         <div class="col-md-6">
                             <label for="numeroContato" class="form-label">Número de contato</label>
@@ -321,9 +334,21 @@ $row = $lista->fetch_assoc();
                             <label for="ufAlterar">UF</label>
                         </div>
 
+                        <!-- Logradouro -->
+                        <div class="form-floating col-md-8">
+                            <input type="text" class="form-control" id="logradouroAlterar" name="logradouroAlterar" value="<?php echo $row['LOGRADOURO']?>" required>
+                            <label for="logradouroAlterar">Logradouro</label>
+                        </div>
+
+                        <!-- Numero -->
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['NUMERO']?>" required>
+                            <label for="numeroAlterar">Número</label>
+                        </div>
+
                         <!-- Número de telefone -->
                         <div class="form-floating col-md-6">
-                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['TEL']?>" oninput="mascara(this)" required>
+                            <input type="text" class="form-control" id="numeroAlterar" name="numeroAlterar" value="<?php echo $row['TEL']?>" required>
                             <label for="numeroAlterar">Número de contato</label>
                         </div>
 
