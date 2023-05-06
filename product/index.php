@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/687b2e222f.js" crossorigin="anonymous"></script>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
-    <title>Pousada - Produtos</title>
+    <title>Pousada - Quartos</title>
 </head>
 <body class="fundofixo" style="padding-top: 6.5em !important;">
     <!-- início do preloader -->
