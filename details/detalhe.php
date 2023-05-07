@@ -211,12 +211,12 @@ if ($_POST)
                         <div class="d-flex justify-content-center" style="margin-top:30px;">
                             <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                                 <h4>DATA INICIO</h4>
-                                <input type="date" name="data_inicio" id="data_inicio">
+                                <input type="datetime-local" name="data_inicio" id="data_inicio">
                             </span>
 
                             <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                                 <h4>DATA FINAL</h4>
-                                <input type="date" name="data_final" id="data_final">
+                                <input type="datetime-local" name="data_final" id="data_final">
                             </span>
                         </div>
 
