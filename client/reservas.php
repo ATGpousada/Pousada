@@ -31,7 +31,7 @@ include '../connection/connect.php';
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.css' rel='stylesheet'>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
-    <title>Login - Pousada do Sossego</title>
+    <title>Reservas - Pousada do Sossego</title>
 </head>
 <body>
     <!-- início do preloader -->

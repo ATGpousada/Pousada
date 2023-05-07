@@ -262,7 +262,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
             dataFinalInput.disabled = false;
 
             // Desabilitar as datas já reservadas
-            var todasAsDatas = document.querySelectorAll('input[type="date"]');
+            var todasAsDatas = document.querySelectorAll('input[type="datetime-local"]');
             todasAsDatas.forEach(function(dataInput) {
                 var data = dataInput.value;
                 if (data && isDataReservada(data)) {
@@ -286,7 +286,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
             dataInicioInput.disabled = false;
 
             // Desabilitar as datas já reservadas
-            var todasAsDatas = document.querySelectorAll('input[type="date"]');
+            var todasAsDatas = document.querySelectorAll('input[type="datetime-local"]');
             todasAsDatas.forEach(function(dataInput) {
                 var data = dataInput.value;
                 if (data && isDataReservada(data)) {
