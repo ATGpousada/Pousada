@@ -501,7 +501,7 @@ VALUES
 INSERT INTO `pousada`.`status`
 (`ID`, `STATUS`)
 VALUES
-(4, "CONFIRMADO");
+(4, "PENDENTE");
 
 
 
@@ -509,7 +509,7 @@ VALUES
 INSERT INTO `pousada`.`status`
 (`ID`, `STATUS`)
 VALUES
-(5, "CANCELADO");
+(5, "CONFIRMADO");
 
 
 
@@ -517,7 +517,15 @@ VALUES
 INSERT INTO `pousada`.`status`
 (`ID`, `STATUS`)
 VALUES
-(6, "EM ANDAMENTO");
+(6, "CANCELADO");
+
+
+
+-- Status 7 ---------------------------------
+INSERT INTO `pousada`.`status`
+(`ID`, `STATUS`)
+VALUES
+(7, "EM ANDAMENTO");
 
 
 
@@ -1081,3 +1089,38 @@ VIEW `clienteCartao` AS
     FROM
         (`clientes`
         JOIN `cartoes` ON (`clientes`.`ID` = `cartoes`.`clientes_ID`))
+
+
+
+-- View Datas Indisponiveis ---------------------------------
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `pousada`.`dataQuartoIndisponivel` AS
+    SELECT 
+        `pousada`.`pedidos_reservas`.`ID` AS `ID_PEDIDO`,
+        `pousada`.`pedidos_reservas`.`DATA_RESERVA` AS `DATA_RESERVA`,
+        `pousada`.`pedidos_reservas`.`DATA_ENTRADA` AS `DATA_ENTRADA`,
+        `pousada`.`pedidos_reservas`.`DATA_SAIDA` AS `DATA_SAIDA`,
+        `pousada`.`pedidos_reservas`.`NOME` AS `NOME`,
+        `pousada`.`pedidos_reservas`.`CPF` AS `CPF`,
+        `pousada`.`pedidos_reservas`.`EMAIL` AS `EMAIL`,
+        `pousada`.`pedidos_reservas`.`ACOMPANHANTES` AS `ACOMPANHANTES`,
+        `pousada`.`pedidos_reservas`.`quartos_ID` AS `pedido_quartos_ID`,
+        `pousada`.`pedidos_reservas`.`status_ID` AS `pedido_status_ID`,
+        `pousada`.`status`.`ID` AS `ID_STATUS`,
+        `pousada`.`status`.`STATUS` AS `STATUS`,
+        `pousada`.`quartos`.`ID` AS `ID_QUARTOS`,
+        `pousada`.`quartos`.`QUARTO` AS `QUARTO`,
+        `pousada`.`quartos`.`DESCRICAO` AS `DESCRICAO`,
+        `pousada`.`quartos`.`PRECO_DIARIA` AS `PRECO_DIARIA`,
+        `pousada`.`quartos`.`QTDE_PESSOAS` AS `QTDE_PESSOAS`,
+        `pousada`.`quartos`.`DESTAQUE` AS `DESTAQUE`,
+        `pousada`.`quartos`.`ARQUIVAR_EM` AS `ARQUIVAR_EM`,
+        `pousada`.`quartos`.`status_ID` AS `quarto_status_ID`,
+        `pousada`.`quartos`.`tipos_ID` AS `tipos_ID`
+    FROM
+        ((`pousada`.`pedidos_reservas`
+        JOIN `pousada`.`status` ON (`pousada`.`pedidos_reservas`.`status_ID` = `pousada`.`status`.`ID`))
+        JOIN `pousada`.`quartos` ON (`pousada`.`pedidos_reservas`.`quartos_ID` = `pousada`.`quartos`.`ID`))
