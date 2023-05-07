@@ -1,5 +1,4 @@
 <?php
-
 // select para repetição de sub-imagens
 $listaIMG = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
@@ -147,7 +146,7 @@ if ($_POST)
         </div>
     </main>
 
-    <!-- Modal 1 -->
+    <!-- Modal 1  De Regras-->
     <div class="modal s-modal cor fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -181,22 +180,23 @@ if ($_POST)
                         </ul>
                     </div>
                 </div>
+                
                 <div class="modal-footer" style="background-color:#0d6efd;">
-                    <div class="form-check">
+                    <div class="form-check"> <!-- Início Check Box -->
                         <!-- fazer funcionar o required do checkbox -->
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault" style="color:white">
                             Concordo com as regras
-                        </label>
+                        </label> <!-- Fim Check Box -->
                         <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+    <!-- Fim Modal de Regras -->
 
-    <!-- Modal 2-->
+    <!-- Modal 2 de inputs para pedido de reserva-->
     <div class="modal s-modal fade" id="exampleModalToggle2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background: #d7e8f7;">
@@ -271,6 +271,7 @@ if ($_POST)
             </div>
         </div>
     </div>
+    <!-- Fim Modal 2 para inputs de pedido de reservas -->
 
     <!-- Início script para verificar datas reservadas do banco -->
     <script>
