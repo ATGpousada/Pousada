@@ -74,9 +74,19 @@
             $lista = $connect->query("SELECT * FROM dataQuartoIndisponivel WHERE STATUS = 'PENDENTE';");
             
             while ($row = $lista->fetch_assoc()) {
-                $listaDeDatas[1] = $row['DATA_RESERVA'];
-                $listaDeDatas[2] = $row['DATA_ENTRADA'];
-                $listaDeDatas[3] = $row['DATA_SAIDA'];
+                $dataReserva = $row['DATA_RESERVA'];
+                $dataEntrada = $row['DATA_ENTRADA'];
+                $dataSaida = $row['DATA_SAIDA'];
+            
+                // Cria um array secundário com as datas
+                $listaDeDatasSecundaria = array(
+                    "dataReserva" => $dataReserva,
+                    "dataEntrada" => $dataEntrada,
+                    "dataSaida" => $dataSaida
+                );
+            
+                // Adiciona o array secundário ao array principal
+                $listaDeDatas[] = $listaDeDatasSecundaria;
             }
         
 

@@ -1088,7 +1088,7 @@ VIEW `clienteCartao` AS
         `cartoes`.`clientes_ID` AS `clientes_ID`
     FROM
         (`clientes`
-        JOIN `cartoes` ON (`clientes`.`ID` = `cartoes`.`clientes_ID`))
+        JOIN `cartoes` ON (`clientes`.`ID` = `cartoes`.`clientes_ID`));
 
 
 
@@ -1123,4 +1123,4 @@ VIEW `pousada`.`dataQuartoIndisponivel` AS
     FROM
         ((`pousada`.`pedidos_reservas`
         JOIN `pousada`.`status` ON (`pousada`.`pedidos_reservas`.`status_ID` = `pousada`.`status`.`ID`))
-        JOIN `pousada`.`quartos` ON (`pousada`.`pedidos_reservas`.`quartos_ID` = `pousada`.`quartos`.`ID`))
+        JOIN `pousada`.`quartos` ON (`pousada`.`pedidos_reservas`.`quartos_ID` = `pousada`.`quartos`.`ID`));
