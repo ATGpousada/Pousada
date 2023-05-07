@@ -43,4 +43,6 @@ if ($_POST)
     $insert = "INSERT INTO pedidos_reservas (DATA_RESERVA, DATA_ENTRADA, DATA_SAIDA, NOME, CPF, EMAIL, ACOMPANHANTES, quartos_ID, status_ID) VALUES (default, '$data_inicio', '$data_final', '{$linha_cliente['NOME']}', '{$linha_cliente['CPF']}', '{$linha_cliente['EMAIL']}', '$acompanhantes', $id, 6)";
     $resultado = $connect->query($insert);
 }
+
+header('location: ../client/reservas.php');
 ?>
