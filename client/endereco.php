@@ -159,7 +159,7 @@
                 </div>
 
                 <!-- Tipo de telefone -->
-                <div class="form-item">
+                <div class="form-item ms-2">
                     <label for="tipo">Tipo</label>
                     <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
                     <datalist id="tipos">
@@ -168,6 +168,7 @@
                         <option value="Profissional">
                     </datalist>
                 </div>
+
             </div>
 
 
@@ -183,7 +184,7 @@
                     <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
                 </div>
                 <!-- Uf -->
-                <div class="form-item w-25">
+                <div class="form-item w-25 ms-2">
                     <label for="uf">UF</label>        
                     <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
                 </div>
@@ -199,7 +200,7 @@
                     <input type="api" id="log" name="log" value="" class=" form-control form-input-item" required readonly>
                 </div>
                 <!-- Numero -->
-                <div class="form-item w-25">
+                <div class="form-item w-25 ms-2">
                     <label for="numero">Numero</label>        
                     <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
                 </div>
