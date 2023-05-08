@@ -12,7 +12,7 @@ if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) {
 }
 
 // select para consultar a data de entrada e saida das reservas
-$lista_reserva = $connect->query("SELECT reservas.DATA_ENTRADA, reservas.DATA_ENTRADA FROM reservas");
+$lista_reserva = $connect->query("SELECT pedidos_reservas.DATA_ENTRADA, pedidos_reservas.DATA_ENTRADA FROM pedidos_reservas"); // trocar dps
 // linha da data de entrada e saida das reservas
 $linha_reserva = $lista_reserva->fetch_assoc();
 
@@ -25,7 +25,7 @@ $linhas = $lista_pedidos->num_rows;
 
 if ($linhas > 0) {
     // select para consultar status do pedido de reserva
-    $lista_status = $connect->query("SELECT * FROM pedidos_reservas WHERE pedidos_reservas.status_ID = 1");
+    $lista_status = $connect->query("SELECT * FROM pedidos_reservas WHERE pedidos_reservas.status_ID = 4");
     // linha do status do pedido de reserva
     $linha_status = $lista_status->fetch_assoc();
 }
@@ -38,7 +38,7 @@ if ($_POST) {
     $adultos = $_POST['number_adultos']; // variável que armazena o numero de adultos enviado do formulario
     $acompanhantes = $criancas + $adultos; // variável que armazena o numero total de acompanhantes
 
-    $insert = "INSERT INTO pedidos_reservas (DATA_RESERVA, DATA_ENTRADA, DATA_SAIDA, NOME, CPF, EMAIL, ACOMPANHANTES, quartos_ID, status_ID) VALUES (default, '$data_inicio', '$data_final', '{$linha_cliente['NOME']}', '{$linha_cliente['CPF']}', '{$linha_cliente['EMAIL']}', '$acompanhantes', $id, 6)";
+    $insert = "INSERT INTO pedidos_reservas (DATA_RESERVA, DATA_ENTRADA, DATA_SAIDA, NOME, CPF, EMAIL, ACOMPANHANTES, quartos_ID, status_ID) VALUES (default, '$data_inicio', '$data_final', '{$linha_cliente['NOME']}', '{$linha_cliente['CPF']}', '{$linha_cliente['EMAIL']}', '$acompanhantes', $id, 7)";
     $resultado = $connect->query($insert);
 }
 
