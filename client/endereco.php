@@ -151,15 +151,15 @@
         
         <!-- Formulario do Sing Up -->
         <form class="form-login-cadastro" style="width: 460px !important;" method="post">
-            <div class="d-flex">
+            <div id="nresp" class="d-flex">
                 <!-- Telefone -->
-                <div class="form-item">
+                <div id="nrespfi" class="form-item">
                     <label for="telefone">Telefone</label>        
                     <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
                 </div>
 
                 <!-- Tipo de telefone -->
-                <div class="form-item ms-2">
+                <div id="nrespfi" class="form-item ms-2">
                     <label for="tipo">Tipo</label>
                     <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
                     <datalist id="tipos">
@@ -177,14 +177,14 @@
                 <label for="cep">CEP</label>
                 <input type="text" id="cep" name="cep" class="form-control form-input-item" data-js="cep" required>
             </div>
-            <div class="d-flex">
+            <div id="nresp" class="d-flex">
                 <!-- Cidade -->
-                <div class="form-item w-75">
+                <div id="logr" class="nrespfi form-item w-75">
                     <label for="cidade">Cidade</label>        
                     <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
                 </div>
                 <!-- Uf -->
-                <div class="form-item w-25 ms-2">
+                <div id="num" class="nrespfi form-item w-25 ms-2">
                     <label for="uf">UF</label>        
                     <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
                 </div>
@@ -193,14 +193,14 @@
 
 
 
-            <div class="d-flex">
+            <div class="nresp d-flex">
             <!-- Logradouro -->
-                <div class="form-item w-75">
+                <div id="logr" class="nrespfi form-item w-75">
                     <label for="log">Logradouro</label>        
                     <input type="api" id="log" name="log" value="" class=" form-control form-input-item" required readonly>
                 </div>
                 <!-- Numero -->
-                <div class="form-item w-25 ms-2">
+                <div name="num" id="num" class="nrespfi form-item w-25 ms-2">
                     <label for="numero">Numero</label>        
                     <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
                 </div>
@@ -229,6 +229,36 @@
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- responsivo -->
+<script>
+    $(window).resize(() => {
+        let larguraTela = $(window).width();
+        if (larguraTela < 900) {
+        // Remove o display flex
+        $('.nresp').removeClass('d-flex');
+        // deixa do msm tamanho
+        $('.nrespfi').removeClass().addClass('nrespfi','form-item');
+    }else{
+        $('.nresp').addClass('d-flex');
+        $('#num').addClass(' w-25','ms-2');
+        $('#logr').addClass('w-75')
+    }
+    })
+    //Inicializa sem um evento
+function inicializaResponsivoEndereco() {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+    if (larguraTela < 900) {
+        // Remove o display flex
+        $('.nresp').removeClass('d-flex');
+        // deixa do msm tamanho
+        $('.nrespfi').removeClass().addClass('nrespfi','form-item');
+    }
+}
+
+// Chamando a função
+inicializaResponsivoEndereco();
+</script>
 <!-- API cep -->
 <script>
 $(document).ready(function(){
