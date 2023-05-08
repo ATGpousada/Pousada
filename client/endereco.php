@@ -146,58 +146,70 @@
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço <br> e um Numero de Contato</h2>
+        <h2>Cadastro de Endereço <br> e Numero de Contato</h2>
+        <p>Informe seus dados</p>
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login-cadastro" method="post">
+        <form class="form-login-cadastro" style="width: 460px !important;" method="post">
+            <div class="d-flex">
+                <!-- Telefone -->
+                <div class="form-item">
+                    <label for="telefone">Telefone</label>        
+                    <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
+                </div>
 
-            <!-- Telefone -->
-            <div class="form-item">
-                <label for="telefone">Informe seu Telefone</label>        
-                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
+                <!-- Tipo de telefone -->
+                <div class="form-item">
+                    <label for="tipo">Tipo</label>
+                    <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
+                    <datalist id="tipos">
+                        <option value="Pessoal">
+                        <option value="Residêncial">
+                        <option value="Profissional">
+                    </datalist>
+                </div>
             </div>
 
-            <!-- Tipo de telefone -->
-            <div class="form-item">
-                <label for="tipo">Digite o Tipo</label>
-                <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
-                <datalist id="tipos">
-                    <option value="Pessoal">
-                    <option value="Residêncial">
-                    <option value="Profissional">
-                </datalist>
-            </div>
 
             <!-- Cep -->
             <div class="form-item">
-                <label for="cep">Digite seu CEP</label>
+                <label for="cep">CEP</label>
                 <input type="text" id="cep" name="cep" class="form-control form-input-item" data-js="cep" required>
             </div>
-
-            <!-- Cidade -->
-            <div class="form-item">
-                <label for="cidade">Cidade</label>        
-                <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
+            <div class="d-flex">
+                <!-- Cidade -->
+                <div class="form-item w-75">
+                    <label for="cidade">Cidade</label>        
+                    <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
+                </div>
+                <!-- Uf -->
+                <div class="form-item w-25">
+                    <label for="uf">UF</label>        
+                    <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
+                </div>
             </div>
 
-            <!-- Uf -->
-            <div class="form-item">
-                <label for="uf">UF</label>        
-                <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
-            </div>
 
+
+
+            <div class="d-flex">
             <!-- Logradouro -->
-            <div class="form-item">
-                <label for="log">Logradouro</label>        
-                <input type="api" id="log" name="log" value="" class="form-control form-input-item" required readonly>
+                <div class="form-item w-75">
+                    <label for="log">Logradouro</label>        
+                    <input type="api" id="log" name="log" value="" class=" form-control form-input-item" required readonly>
+                </div>
+                <!-- Numero -->
+                <div class="form-item w-25">
+                    <label for="numero">Numero</label>        
+                    <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
+                </div>
+
             </div>
 
-            <!-- Numero -->
-            <div class="form-item">
-                <label for="numero">Digite o Numero</label>        
-                <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
+            <div class="">
+                <input type="checkbox" style="width:'3px !impotant'" name="termos" id="termos" required>
+                Lí e concordo com os <a href="termos.php">termos</a>
             </div>
-
 
             <button type="submit">Cadastrar-se</button>
         </form>

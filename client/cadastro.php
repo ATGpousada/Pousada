@@ -105,36 +105,37 @@
         
         <!-- Titulo nivel dois no Sing Up -->
         <h2>Cadastre-se</h2>
+        <p>Informe seus dados</p>
         
         <!-- Formulario do Sing Up -->
         <form class="form-login-cadastro" method="post">
             <!-- Nome -->
             <div class="form-item">
-                <label for="nome">Digite seu Nome</label>
+                <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" class="form-control form-input-item" required>
             </div>
 
             <!-- E-mail -->
             <div class="form-item">
-                <label for="email">Digite seu E-mail</label>        
+                <label for="email">E-mail</label>        
                 <input type="email" id="email" name="email" class="form-control form-input-item" required>
             </div>
 
             <!-- Cpf -->
             <div class="form-item">
-                <label for="cpf">Digite seu CPF</label>        
+                <label for="cpf">CPF</label>        
                 <input type="cpf" id="cpf" name="cpf" class="form-control form-input-item" data-js="cpf" required>
             </div>
 
             <!-- Rg -->
             <div class="form-item">
-                <label for="rg">Digite seu RG</label>        
+                <label for="rg">RG</label>        
                 <input type="rg" id="rg" name="rg" class="form-control form-input-item" data-js="rg" required>
             </div>
 
             <!-- Senha -->
             <div class="form-item">
-                <label for="senha">Digite sua senha</label>
+                <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
                 <i class="bi bi-eye" id="btny" onclick="mostrarSenha()"></i>
             </div>

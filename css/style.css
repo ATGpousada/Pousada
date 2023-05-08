@@ -260,6 +260,20 @@
     -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
     box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
 }
+.card-login-termos {
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    margin: 0 20px;
+    padding: 160px 30px 38px;
+    border-radius: 1.25rem;
+    background: var(--cor-branca);
+    text-align: center;
+    box-shadow: 0 100% 100% rgb(0 0 0 / 10%);
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+    box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
+}
 
 .card-login::before {
     content: "";
@@ -274,6 +288,17 @@
 }
 
 .card-login-cadastro::before{
+    content: "";
+    position: absolute;
+    background: #ffcf00;
+    top: -880px;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    translate: -50% 0;
+}
+.card-login-termos::before{
     content: "";
     position: absolute;
     background: #ffcf00;
@@ -313,6 +338,20 @@
     translate: -50% 0;
 }
 
+.card-login-termos .logo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--cor-branca);
+    height: 94px;
+    width: 94px;
+    top: 10px;
+    left: 50%;
+    translate: -50% 0;
+}
+
 .card-login > h2 {
     font-size: 22px;
     font-weight: 400;
@@ -320,7 +359,27 @@
     color: var(--cor-preto);
 }
 
+.card-login > p {
+    font-size: 16px;
+    font-weight:500;
+    margin: 0 0 30px;
+    color: var(--cor-cinza-escuro);
+}
+
 .card-login-cadastro > h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: var(--cor-preto);
+}
+.card-login-cadastro > p {
+    font-size: 16px;
+    font-weight:500;
+    margin: 0 0 30px;
+    color: var(--cor-cinza-escuro);
+}
+
+.card-login-termos > h2 {
     font-size: 22px;
     font-weight: 400;
     margin: 0 0 30px;
@@ -341,11 +400,36 @@
     gap: 18px;
 }
 
+.form-login-termos {
+    margin: 0 0 30px;
+    overflow-y: scroll;
+    border: solid 1px #c7a200;
+    border-radius: 15px 0 0 15px;
+    height: 360px;
+    width: 560px;
+    display: grid;
+    gap: 18px;
+}
+
+.form-login-termos::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.form-login-termos .form-item ::-webkit-scrollbar-thumb{
+    background: red;
+    border-radius: 10px;
+}
+
 .form-login .form-item {
     position: relative;
 }
 
 .form-login-cadastro .form-item {
+    position: relative;
+}
+
+.form-login-termos .form-item {
     position: relative;
 }
 
@@ -378,6 +462,7 @@
     height: 50px;
     border-radius: 10px;
 }
+
 
 .form-login .form-item > input {
     border: 2px solid #e0e0e0;
@@ -446,6 +531,7 @@
     transition: all 0.375s;
 }
 
+
 .form-login > button:hover {
     columns: var(--cor-branca);
     background: var(--cor-azul-escuro);
@@ -455,6 +541,7 @@
     columns: var(--cor-branca);
     background: #c7a200;
 }
+
 
 /* Password Flutter */
 .form-login > .form-item > i{
@@ -481,6 +568,10 @@
     color: var(--cor-grafite);
 }
 .card-login-cadastro > #footer-login {
+    color: var(--cor-grafite);
+}
+
+.card-login-termos > #footer-login {
     color: var(--cor-grafite);
 }
 
