@@ -1217,4 +1217,4 @@ VIEW `clientePedidoReservas` AS
         JOIN `pedidos_reservas` ON (`clientes`.`CPF` = `pedidos_reservas`.`CPF`))
         JOIN `quartos` ON (`pedidos_reservas`.`quartos_ID` = `quartos`.`ID`))
         JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
-        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`))
+        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));
