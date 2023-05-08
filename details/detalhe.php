@@ -170,12 +170,12 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         <div class="d-flex justify-content-center" style="margin-top:30px;">
                             <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                                 <h4>DATA INICIO</h4>
-                                <input type="datetime-local" name="data_inicio" id="data_inicio">
+                                <input type="datetime-local" name="data_inicio" id="data_inicio" onchange="verificarDisponibilidade()">
                             </span>
 
                             <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                                 <h4>DATA FINAL</h4>
-                                <input type="datetime-local" name="data_final" id="data_final">
+                                <input type="datetime-local" name="data_final" id="data_final" onchange="verificarDisponibilidade()">
                             </span>
                         </div>
 
@@ -212,7 +212,7 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                             <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
                             {
                             ?>
-                                <button type="submit" class="btn btn-success text-decoration-none text-reset" style="color: white !important;" id="btn-consultar" method="post">
+                                <button type="submit" onclick="verificarDisponibilidade()" class="btn btn-success text-decoration-none text-reset" style="color: white !important;" id="btn-consultar" method="post">
                                     ENVIAR
                                 </button>
                             <?php
@@ -231,7 +231,63 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         </div>
     </div>
     <!-- Fim Modal 2 para inputs de pedido de reservas -->
+    <!-- Script das datas -->
+    <script>
+    // Função para verificar a disponibilidade das datas
+        function verificarDisponibilidade() 
+        {
+            // Obter os valores dos campos de data
+            var dataInicio = document.getElementById('data_inicio').value;
+            var dataFinal = document.getElementById('data_final').value;
 
+            // Montar o objeto de dados a ser enviado ao servidor
+            var dados = 
+            {
+                dataInicio: dataInicio,
+                dataFinal: dataFinal
+            };
+
+            // Enviar uma solicitação AJAX para o servidor
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'detalhe.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var resposta = JSON.parse(xhr.responseText);
+                    // Processar a resposta do servidor
+                    desabilitarDatasReservadas(resposta);
+                }
+            };
+            xhr.send(JSON.stringify(dados));
+        }
+
+        // Função para desabilitar as datas reservadas
+        function desabilitarDatasReservadas(datasReservadas) 
+        {
+            // Obter os elementos de entrada de data
+            var inputDataInicio = document.getElementById('data_inicio');
+            var inputDataFinal = document.getElementById('data_saida');
+
+            // Iterar sobre as datas reservadas e desabilitar as correspondentes nos inputs
+            for (var i = 0; i < datasReservadas.length; i++) 
+            {
+                var dataReservada = datasReservadas[i];
+                if (inputDataInicio.value === dataReservada || inputDataFinal.value === dataReservada) 
+                {
+                    inputDataInicio.disabled = true;
+                    inputDataFinal.disabled = true;
+                    // Exibir uma mensagem ou tomar outras ações, se necessário
+                    alert('Data reservada. Por favor, escolha outra data.');
+                    return;
+                }
+            }
+
+            // Se as datas não estiverem reservadas, habilitar os campos
+            inputDataInicio.disabled = false;
+            inputDataFinal.disabled = false;
+        }
+    </script>
+    <!-- Fim script das datas -->
     <!-- Script do Angular (Modal)  -->
     <script>
         var app = angular.module('meuApp', []);
