@@ -1378,8 +1378,9 @@
 
 /* Destaques */
 .img-destaque{
-    width: 230px;
-    height: 150px;
+    width: 330px !important;
+    height: 230px !important;
+    border-radius: 5px;
 }
   
 #titulo_semelhante{
@@ -2121,6 +2122,15 @@ legend {
     }
 
     /* Fim index */
+
+    /* começo quartos */
+    @media (max-width: 550px){
+        .img-destaque{
+            min-width: 230px;
+            height: 200px !important;
+        }
+    }
+    /* Fim quartos */
 
 
     /*Começo login*/

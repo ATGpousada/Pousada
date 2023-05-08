@@ -33,7 +33,7 @@
     ?>
 
     <!-- Icone para voltar -->
-    <a class="icon-voltar-cadastro" href="endereco.php"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
+    <a class="icon-voltar-cadastro" style="cursor: pointer;" onclick="window. history. back();"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
 
     <!-- Circulo no fundo(Amarelo e Azul) -->
     <div class="circulo-cadastro"></div>
