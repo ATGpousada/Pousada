@@ -143,12 +143,13 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                 <div class="modal-footer" style="background-color:#0d6efd;">
                     <div class="form-check"> <!-- Início Check Box -->
                         <!-- fazer funcionar o required do checkbox -->
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                        <label class="form-check-label" for="flexCheckDefault" style="color:white">
+                        <input class="form-check-input" id="termos" type="checkbox" id="flexCheckDefault" onclick="termos();">
+                        <label class="form-check-label" for="termos" style="color:white">
                             Concordo com as regras
                         </label> <!-- Fim Check Box -->
-                        <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
                     </div>
+
+                    <button class="btn btn-success text-white" id="reserva-btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
                 </div>
             </div>
         </div>
@@ -206,7 +207,8 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
+                            <button type="button" class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" >VOLTAR</button>
+                            <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button> -->
                             <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
                             {
                             ?>
@@ -229,6 +231,10 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         </div>
     </div>
     <!-- Fim Modal 2 para inputs de pedido de reservas -->
+
+    <!-- Início Modal 3 para confirmação dos dados e forma de pagamento -->
+
+    <!-- Fim Modal 3 para confirmação dos dados e forma de pagamento -->
     
     <!-- Script do Angular (Modal)  -->
     <script>
@@ -258,6 +264,18 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                 imagemGrande.setAttribute('src', novaSrc);
             });
         });
+
+        function termos() { 
+            let check = document.getElementById('termos');
+            let btn = document.getElementById('reserva-btn');
+
+            if (check.checked == true) {
+                return btn.classList.remove("disabled");
+            } else {
+                return btn.classList.add("disabled");
+            }
+        }
+        termos();
     </script>
 
 </body>
