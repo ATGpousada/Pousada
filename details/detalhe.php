@@ -183,25 +183,23 @@ $linha_quarto = $lista_quarto->fetch_assoc();
 
                         <div class="d-flex justify-content-around" style="margin-bottom: 15px;">
                             <div style="width: 100%;">
-                                <div class="btn-pessoas text-center" ng-click="FuncaoA()">
-                                    ADULTOS &nbsp;
-                                    <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                                <div class=" text-center">
+                                    <strong>ADULTOS</strong>
                                 </div>
 
                                 <div class="d-flex justify-content-center" ng-show="Adulto" id="reserva-pessoas">
-                                    <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=1 max=<?php echo $linha_quarto['QTDE_PESSOAS']; ?> ng-model="adultos">
+                                    <input type="number" class="text-center" name="number_adultos" id="number_adultos" value="1" min="1" max=<?php echo $linha_quarto['QTDE_PESSOAS']; ?> ng-model="adultos">
                                     <!-- pega a quantidade máxima de pessoas por quarto -->
                                 </div>
                             </div>
 
                             <div style="width: 100%;">
-                                <div class="btn-pessoas text-center" ng-click="FuncaoC()">
-                                    CRIANÇAS &nbsp;
-                                    <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                                <div class=" text-center">
+                                   <strong>CRIANÇAS</strong> 
                                 </div>
 
                                 <div class="d-flex justify-content-center" ng-show="Crianca" id="reserva-pessoas">
-                                    <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0 max=<?php echo $linha_quarto['QTDE_PESSOAS'] - 1; ?> ng-model="criancas">
+                                    <input type="number" class="text-center" name="number_criancas" id="number_criancas" value="0" min=0 max=<?php echo $linha_quarto['QTDE_PESSOAS'] - 1; ?> ng-model="criancas">
                                     <!-- pega a quantidade máxima de pessoas por quarto -1 por que é obrigatório ter ao menos 1 adulto -->
                                 </div>
                             </div>
@@ -290,19 +288,19 @@ $linha_quarto = $lista_quarto->fetch_assoc();
     <!-- Fim script das datas -->
     <!-- Script do Angular (Modal)  -->
     <script>
-        var app = angular.module('meuApp', []);
-        app.controller('Controlador', function($scope) {
-            $scope.Adulto = false;
-            $scope.Crianca = false;
+        // var app = angular.module('meuApp', []);
+        // app.controller('Controlador', function($scope) {
+        //     $scope.Adulto = false;
+        //     $scope.Crianca = false;
 
-            $scope.FuncaoA = function() {
-                $scope.Adulto = !$scope.Adulto;
-            }
+        //     $scope.FuncaoA = function() {
+        //         $scope.Adulto = !$scope.Adulto;
+        //     }
 
-            $scope.FuncaoC = function() {
-                $scope.Crianca = !$scope.Crianca;
-            }
-        });
+        //     $scope.FuncaoC = function() {
+        //         $scope.Crianca = !$scope.Crianca;
+        //     }
+        // });
     </script>
 
     <!-- Script JS para imagens -->
