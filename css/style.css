@@ -898,8 +898,9 @@
     width: 60%;
     height: 405px;
     margin: 10px 20px;
-    border: 10px ridge #c0ddff;
-    border-radius: 3%;
+    border-radius: 15px;
+    -webkit-box-shadow: 4px 16px 3px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
 }
 
 .subimg-turistico{
