@@ -76,7 +76,7 @@
 
 /* ########################### COMEÇO GERAL ########################### */
 .fundofixo{
-    background: url('../images/fundo/mangaratiba.jpg') no-repeat fixed;
+    background: url(../images/login.jpg) no-repeat fixed ;
     -webkit-background-size: cover;
     background-size: cover;
     /* padding-top: 88px; */
@@ -764,7 +764,7 @@
 }
   
 .add-btn:hover {
-    width: 350px;
+    width: 230px;
 }
   
 .add-btn::before,
@@ -1378,8 +1378,9 @@
 
 /* Destaques */
 .img-destaque{
-    width: 230px;
-    height: 150px;
+    width: 330px !important;
+    height: 230px !important;
+    border-radius: 5px;
 }
   
 #titulo_semelhante{
@@ -2121,6 +2122,15 @@ legend {
     }
 
     /* Fim index */
+
+    /* começo quartos */
+    @media (max-width: 550px){
+        .img-destaque{
+            min-width: 230px;
+            height: 200px !important;
+        }
+    }
+    /* Fim quartos */
 
 
     /*Começo login*/

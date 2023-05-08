@@ -143,12 +143,13 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                 <div class="modal-footer" style="background-color:#0d6efd;">
                     <div class="form-check"> <!-- Início Check Box -->
                         <!-- fazer funcionar o required do checkbox -->
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                        <label class="form-check-label" for="flexCheckDefault" style="color:white">
+                        <input class="form-check-input" id="termos" type="checkbox" id="flexCheckDefault" onclick="termos();">
+                        <label class="form-check-label" for="termos" style="color:white">
                             Concordo com as regras
                         </label> <!-- Fim Check Box -->
-                        <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
                     </div>
+
+                    <button class="btn btn-success text-white" id="reserva-btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">AVANÇAR</button>
                 </div>
             </div>
         </div>
@@ -170,12 +171,12 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         <div class="d-flex justify-content-center" style="margin-top:30px;">
                             <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                                 <h4>DATA INICIO</h4>
-                                <input type="datetime-local" name="data_inicio" id="data_inicio" onchange="verificarDisponibilidade()">
+                                <input type="datetime-local" name="data_inicio" id="data_inicio" required>
                             </span>
 
                             <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                                 <h4>DATA FINAL</h4>
-                                <input type="datetime-local" name="data_final" id="data_final" onchange="verificarDisponibilidade()">
+                                <input type="datetime-local" name="data_final" id="data_final" required>
                             </span>
                         </div>
 
@@ -183,32 +184,31 @@ $linha_quarto = $lista_quarto->fetch_assoc();
 
                         <div class="d-flex justify-content-around" style="margin-bottom: 15px;">
                             <div style="width: 100%;">
-                                <div class="btn-pessoas text-center" ng-click="FuncaoA()">
-                                    ADULTOS &nbsp;
-                                    <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                                <div class=" text-center">
+                                    <strong>ADULTOS</strong>
                                 </div>
 
                                 <div class="d-flex justify-content-center" ng-show="Adulto" id="reserva-pessoas">
-                                    <input type="number" class="text-center" name="number_adultos" id="number_adultos" min=1 max=<?php echo $linha_quarto['QTDE_PESSOAS']; ?> ng-model="adultos">
+                                    <input type="number" class="text-center" name="number_adultos" id="number_adultos" value="1" min="1" max=<?php echo $linha_quarto['QTDE_PESSOAS']; ?> ng-model="adultos" required>
                                     <!-- pega a quantidade máxima de pessoas por quarto -->
                                 </div>
                             </div>
 
                             <div style="width: 100%;">
-                                <div class="btn-pessoas text-center" ng-click="FuncaoC()">
-                                    CRIANÇAS &nbsp;
-                                    <i class="fa-solid fa-caret-down fa-fade" id="seta" style="color: #fff; font-size:25px;"></i>
+                                <div class=" text-center">
+                                   <strong>CRIANÇAS</strong> 
                                 </div>
 
                                 <div class="d-flex justify-content-center" ng-show="Crianca" id="reserva-pessoas">
-                                    <input type="number" class="text-center" name="number_criancas" id="number_criancas" min=0 max=<?php echo $linha_quarto['QTDE_PESSOAS'] - 1; ?> ng-model="criancas">
+                                    <input type="number" class="text-center" name="number_criancas" id="number_criancas" value="0" min=0 max=<?php echo $linha_quarto['QTDE_PESSOAS'] - 1; ?> ng-model="criancas" required>
                                     <!-- pega a quantidade máxima de pessoas por quarto -1 por que é obrigatório ter ao menos 1 adulto -->
                                 </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button>
+                            <button type="button" class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" >VOLTAR</button>
+                            <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">FECHAR</button> -->
                             <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
                             {
                             ?>
@@ -231,78 +231,26 @@ $linha_quarto = $lista_quarto->fetch_assoc();
         </div>
     </div>
     <!-- Fim Modal 2 para inputs de pedido de reservas -->
-    <!-- Script das datas -->
-    <script>
-    // Função para verificar a disponibilidade das datas
-        function verificarDisponibilidade() 
-        {
-            // Obter os valores dos campos de data
-            var dataInicio = document.getElementById('data_inicio').value;
-            var dataFinal = document.getElementById('data_final').value;
 
-            // Montar o objeto de dados a ser enviado ao servidor
-            var dados = 
-            {
-                dataInicio: dataInicio,
-                dataFinal: dataFinal
-            };
+    <!-- Início Modal 3 para confirmação dos dados e forma de pagamento -->
 
-            // Enviar uma solicitação AJAX para o servidor
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'detalhe.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var resposta = JSON.parse(xhr.responseText);
-                    // Processar a resposta do servidor
-                    desabilitarDatasReservadas(resposta);
-                }
-            };
-            xhr.send(JSON.stringify(dados));
-        }
-
-        // Função para desabilitar as datas reservadas
-        function desabilitarDatasReservadas(datasReservadas) 
-        {
-            // Obter os elementos de entrada de data
-            var inputDataInicio = document.getElementById('data_inicio');
-            var inputDataFinal = document.getElementById('data_saida');
-
-            // Iterar sobre as datas reservadas e desabilitar as correspondentes nos inputs
-            for (var i = 0; i < datasReservadas.length; i++) 
-            {
-                var dataReservada = datasReservadas[i];
-                if (inputDataInicio.value === dataReservada || inputDataFinal.value === dataReservada) 
-                {
-                    inputDataInicio.disabled = true;
-                    inputDataFinal.disabled = true;
-                    // Exibir uma mensagem ou tomar outras ações, se necessário
-                    alert('Data reservada. Por favor, escolha outra data.');
-                    return;
-                }
-            }
-
-            // Se as datas não estiverem reservadas, habilitar os campos
-            inputDataInicio.disabled = false;
-            inputDataFinal.disabled = false;
-        }
-    </script>
-    <!-- Fim script das datas -->
+    <!-- Fim Modal 3 para confirmação dos dados e forma de pagamento -->
+    
     <!-- Script do Angular (Modal)  -->
     <script>
-        var app = angular.module('meuApp', []);
-        app.controller('Controlador', function($scope) {
-            $scope.Adulto = false;
-            $scope.Crianca = false;
+        // var app = angular.module('meuApp', []);
+        // app.controller('Controlador', function($scope) {
+        //     $scope.Adulto = false;
+        //     $scope.Crianca = false;
 
-            $scope.FuncaoA = function() {
-                $scope.Adulto = !$scope.Adulto;
-            }
+        //     $scope.FuncaoA = function() {
+        //         $scope.Adulto = !$scope.Adulto;
+        //     }
 
-            $scope.FuncaoC = function() {
-                $scope.Crianca = !$scope.Crianca;
-            }
-        });
+        //     $scope.FuncaoC = function() {
+        //         $scope.Crianca = !$scope.Crianca;
+        //     }
+        // });
     </script>
 
     <!-- Script JS para imagens -->
@@ -316,6 +264,18 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                 imagemGrande.setAttribute('src', novaSrc);
             });
         });
+
+        function termos() { 
+            let check = document.getElementById('termos');
+            let btn = document.getElementById('reserva-btn');
+
+            if (check.checked == true) {
+                return btn.classList.remove("disabled");
+            } else {
+                return btn.classList.add("disabled");
+            }
+        }
+        termos();
     </script>
 
 </body>

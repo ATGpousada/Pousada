@@ -44,21 +44,6 @@ if ($_POST)
     $adultos = $_POST['number_adultos']; // variável que armazena o numero de adultos enviado do formulario
     $acompanhantes = $criancas + $adultos; // variável que armazena o numero total de acompanhantes
 
-    // Criar um array para armazenar as datas reservadas
-    $datasReservadas = array();
-
-    // Iterar sobre os resultados da consulta e adicionar as datas reservadas ao array
-    while ($row = mysqli_fetch_assoc($resultado))
-    {
-        $dataReservadaEntrada = $row['data_entrada'];
-        $dataReservadaSaida = $row['data_saida'];
-        $datasReservadas[] = $dataReservadaEntrada;
-        $datasReservadas[] = $dataReservadaSaida;
-    }
-
-    // Enviar a resposta para o cliente em formato JSON
-    header('Content-Type: application/json');
-    echo json_encode($datasReservadas);
 
     $insert = "INSERT INTO pedidos_reservas (DATA_RESERVA, DATA_ENTRADA, DATA_SAIDA, NOME, CPF, EMAIL, ACOMPANHANTES, quartos_ID, status_ID) VALUES (default, '$data_inicio', '$data_final', '{$linha_cliente['NOME']}', '{$linha_cliente['CPF']}', '{$linha_cliente['EMAIL']}', '$acompanhantes', $id, 7)";
     $resultado = $connect->query($insert);
