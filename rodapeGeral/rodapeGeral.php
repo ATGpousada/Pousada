@@ -107,7 +107,7 @@
                     <img src="../images/Pagamento/Banco-do-Brasil.png" alt="Banco do Brasil" class="img_pag">
                     <img src="../images/Pagamento/bradesco.svg" alt="Banco Bradesco" class="img_pag">
                     <img src="../images/Pagamento/caixa-logo.svg" alt="Banco Caixa" class="img_pag">
-                    <img src="../images/Pagamento/Itau.png" alt="Banco Itau" class="img_pag"> <br>
+                    <img src="../images/Pagamento/Itau.png" alt="Banco Itau" class="img_pag">
                     <img src="../images/Pagamento/Mercado-Pago.png" alt="Mercado Pago" class="img_pag">
                     <img src="../images/Pagamento/Paypal.png" alt="Paypal" class="img_pag">
                     <img src="../images/Pagamento/pix.png" alt="PIX" class="img_pag">
