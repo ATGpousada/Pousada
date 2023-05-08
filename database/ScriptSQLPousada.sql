@@ -1174,7 +1174,7 @@ VIEW `clientePedidoReservasGeral` AS
         JOIN `quartos` ON (`pedidos_reservas`.`quartos_ID` = `quartos`.`ID`))
         JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
         JOIN `reservas` ON (`pedidos_reservas`.`ID` = `reservas`.`pedidos_reservas_ID`))
-        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`))
+        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));
 
 
 
