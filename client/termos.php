@@ -1,6 +1,6 @@
 <?php ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,6 @@
             <img src="../images/sol.gif" alt="">
         </div>
     </div>
-
-    <!-- Mensagem na tela -->
-    <?php 
-        if(isset($_SESSION['cadastro'])){
-            echo $_SESSION['cadastro'];
-            unset($_SESSION['cadastro']);
-        }
-    ?>
 
     <!-- Icone para voltar -->
     <a class="icon-voltar-cadastro" style="cursor: pointer;" onclick="window. history. back();"><span><i class="bi bi-chevron-left"></i> Voltar</span></a>
