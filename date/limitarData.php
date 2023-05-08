@@ -52,14 +52,14 @@
         }
 
         public static function getDataMinima() {
-            $dataAtual = new DateTime();
+            $dataAtual = getDataRecente();
 
             $dataMinima = $dataAtual->add(new DateInterval('P4D'));
             return $dataMinima->format('d-m-Y');
         }
 
         public static function getDataMaxima() {
-            $dataAtual = new DateTime();
+            $dataAtual = getDataRecente();
 
             $dataMaxima = $dataAtual->add(new DateInterval('P1Y'));
             return $dataMaxima->format('d-m-Y');
@@ -71,16 +71,14 @@
             
             $listaDeDatas = array();
 
-            $lista = $connect->query("SELECT * FROM dataQuartoIndisponivel WHERE STATUS = 'PENDENTE';");
+            $lista = $connect->query("SELECT * FROM dataQuartoIndisponivel WHERE STATUS = 'EM ANDAMENTO';");
             
             while ($row = $lista->fetch_assoc()) {
-                $dataReserva = $row['DATA_RESERVA'];
                 $dataEntrada = $row['DATA_ENTRADA'];
                 $dataSaida = $row['DATA_SAIDA'];
             
                 // Cria um array secundário com as datas
                 $listaDeDatasSecundaria = array(
-                    "dataReserva" => $dataReserva,
                     "dataEntrada" => $dataEntrada,
                     "dataSaida" => $dataSaida
                 );
@@ -93,7 +91,7 @@
             return $listaDeDatas;
         }
 
-        public static function getDataMinimaAlterar() {
+        public static function getDataMinimaAlterar(int $int) {
             
         }
 

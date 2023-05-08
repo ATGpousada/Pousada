@@ -11,6 +11,8 @@ $listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STA
 // Pegando a linha do cliente logado
 $row = $listaHistorico->fetch_assoc();
 $rows = $listaHistorico->num_rows;
+
+$cont = 1;
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +108,7 @@ $rows = $listaHistorico->num_rows;
                             </tr>
                             <?php } else { do {?>
                             <tr>
-                                <th scope="row"><?php echo $rowPendente['ID_PEDIDO']?></th>
+                                <th scope="row"><?php echo $cont;?></th>
 
                                 <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
 
@@ -116,11 +118,13 @@ $rows = $listaHistorico->num_rows;
 
                                 <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
                                 
-                                <td class="d-flex gap-4 justify-content-center"> 
-                                    <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesHistorico"><i class="bi bi-card-list"></i>Detalhes</button>
+                                <td> 
+                                    <div class="d-flex gap-4 justify-content-center"> 
+                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesHistorico"><i class="bi bi-card-list"></i>Detalhes</button>
+                                    </div>
                                 </td>   
                             </tr>
-                            <?php } while ($row = $listaHistorico->fetch_assoc());}?>
+                            <?php $cont += 1; } while ($row = $listaHistorico->fetch_assoc());}?>
                         </tbody>
                     </table>
                 </div>

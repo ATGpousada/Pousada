@@ -18,6 +18,8 @@ $rowConfirmado = $listaConfirmado->fetch_assoc();
 $rowsAndamento = $listaAndamento->num_rows;
 $rowsPendente = $listaPendente->num_rows;
 $rowsConfirmado = $listaConfirmado->num_rows;
+
+$cont = 1;
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +124,7 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                                 </tr>
                                 <?php } else { do {?>
                                 <tr>
-                                    <th scope="row"><?php echo $rowAndamento['ID_PEDIDO']?></th>
+                                    <th scope="row"><?php echo $cont?></th>
 
                                     <td><?php echo $rowAndamento['CLIENTE_NOME']?></td>
 
@@ -132,12 +134,14 @@ $rowsConfirmado = $listaConfirmado->num_rows;
 
                                     <td><?php echo $rowAndamento['ACOMPANHANTES']?></td>
 
-                                    <td class="d-flex gap-4 justify-content-center"> 
-                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
-                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    <td>
+                                        <div class="d-flex gap-4 justify-content-center"> 
+                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                        </div>
                                     </td>   
                                 </tr>
-                                <?php } while ($rowAndamento = $listaAndamento->fetch_assoc());}?>
+                                <?php $cont += 1; } while ($rowAndamento = $listaAndamento->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
@@ -173,9 +177,9 @@ $rowsConfirmado = $listaConfirmado->num_rows;
 
                                     <td class="d-none"></td>   
                                 </tr>
-                                <?php } else { do {?>
+                                <?php $cont = 1; } else { do {?>
                                 <tr>
-                                    <th scope="row"><?php echo $rowPendente['ID_PEDIDO']?></th>
+                                    <th scope="row"><?php echo $cont?></th>
 
                                     <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
 
@@ -185,13 +189,15 @@ $rowsConfirmado = $listaConfirmado->num_rows;
 
                                     <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
 
-                                    <td class="d-flex gap-3 justify-content-center">  
-                                        <button type="button" class="btn btn-outline-success d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
-                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
-                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    <td>
+                                        <div class="d-flex gap-3 justify-content-center">   
+                                            <button type="button" class="btn btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
+                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                        </div>
                                     </td>   
                                 </tr>
-                                <?php } while ($rowPendente = $listaPendente->fetch_assoc());}?>
+                                <?php $cont += 1; } while ($rowPendente = $listaPendente->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
@@ -213,7 +219,7 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                             </thead>
 
                             <tbody>
-                                <?php if ($rowsConfirmado < 1) { ?>
+                                <?php $cont = 1; if ($rowsConfirmado < 1) { ?>
                                 <tr>
                                     <th colspan="6" class="text-center">Nenhum registro encontrado</th>
 
@@ -229,7 +235,7 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                                 </tr>
                                 <?php } else { do {?>
                                 <tr>
-                                    <th scope="row"><?php echo $rowConfirmado['ID_PEDIDO']?></th>
+                                    <th scope="row"><?php echo $cont?></th>
 
                                     <td><?php echo $rowConfirmado['CLIENTE_NOME']?></td>
 
@@ -239,12 +245,14 @@ $rowsConfirmado = $listaConfirmado->num_rows;
 
                                     <td><?php echo $rowConfirmado['ACOMPANHANTES']?></td>
                                     
-                                    <td class="d-flex gap-4 justify-content-center"> 
-                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
-                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    <td class="d-flex gap-4 justify-content-center">
+                                        <div class="d-flex gap-4 justify-content-center">  
+                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                        </div>
                                     </td>   
                                 </tr>
-                                <?php } while ($rowConfirmado = $listaConfirmado->fetch_assoc());}?>
+                                <?php $cont += 1; } while ($rowConfirmado = $listaConfirmado->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
@@ -267,8 +275,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </div>
             </div>
         </div>
@@ -289,8 +297,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -311,8 +319,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Confirma</button>
                 </div>
             </div>
         </div>
@@ -333,8 +341,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </div>
             </div>
         </div>
@@ -355,8 +363,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary"></button>
                 </div>
             </div>
         </div>
@@ -377,8 +385,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary"></button>
                 </div>
             </div>
         </div>
@@ -399,8 +407,8 @@ $rowsConfirmado = $listaConfirmado->num_rows;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary"></button>
                 </div>
             </div>
         </div>
