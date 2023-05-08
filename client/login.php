@@ -139,19 +139,20 @@
         
         <!-- Titulo nivel dois no Login -->
         <h2>Entre na sua conta</h2>
+        <p>Dados de login</p>
         
         <!-- Formulario do login -->
         <form method="post" action="login.php" class="form-login">
 
             <!-- E-mail -->
             <div class="form-item">
-                <label for="email">Digite seu E-mail</label>        
+                <label for="email">E-mail</label>        
                 <input type="email" id="email" name="email" class="form-control form-input-item" required>
             </div>
 
             <!-- Senha -->
             <div class="form-item">
-                <label for="senha">Digite sua senha</label>
+                <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" class="form-control form-input-item" required autocomplete="off">
                 <i class="bi bi-eye" id="btny" onclick="mostrarSenha()"></i>
             </div>
