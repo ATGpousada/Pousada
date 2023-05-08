@@ -5,11 +5,19 @@ include 'verificacao.php';
 // Conexão com o banco
 include '../connection/connect.php';
 
-// // Consulta para pegar os dados do cliente logado
-// $lista = $connect->query("SELECT * FROM pedidos_reservas WHERE clientes.ID = ".$_SESSION['id'].";");
+// Consulta para pegar os dados do cliente logado
+$listaAndamento = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'EM ANDAMENTO';");
+$listaPendente = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'PENDENTE';");
+$listaConfirmado = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO';");
 
-// // Pegando a linha do cliente logado
-// $row = $lista->fetch_assoc();
+// Pegando a linha do cliente logado
+$rowAndamento = $listaAndamento->fetch_assoc();
+$rowPendente = $listaPendente->fetch_assoc();
+$rowConfirmado = $listaConfirmado->fetch_assoc();
+
+$rowsAndamento = $listaAndamento->num_rows;
+$rowsPendente = $listaPendente->num_rows;
+$rowsConfirmado = $listaConfirmado->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +39,7 @@ include '../connection/connect.php';
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.css' rel='stylesheet'>
     <!-- Logo no title -->
     <link rel="icon" type="image/png" href="../images/logo/LOGO POUSADA DO SOSSEGO.png"/>
-    <title>Login - Pousada do Sossego</title>
+    <title>Reservas - Pousada do Sossego</title>
 </head>
 <body>
     <!-- início do preloader -->
@@ -76,13 +84,14 @@ include '../connection/connect.php';
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Em andamento</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Confirmada</button>
+                    <button class="nav-link active" id="nav-andamento-tab" data-bs-toggle="tab" data-bs-target="#nav-andamento" type="button" role="tab" aria-controls="nav-andamento" aria-selected="true">Em andamento</button>
+                    <button class="nav-link" id="nav-pendente-tab" data-bs-toggle="tab" data-bs-target="#nav-pendente" type="button" role="tab" aria-controls="nav-pendente" aria-selected="false">Pendente</button>
+                    <button class="nav-link" id="nav-confirma-tab" data-bs-toggle="tab" data-bs-target="#nav-confirma" type="button" role="tab" aria-controls="nav-confirma" aria-selected="false">Confirmada</button>
                 </div>
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active shadow rounded mt-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <div class="tab-pane fade show active shadow rounded mt-3" id="nav-andamento" role="tabpanel" aria-labelledby="nav-andamento-tab" tabindex="0">
                     <div class="table-responsive rounded p-3">
                         <table class="table table-hover table-bordered table-striped tabela-reserva">
                             <thead class="table-dark">
@@ -92,28 +101,50 @@ include '../connection/connect.php';
                                     <th scope="col">Data de entrada</th>
                                     <th scope="col">Data de saída</th>
                                     <th scope="col">Acompanhantes</th>
-                                    <th scope="col">...</th>
+                                    <th scope="col" class="w-25">Opções</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <?php ?>
+                                <?php if ($rowsAndamento < 1) { ?>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@twitter</td>
-                                    <td>@twitter</td>   
+                                    <th colspan="6" class="text-center">Nenhum registro encontrado</th>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>   
                                 </tr>
-                                <? ?>
+                                <?php } else { do {?>
+                                <tr>
+                                    <th scope="row"><?php echo $rowAndamento['ID_PEDIDO']?></th>
+
+                                    <td><?php echo $rowAndamento['CLIENTE_NOME']?></td>
+
+                                    <td><?php echo $rowAndamento['PEDIDO_DATA_ENTRADA']?></td>
+
+                                    <td><?php echo $rowAndamento['PEDIDO_DATA_SAIDA']?></td>
+
+                                    <td><?php echo $rowAndamento['ACOMPANHANTES']?></td>
+
+                                    <td class="d-flex gap-4 justify-content-center"> 
+                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
+                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    </td>   
+                                </tr>
+                                <?php } while ($rowAndamento = $listaAndamento->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
 
-                <div class="tab-pane fade active shadow rounded mt-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <div class="tab-pane fade shadow rounded mt-3" id="nav-pendente" role="tabpanel" aria-labelledby="nav-pendente-tab" tabindex="0">
                     <div class="table-responsive rounded p-3">
                         <table class="table table-hover table-bordered table-striped tabela-reserva">
                             <thead class="table-dark">
@@ -123,21 +154,97 @@ include '../connection/connect.php';
                                     <th scope="col">Data de entrada</th>
                                     <th scope="col">Data de saída</th>
                                     <th scope="col">Acompanhantes</th>
-                                    <th scope="col">...</th>
+                                    <th scope="col" class="w-25">Opções</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <?php ?>
+                                <?php if ($rowsPendente < 1) { ?>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@twitter</td>
-                                    <td>@twitter</td>   
+                                    <th colspan="6" class="text-center">Nenhum registro encontrado</th>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>   
                                 </tr>
-                                <? ?>
+                                <?php } else { do {?>
+                                <tr>
+                                    <th scope="row"><?php echo $rowPendente['ID_PEDIDO']?></th>
+
+                                    <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
+
+                                    <td><?php echo $rowPendente['PEDIDO_DATA_ENTRADA']?></td>
+
+                                    <td><?php echo $rowPendente['PEDIDO_DATA_SAIDA']?></td>
+
+                                    <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
+
+                                    <td class="d-flex gap-3 justify-content-center">  
+                                        <button type="button" class="btn btn-outline-success d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
+                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
+                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    </td>   
+                                </tr>
+                                <?php } while ($rowPendente = $listaPendente->fetch_assoc());}?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade  shadow rounded mt-3" id="nav-confirma" role="tabpanel" aria-labelledby="nav-confirma-tab" tabindex="0">
+                    <div class="table-responsive rounded p-3">
+                    <table class="table table-hover table-bordered table-striped tabela-reserva">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Data de entrada</th>
+                                    <th scope="col">Data de saída</th>
+                                    <th scope="col">Acompanhantes</th>
+                                    <th scope="col" class="w-25">Opções</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php if ($rowsConfirmado < 1) { ?>
+                                <tr>
+                                    <th colspan="6" class="text-center">Nenhum registro encontrado</th>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>
+
+                                    <td class="d-none"></td>   
+                                </tr>
+                                <?php } else { do {?>
+                                <tr>
+                                    <th scope="row"><?php echo $rowConfirmado['ID_PEDIDO']?></th>
+
+                                    <td><?php echo $rowConfirmado['CLIENTE_NOME']?></td>
+
+                                    <td><?php echo $rowConfirmado['PEDIDO_DATA_ENTRADA']?></td>
+
+                                    <td><?php echo $rowConfirmado['PEDIDO_DATA_SAIDA']?></td>
+
+                                    <td><?php echo $rowConfirmado['ACOMPANHANTES']?></td>
+                                    
+                                    <td class="d-flex gap-4 justify-content-center"> 
+                                        <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
+                                        <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                    </td>   
+                                </tr>
+                                <?php } while ($rowConfirmado = $listaConfirmado->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
@@ -145,6 +252,159 @@ include '../connection/connect.php';
             </div>
         </section>
     </main>
+
+    <!-- Modal Detalhes Andamento -->
+    <div class="modal fade" id="detalhesAndamento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesAndamento" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detalhesAndamento">Detalhes Andamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Cancela Andamento -->
+    <div class="modal fade" id="cancelaAndamento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaAndamento" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cancelaAndamento">Cancela Andamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Confirma Pendente -->
+    <div class="modal fade" id="confirmaPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmaPendente" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="confirmaPendente">Confirma Pendente</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Detalhes Pendente -->
+    <div class="modal fade" id="detalhesPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesPendente" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detalhesPendente">Detalhes Pendente</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Cancela Pendente -->
+    <div class="modal fade" id="cancelaPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaPendente" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cancelaPendente">Cancela Pendente</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Detalhes Confirma -->
+    <div class="modal fade" id="detalhesConfirma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesConfirma" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detalhesConfirma">Detalhes Confirma</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Cancela Confirma -->
+    <div class="modal fade" id="cancelaConfirma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaConfirma" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cancelaConfirma">Cancela Confirma</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>

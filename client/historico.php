@@ -5,11 +5,12 @@ include 'verificacao.php';
 // Conexão com o banco
 include '../connection/connect.php';
 
-// // Consulta para pegar os dados do cliente logado
-// $lista = $connect->query("SELECT * FROM pedidos_reservas WHERE clientes.ID = ".$_SESSION['id'].";");
+// Consulta para pegar os dados do cliente logado
+$listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO';");
 
-// // Pegando a linha do cliente logado
-// $row = $lista->fetch_assoc();
+// Pegando a linha do cliente logado
+$row = $listaHistorico->fetch_assoc();
+$rows = $listaHistorico->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -89,22 +90,64 @@ include '../connection/connect.php';
                         </thead>
 
                         <tbody>
-                            <?php ?>
+                            <?php if ($rows < 1) { ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>   
+                                <th colspan="6" class="text-center">Nenhum registro encontrado</th>
+
+                                <td class="d-none"></td>
+
+                                <td class="d-none"></td>
+
+                                <td class="d-none"></td>
+
+                                <td class="d-none"></td>
+
+                                <td class="d-none"></td>   
                             </tr>
-                            <? ?>
+                            <?php } else { do {?>
+                            <tr>
+                                <th scope="row"><?php echo $rowPendente['ID_PEDIDO']?></th>
+
+                                <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
+
+                                <td><?php echo $rowPendente['PEDIDO_DATA_ENTRADA']?></td>
+
+                                <td><?php echo $rowPendente['PEDIDO_DATA_SAIDA']?></td>
+
+                                <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
+                                
+                                <td class="d-flex gap-4 justify-content-center"> 
+                                    <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesHistorico"><i class="bi bi-card-list"></i>Detalhes</button>
+                                </td>   
+                            </tr>
+                            <?php } while ($row = $listaHistorico->fetch_assoc());}?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal Detalhes Historico -->
+    <div class="modal fade" id="detalhesHistorico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesHistorico" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detalhesHistorico">Detalhes Historico</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>

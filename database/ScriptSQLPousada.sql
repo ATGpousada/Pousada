@@ -1124,3 +1124,97 @@ VIEW `pousada`.`dataQuartoIndisponivel` AS
         ((`pousada`.`pedidos_reservas`
         JOIN `pousada`.`status` ON (`pousada`.`pedidos_reservas`.`status_ID` = `pousada`.`status`.`ID`))
         JOIN `pousada`.`quartos` ON (`pousada`.`pedidos_reservas`.`quartos_ID` = `pousada`.`quartos`.`ID`));
+
+
+-- View Clientes pedidos e reservas ---------------------------------
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `clientePedidoReservasGeral` AS
+    SELECT 
+        `clientes`.`ID` AS `CLIENTE_ID`,
+        `clientes`.`NOME` AS `CLIENTE_NOME`,
+        `clientes`.`CPF` AS `CLIENTE_CPF`,
+        `clientes`.`RG` AS `RG`,
+        `clientes`.`EMAIL` AS `CLIENTE_EMAIL`,
+        `pedidos_reservas`.`ID` AS `ID_PEDIDO`,
+        `pedidos_reservas`.`DATA_RESERVA` AS `DATA_RESERVA`,
+        `pedidos_reservas`.`DATA_ENTRADA` AS `PEDIDO_DATA_ENTRADA`,
+        `pedidos_reservas`.`DATA_SAIDA` AS `PEDIDO_DATA_SAIDA`,
+        `pedidos_reservas`.`NOME` AS `PEDIDO_NOME`,
+        `pedidos_reservas`.`CPF` AS `PEDIDO_CPF`,
+        `pedidos_reservas`.`EMAIL` AS `PEDIDO_EMAIL`,
+        `pedidos_reservas`.`ACOMPANHANTES` AS `ACOMPANHANTES`,
+        `pedidos_reservas`.`quartos_ID` AS `PEDIDO_PEDIDO_QUARTOS_ID`,
+        `pedidos_reservas`.`status_ID` AS `PEDIDO_PEDIDO_STATUS_ID`,
+        `quartos`.`ID` AS `QUARTO_ID`,
+        `quartos`.`QUARTO` AS `QUARTO`,
+        `quartos`.`DESCRICAO` AS `DESCRICAO`,
+        `quartos`.`PRECO_DIARIA` AS `PRECO_DIARIA`,
+        `quartos`.`QTDE_PESSOAS` AS `QTDE_PESSOAS`,
+        `quartos`.`DESTAQUE` AS `DESTAQUE`,
+        `quartos`.`status_ID` AS `QUARTO_STATUS_ID`,
+        `quartos`.`tipos_ID` AS `QUARTO_TIPOS_ID`,
+        `tipos`.`ID` AS `TIPO_ID`,
+        `tipos`.`TIPO` AS `TIPO`,
+        `reservas`.`ID` AS `RESERVA_ID`,
+        `reservas`.`PRECO_TOTAL` AS `PRECO_TOTAL`,
+        `reservas`.`PARCELAS_TOTAL` AS `PARCELAS_TOTAL`,
+        `reservas`.`DATA_ENTRADA` AS `RESERVA_DATA_ENTRADA`,
+        `reservas`.`DATA_SAIDA` AS `RESERVA_DATA_SAIDA`,
+        `reservas`.`pedidos_reservas_ID` AS `RESERVA_PEDIDOS_RESERVAS_ID`,
+        `reservas`.`funcionarios_ID` AS `RESERVA_FUNCIONARIOS_ID`,
+        `reservas`.`status_ID` AS `RESERVA_STATUS_ID`,
+        `status`.`ID` AS `STATUS_ID`,
+        `status`.`STATUS` AS `STATUS`
+    FROM
+        (((((`clientes`
+        JOIN `pedidos_reservas` ON (`clientes`.`CPF` = `pedidos_reservas`.`CPF`))
+        JOIN `quartos` ON (`pedidos_reservas`.`quartos_ID` = `quartos`.`ID`))
+        JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
+        JOIN `reservas` ON (`pedidos_reservas`.`ID` = `reservas`.`pedidos_reservas_ID`))
+        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));
+
+
+
+-- View Clientes pedidos de reservas ---------------------------------
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `clientePedidoReservas` AS
+    SELECT 
+        `clientes`.`ID` AS `CLIENTE_ID`,
+        `clientes`.`NOME` AS `CLIENTE_NOME`,
+        `clientes`.`CPF` AS `CLIENTE_CPF`,
+        `clientes`.`RG` AS `RG`,
+        `clientes`.`EMAIL` AS `CLIENTE_EMAIL`,
+        `pedidos_reservas`.`ID` AS `ID_PEDIDO`,
+        `pedidos_reservas`.`DATA_RESERVA` AS `DATA_RESERVA`,
+        `pedidos_reservas`.`DATA_ENTRADA` AS `PEDIDO_DATA_ENTRADA`,
+        `pedidos_reservas`.`DATA_SAIDA` AS `PEDIDO_DATA_SAIDA`,
+        `pedidos_reservas`.`NOME` AS `PEDIDO_NOME`,
+        `pedidos_reservas`.`CPF` AS `PEDIDO_CPF`,
+        `pedidos_reservas`.`EMAIL` AS `PEDIDO_EMAIL`,
+        `pedidos_reservas`.`ACOMPANHANTES` AS `ACOMPANHANTES`,
+        `pedidos_reservas`.`quartos_ID` AS `PEDIDO_PEDIDO_QUARTOS_ID`,
+        `pedidos_reservas`.`status_ID` AS `PEDIDO_PEDIDO_STATUS_ID`,
+        `quartos`.`ID` AS `QUARTO_ID`,
+        `quartos`.`QUARTO` AS `QUARTO`,
+        `quartos`.`DESCRICAO` AS `DESCRICAO`,
+        `quartos`.`PRECO_DIARIA` AS `PRECO_DIARIA`,
+        `quartos`.`QTDE_PESSOAS` AS `QTDE_PESSOAS`,
+        `quartos`.`DESTAQUE` AS `DESTAQUE`,
+        `quartos`.`status_ID` AS `QUARTO_STATUS_ID`,
+        `quartos`.`tipos_ID` AS `QUARTO_TIPOS_ID`,
+        `tipos`.`ID` AS `TIPO_ID`,
+        `tipos`.`TIPO` AS `TIPO`,
+        `status`.`ID` AS `STATUS_ID`,
+        `status`.`STATUS` AS `STATUS`
+    FROM
+        ((((`clientes`
+        JOIN `pedidos_reservas` ON (`clientes`.`CPF` = `pedidos_reservas`.`CPF`))
+        JOIN `quartos` ON (`pedidos_reservas`.`quartos_ID` = `quartos`.`ID`))
+        JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
+        JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));

@@ -9,51 +9,10 @@ $listaIMGres = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMGres = $listaIMGres->fetch_assoc();
 $linhasIMGres = $listaIMGres->num_rows;
 
-// condição para verificar se existe sessão, se existir sessão ele consulta os dados do cliente logado, se não ele não consulta para evitar erro
-if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) 
-{
-    // select para consultar o id, nome, email e cpf do cliente logado
-    $lista_cliente = $connect->query("SELECT clientes.ID, clientes.NOME, clientes.EMAIL, clientes.CPF FROM clientes WHERE clientes.ID = " . $_SESSION['id'] . ";");
-    // linha do id, nome, email e cpf do cliente consultado
-    $linha_cliente = $lista_cliente->fetch_assoc();
-}
-
 // select para consultar o id do quarto aberto 
 $lista_quarto = $connect->query("SELECT quartos.ID, quartos.status_ID, quartos.QTDE_PESSOAS FROM quartos WHERE quartos.ID = $id");
 // linha do id do quarto consultado
 $linha_quarto = $lista_quarto->fetch_assoc();
-
-// select para consultar a data de entrada e saida das reservas
-$lista_reserva = $connect->query("SELECT reservas.DATA_ENTRADA, reservas.DATA_ENTRADA FROM reservas");
-// linha da data de entrada e saida das reservas
-$linha_reserva = $lista_reserva->fetch_assoc();
-
-// select para consultar tabela de pedidos de reservas
-$lista_pedidos = $connect->query("SELECT * FROM pedidos_reservas");
-// linha da tabela pedidos de reservas
-$linha_pedidos = $lista_pedidos->fetch_assoc();
-// retorna o número de linhas de pedidos de reservas
-$linhas = $lista_pedidos->num_rows;
-
-if ($linhas > 0) {
-    // select para consultar status do pedido de reserva
-    $lista_status = $connect->query("SELECT * FROM pedidos_reservas WHERE pedidos_reservas.status_ID = 1");
-    // linha do status do pedido de reserva
-    $linha_status = $lista_status->fetch_assoc();
-}
-
-if ($_POST) 
-{
-    // variáveis que armazenam valores do formulário
-    $data_inicio = $_POST['data_inicio']; // variável que armazena a data de inicio enviada do formulario
-    $data_final = $_POST['data_final']; // variável que armazena a data final enviada do formulario
-    $criancas = $_POST['number_criancas']; // variável que armazena o numero de criancas enviado do formulario
-    $adultos = $_POST['number_adultos']; // variável que armazena o numero de adultos enviado do formulario
-    $acompanhantes = $criancas + $adultos; // variável que armazena o numero total de acompanhantes
-
-    $insert = "INSERT INTO pedidos_reservas (DATA_RESERVA, DATA_ENTRADA, DATA_SAIDA, NOME, CPF, EMAIL, ACOMPANHANTES, quartos_ID, status_ID) VALUES (default, '$data_inicio', '$data_final', '{$linha_cliente['NOME']}', '{$linha_cliente['CPF']}', '{$linha_cliente['EMAIL']}', '$acompanhantes', $id, 6)";
-    $resultado = $connect->query($insert);
-}
 ?>
 
 <!DOCTYPE html>
@@ -207,16 +166,16 @@ if ($_POST)
                 </div>
                 <div class="modal-body">
                     <!-- INÍCIO DO FORMLÁRIO -->
-                    <form method="post" action="detalhe.php">
+                    <form method="post" action="enviaPedido.php?ID=<?php echo $_GET['ID']?>">
                         <div class="d-flex justify-content-center" style="margin-top:30px;">
                             <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                                 <h4>DATA INICIO</h4>
-                                <input type="datetime-local" name="data_inicio" id="data_inicio">
+                                <input type="datetime-local" name="data_inicio" id="data_inicio" onchange="verificarDisponibilidade()">
                             </span>
 
                             <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                                 <h4>DATA FINAL</h4>
-                                <input type="datetime-local" name="data_final" id="data_final">
+                                <input type="datetime-local" name="data_final" id="data_final" onchange="verificarDisponibilidade()">
                             </span>
                         </div>
 
@@ -253,7 +212,7 @@ if ($_POST)
                             <?php if ((isset($_SESSION['pousada'])) &&  ($_SESSION['pousada'] == "pousada")) // se tiver com sessão, as informações inseridas do formulário serão enviadas
                             {
                             ?>
-                                <button type="submit" class="btn btn-success text-decoration-none text-reset" style="color: white !important;" id="btn-consultar" method="post">
+                                <button type="submit" onclick="verificarDisponibilidade()" class="btn btn-success text-decoration-none text-reset" style="color: white !important;" id="btn-consultar" method="post">
                                     ENVIAR
                                 </button>
                             <?php
@@ -272,77 +231,63 @@ if ($_POST)
         </div>
     </div>
     <!-- Fim Modal 2 para inputs de pedido de reservas -->
-
-    <!-- Início script para verificar datas reservadas do banco -->
+    <!-- Script das datas -->
     <script>
-        // Função para verificar se uma data está reservada
-        function isDataReservada(data) {
-            // Lógica para consultar o banco de dados e verificar se a data está reservada
+    // Função para verificar a disponibilidade das datas
+        function verificarDisponibilidade() 
+        {
+            // Obter os valores dos campos de data
+            var dataInicio = document.getElementById('data_inicio').value;
+            var dataFinal = document.getElementById('data_final').value;
 
-            if (<?php echo $linhas > 0 ?>) {
-                if (<?php echo $linha_status ?>) {
-                    var datasReservadas = <?php echo $linha_reserva ?>;
-                    return datasReservadas.includes(data);
+            // Montar o objeto de dados a ser enviado ao servidor
+            var dados = 
+            {
+                dataInicio: dataInicio,
+                dataFinal: dataFinal
+            };
+
+            // Enviar uma solicitação AJAX para o servidor
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'detalhe.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var resposta = JSON.parse(xhr.responseText);
+                    // Processar a resposta do servidor
+                    desabilitarDatasReservadas(resposta);
                 }
-            }
-            return false
-            // Retorne true se a data estiver reservada e false caso contrário
-
-            // Exemplo simplificado:
-            //var datasReservadas = ['2023-05-02', '2023-05-07', '2023-05-12'];
-            //return datasReservadas.includes(data);
+            };
+            xhr.send(JSON.stringify(dados));
         }
 
-        // Desabilitar as datas já reservadas
-        document.getElementById('data_inicio').addEventListener('change', function() {
-            var dataInicio = this.value;
-            var dataFinalInput = document.getElementById('data_final');
-            var dataFinal = dataFinalInput.value;
+        // Função para desabilitar as datas reservadas
+        function desabilitarDatasReservadas(datasReservadas) 
+        {
+            // Obter os elementos de entrada de data
+            var inputDataInicio = document.getElementById('data_inicio');
+            var inputDataFinal = document.getElementById('data_saida');
 
-            // Habilitar todas as datas no início
-            dataFinalInput.disabled = false;
-
-            // Desabilitar as datas já reservadas
-            var todasAsDatas = document.querySelectorAll('input[type="date"]');
-            todasAsDatas.forEach(function(dataInput) {
-                var data = dataInput.value;
-                if (data && isDataReservada(data)) {
-                    dataInput.disabled = true;
+            // Iterar sobre as datas reservadas e desabilitar as correspondentes nos inputs
+            for (var i = 0; i < datasReservadas.length; i++) 
+            {
+                var dataReservada = datasReservadas[i];
+                if (inputDataInicio.value === dataReservada || inputDataFinal.value === dataReservada) 
+                {
+                    inputDataInicio.disabled = true;
+                    inputDataFinal.disabled = true;
+                    // Exibir uma mensagem ou tomar outras ações, se necessário
+                    alert('Data reservada. Por favor, escolha outra data.');
+                    return;
                 }
-            });
-
-            // Verificar se a data final já está reservada
-            if (dataFinal && isDataReservada(dataFinal)) {
-                dataFinalInput.value = '';
             }
-        });
 
-        // Desabilitar as datas já reservadas
-        document.getElementById('data_final').addEventListener('change', function() {
-            var dataFinal = this.value;
-            var dataInicioInput = document.getElementById('data_inicio');
-            var dataInicio = dataInicioInput.value;
-
-            // Habilitar todas as datas no início
-            dataInicioInput.disabled = false;
-
-            // Desabilitar as datas já reservadas
-            var todasAsDatas = document.querySelectorAll('input[type="date"]');
-            todasAsDatas.forEach(function(dataInput) {
-                var data = dataInput.value;
-                if (data && isDataReservada(data)) {
-                    dataInput.disabled = true;
-                }
-            });
-
-            // Verificar se a data de início já está reservada
-            if (dataInicio && isDataReservada(dataInicio)) {
-                dataInicioInput.value = '';
-            }
-        });
+            // Se as datas não estiverem reservadas, habilitar os campos
+            inputDataInicio.disabled = false;
+            inputDataFinal.disabled = false;
+        }
     </script>
-    <!-- Fim script para verificar datas reservadas do banco -->
-
+    <!-- Fim script das datas -->
     <!-- Script do Angular (Modal)  -->
     <script>
         var app = angular.module('meuApp', []);
