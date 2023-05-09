@@ -66,7 +66,7 @@
             $dataMinima = $dataAtual->add(new DateInterval('P4D'));
 
             // Formatando e retornando a data minima
-            return $dataMinima->format('d-m-Y');
+            return $dataMinima->format('Y-m-d h:i');
         }
 
         // Pega a data maxima para realizar uma reserva
@@ -78,7 +78,7 @@
             $dataMaxima = $dataAtual->add(new DateInterval('P1Y'));
 
             // Formatando e retornando a data maxima
-            return $dataMaxima->format('d-m-Y');
+            return $dataMaxima->format('Y-m-d h:i');
         }
 
         // Pega um array com data de inicio e de fim para mostrar os intervalos de datas indisponiveis
@@ -153,34 +153,4 @@
             }
         }
     }
-
-    // Teste
-    $aaa = new DataVerifica();
-
-    $bbb = $aaa->getDataRecente();
-    echo $bbb;
-    echo '<br>';
-
-    $bbb = $aaa->getDataMinima();
-    echo $bbb;
-    echo '<br>';
-
-    $bbb = $aaa->getDataMaxima();
-    echo $bbb;
-    echo '<br>';
-
-    $bbb = $aaa->getIntervaloDataIndisponivel();
-    print_r($bbb);
-    echo '<br>';
-
-    $bbb = $aaa->getDataMaximoAlterar(1);
-    print_r($bbb);
-    echo '<br>';
-
-    $dataInicio = DateTime::createFromFormat('Y-m-d', '2023-05-10');
-    $dataFim = DateTime::createFromFormat('Y-m-d', '2023-05-15'); 
-    
-    $bbb = $aaa->getDataIntervaloEstadia($dataInicio, $dataFim);
-    print_r($bbb);
-    echo '<br>';
 ?>
