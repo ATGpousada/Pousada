@@ -6,9 +6,9 @@ include 'verificacao.php';
 include '../connection/connect.php';
 
 // Consulta para pegar os dados do cliente logado
-$listaAndamento = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'EM ANDAMENTO';");
-$listaPendente = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'PENDENTE';");
-$listaConfirmado = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO';");
+$listaAndamento = $connect->query("SELECT * FROM clientePedidoReservas WHERE STATUS = 'EM ANDAMENTO' AND CLIENTE_ID = ".$_SESSION['id'].";");
+$listaPendente = $connect->query("SELECT * FROM clientePedidoReservas WHERE STATUS = 'PENDENTE' AND CLIENTE_ID = ".$_SESSION['id'].";");
+$listaConfirmado = $connect->query("SELECT * FROM clientePedidoReservas WHERE STATUS = 'CONFIRMADO' AND CLIENTE_ID = ".$_SESSION['id'].";");
 
 // Pegando a linha do pedido em andamento
 $rowAndamento = $listaAndamento->fetch_assoc();
@@ -60,6 +60,19 @@ $cont = 1;
     
     <!-- Adição do cabeçalho -->
     <?php include 'cabecalhoCliente.php'?>
+
+    <!-- Mensagem na tela -->
+    <?php 
+        if(isset($_SESSION['cancelar'])){
+            echo $_SESSION['cancelar'];
+            unset($_SESSION['cancelar']);
+        }
+
+        if(isset($_SESSION['confirmar'])){
+            echo $_SESSION['confirmar'];
+            unset($_SESSION['confirmar']);
+        }
+    ?>
 
     <!-- Página principal -->
     <main class="home-section bg-body-tertiary">
@@ -174,9 +187,9 @@ $cont = 1;
                                     <td>
                                         <div class="d-flex gap-4 justify-content-center"> 
                                             <!-- Botão detalhes -->
-                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento" data-idAndamento="<?php echo $rowAndamento['ID_PEDIDO'] ?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão cancelar -->
-                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <a href="cancelaPedido.php?id=<?php echo $rowAndamento['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idAndamento="<?php echo $rowAndamento['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>
@@ -257,11 +270,11 @@ $cont = 1;
                                     <td>
                                         <div class="d-flex gap-3 justify-content-center">   
                                             <!-- Botão detalhes -->
-                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente" data-idPendente="<?php echo $rowPendente['ID_PEDIDO']?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão confirmar -->
-                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
+                                            <a href="confirmaPedido.php" type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-check-lg"></i></i>Confirmar</a>
                                             <!-- Botão cancelar -->
-                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <a href="cancelaPedido.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>
@@ -342,9 +355,9 @@ $cont = 1;
                                     <td>
                                         <div class="d-flex gap-4 justify-content-center">  
                                             <!-- Botão detalhes -->
-                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma" data-idConfirma="<?php echo $rowConfirma['ID_PEDIDO'] ?>"><i class="bi bi-card-list" ></i>Detalhes</button>
                                             <!-- Botão cancelar -->
-                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <a href="cancelaReserva.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idConfirma="<?php echo $rowConfirma['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>

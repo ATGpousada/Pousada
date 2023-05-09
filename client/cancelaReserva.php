@@ -8,15 +8,18 @@
     // Dependencias do PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require 'PHPMailer/src/Exception.php';
-    require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
+    require '../PHPMailer/src/Exception.php';
+    require '../PHPMailer/src/PHPMailer.php';
+    require '../PHPMailer/src/SMTP.php';
 
     // Objeto do PHPMailer
     $mail = new PHPMailer();
 
     // Função para cancelar reserva
     function cancelaReserva() {  
+        // ID do pedido
+        $id = $_GET['id']; 
+
         // Conexão com o banco  
         include "../connection/connect.php";
         
@@ -24,6 +27,8 @@
         try {
             // Cancelamento da reserva
             $connect->query("UPDATE reservas SET status_ID = 6 WHERE ID = $id;");
+            // Cancelamento do pedido de reserva
+            $connect->query("UPDATE pedidos_reservas SET status_ID = 6 WHERE ID = $id;");
 
             //Configurações do servidor
             $mail->isSMTP();                                            // Defina mail para usar SMTP
@@ -67,7 +72,7 @@
     }
 
     // Chamando a função para executar o cancelamento com uma condição para enviar mensagem de erro
-    if (cancelaPedido()) {
+    if (cancelaReserva()) {
         // mensagem de sucesso atribuida a variável alterar (sucesso)
         $_SESSION['cancelar'] = '
             <div style="z-index: 9999;" class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">

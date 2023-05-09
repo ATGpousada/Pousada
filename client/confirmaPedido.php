@@ -1,30 +1,32 @@
 <?php
+    // Startando sessão
+    session_start();
+
     // Verificação para ver se tem uma sessão aberta
     include 'verificacao.php';
 
     // Dependencias do PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require 'PHPMailer/src/Exception.php';
-    require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
+    require '../PHPMailer/src/Exception.php';
+    require '../PHPMailer/src/PHPMailer.php';
+    require '../PHPMailer/src/SMTP.php';
 
     // Objeto do PHPMailer
     $mail = new PHPMailer();
 
     // Função para confimar pedido de reserva
     function confirmaPedido() {  
+        // ID do pedido
+        $id = $_GET['id']; 
+    
         // Conexão com o banco  
         include "../connection/connect.php";
         
         // Verificação para tratar possível erro 
         try {
             // Confirmação do pedido de reserva
-            $connect->query("UPDATE pedidos_reservas SET status_ID = 5 WHERE cliente_ID = $id;");
-            // Insert de formas de pagamento
-            $connect->query("INSERT INTO formas_pagamentos (`TIPO`) VALUES ('$tipo');");
-            // Insert do pagamento
-            $connect->query("INSERT INTO pagamentos (`ENTRADA`, `RESTANTE`, `TAXA_JUROS`, `formas_pagamento_ID`, `reservas_ID`) VALUES ($entrada, $restante, $juros, $idFormaPagamento, $idReserva);");
+            $connect->query("UPDATE pedidos_reservas SET status_ID = 5 WHERE ID = $id;");
 
             //Configurações do servidor
             $mail->isSMTP();                                            // Defina mail para usar SMTP

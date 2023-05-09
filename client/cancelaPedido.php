@@ -1,13 +1,16 @@
-<?php
+<?php    
+    // Startando sessão
+    session_start();
+
     // Verificação para ver se tem uma sessão aberta
     include 'verificacao.php';
 
     // Dependencias do PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require 'PHPMailer/src/Exception.php';
-    require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
+    require '../PHPMailer/src/Exception.php';
+    require '../PHPMailer/src/PHPMailer.php';
+    require '../PHPMailer/src/SMTP.php';
 
     // Objeto do PHPMailer
     $mail = new PHPMailer();
@@ -19,6 +22,9 @@
         
         // Verificação para tratar possível erro 
         try {
+            // ID do pedido
+            $id = $_GET['id'];
+            
             // Cancelamento do pedido de reserva
             $connect->query("UPDATE pedidos_reservas SET status_ID = 6 WHERE ID = $id;");
 
