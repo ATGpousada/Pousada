@@ -1372,7 +1372,7 @@
 }
 
 .s-modal .form-check-input:checked{
-    background-color: #ffc107;
+    background-color: rgb(233, 233, 75);
 }
 /* Fim Modal */
 

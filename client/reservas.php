@@ -272,7 +272,7 @@ $cont = 1;
                                             <!-- Botão detalhes -->
                                             <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente" data-idPendente="<?php echo $rowPendente['ID_PEDIDO']?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão confirmar -->
-                                            <a href="confirmaPedido.php" type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-check-lg"></i></i>Confirmar</a>
+                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
                                             <!-- Botão cancelar -->
                                             <a href="cancelaPedido.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
@@ -423,14 +423,14 @@ $cont = 1;
     </div>
 
 
-    <!-- Modal Confirma Pendente -->
+    <!-- Modal Confirma Pagamento -->
     <div class="modal fade" id="confirmaPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmaPendente" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <!-- Conteúdo do modal -->
             <div class="modal-content">
                 <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="confirmaPendente">Confirma Pendente</h1>
+                    <h1 class="modal-title fs-5" id="confirmaPendente">Realizar Pagamento</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -441,8 +441,8 @@ $cont = 1;
 
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Pagar</button>
                 </div>
             </div>
         </div>

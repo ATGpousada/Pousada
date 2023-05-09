@@ -1,4 +1,9 @@
 <?php
+include '../date/limitarData.php';
+$objetoData = new DataVerifica();
+$min = $objetoData->getDataMinima();
+echo $min;
+$max =  $objetoData->getDataMaxima();
 // select para repetição de sub-imagens
 $listaIMG = $connect->query("SELECT * FROM imagens WHERE quartos_ID = $id;");
 $linhaIMG = $listaIMG->fetch_assoc();
@@ -160,12 +165,12 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         <div class="d-flex justify-content-center" style="margin-top:30px;">
                             <span id="datas_modal" class="text-center" style="margin: 0 30px;" name="data_inicio">
                                 <h4>DATA INICIO</h4>
-                                <input type="datetime-local" name="data_inicio" id="data_inicio" required>
+                                <input type="datetime-local" name="data_inicio" id="data_inicio" min="<?php echo $min ?>" max="<?php echo $max; ?>" required>
                             </span>
 
                             <span id="datas_modal" class="text-center" style="margin: 0 30px; margin-bottom: 40px;" name="data_final">
                                 <h4>DATA FINAL</h4>
-                                <input type="datetime-local" name="data_final" id="data_final" required>
+                                <input type="datetime-local" name="data_final" id="data_final" min="<?php echo $min ?>" max="<?php echo $max ?>" required>
                             </span>
                         </div>
 
