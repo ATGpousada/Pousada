@@ -272,7 +272,7 @@ $cont = 1;
                                             <!-- Botão detalhes -->
                                             <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente" data-idPendente="<?php echo $rowPendente['ID_PEDIDO']?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão confirmar -->
-                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
+                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-credit-card-2-back"></i></i>Pagar Entrada</button>
                                             <!-- Botão cancelar -->
                                             <a href="cancelaPedido.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
