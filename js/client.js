@@ -633,7 +633,25 @@ $(window).resize(() => {
 
 // ------------------------------------------ Começo da área reservas -------------------------------------//
 $(document).ready(function () {
-    $('.tabela-reserva').DataTable({
+    $('#tabela-reserva-andamento').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
+        },
+    });
+
+    $('#tabela-reserva-pendente').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
+        },
+    });
+
+    $('#tabela-reserva-confirma').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
+        },
+    });
+
+    $('#tabela-reserva-historico').DataTable({
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
         },

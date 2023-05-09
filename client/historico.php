@@ -6,12 +6,13 @@ include 'verificacao.php';
 include '../connection/connect.php';
 
 // Consulta para pegar os dados do cliente logado
-$listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservasGeral WHERE STATUS = 'CONFIRMADO';");
+$listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO' OR STATUS = 'CANCELADO';");
 
-// Pegando a linha do cliente logado
+// Pegando a linha do cliente
 $row = $listaHistorico->fetch_assoc();
+// Quantidade de linhas do cliente
 $rows = $listaHistorico->num_rows;
-
+// Contador para tabela
 $cont = 1;
 ?>
 
@@ -72,58 +73,85 @@ $cont = 1;
             </div>
         </nav>
 
-        
+        <!-- Seção -->
         <section class="ps-5 pe-5 pb-4 pt-2">
             <!-- Título da página -->
             <h3 class="col-md-12">Histórico</h4>
-
+            <!-- Conteúdo com a tabela -->
             <div class="tab-pane fade show active shadow rounded mt-3">
+                <!-- Conteúdo que deixa a tabela reponsiva -->
                 <div class="table-responsive rounded p-3">
-                    <table class="table table-hover table-bordered table-striped tabela-reserva">
+                    <!-- Tabela -->
+                    <table class="table table-hover table-bordered table-striped tabela-reserva" id="tabela-reserva-historico">
+                        <!-- Cabeçalho da tabela -->
                         <thead class="table-dark">
+                            <!-- Linha do cabeçalho -->
                             <tr>
+                                <!-- Contatdor -->
                                 <th scope="col">#</th>
+                                <!-- Nome -->
                                 <th scope="col">Nome</th>
+                                <!-- Data de entrada -->
                                 <th scope="col">Data de entrada</th>
+                                <!-- Data de saida -->
                                 <th scope="col">Data de saída</th>
+                                <!-- Acompanhates -->
                                 <th scope="col">Acompanhantes</th>
-                                <th scope="col">...</th>
+                                <!-- Opções -->
+                                <th scope="col">Opções</th>
                             </tr>
                         </thead>
 
+                        <!-- Corpo da tabela -->
                         <tbody>
+                            <!-- Caso não tenha nenhum dado -->
                             <?php if ($rows < 1) { ?>
                             <tr>
+                                <!-- Caso não tenha nenhum registro mostrará isso -->
                                 <th colspan="6" class="text-center">Nenhum registro encontrado</th>
-
+                                
+                                <!-- Não mostra -->
                                 <td class="d-none"></td>
 
+                                <!-- Não mostra -->
                                 <td class="d-none"></td>
 
+                                <!-- Não mostra -->
                                 <td class="d-none"></td>
 
+                                <!-- Não mostra -->
                                 <td class="d-none"></td>
 
+                                <!-- Não mostra -->
                                 <td class="d-none"></td>   
                             </tr>
+                            <!-- Caso tenha dado -->
                             <?php } else { do {?>
                             <tr>
+                                <!-- Contador -->
                                 <th scope="row"><?php echo $cont;?></th>
 
-                                <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
+                                <!-- Nome do titular da reserva -->
+                                <td><?php echo $row['CLIENTE_NOME']?></td>
 
-                                <td><?php echo $rowPendente['PEDIDO_DATA_ENTRADA']?></td>
+                                <!-- Data de entrada -->
+                                <td><?php echo $row['PEDIDO_DATA_ENTRADA']?></td>
 
-                                <td><?php echo $rowPendente['PEDIDO_DATA_SAIDA']?></td>
+                                <!-- Data de saida -->
+                                <td><?php echo $row['PEDIDO_DATA_SAIDA']?></td>
 
-                                <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
+                                <!-- Acompanhates -->
+                                <td><?php echo $row['ACOMPANHANTES']?></td>
                                 
+                                <!-- Botões -->
                                 <td> 
+                                    <!-- Botão detalhe -->
                                     <div class="d-flex gap-4 justify-content-center"> 
                                         <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center btn-sm" data-bs-toggle="modal" data-bs-target="#detalhesHistorico"><i class="bi bi-card-list"></i>Detalhes</button>
                                     </div>
                                 </td>   
                             </tr>
+                            <!-- Soma do contador e verificação com while -->
                             <?php $cont += 1; } while ($row = $listaHistorico->fetch_assoc());}?>
                         </tbody>
                     </table>
@@ -135,19 +163,22 @@ $cont = 1;
     <!-- Modal Detalhes Historico -->
     <div class="modal fade" id="detalhesHistorico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesHistorico" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="detalhesHistorico">Detalhes Historico</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>

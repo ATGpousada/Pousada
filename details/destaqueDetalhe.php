@@ -45,7 +45,7 @@ $linhas = $lista->num_rows;
     <?php do{?>
         <div class="card_detalhe">
             <div class="icon">
-                <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
+                <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque" style="width: 240px !important; height: 200px !important;"></div>
             </div>
             <strong><?php echo $linha['QUARTO']?></strong>
             <div class="card__body">

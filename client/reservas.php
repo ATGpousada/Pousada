@@ -10,15 +10,21 @@ $listaAndamento = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STA
 $listaPendente = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'PENDENTE';");
 $listaConfirmado = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO';");
 
-// Pegando a linha do cliente logado
+// Pegando a linha do pedido em andamento
 $rowAndamento = $listaAndamento->fetch_assoc();
+// Pegando a linha do pedido pendente
 $rowPendente = $listaPendente->fetch_assoc();
+// Pegando a linha do pedido confirmado
 $rowConfirmado = $listaConfirmado->fetch_assoc();
 
+// Pegando a linhas do pedido em andamento
 $rowsAndamento = $listaAndamento->num_rows;
+// Pegando a linhas do pedido pendente
 $rowsPendente = $listaPendente->num_rows;
+// Pegando a linhas do pedido confirmado
 $rowsConfirmado = $listaConfirmado->num_rows;
 
+// Contador para a tabela
 $cont = 1;
 ?>
 
@@ -79,179 +85,270 @@ $cont = 1;
             </div>
         </nav>
 
-        
+        <!-- Seção -->
         <section class="ps-5 pe-5 pb-4 pt-2">
             <!-- Título da página -->
             <h3 class="col-md-12">Pedidos</h4>
 
+            <!-- Links do control tabs (control) -->
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <!-- Link em andamento -->
                     <button class="nav-link active" id="nav-andamento-tab" data-bs-toggle="tab" data-bs-target="#nav-andamento" type="button" role="tab" aria-controls="nav-andamento" aria-selected="true">Em andamento</button>
+                    <!-- Link pendente -->
                     <button class="nav-link" id="nav-pendente-tab" data-bs-toggle="tab" data-bs-target="#nav-pendente" type="button" role="tab" aria-controls="nav-pendente" aria-selected="false">Pendente</button>
+                    <!-- Link confirmado -->
                     <button class="nav-link" id="nav-confirma-tab" data-bs-toggle="tab" data-bs-target="#nav-confirma" type="button" role="tab" aria-controls="nav-confirma" aria-selected="false">Confirmada</button>
                 </div>
             </nav>
 
+            <!-- Tabs -->
             <div class="tab-content" id="nav-tabContent">
+                <!-- Conteúdo com a tabela -->
                 <div class="tab-pane fade show active shadow rounded mt-3" id="nav-andamento" role="tabpanel" aria-labelledby="nav-andamento-tab" tabindex="0">
+                   <!-- Conteúdo que deixa a tabela reponsiva -->                 
                     <div class="table-responsive rounded p-3">
-                        <table class="table table-hover table-bordered table-striped tabela-reserva">
+                        <!-- Tabela -->
+                        <table class="table table-hover table-bordered table-striped" id="tabela-reserva-andamento">
+                            <!-- Cabeçalho da tabela -->
                             <thead class="table-dark">
+                                <!-- Linha do cabeçalho -->
                                 <tr>
+                                    <!-- Contatdor -->
                                     <th scope="col">#</th>
+                                    <!-- Nome -->
                                     <th scope="col">Nome</th>
+                                    <!-- Data de entrada -->
                                     <th scope="col">Data de entrada</th>
+                                    <!-- Data de saida -->
                                     <th scope="col">Data de saída</th>
+                                    <!-- Acompanhantes -->
                                     <th scope="col">Acompanhantes</th>
+                                    <!-- Opções -->
                                     <th scope="col" class="w-25">Opções</th>
                                 </tr>
                             </thead>
 
+                            <!-- Corpo da tabela -->
                             <tbody>
+                                <!-- Caso não tenha nenhum dado -->
                                 <?php if ($rowsAndamento < 1) { ?>
                                 <tr>
+                                    <!-- Caso não tenha nenhum registro mostrará isso -->
                                     <th colspan="6" class="text-center">Nenhum registro encontrado</th>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>   
                                 </tr>
+                                <!-- Caso tenha dado -->
                                 <?php } else { do {?>
                                 <tr>
-                                    <th scope="row"><?php echo $cont?></th>
+                                    <!-- Contador -->
+                                    <th><?php echo $cont?></th>
 
+                                    <!-- Nome do titular da reserva -->
                                     <td><?php echo $rowAndamento['CLIENTE_NOME']?></td>
 
+                                    <!-- Data de entrada -->
                                     <td><?php echo $rowAndamento['PEDIDO_DATA_ENTRADA']?></td>
 
+                                    <!-- Data de saida -->
                                     <td><?php echo $rowAndamento['PEDIDO_DATA_SAIDA']?></td>
 
+                                    <!-- Acompanhantes -->
                                     <td><?php echo $rowAndamento['ACOMPANHANTES']?></td>
 
+                                    <!-- Botões -->
                                     <td>
                                         <div class="d-flex gap-4 justify-content-center"> 
-                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
-                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <!-- Botão detalhes -->
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <!-- Botão cancelar -->
+                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaAndamento"><i class="bi bi-x-lg"></i>Cancelar</button>
                                         </div>
                                     </td>   
                                 </tr>
+                                <!-- Soma do contador e verificação com while -->
                                 <?php $cont += 1; } while ($rowAndamento = $listaAndamento->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-
+                <!-- Conteúdo com a tabela -->
                 <div class="tab-pane fade shadow rounded mt-3" id="nav-pendente" role="tabpanel" aria-labelledby="nav-pendente-tab" tabindex="0">
+                    <!-- Conteúdo que deixa a tabela reponsiva --> 
                     <div class="table-responsive rounded p-3">
-                        <table class="table table-hover table-bordered table-striped tabela-reserva">
+                        <!-- Tabela -->
+                        <table class="table table-hover table-bordered table-striped" id="tabela-reserva-pendente">
+                            <!-- Cabeçalho da tabela -->
                             <thead class="table-dark">
+                                <!-- Linha do cabeçalho -->
                                 <tr>
+                                    <!-- Contador -->
                                     <th scope="col">#</th>
+                                    <!-- Nome -->
                                     <th scope="col">Nome</th>
+                                    <!-- Data de entrada -->
                                     <th scope="col">Data de entrada</th>
-                                    <th scope="col">Data de saída</th>
-                                    <th scope="col">Acompanhantes</th>
+                                    <!-- Data de saida -->
+                                    <th scope="col" style="width: 50px;">Data de saída</th>
+                                    <!-- Acompanhantes -->
+                                    <th scope="col" style="max-width: 50px;">Acompanhantes</th>
+                                    <!-- Opções -->
                                     <th scope="col" class="w-25">Opções</th>
                                 </tr>
                             </thead>
 
+                            <!-- Corpo da tabela -->
                             <tbody>
-                                <?php if ($rowsPendente < 1) { ?>
+                                <!-- Caso não tenha nenhum dado -->
+                                <?php $cont = 1; if ($rowsPendente < 1) { ?>
                                 <tr>
+                                    <!-- Caso não tenha nenhum registro mostrará isso -->
                                     <th colspan="6" class="text-center">Nenhum registro encontrado</th>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>   
                                 </tr>
-                                <?php $cont = 1; } else { do {?>
+                                <!-- Caso tenha dado -->
+                                <?php } else { do {?>
                                 <tr>
+                                    <!-- Contador -->
                                     <th scope="row"><?php echo $cont?></th>
 
+                                    <!-- Nome do titular da reserva -->
                                     <td><?php echo $rowPendente['CLIENTE_NOME']?></td>
 
+                                    <!-- Data de entrada -->
                                     <td><?php echo $rowPendente['PEDIDO_DATA_ENTRADA']?></td>
 
+                                    <!-- Data de saida -->
                                     <td><?php echo $rowPendente['PEDIDO_DATA_SAIDA']?></td>
 
+                                    <!-- Acompanhantes -->
                                     <td><?php echo $rowPendente['ACOMPANHANTES']?></td>
 
+                                    <!-- Botões -->
                                     <td>
                                         <div class="d-flex gap-3 justify-content-center">   
-                                            <button type="button" class="btn btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
-                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
-                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <!-- Botão detalhes -->
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <!-- Botão confirmar -->
+                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-check-lg"></i></i>Confirmar</button>
+                                            <!-- Botão cancelar -->
+                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaPendente"><i class="bi bi-x-lg"></i>Cancelar</button>
                                         </div>
                                     </td>   
                                 </tr>
+                                <!-- Soma do contador e verificação com while -->
                                 <?php $cont += 1; } while ($rowPendente = $listaPendente->fetch_assoc());}?>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-
+                <!-- Conteúdo com a tabela -->
                 <div class="tab-pane fade  shadow rounded mt-3" id="nav-confirma" role="tabpanel" aria-labelledby="nav-confirma-tab" tabindex="0">
+                    <!-- Conteúdo que deixa a tabela reponsiva --> 
                     <div class="table-responsive rounded p-3">
-                    <table class="table table-hover table-bordered table-striped tabela-reserva">
+                        <!-- Tabela -->
+                        <table class="table table-hover table-bordered table-striped" id="tabela-reserva-confirma">
+                            <!-- Cabeçalho da tabela -->
                             <thead class="table-dark">
+                                <!-- Linha do cabeçalho -->
                                 <tr>
+                                    <!-- Contador -->
                                     <th scope="col">#</th>
+                                    <!-- Nome -->
                                     <th scope="col">Nome</th>
+                                    <!-- Data de entrada -->
                                     <th scope="col">Data de entrada</th>
+                                    <!-- Data de saida -->
                                     <th scope="col">Data de saída</th>
-                                    <th scope="col">Acompanhantes</th>
+                                    <!-- Acompanhantes -->
+                                    <th scope="col" style="max-width: 50px;">Acompanhantes</th>
+                                    <!-- Opções -->
                                     <th scope="col" class="w-25">Opções</th>
                                 </tr>
                             </thead>
 
+                            <!-- Corpo da tabela -->
                             <tbody>
+                                <!-- Caso não tenha nenhum dado -->
                                 <?php $cont = 1; if ($rowsConfirmado < 1) { ?>
                                 <tr>
+                                    <!-- Caso não tenha nenhum registro mostrará isso -->
                                     <th colspan="6" class="text-center">Nenhum registro encontrado</th>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>
 
+                                    <!-- Não mostra -->
                                     <td class="d-none"></td>   
                                 </tr>
+                                <!-- Caso tenha dado -->
                                 <?php } else { do {?>
                                 <tr>
+                                    <!-- Contador -->
                                     <th scope="row"><?php echo $cont?></th>
 
+                                    <!-- Nome do titular da reserva -->
                                     <td><?php echo $rowConfirmado['CLIENTE_NOME']?></td>
 
+                                    <!-- Data de entrada -->
                                     <td><?php echo $rowConfirmado['PEDIDO_DATA_ENTRADA']?></td>
 
+                                    <!-- Data de saida -->
                                     <td><?php echo $rowConfirmado['PEDIDO_DATA_SAIDA']?></td>
 
+                                    <!-- Acompanhantes -->
                                     <td><?php echo $rowConfirmado['ACOMPANHANTES']?></td>
-                                    
-                                    <td class="d-flex gap-4 justify-content-center">
+                                 
+                                    <!-- Botões -->
+                                    <td>
                                         <div class="d-flex gap-4 justify-content-center">  
-                                            <button type="button" class="btn btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
-                                            <button type="button" class="btn btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
+                                            <!-- Botão detalhes -->
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma"><i class="bi bi-card-list"></i>Detalhes</button>
+                                            <!-- Botão cancelar -->
+                                            <button type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#cancelaConfirma"><i class="bi bi-x-lg"></i>Cancelar</button>
                                         </div>
                                     </td>   
                                 </tr>
+                                <!-- Soma do contador e verificação com while -->
                                 <?php $cont += 1; } while ($rowConfirmado = $listaConfirmado->fetch_assoc());}?>
                             </tbody>
                         </table>
@@ -264,16 +361,20 @@ $cont = 1;
     <!-- Modal Detalhes Andamento -->
     <div class="modal fade" id="detalhesAndamento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesAndamento" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="detalhesAndamento">Detalhes Andamento</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Alterar</button>
@@ -286,19 +387,23 @@ $cont = 1;
     <!-- Modal Cancela Andamento -->
     <div class="modal fade" id="cancelaAndamento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaAndamento" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cancelaAndamento">Cancela Andamento</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -308,19 +413,23 @@ $cont = 1;
     <!-- Modal Confirma Pendente -->
     <div class="modal fade" id="confirmaPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmaPendente" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="confirmaPendente">Confirma Pendente</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success">Confirma</button>
+                    <button type="button" class="btn btn-success">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -330,16 +439,20 @@ $cont = 1;
     <!-- Modal Detalhes Pendente -->
     <div class="modal fade" id="detalhesPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesPendente" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="detalhesPendente">Detalhes Pendente</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Alterar</button>
@@ -352,19 +465,23 @@ $cont = 1;
     <!-- Modal Cancela Pendente -->
     <div class="modal fade" id="cancelaPendente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaPendente" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cancelaPendente">Cancela Pendente</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary"></button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -374,19 +491,23 @@ $cont = 1;
     <!-- Modal Detalhes Confirma -->
     <div class="modal fade" id="detalhesConfirma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detalhesConfirma" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="detalhesConfirma">Detalhes Confirma</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary"></button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </div>
             </div>
         </div>
@@ -396,19 +517,23 @@ $cont = 1;
     <!-- Modal Cancela Confirma -->
     <div class="modal fade" id="cancelaConfirma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelaConfirma" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Conteúdo do modal -->
             <div class="modal-content">
+                <!-- Cabeçalho do modal -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cancelaConfirma">Cancela Confirma</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <!-- Corpo do modal -->
                 <div class="modal-body">
                     ...
                 </div>
 
+                <!-- Rodapé do modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary"></button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger">Cancelar</button>
                 </div>
             </div>
         </div>
