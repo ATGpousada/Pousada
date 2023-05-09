@@ -189,7 +189,7 @@ $cont = 1;
                                             <!-- Botão detalhes -->
                                             <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesAndamento" data-idAndamento="<?php echo $rowAndamento['ID_PEDIDO'] ?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão cancelar -->
-                                            <a href="cancelaPedido.php?id=<?php echo $rowAndamento['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idAndamento="<?php echo $rowAndamento['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
+                                            <a href="cancelaPedido.php?id=<?php echo $rowAndamento['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>
@@ -272,9 +272,9 @@ $cont = 1;
                                             <!-- Botão detalhes -->
                                             <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesPendente" data-idPendente="<?php echo $rowPendente['ID_PEDIDO']?>"><i class="bi bi-card-list"></i>Detalhes</button>
                                             <!-- Botão confirmar -->
-                                            <button type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#confirmaPendente"><i class="bi bi-credit-card-2-back"></i></i>Pagar Entrada</button>
+                                            <a href="confirmaPedido.php?id=<?php echo $rowPendente['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-success d-flex gap-2 align-items-center"><i class="bi bi-credit-card-2-back"></i>Pagar Entrada</a>
                                             <!-- Botão cancelar -->
-                                            <a href="cancelaPedido.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idPendente="<?php echo $rowPendente['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
+                                            <a href="cancelaPedido.php?id=<?php echo $rowPendente['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>
@@ -355,9 +355,9 @@ $cont = 1;
                                     <td>
                                         <div class="d-flex gap-4 justify-content-center">  
                                             <!-- Botão detalhes -->
-                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma" data-idConfirma="<?php echo $rowConfirma['ID_PEDIDO'] ?>"><i class="bi bi-card-list" ></i>Detalhes</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#detalhesConfirma" data-idConfirma="<?php echo $rowConfirmado['ID_PEDIDO'] ?>"><i class="bi bi-card-list" ></i>Detalhes</button>
                                             <!-- Botão cancelar -->
-                                            <a href="cancelaReserva.php" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center" data-idConfirma="<?php echo $rowConfirma['ID_PEDIDO'] ?>"><i class="bi bi-x-lg"></i>Cancelar</a>
+                                            <a href="cancelaReserva.php?id=<?php echo $rowConfirmado['ID_PEDIDO'] ?>" type="button" class="btn btn-sm btn-outline-danger d-flex gap-2 align-items-center"><i class="bi bi-x-lg"></i>Cancelar</a>
                                         </div>
                                     </td>   
                                 </tr>
