@@ -6,7 +6,7 @@ include 'verificacao.php';
 include '../connection/connect.php';
 
 // Consulta para pegar os dados do cliente logado
-$listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservas WHERE STATUS = 'CONFIRMADO';");
+$listaHistorico = $connect->query("SELECT * FROM ClientePedidoReservasGeral WHERE STATUS = 'CONFIRMADO';");
 
 // Pegando a linha do cliente logado
 $row = $listaHistorico->fetch_assoc();

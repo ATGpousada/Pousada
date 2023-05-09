@@ -52,14 +52,14 @@
         }
 
         public static function getDataMinima() {
-            $dataAtual = getDataRecente();
+            $dataAtual = new DateTime();
 
             $dataMinima = $dataAtual->add(new DateInterval('P4D'));
             return $dataMinima->format('d-m-Y');
         }
 
         public static function getDataMaxima() {
-            $dataAtual = getDataRecente();
+            $dataAtual = new DateTime();
 
             $dataMaxima = $dataAtual->add(new DateInterval('P1Y'));
             return $dataMaxima->format('d-m-Y');
@@ -87,16 +87,44 @@
                 $listaDeDatas[] = $listaDeDatasSecundaria;
             }
         
+            // Fecha a conexão com o banco
+            $connect->close(); 
 
             return $listaDeDatas;
         }
 
-        public static function getDataMinimaAlterar(int $int) {
-            
+        public static function getDataMinimaAlterar(int $id) : DateTime {
+            // Conexão com o banco
+            include '../connection/connect.php';
+
+            $lista = $connect->query("SELECT * FROM ClientePedidoReservas WHERE ID_PEDIDO = $id;");
+            $dados = $lista->fetch_assoc();
+            $dataEntradaStr = $dados['PEDIDO_DATA_ENTRADA'];
+
+            // Converte a string em um objeto DateTime
+            $dataEntrada = DateTime::createFromFormat('Y-m-d H:i:s', $dataEntradaStr); 
+
+            $intervalo = (new DateInterval('P3D'));
+            // Subtrai o intervalo de 3 dias da cópia
+            $dataMinima  = $dataEntrada->sub($intervalo); 
+
+            // Fecha a conexão com o banco
+            $connect->close(); 
+
+            return $dataMinima;
         }
 
-        public static function getDataIntervaloEstadia() {
+        public static function getDataIntervaloEstadia(DateTime $dataInicio, DateTime $dataFim) {
+            // Calcula a diferença entre as duas datas como um objeto DateInterval
+            $diferenca = $dataInicio->diff($dataFim); 
+            // Obtém o número de dias de diferença entre as duas datas
+            $quantidadeDias = $diferenca->days; 
             
+            if ($quantidadeDias > 14) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
@@ -117,5 +145,16 @@
 
     $bbb = $aaa->getIntervaloDataIndisponivel();
     print_r($bbb);
+    echo '<br>';
 
+    $bbb = $aaa->getDataMinimaAlterar(1);
+    print_r($bbb);
+    echo '<br>';
+
+    $dataInicio = DateTime::createFromFormat('Y-m-d', '2023-05-10');
+    $dataFim = DateTime::createFromFormat('Y-m-d', '2023-05-15'); 
+    
+    $bbb = $aaa->getDataIntervaloEstadia($dataInicio, $dataFim);
+    print_r($bbb);
+    echo '<br>';
 ?>
