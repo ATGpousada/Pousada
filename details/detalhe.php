@@ -118,24 +118,13 @@ $linha_quarto = $lista_quarto->fetch_assoc();
                         <ul class="list-group list-group-numbered">
                             <li class="list-group-item"><strong style="color: black">Os pedidos devem ser solicitados com dias de entrada e saída, assim como quantidade de acompanhantes;</strong></li>
                             <li class="list-group-item"><strong style="color: black">É obrigatório em cada reserva ter ao menos 1 adulto;</strong></li>
-                            <li class="list-group-item"><strong style="color: black">Toda criança é abaixo de 12 anos de idade, toda criança não paga valor algum;</strong></li>
+                            <li class="list-group-item"><strong style="color: black">Toda criança é abaixo de 12 anos de idade, toda criança não paga valor algum e não é contada como um acompanhante, dessa forma um quarto que cabe até 4 pessoas pode ter até 3 crianças;</strong></li>
                             <li class="list-group-item"><strong style="color: black">Se o cliente pagar e não comparecer, ou chegar nos dias seguintes, não será reembolsado pelos dias perdidos, e no caso de o cliente não cancelar sua reserva e não comparecer dia algum, também não será reembolsado;</strong></li>
-                            <li class="list-group-item"><strong style="color: black">O cliente poderá realizar o cancelamento da reserva com antecedência mínima de 36 horas;</strong></li>
                             <li class="list-group-item"><strong style="color: black">Após aprovação do pedido de reserva será solicitado 30% do valor da reserva de adiantamento;</strong></li>
-                            <li class="list-group-item"><strong style="color: black">O tempo de permanência máxima da pousada é de 14 dias.</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
-                            <li class="list-group-item"><strong style="color: black">bla bla</strong></li>
+                            <li class="list-group-item"><strong style="color: black">O tempo de permanência máxima da pousada é de 14 dias;</strong></li>
+                            <li class="list-group-item"><strong style="color: black">Os clientes poderão alterar suas reservas, como quantidade de pessoas, quartos e tempo de permanência, com um mínimo de 72 horas de antecedência em relação ao dia da reserva;</strong></li>
+                            <li class="list-group-item"><strong style="color: black">Cancelamentos só serão permitidos com no máximo 24 horas de antecedência;</strong></li>
+                            <li class="list-group-item"><strong style="color: black">Antes de ser considerado uma reserva a pousada precisa aprovar um pedido e o cliente será notificado por e-mail. Após isso, sera solicitado um pagamento de 30% do valor da estadia. Após o pagamento a reserva será confirmada;</strong></li>
                         </ul>
                     </div>
                 </div>
