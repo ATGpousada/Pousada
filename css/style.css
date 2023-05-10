@@ -261,6 +261,7 @@
     -moz-box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
     box-shadow: 0px 0px 15px 1px rgba(84,84,84,0.74);
 }
+
 .card-login-termos {
     overflow: hidden;
     position: relative;
@@ -399,7 +400,7 @@
 
 .form-login-cadastro {
     margin: 0 0 30px;
-    width: 260px;
+    width: 100%;
     display: grid;
     gap: 18px;
 }

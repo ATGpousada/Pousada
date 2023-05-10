@@ -8,12 +8,6 @@
     // Dependencias do PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require '../PHPMailer/src/Exception.php';
-    require '../PHPMailer/src/PHPMailer.php';
-    require '../PHPMailer/src/SMTP.php';
-
-    // Objeto do PHPMailer
-    $mail = new PHPMailer();
 
     // Função para cancelar pedido de reserva
     function cancelaPedido() {  
@@ -28,6 +22,14 @@
             // Cancelamento do pedido de reserva
             $connect->query("UPDATE pedidos_reservas SET status_ID = 6 WHERE ID = $id;");
 
+            // Dependencias do PHPMailer
+            require '../PHPMailer/src/Exception.php';
+            require '../PHPMailer/src/PHPMailer.php';
+            require '../PHPMailer/src/SMTP.php';
+        
+            // Objeto do PHPMailer
+            $mail = new PHPMailer();
+        
             //Configurações do servidor
             $mail->isSMTP();                                            // Defina mail para usar SMTP
             $mail->Host = 'smtp.office365.com';                         // Especificar servidores SMTP principais e de backup

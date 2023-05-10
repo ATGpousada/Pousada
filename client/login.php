@@ -122,6 +122,11 @@
             echo $_SESSION['cadastro'];
             unset($_SESSION['cadastro']);
         }
+
+        if(isset($_SESSION['reserva'])){
+            echo $_SESSION['reserva'];
+            unset($_SESSION['reserva']);
+        }
     ?>
 
     <!-- Icone para voltar -->
