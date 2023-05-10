@@ -1253,7 +1253,7 @@ VIEW `clientePedidoReservas` AS
 
 -- INSERT TABELA FUNCIONARIOS
 
-INSERT INTO `pousada`.`funcionarios` (`ID`, `NOME`, `DATA_NASC`, `CPF`, `RG`, `SALARIO`, `EMAIL`, `SENHA`, `PERIODO`, `ADMISSAO`, `cargos_ID`) VALUES ('1', 'matheus', '2001-01-09', '488.744.147-14', '44.417.585-5', '5000.00', 'admin@gmail.com', md5('senac'), 'noturno', default, '3');
+INSERT INTO `pousada`.`funcionarios` (`NOME`, `DATA_NASC`, `CPF`, `RG`, `SALARIO`, `EMAIL`, `SENHA`, `PERIODO`, `ADMISSAO`, `cargos_ID`) VALUES ('matheus', '2001-01-09', '488.744.147-14', '44.417.585-5', '5000.00', 'admin@gmail.com', md5('senac'), 'noturno', default, '3');
 
 -- INSERT TABELA TELEFONE_FUNC
 
