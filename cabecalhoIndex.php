@@ -28,23 +28,23 @@
             <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 d-flex gap-4">
                     <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" aria-current="page" href="index.php" style="font-family: sans-serif;">Home</a>
                     </li>
                     
                     <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="product/index.php">Quartos</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="product/index.php" style="font-family: sans-serif;">Quartos</a>
                     </li>
 
                     <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="contact/index.php">Contato</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="contact/index.php" style="font-family: sans-serif;">Contato</a>
                     </li>
 
                     <li class="nav-item ms-auto me-auto">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="about/index.php">Sobre nós</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="about/index.php" style="font-family: sans-serif;">Sobre nós</a>
                     </li>
 
                     <li class="nav-item ms-auto me-auto" style="display: none;" id="mnlogin">
-                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="client/index.php">Login</a>
+                        <a class="nav-link fs-4 hover-line text-dark px-3 fonte" href="client/index.php" style="font-family: sans-serif;">Login</a>
                     </li>
                 </ul>
             </div>

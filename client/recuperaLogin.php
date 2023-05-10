@@ -171,6 +171,7 @@
         
         <!-- Titulo nivel dois no Recuperar Senha -->
         <h2>Recuperar Senha</h2>
+        <p>Atualizar senha</p>
 
         <!-- Formulário -->
         <form method="post" action="recuperaLogin.php" class="form-login">
@@ -183,7 +184,7 @@
             <!-- CPF -->
             <div class="form-item">
                 <label for="cpf">Digite seu CPF</label>        
-                <input type="text" id="cpf" name="cpf" class="form-control form-input-item" oninput="mascarac(this)" required>
+                <input type="text" id="cpf" name="cpf" class="form-control form-input-item" data-js="cpf" required>
             </div>
 
             <!-- Link para voltar no login -->

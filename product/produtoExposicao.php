@@ -27,7 +27,7 @@ $linhas = $lista->num_rows;
     <?php } else {?>
     <!-- FIM MOSTRAR SE A CONSULTA RETORNAR VAZIO -->
     <!-- ÍNICIO SE A CONSULTA NÃO RETORNAR VAZIO -->
-    <div class="d-flex justify-content-around flex-wrap rounded p-4" style="background: rgb(235, 234, 253);">
+    <div class="d-flex justify-content-around bg-body-tertiary flex-wrap rounded p-4">
         <h1 class="text-center text-uppercase w-100">Quartos <hr></h1>
         <div class="d-flex justify-content-around flex-wrap">
             <?php do{?>

@@ -139,65 +139,84 @@
     <div class="circulo-cadastro"></div>
 
     <!-- Card Sing Up -->
-    <div class="card-login-cadastro">
+    <div class="card-login-cadastro" style="min-width: 250px; max-height: 800px;">
         <!-- Logo no Sing Up -->
         <div class="logo">
             <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
         </div>
         
         <!-- Titulo nivel dois no Sing Up -->
-        <h2>Cadastre um Endereço <br> e um Numero de Contato</h2>
+        <div id="txt1"><h2>Cadastro de Endereço <br> e Numero de Contato</h2>
+        <p>Informe seus dados</p></div>
+        <div id="txt2">
+            <h4>Cadastro</h2>
+        </div>
+
         
         <!-- Formulario do Sing Up -->
-        <form class="form-login-cadastro" method="post">
+        <form class="form-login-cadastro" style="width: 100%; min-width: 200px;" method="post">
 
-            <!-- Telefone -->
-            <div class="form-item">
-                <label for="telefone">Informe seu Telefone</label>        
-                <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
+            <div class="nresp d-flex">
+                <!-- Telefone -->
+                <div id="tel" class="nrespfi form-item">
+                    <label for="telefone">Telefone</label>        
+                    <input type="tel" id="telefone" name="telefone" class="form-control form-input-item" data-js="phone" required>
+                </div>
+
+                <!-- Tipo de telefone -->
+                <div id="tel" class="nrespfi form-item ms-2">
+                    <label for="tipo">Tipo</label>
+                    <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
+                    <datalist id="tipos">
+                        <option value="Pessoal">
+                        <option value="Residêncial">
+                        <option value="Profissional">
+                    </datalist>
+                </div>
+
             </div>
 
-            <!-- Tipo de telefone -->
-            <div class="form-item">
-                <label for="tipo">Digite o Tipo</label>
-                <input list="tipos" name="tipoTel" class="form-control form-input-item" id="tipo">
-                <datalist id="tipos">
-                    <option value="Pessoal">
-                    <option value="Residêncial">
-                    <option value="Profissional">
-                </datalist>
-            </div>
 
             <!-- Cep -->
             <div class="form-item">
-                <label for="cep">Digite seu CEP</label>
+                <label for="cep">CEP</label>
                 <input type="text" id="cep" name="cep" class="form-control form-input-item" data-js="cep" required>
             </div>
 
-            <!-- Cidade -->
-            <div class="form-item">
-                <label for="cidade">Cidade</label>        
-                <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
+            <div id="des" class=" nresp d-flex">
+                <!-- Cidade -->
+                <div id="cid" class="nrespfi form-item w-75">
+                    <label for="cidade">Cidade</label>        
+                    <input type="api" id="cidade" name="cidade" value="" class="form-control form-input-item" required readonly>
+                </div>
+                <!-- Uf -->
+                <div id="ufa" class="nrespfi form-item w-25 ms-2">
+                    <label for="uf">UF</label>        
+                    <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
+                </div>
             </div>
 
-            <!-- Uf -->
-            <div class="form-item">
-                <label for="uf">UF</label>        
-                <input type="api" id="uf" name="uf" value="" class="form-control form-input-item" required readonly>
-            </div>
 
+
+
+            <div class="nresp d-flex">
             <!-- Logradouro -->
-            <div class="form-item">
-                <label for="log">Logradouro</label>        
-                <input type="api" id="log" name="log" value="" class="form-control form-input-item" required readonly>
+                <div id="logr" class="nrespfi form-item w-75">
+                    <label for="log">Logradouro</label>        
+                    <input type="api" id="log" name="log" value="" class=" form-control form-input-item" required readonly>
+                </div>
+                <!-- Numero -->
+                <div name="num" id="num" class="nrespfi form-item w-25 ms-2">
+                    <label for="numero">Numero</label>        
+                    <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
+                </div>
+
             </div>
 
-            <!-- Numero -->
-            <div class="form-item">
-                <label for="numero">Digite o Numero</label>        
-                <input type="numero" id="numero" name="numero" class="form-control form-input-item" required>
+            <div class="">
+                <input type="checkbox" style="width:'3px !impotant'" name="termos" id="termos" required>
+                Lí e concordo com os <a href="termos.php">termos</a>
             </div>
-
 
             <button type="submit">Cadastrar-se</button>
         </form>
@@ -216,6 +235,51 @@
 <script type="text/javascript" src="../js/jquery.js"></script>
 <!-- Bootstrap javaScript -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- responsivo -->
+<script>
+            $('#txt2').hide();
+    $(window).resize(() => {
+        let larguraTela = $(window).width();
+        if (larguraTela < 960) {
+        // Remove o display flex
+        $('.nresp').removeClass('d-flex');
+        // deixa do msm tamanho
+        $('.nrespfi').removeClass().addClass('nrespfi form-item ');
+        $('#des').hide();
+        $('#txt1').hide();
+        $('#txt2').show();
+    }else{
+        $('.nresp').addClass('d-flex');
+        $('#num').addClass(' form-item w-25 ms-2');
+        $('#logr').addClass(' form-item w-75');
+        $('#des').show();
+        $('#cid').addClass(' form-item w-25 ms-2');
+        $('#ufa').addClass(' form-item w-75');
+        $('#cid').addClass(' form-item ');
+        $('#ufa').addClass(' form-item ms-2');
+        $('#txt1').show();
+        $('#txt2').hide();
+    }
+    })
+    // Chamando a função
+    inicializaResponsivoEndereco();
+    //Inicializa sem um evento
+    function inicializaResponsivoEndereco() {
+    // Lagura atual da tela
+    let larguraTela = $(window).width();
+    if (larguraTela < 960) {
+        // Remove o display flex
+        $('.nresp').removeClass('d-flex');
+        // deixa do msm tamanho
+        $('.nrespfi').removeClass().addClass('nrespfi form-item mb-3');
+        $('#des').hide();
+        $('#txt1').hide();
+        $('#txt2').show();
+    }
+}
+
+
+</script>
 <!-- API cep -->
 <script>
 $(document).ready(function(){
