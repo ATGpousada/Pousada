@@ -395,7 +395,7 @@ $cont = 1;
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Alterar</button>
+                    <!-- <button type="button" class="btn btn-primary">Alterar</button> -->
                 </div>
             </div>
         </div>
@@ -473,7 +473,7 @@ $cont = 1;
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Alterar</button>
+                    <!-- <button type="button" class="btn btn-primary">Alterar</button> -->
                 </div>
             </div>
         </div>
@@ -525,7 +525,7 @@ $cont = 1;
                 <!-- Rodapé do modal -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Alterar</button>
+                    <!-- <button type="button" class="btn btn-primary">Alterar</button> -->
                 </div>
             </div>
         </div>
