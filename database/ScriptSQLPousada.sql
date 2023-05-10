@@ -1261,4 +1261,4 @@ INSERT INTO `pousada`.`telefones_func` (`ID`, `TIPO`, `TEL`, `funcionario_ID`) V
 
 -- INSERT TABELA ENDERECOS_FUNC
 
-INSERT INTO `pousada`.`enderecos_func` (`ID`, `LOGRADOURO`, `NUMERO`, `CEP`, `BAIRRO`, `CIDADE`, `UF`, `funcionario_ID`) VALUES ('2', 'rua do bilionario', '10', '00000-001', 'mauriciópolis', 'vitorlândia', 'AM', '1');
+INSERT INTO `pousada`.`enderecos_func` (`ID`, `LOGRADOURO`, `NUMERO`, `CEP`, `BAIRRO`, `CIDADE`, `UF`, `funcionario_ID`) VALUES ('1', 'rua do bilionario', '10', '00000-001', 'mauriciópolis', 'vitorlândia', 'AM', '1');
