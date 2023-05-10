@@ -1251,6 +1251,14 @@ VIEW `clientePedidoReservas` AS
         JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
         JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));
 
--- INSERT TABELA DE FUNCIONÁRIOS
+-- INSERT TABELA FUNCIONARIOS
 
 INSERT INTO `pousada`.`funcionarios` (`ID`, `NOME`, `DATA_NASC`, `CPF`, `RG`, `SALARIO`, `EMAIL`, `SENHA`, `PERIODO`, `ADMISSAO`, `cargos_ID`) VALUES ('1', 'matheus', '2001-01-09', '488.744.147-14', '44.417.585-5', '5000.00', 'admin@gmail.com', md5('senac'), 'noturno', default, '3');
+
+-- INSERT TABELA TELEFONE_FUNC
+
+INSERT INTO `pousada`.`telefones_func` (`ID`, `TIPO`, `TEL`, `funcionario_ID`) VALUES ('1', 'Pessoal', '+55 (11) 99999-9999', '1');
+
+-- INSERT TABELA ENDERECOS_FUNC
+
+INSERT INTO `pousada`.`enderecos_func` (`ID`, `LOGRADOURO`, `NUMERO`, `CEP`, `BAIRRO`, `CIDADE`, `UF`, `funcionario_ID`) VALUES ('2', 'rua do bilionario', '10', '00000-001', 'mauriciópolis', 'vitorlândia', 'AM', '1');
