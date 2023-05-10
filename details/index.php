@@ -55,6 +55,8 @@ $linhas = $lista->num_rows;
     ?>
     <!-- Fim Rodapé Público -->
 </body>
+<!-- Jquery -->
+<script type="text/javascript" src="../js/jquery.js"></script>
 <!-- js do preloader -->
 <script src="../js/preloader.js"></script>
 <!-- Bootstrap javaScript -->

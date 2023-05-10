@@ -45,7 +45,7 @@ if ($_POST)
     
     // Chamando a função para executar a alteração uma condição para enviar mensagem de erro
     if ($connect->query($insert)) {
-        // mensagem de sucesso atribuida a variável adicionarCartao (sucesso)
+        // mensagem de sucesso atribuida a variável reserva
         $_SESSION['reserva'] = '
             <div style="z-index: 9999;" class="toast align-items-center text-bg-primary border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000">
                 <div class="d-flex">
@@ -57,7 +57,7 @@ if ($_POST)
             </div>
         ';        
     } else {
-        // mensagem de erro atribuida a variável adicionarCartao (erro)
+        // mensagem de erro atribuida a variável reserva
         $_SESSION['reserva'] = '
             <div style="z-index: 9999;" class="toast align-items-center text-bg-danger border-0 fade show position-fixed end-0 top-0 mt-4 me-3" role="alert" aria-live="assertive" data-bs-delay="5000"">
                 <div class="d-flex">

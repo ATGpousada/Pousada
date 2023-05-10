@@ -180,6 +180,7 @@
         
         <!-- Titulo nivel dois no Atualiza senha -->
         <h2>Atualizar senha</h2>
+        <p>Nova senha</p>
         
         <!-- Formulario do Atualiza senha -->
         <form method="post" action="atualizaSenha.php?chave=<?php echo $chaveRecupera ?>" class="form-login">
