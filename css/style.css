@@ -268,6 +268,9 @@
     margin: 0 20px;
     padding: 160px 30px 38px;
     border-radius: 1.25rem;
+    width: 50%;
+    min-width: 300px;
+    max-width: 500px;
     background: var(--cor-branca);
     text-align: center;
     box-shadow: 0 100% 100% rgb(0 0 0 / 10%);
@@ -381,7 +384,7 @@
 }
 
 .card-login-termos > h2 {
-    font-size: 22px;
+    font-size: 160%;
     font-weight: 400;
     margin: 0 0 30px;
     color: var(--cor-preto);
@@ -402,12 +405,14 @@
 }
 
 .form-login-termos {
-    margin: 0 0 30px;
+    margin: auto;
     overflow-y: scroll;
     border: solid 1px #c7a200;
     border-radius: 15px 0 0 15px;
-    height: 360px;
-    width: 560px;
+    height: 15%;
+    max-height: 300px;
+    width: 95%;
+    font-size: 75%;
     display: grid;
     gap: 18px;
 }
@@ -447,6 +452,7 @@
     position: absolute;
     left: 20px;
     top: 15px;
+    font-size: 12px;
     color: var(--cor-grafite);
     transition: linear 0.2s;
     cursor: text;
@@ -460,7 +466,7 @@
 
 .form-login-cadastro .form-item > input , .form-login > button {
     width: 100%;
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
 }
 
@@ -477,7 +483,7 @@
 .form-login-cadastro .form-item > input {
     border: 2px solid #e0e0e0;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 12px;
     padding: 28px 24px 10px 24px;
     color: var(--cor-preto);
     transition: all 0.375s;

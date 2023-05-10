@@ -97,7 +97,7 @@
     <div class="circulo-cadastro"></div>
     
     <!-- Card Sing Up -->
-    <div class="card-login-cadastro">
+    <div class="card-login-cadastro" style="width: 320px; margin: auto;">
         <!-- Logo no Sing Up -->
         <div class="logo">
             <img class="w-100" src="../images/logo/LOGO POUSADA DO SOSSEGO.png" alt="">
