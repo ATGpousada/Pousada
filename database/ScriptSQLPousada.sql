@@ -1218,3 +1218,7 @@ VIEW `clientePedidoReservas` AS
         JOIN `quartos` ON (`pedidos_reservas`.`quartos_ID` = `quartos`.`ID`))
         JOIN `tipos` ON (`quartos`.`tipos_ID` = `tipos`.`ID`))
         JOIN `status` ON (`pedidos_reservas`.`status_ID` = `status`.`ID`));
+
+-- INSERT TABELA DE FUNCIONÁRIOS
+
+INSERT INTO `pousada`.`funcionarios` (`ID`, `NOME`, `DATA_NASC`, `CPF`, `RG`, `SALARIO`, `EMAIL`, `SENHA`, `PERIODO`, `ADMISSAO`, `cargos_ID`) VALUES ('1', 'matheus', '2001-01-09', '488.744.147-14', '44.417.585-5', '5000.00', 'admin@gmail.com', md5('senac'), 'noturno', default, '3');
