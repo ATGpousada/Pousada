@@ -72,6 +72,11 @@ $cont = 1;
             echo $_SESSION['confirmar'];
             unset($_SESSION['confirmar']);
         }
+
+        if(isset($_SESSION['reserva'])){
+            echo $_SESSION['reserva'];
+            unset($_SESSION['reserva']);
+        }
     ?>
 
     <!-- Página principal -->

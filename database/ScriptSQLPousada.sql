@@ -1068,6 +1068,38 @@ As principais atividades desse profissional incluem definir e implementar as pol
 
 
 
+-- INSERT FUNCIONARIO -------------------------------------------------------------------------------------------------------
+-- ADMIN ---------------------------------
+INSERT INTO `pousada`.`funcionarios`
+(`ID`,
+`NOME`,
+`DATA_NASC`,
+`CPF`,
+`RG`,
+`SALARIO`,
+`EMAIL`,
+`SENHA`,
+`PERIODO`,
+`ADMISSAO`,
+`cargos_ID`)
+VALUES
+(1,
+'Admin',
+'1999-01-01',
+'111.111.111-11',
+'11.111.111-1',
+0,
+'Admin',
+md5('admin'),
+'Manhã',
+current_timestamp(),
+3);
+
+
+
+
+
+
 -- View Cliente Cartão ---------------------------------
 CREATE 
     ALGORITHM = UNDEFINED 
