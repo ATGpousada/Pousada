@@ -22,7 +22,7 @@
     <div id="preloader">
         <div class="inner">
             <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-            <!-- <img src="images/sol.gif" alt=""> -->
+            <img src="images/sol.gif" alt="">
         </div>
     </div>
     <!-- site preloader -->
