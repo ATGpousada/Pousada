@@ -31,7 +31,7 @@
             // Descriptografa a senha vinda do Banco de Dados 
             $senha_descriptografada = $connect->query("SELECT SUBSTRING_INDEX(senha, ':', 1) as hash_md5 FROM clientes;");
             // Verifica se a senha vinda do input é igual a senha vinda do Banco de Dados
-            if($senha_criptografada == $loginQueryRow['SENHA']) {
+            if(isset($loginQueryRow['SENHA']) && $senha_criptografada == $loginQueryRow['SENHA']) {
                 // Se o cliente estiver arquivado, ele será restaurado
                 if ($loginQueryRow['ARQUIVAR_EM'] != null) {
                     // Restaura cliente
