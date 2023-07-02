@@ -25,7 +25,7 @@ $linhas = $lista->num_rows;
     <div id="card">
         <?php do{?>
         <div class="card1" style="background: #c0ddff ">
-            <img src="<?php echo $linha['IMAGEM_CAMINHO_1']?>" alt="" />
+            <img src="<?php echo $linha['imagem_caminho_1']?>" alt="" />
             <div>
                 <h2><?php echo $linha['QUARTO']?></h2>
                 <h3><?php echo $linha['tipo']?></h3>
