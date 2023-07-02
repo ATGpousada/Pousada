@@ -19,12 +19,12 @@
 </head>
 <body class="fundofixo body-geral">
     <!-- início do preloader -->
-    <div id="preloader">
-        <div class="inner">
+    <!-- <div id="preloader">
+        <div class="inner"> -->
             <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-            <img src="images/sol.gif" alt="">
+            <!-- <img src="images/sol.gif" alt="">
         </div>
-    </div>
+    </div> -->
     <!-- site preloader -->
     <!-- https://icons8.com/preloaders/ -->
     <!-- fim do preloader --> 
