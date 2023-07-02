@@ -1,6 +1,6 @@
 <?php 
 include "../connection/connect.php";
-$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.TIPO, quartos.QTDE_PESSOAS, quartos.PRECO_DIARIA
+$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, MAX(imagens.IMAGEM_CAMINHO_2) as IMAGEM_CAMINHO, quartos.tipos_ID, tipos.TIPO, quartos.QTDE_PESSOAS, quartos.PRECO_DIARIA
 FROM quartos
 INNER JOIN imagens
 ON quartos.ID = imagens.quartos_ID
@@ -33,7 +33,7 @@ $linhas = $lista->num_rows;
             <?php do{?>
             <div class="card_quarto">
                 <div class="icon_quarto">
-                    <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque"></div>
+                    <div><img src="<?php echo $linha['IMAGEM_CAMINHO']?>" alt="" class="img-destaque"></div>
                 </div>
                 <strong><?php echo $linha['QUARTO']?></strong>
                 <p style="margin: 0;"><?php echo $linha['TIPO']?></p>
