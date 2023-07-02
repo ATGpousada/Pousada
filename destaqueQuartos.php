@@ -3,7 +3,7 @@
 include 'connection/connect.php';
 
 // PESQUISA NO BANCO DE TRÊS TABELAS
-$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, imagens.IMAGEM_CAMINHO_1, quartos.tipos_ID, tipos.tipo
+$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, MAX(imagens.IMAGEM_CAMINHO_1), quartos.tipos_ID, tipos.tipo
 FROM quartos
 INNER JOIN imagens
 ON quartos.id = imagens.quartos_ID 
