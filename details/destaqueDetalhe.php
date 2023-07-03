@@ -2,7 +2,7 @@
 include '../connection/connect.php';
 $id = $_GET['ID'];
 
-$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, quartos.QTDE_PESSOAS, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo
+$lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, quartos.QTDE_PESSOAS, MAX(imagens.IMAGEM_CAMINHO_2) AS IMAGEM_CAMINHO, quartos.tipos_ID, tipos.tipo
 FROM quartos
 INNER JOIN imagens ON quartos.id = imagens.quartos_ID 
 INNER JOIN tipos ON quartos.tipos_ID = tipos.id
@@ -13,7 +13,7 @@ LIMIT 3;");
 
 // Se não achar nenhum resultado por quantidade de pessoas, irá procurar por tipos
 if ($lista->num_rows == 0) {
-    $lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, quartos.QTDE_PESSOAS, imagens.IMAGEM_CAMINHO_2, quartos.tipos_ID, tipos.tipo
+    $lista = $connect->query("SELECT quartos.ID, quartos.QUARTO, quartos.DESCRICAO, quartos.destaque, quartos.QTDE_PESSOAS, MAX(imagens.IMAGEM_CAMINHO_2) AS IMAGEM_CAMINHO, quartos.tipos_ID, tipos.tipo
     FROM quartos
     INNER JOIN imagens ON quartos.id = imagens.quartos_ID 
     INNER JOIN tipos ON quartos.tipos_ID = tipos.id
@@ -45,7 +45,7 @@ $linhas = $lista->num_rows;
     <?php do{?>
         <div class="card_detalhe">
             <div class="icon">
-                <div><img src="<?php echo $linha['IMAGEM_CAMINHO_2']?>" alt="" class="img-destaque" style="width: 240px !important; height: 200px !important;"></div>
+                <div><img src="<?php echo $linha['IMAGEM_CAMINHO']?>" alt="" class="img-destaque" style="width: 240px !important; height: 200px !important;"></div>
             </div>
             <strong><?php echo $linha['QUARTO']?></strong>
             <div class="card__body">
