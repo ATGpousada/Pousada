@@ -26,12 +26,14 @@
         session_start();
         $dadosCli = $_SESSION['dadosCliente'];
         // Gera o hash MD5 da senha
-        $senha_criptografada = md5($dadosCli['senha']);
+        // $senha_criptografada = md5($dadosCli['senha']);
         // Codifica o hash MD5 em Base64
-        $senha_base64 = base64_encode($senha_criptografada);
+        // $senha_base64 = base64_encode($senha_criptografada);
         // Combina o hash MD5 e a codificação Base64 em uma string única
-        $senha_final = $senha_criptografada . ':' . $senha_base64;
-         
+        // $senha_final = $senha_criptografada . ':' . $senha_base64;
+        $senha_final = $dadosCli['senha'];
+        
+
         //insere os dados do Cliente no Banco de Dados
         $insereCli = "INSERT INTO clientes (NOME, CPF, RG, SENHA, EMAIL)
         VALUES 
