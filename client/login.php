@@ -15,9 +15,6 @@
         // Gera o hash MD5 da senha
         $senha_criptografada = md5($senha);
 
-
-        $senha_final = base64_encode($senha_criptografada);
-
         // Consulta para ver se há usuário cadastrado com o email especificado
         $loginQuery = $connect->query("SELECT * FROM clientes WHERE EMAIL = '$email' LIMIT 1");
         
@@ -35,7 +32,7 @@
             // Descriptografa a senha vinda do Banco de Dados 
             $senha_descriptografada = $connect->query("SELECT SUBSTRING_INDEX(senha, ':', 1) as hash_md5 FROM clientes;");
             // Verifica se a senha vinda do input é igual a senha vinda do Banco de Dados
-            if($senha_final == $loginQueryRow['SENHA']) {
+            if($senha_criptografada == $loginQueryRow['senha']) {
                 // Se o cliente estiver arquivado, ele será restaurado
                 if ($loginQueryRow['ARQUIVAR_EM'] != null) {
                     // Restaura cliente
