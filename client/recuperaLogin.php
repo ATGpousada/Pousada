@@ -35,7 +35,7 @@
             // Verifica se o comando SQL foi executado
             if ($connect->query($ChaveAtualizaQuery)) {
                 // Gera o link que será enviado por e-mail 
-                $link = "http://localhost/Pousada/client/atualizaSenha.php?chave=$chaveRecuperarSenha";
+                $link = "http://pousada-production.up.railway.appclient/atualizaSenha.php?chave=$chaveRecuperarSenha";
 
                 // Enviando e-mail para o cliente recuperar a senha
                 try {
