@@ -7,7 +7,7 @@
 
     // Segurança digital...
     // Verificar se o usuário está logado na sessão
-    if (!isset($_SESSION['pousada']) || $_SESSION['pousada'] != "pousada") {
+    if ($_SESSION['pousada'] != "pousada") {
         // Se não existir, redirecionamos a sessão por segurança
         header('location: login.php');
         exit;
