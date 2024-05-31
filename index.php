@@ -19,7 +19,7 @@
 </head>
 <body class="fundofixo body-geral">
     <!-- início do preloader -->
-    <div id="preloader">
+    <div id="preloader"> 
         <div class="inner">
             <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
             <img src="images/sol.gif" alt="">
